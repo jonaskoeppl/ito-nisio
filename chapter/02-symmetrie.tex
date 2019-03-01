@@ -1,0 +1,30 @@
+\chapter{Symmetrische Zufallsvariablen und Lévys Ungleichung}
+Bezeichne $L_0(E)$ den Vektorraum der E-wertigen-Zufallsvariablen. 
+\begin{mydef}
+    Eine E-wertige Zufallsvariable $X$ heißt \textit{symmetrisch}, falls $-X$ die selbe Verteilung hat wie $X$, d.h.
+    \begin{align*}
+        \forall A \in \mathcal{B}(E): P(\{X \in A\}) = P(\{-X \in A\}). 
+    \end{align*}
+\end{mydef}
+
+\begin{mydef}
+    Eine Folge $X_1,X_2,...$ von E-wertigen Zufallsvariablen heißt \textit{symmetrisch}, 
+    falls $(\varepsilon_1 X_1, \varepsilon_2 X_2,...)$ für jede Wahl von $\varepsilon_i = \pm 1$ 
+    die gleiche Verteilung hat wie $(X_1,X_2,...)$. 
+\end{mydef}
+
+\begin{remark}
+   Sind $X_1,X_2,...$ unabhängige E-wertige Zufallsvariablen, sodass $X_n$ für alle $n \in \N$ symmetrisch ist, dann ist $(X_1,X_2,...)$ symmetrisch. 
+\end{remark}
+
+\begin{theorem}[Lévy's maximal inequality]
+    Seien $X_1,...,X_N \in L_0(E)$ unabhängige und symmetrische Zufallsvariablen und setze 
+    \begin{align*}
+        S_n := \sum_{i=1}^n X_i, \quad 1 \leq n \leq N. 
+    \end{align*}
+    Dann gilt für alle $t > 0$
+    \begin{align}
+        &P\big(\{ \max_{1 \leq n \leq N} \norm{S_n} > t \}\big) \leq 2 P\big(\{\norm{S_N} > t \}\big), \\\
+        &P\big(\{ \max_{1 \leq n \leq N} \norm{X_n} > t \}\big) \leq 2 P\big(\{\norm{S_N} > t \}\big).
+    \end{align}
+\end{theorem}

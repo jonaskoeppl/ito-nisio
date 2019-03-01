@@ -1,0 +1,82 @@
+\documentclass{report}
+
+% IMPORTS
+\usepackage{ntheorem} % Theorem/Proof Umgebungen 
+\usepackage[ngerman]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{enumerate} % für kleine römische Nummerierung
+\usepackage{url} % Für Hyperlinks
+\usepackage[singlespacing]{setspace} %1,5 Zeilenabstand 
+
+% Für andere Kapitelüberschriften:
+\usepackage{titlesec}
+\titleformat{\chapter}
+  {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+
+% Seitenränder 
+\usepackage[a4paper, left=4cm, right=4cm, top=2cm]{geometry}
+
+% NEWCOMMANDS
+% Syntax: \newcommand{\shortcut}[AnzahlArgumente]{\wasrauskommensoll #fürArgumentNummer}
+
+% Nützliches
+
+\newcommand{\qed}{\hfill $\square$}
+\newcommand{\norm}[1]{\lvert \lvert #1 \rvert \rvert}
+% Shortcuts für Zahlenbereiche:
+\newcommand{\N}{\mathbb{N}} % Natürliche Zahlen 
+\newcommand{\R}{\mathbb{R}} % Reelle Zahlen
+\newcommand{\Z}{\mathbb{Z}} % Ganze Zahlen
+\newcommand{\C}{\mathbb{C}} % Komplexe Zahlen
+\newcommand{\Q}{\mathbb{Q}} % Rationale Zahlen 
+
+% Oft verwen
+
+
+
+% THEOREMSTYLES
+
+\theorembodyfont{\upshape}
+\theoremstyle{changebreak} %Sorgt für Zeilenumbruch nach Titel und Nummer vor Name
+
+\newtheorem{theorem}{Satz} % Sätze
+\numberwithin{theorem}{chapter}
+
+\newtheorem{mydef}[theorem]{Definition} % Definitionen
+\numberwithin{theorem}{chapter} %sorgt für stringente Nummerierung
+
+\newtheorem{example}[theorem]{Beispiel} % Beispiele
+\numberwithin{theorem}{chapter} %sorgt für stringente Nummerierung
+
+\newtheorem{proposition}[theorem]{Proposition} % Propositionen
+\numberwithin{theorem}{chapter} %sorgt für stringente Nummerierung
+
+\newtheorem{remark}[theorem]{Bemerkung} %Bemerkungen
+\numberwithin{theorem}{chapter} %sorgt für stringente Nummerierung
+
+\newtheorem{lemma}[theorem]{Lemma} %Lemmata
+\numberwithin{theorem}{chapter} %sorgt für stringente Nummerierung
+
+\newtheorem{corollary}[theorem]{Korollar} %Korollare
+\numberwithin{theorem}{chapter} %sorgt für stringente Nummerierung
+
+\newtheorem*{proof*}{Beweis.} %Beweise ohne Nummerierung! 
+
+\setlength\parindent{0pt} %Kein Einzug bei neuem Paragraphen. 
+
+\begin{document}
+
+\tableofcontents
+
+\include{chapter/01-zufallsvariablen}
+\include{chapter/02-symmetrie}
+
+\bibliography{literatur}
+\bibliographystyle{plaindin}
+
+\end{document}

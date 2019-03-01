@@ -1,0 +1,113 @@
+\section{Borelmaße auf metrischen Räumen}
+
+Bis auf weiteres sei $(X,d)$ ein metrischer Raum mit Borel-$\sigma$-algebra $\mathcal{B}(X)$. 
+Im Folgenden Abschnitt beschäftigen wir uns mit Maßen auf $\mathcal{B}(X)$, welche teilweise auch als \textit{Borel-Maße} bezeichnet werden. 
+Die Bezeichnung wird in der Literatur allerdings nicht einheitlich verwendet. 
+
+\begin{mydef}
+    Ein Maß $\mu$ auf $\mathcal{B}(X)$ heißt \textit{regulär} , falls
+    \begin{align*}
+        \forall B \in \mathcal{B}(X): \quad \mu(B) &= \sup\{\mu(C): C \subseteq B, C \text{ abgeschlossen} \} \\\
+                                                   &= \inf\{\mu(O): B \subseteq O, O \text{ offen} \}.  
+    \end{align*}  
+\end{mydef}
+
+\begin{proposition}
+    Sei $\mu$ ein Wahrscheinlichkeitsmaß auf $\mathcal{B}(X)$. Dann ist $\mu$ regulär. 
+\end{proposition}
+
+\begin{proof*}
+    \textbf{TODO}
+\end{proof*}
+
+\begin{mydef}
+    Ein Maß $\mu$ auf $\mathcal{B}(X)$ heißt \textit{straff}, falls es für alle $\varepsilon > 0$ eine kompakte Menge $K \subseteq X$ gibt mit 
+    \begin{align*}
+        \mu(K) \geq 1 - \varepsilon. 
+    \end{align*}
+
+\end{mydef}
+
+\begin{corollary}
+    Sei $\mu$ ein straffes Wahrscheinlichkeitsmaß auf $\mathcal{B}(X)$. Dann gilt
+    \begin{align*}
+        \forall A \in \mathcal{B}(X): \quad \mu(A) = \sup\{\mu(K): K \subseteq A, K \text{ kompakt}\}. 
+    \end{align*}
+\end{corollary}
+
+\begin{proof*}
+    Sei $A \in \mathcal{B}(X)$ und $\varepsilon > 0$. Wegen der Straffheit von $\mu$ existiert eine kompakte Menge $K_{\varepsilon} \subseteq X$ mit $\mu(K_{\varepsilon}) \geq 1 - \frac{\varepsilon}{2}$,
+    und da $\mu$ nach Proposition 1.4 regulär ist gibt es eine abgeschlossene Menge $C \subseteq A$ mit $\mu(C) > \mu(A) - \frac{\varepsilon}{2}$. Dann ist die Menge $K_{\varepsilon} \cap C$ wiederum kompakt und es gilt
+    \begin{align*}
+        \mu(A) \geq \mu(K_{\varepsilon} \cap C) > \mu(C) - \frac{\varepsilon}{2} > \mu(A) - \varepsilon. 
+    \end{align*} 
+    \qed
+\end{proof*}
+
+\begin{remark}
+    Ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(X)$ mit der Eigenschaft
+    \begin{align*}
+        \forall A \in \mathcal{B}(X): \quad \mu(A) = \sup\{\mu(K): K \subseteq A, K \text{ kompakt}\}. 
+    \end{align*}
+    wird auch als \textit{Radon-Wahrscheinlichkeitsmaß} oder \textit{Radon-Maß} bezeichnet.
+\end{remark}
+
+\begin{proposition}
+    Sei $(X,d)$ ein vollständiger separabler metrischer Raum. Dann ist jedes Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(X)$ straff.
+\end{proposition}
+
+Wir verwenden zum Beweis der Proposition die folgende Charakterisierung kompakter Teilmengen metrischer Räume. Ein Beweis findet sich etwa in \cite{amann}. 
+
+\begin{lemma}
+    Sei $(X,d)$ ein metrischer Raum. Eine Menge $K \subseteq X$ ist genau dann kompakt, wenn sie die folgenden beiden Eigenschaften erfüllt:
+    \begin{enumerate}[(i)]
+        \item $K$ ist vollständig,
+        \item $K$ ist total-beschränkt, d.h.
+        \begin{align*}
+            \forall  \varepsilon > 0 \ \exists x_1,...,x_n \in K: \  K \subseteq \cup_{i=1}^n B(x_i, \varepsilon). 
+        \end{align*} 
+\end{enumerate}
+\end{lemma}
+
+\begin{proof*}
+    \textbf{TODO}
+    Sei $\varepsilon > 0$. Nach Voraussetzung existiert eine abzählbare dichte Teilmenge $D = \{x_1, x_2,...\}$ von $X$. Also gilt insbesondere für $q \in \N $
+    \begin{align*}
+        \bigcup_{i\in \N}\overline{B}(x_i, 2^{-q}) = X.
+    \end{align*}
+    Wegen der $\sigma$-Stetigkeit von $\mu$ existiert also ein $N_q \in \N$ mit 
+    \begin{align*}
+        \mu(\cup_{i=1}^{N_q}\overline{B}(x_i, 2^{-q}) \geq 1 - \varepsilon 2^{-q}. 
+    \end{align*}
+    Setze nun 
+    \begin{align*}
+        K := \bigcap_{q \in \N}\bigcup_{i=1}^{N_q}\overline{B}(x_i, 2^{-q}). 
+    \end{align*}
+    Dann ist $K$ als Schnitt abgeschlossener Teilmengen abgeschlossen, und da $X$ vollständig ist, folgt daraus bereits die Vollständigkeit von $K$. 
+    Ferner ist $K$ total-beschränkt, denn zu $\varepsilon > 0$ existiert ein $q \in \N$ mit $2^{-q} < \varepsilon$ und $K \subseteq \cup_{i=1}^{N_q}B(x_i, 2^{-q}) \subseteq \cup_{i=1}^{N_q}B(x_i, \varepsilon)$. 
+    Zudem gilt
+    \begin{align*}
+        \mu(K)  = 1 - \mu(\cup_{q \in \N}\cap_{i=1}^{N_q}\overline{B}(x_i, 2^{-q})^c) 
+                &\geq 1 - \sum_{q=1}^{\infty} \mu(\cap_{i=1}^{N_q}\overline{B}(x_i, 2^{-q})^c) \\\
+                &\geq 1 - \sum_{q=1}^{\infty} \varepsilon 2^{-q} = 1 - \varepsilon.
+    \end{align*}
+    Also ist $\mu$ straff. \qed
+\end{proof*}
+
+\begin{proposition}
+    Sei $(X,d)$ ein vollständiger metrischer Raum und $\mu$ ein Wahrscheinlichkeitsmaß auf $\mathcal{B}(X)$. Dann sind äquivalent
+    \begin{enumerate}[(i)]
+        \item $\mu$ ist straff.
+        \item Es gibt eine separable Teilmenge $E \subseteq X$ mit $\mu(E) = 1$. 
+    \end{enumerate}
+\end{proposition}
+\begin{proof*}
+    zu (i) $\Rightarrow$ (ii): Für alle $n \in \N$ existiert $K_n \subseteq X$ kompakt mit $\mu(K_n) \geq 1 - \frac{1}{n}$, o.E. gelte $K_n \subseteq K_{n+1}$. Es folgt 
+    \begin{align*}
+        \mu\big(\cup_{n=1}^{\infty}K_n\big) = \lim_{n \to \infty}\mu\big(K_{n+1}\big) = 1. 
+    \end{align*}
+    Da kompakte Teilmengen metrischer Räume insbesondere separabel sind, ist $E := \cup_{n=1}^{\infty}K_n$ als abzählbare Vereinigung separabler Mengen ebenso separabel. 
+    \newline 
+    zu (ii) $\Rightarrow$ (i): 
+    Analog zum Beweis von Proposition 1.8. \qed
+\end{proof*}

@@ -1,0 +1,41 @@
+\section{Borelmengen in metrischen Räumen}
+Für einen metrischen Raum $(X,d)$ bezeichne im Folgenden $\mathcal{B}(X)$ die Borel-$\sigma$-algebra in $X$. 
+Zudem werden für $x \in X$ und $r>0$ mit $B(x, r)$ bzw. $\overline{B}(x,r)$ die offene bzw. abgeschlossene Kugel um $x$ mit Radius $r$ bezeichnet.
+\begin{proposition}
+    Sei $(X,d)$ ein separabler metrischer Raum. Dann gilt
+    \begin{align*}
+        \mathcal{B}(X) = \sigma(\{B(x,r): x \in X, r > 0 \}) = \sigma(\{\bar{B}(x,r): x \in X, r > 0 \}). 
+    \end{align*}
+\end{proposition}
+\begin{proof*}
+    Setze 
+    \begin{align*}
+        \mathcal{A}_1 &:= \sigma(\{B(x,r): x \in X, r > 0 \}), \\\ 
+        \mathcal{A}_2 &:= \sigma(\{\overline{B}(x,r): x \in X, r > 0 \}). 
+    \end{align*}
+    Nach  Definition gilt $\mathcal{A}_2 = \mathcal{A}_1 \subseteq \mathcal{B}(X)$. Zu zeigen ist also nur die Inklusion $\mathcal{B}(X) \subseteq \mathcal{A}_1$.
+    Sei dazu $U \subseteq X$ offen und $x \in U$. Nach Voraussetzung existiert eine abzählbare dichte Teilmenge $D \subseteq X$. Definiere 
+    \begin{align*}
+        R := \{(y,r) : y \in U \cap D, r > 0, r \in \Q, B(y,r) \subseteq U \}.
+    \end{align*}
+    Dann ist $R$ abzählbar und da $D$ dicht in $X$ liegt gilt $U = \bigcup_{(y,r) \in R}B(y,r)$. 
+    Also gilt $U \in \mathcal{A}_1$ und da $\mathcal{B}(X)$ von den offenen Teilmengen von $X$ erzeugt wird folgt die Behauptung. \qed
+\end{proof*}
+
+\begin{proposition}
+    Für $i \in \N$ sei $(X_i, d_i)$ ein separabler metrischer Raum. Dann gilt
+    \begin{align*}
+        \mathcal{B}(X_1 \times X_2 \times ...) = \otimes_{i=1}^{\infty}\mathcal{B}(X_i)
+    \end{align*}
+\end{proposition}
+
+\begin{proof*}
+    Setze $X:= \times_{k \in \N}X_k$ und bezeichne $p_k: X \to X_k$ die Projektion auf die k-te Komponente. Betrachte das Mengensystem
+    \begin{align*}
+        \mathcal{E} :&= \{ \cap_{k \in K}p_k^{-1}(O) | \forall k \in K: O_k \subseteq X_k \text{ offen}, K \subseteq \N \text{ endlich}\}. 
+    \end{align*}
+    Offensichtlich gilt $\otimes_{k \in \N}\mathcal{B}(X_k) = \sigma(\mathcal{E})$. 
+    Ferner ist $X$ ein separabler metrischer Raum und $\mathcal{E}$ eine Basis der Produkttopologie auf $X$, \cite{querenburg}[3.7]. 
+    Also lässt sich jede offene Menge $O \subset X$ als abzählbare Vereinigung von Elementen aus $\mathcal{E}$ darstellen.  
+    Dies impliziert $\mathcal{B}(X) = \sigma(\mathcal{E}) = \otimes_{k \in N}\mathcal{B}(X_k)$. \qed
+\end{proof*}

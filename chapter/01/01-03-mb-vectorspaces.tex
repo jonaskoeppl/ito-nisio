@@ -1,0 +1,62 @@
+\section{Meßbare Vektorräume}
+
+\begin{mydef}
+    Sei $X$ ein Vektorraum und $\mathcal{C}$ eine $\sigma$-Algebra auf $X$. Das Tupel $(X, \mathcal{C})$ heißt \textit{messbarer Vektorraum}, falls
+    \begin{enumerate}[(a)]
+        \item Die Abbildung 
+        \begin{align*}
+            + : X \times X \to X, \quad (x,y) \mapsto x + y
+        \end{align*}
+        ist $\mathcal{A}\otimes \mathcal{C}/\mathcal{C}$-messbar, und
+        \item die Abbildung 
+        \begin{align*}
+            \cdot : \R \times X \to X, \quad  (\alpha, x) \mapsto \alpha x
+        \end{align*}
+        ist $\mathcal{B}(\R) \otimes \mathcal{C}/\mathcal{C}$-messbar. 
+    \end{enumerate}
+\end{mydef}
+
+\begin{remark}
+    Sei $(X, \mathcal{C})$ ein messbarer Vektorraum. Dann gilt
+    \begin{enumerate}[(i)]
+        \item Für alle $\alpha \in \R$ ist die Abbildung $f_{\alpha}: X \to X, x \mapsto \alpha x$ $\mathcal{C}/\mathcal{C}$-messbar. 
+        \item Für alle $y \in X$ ist die Abbildung $g_y: X \to X, x \mapsto x + y$ $\mathcal{C}/\mathcal{C}$-messbar.
+    \end{enumerate}
+\end{remark}
+
+\begin{proof*}
+    Man beachte, dass für beliebige  messbare Räume $(\Omega_1, \mathcal{A}_1), (\Omega_2, \mathcal{A}_2)$, Mengen $A \in \mathcal{A}_1 \otimes \mathcal{A}_2$ und $\omega_1 \in \Omega_1$
+    \begin{align*}
+    A(\omega_1) = \{ \omega_2 : (\omega_1,\omega_2) \in A \} \in \mathcal{A}_2
+    \end{align*}
+    gilt. \qed
+\end{proof*}
+\begin{proposition}
+    Sei $X$ ein separabler Banachraum. Dann ist $(X, \mathcal{B}(X))$ ein messbarer Vektorraum.
+\end{proposition}
+\begin{proof*}
+    Nach Proposition 1.2 gilt $\mathcal{B}(X \times X) = \mathcal{B}(X) \otimes \mathcal{B}(X)$ und 
+    $\mathcal{B}(\R \times X) = \mathcal{B}(\R) \otimes \mathcal{B}(X)$. Ferner sind die Abbildungen 
+    \begin{align*}
+        + &: X \times X \to X, \quad (x,y) \mapsto x + y, \\\
+        \cdot &: \R \times X \to X, \quad (\alpha, x) \mapsto \alpha  x
+    \end{align*}
+    stetig bzgl. der jeweiligen Produkttopologien und somit insbesondere $\mathcal{B}(X \times X)/\mathcal{B}(X)$- bzw. 
+    $\mathcal{B}(\R \times X)/\mathcal{B}(X)$-messbar. \qed
+\end{proof*}
+
+\begin{example}
+    Für $d \in \N$ ist $(\R^d, \mathcal{B}(\R^d))$ ein messbarer Vektorraum. 
+\end{example}
+Im Folgenden sei $(X, \norm{\cdot})$ ein Banachraum und $(X', \norm{\cdot}_{op})$ der zugehörige Dualraum. 
+\begin{proposition}
+    Sei $\emptyset \neq \Gamma \subseteq X'$. Dann ist $(X, \sigma({\Gamma}))$ ein messbarer Vektorraum. 
+\end{proposition}
+
+\begin{proof*}
+    \textbf{TODO}
+\end{proof*}
+
+\begin{proposition}
+    Sei $X$ ein separabler Banachraum. Dann gilt $\sigma(X') = \mathcal{B}(X)$. 
+\end{proposition}
