@@ -4,7 +4,7 @@ Zudem werden für $x \in X$ und $r>0$ mit $B(x, r)$ bzw. $\overline{B}(x,r)$ die
 \begin{proposition}
     Sei $(X,d)$ ein separabler metrischer Raum. Dann gilt
     \begin{align*}
-        \mathcal{B}(X) = \sigma(\{B(x,r): x \in X, r > 0 \}) = \sigma(\{\bar{B}(x,r): x \in X, r > 0 \}). 
+        \mathcal{B}(X) = \sigma(\{B(x,r): x \in X, r > 0 \}) = \sigma(\{\overline{B}(x,r): x \in X, r > 0 \}). 
     \end{align*}
 \end{proposition}
 \begin{proof*}
@@ -32,10 +32,10 @@ Zudem werden für $x \in X$ und $r>0$ mit $B(x, r)$ bzw. $\overline{B}(x,r)$ die
 \begin{proof*}
     Setze $X:= \times_{k \in \N}X_k$ und bezeichne $p_k: X \to X_k$ die Projektion auf die k-te Komponente. Betrachte das Mengensystem
     \begin{align*}
-        \mathcal{E} :&= \{ \cap_{k \in K}p_k^{-1}(O) | \forall k \in K: O_k \subseteq X_k \text{ offen}, K \subseteq \N \text{ endlich}\}. 
+        \mathcal{E} :&= \{ \bigcap_{k \in K}p_k^{-1}(O) | \forall k \in K: O_k \subseteq X_k \text{ offen}, K \subseteq \N \text{ endlich}\}. 
     \end{align*}
     Offensichtlich gilt $\otimes_{k \in \N}\mathcal{B}(X_k) = \sigma(\mathcal{E})$. 
-    Ferner ist $X$ ein separabler metrischer Raum und $\mathcal{E}$ eine Basis der Produkttopologie auf $X$, \cite{querenburg}[3.7]. 
+    Ferner ist $X$ ein separabler metrischer Raum und $\mathcal{E}$ eine Basis der Produkttopologie auf $X$, vgl. \cite{querenburg}[3.7]. 
     Also lässt sich jede offene Menge $O \subset X$ als abzählbare Vereinigung von Elementen aus $\mathcal{E}$ darstellen.  
     Dies impliziert $\mathcal{B}(X) = \sigma(\mathcal{E}) = \otimes_{k \in N}\mathcal{B}(X_k)$. \qed
 \end{proof*}

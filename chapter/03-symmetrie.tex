@@ -1,5 +1,8 @@
-\chapter{Symmetrische Zufallsvariablen und Lévys Ungleichung}
+\chapter{Maximal-Ungleichungen und Konvergenz zufälliger Reihen}
 Bezeichne $L_0(E)$ den Vektorraum der E-wertigen-Zufallsvariablen. 
+
+\section{Maximal-Ungleichungen}
+
 \begin{mydef}
     Eine E-wertige Zufallsvariable $X$ heißt \textit{symmetrisch}, falls $-X$ die selbe Verteilung hat wie $X$, d.h.
     \begin{align*}
@@ -17,7 +20,7 @@ Bezeichne $L_0(E)$ den Vektorraum der E-wertigen-Zufallsvariablen.
    Sind $X_1,X_2,...$ unabhängige E-wertige Zufallsvariablen, sodass $X_n$ für alle $n \in \N$ symmetrisch ist, dann ist $(X_1,X_2,...)$ symmetrisch. 
 \end{remark}
 
-\begin{theorem}[Lévy's maximal inequality]
+\begin{theorem}[Lévys Maximal-Ungleichung]
     Seien $X_1,...,X_N \in L_0(E)$ unabhängige und symmetrische Zufallsvariablen und setze 
     \begin{align*}
         S_n := \sum_{i=1}^n X_i, \quad 1 \leq n \leq N. 
@@ -28,3 +31,29 @@ Bezeichne $L_0(E)$ den Vektorraum der E-wertigen-Zufallsvariablen.
         &P\big(\{ \max_{1 \leq n \leq N} \norm{X_n} > t \}\big) \leq 2 P\big(\{\norm{S_N} > t \}\big).
     \end{align}
 \end{theorem}
+
+\begin{proof*}
+    \textbf{TODO}
+\end{proof*}
+
+Für nicht-symmetrische Zufallsvariablen erhalten wir mit einer ähnlichen Beweismethode die folgende auf Ottaviani und Skorohod zurückgehende Maximal-Ungleichung. 
+\begin{theorem}[Maximal-Ungleichung von Ottaviani-Skorohod]
+    Seien $X_1,...,X_N$ unabhängige $E$-wertige Zufallsvariablen, $N \in \N$. Setze 
+    $$
+        S_k := \sum_{i=1}^kX_i, \quad k = 1,...,N. 
+    $$
+    Dann gilt für alle $s,t > 0$
+    \begin{align}
+        P(\{ \max_{1 \leq k \leq N} \norm{S_k} > s + t \}) \leq \frac{P(\{\norm{S_N} > t \})}{1 - \max_{1 \leq k \leq N}P(\{ \norm{S_N - S_k} > s \})} \ . 
+    \end{align}
+\end{theorem}
+
+\begin{proof*}
+    \textbf{TODO}
+\end{proof*}
+
+\section{Der Satz von Itô-Nisio}
+
+\section{Das Kontraktions-Prinzip}
+
+\section{Beschränktheit und der Satz von Hoffman-Jorgensen-Kwapien}
