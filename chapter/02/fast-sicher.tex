@@ -1,4 +1,5 @@
 \section{Fast sichere Konvergenz}
+\textbf{TODO: überarbeiten, Benennungen einheitlich. Ggf. Konvention $(X_n)_n$  ZVen nachvorne ziehen}
 \begin{mydef}
     Seien $X, X_1, X_2,...$ $E$-wertige Zufallsvariablen. Die Folge $(X_n)_{n \in \N}$ \textit{konvergiert fast sicher} gegen $X$, falls
     $$
@@ -6,3 +7,88 @@
     $$
 Notation: $X_n \fastsicher X$. 
 \end{mydef}
+
+Analog zum Spezialfall $E = \R^d$ zeigt man für Folgen von Zufallsvariablen mit Werten in einem allgemeinen Banachraum $E$ die fast sichere Eindeutigkeit des fast sicheren Grenzwerts. 
+\begin{proposition}
+    Für $X,Y,X_1,X_2,... \in \mathcal{L}_0(E)$ gilt 
+    \begin{enumerate}[(i)]
+        \item ($X_n \fastsicher X \land X_n \fastsicher Y$) $\Rightarrow$ $ X = Y$ fast sicher. 
+        \item ($X_n \fastsicher X \land X = Y$ fast sicher) $\Rightarrow$ $X_n \fastsicher Y$. 
+        \item ($X_n \fastsicher X \land f:E \to \R$ stetig) $\Rightarrow$ $f(X_n) \fastsicher f(X)$. 
+    \end{enumerate}
+\end{proposition}
+
+Ferner lassen sich auch die folgenden beiden Konvergenzkriterien vollkommen problemlos in das allgemeinere Setting übertragen. 
+
+\begin{theorem}
+    Seien $X, X_1,X_2,... \in \mathcal{L}_0(E)$. Dann gilt
+    \begin{align*}
+        X_n \fastsicher X \iff \forall \varepsilon > 0 \ \lim_{N \to \infty}P(\{\sup_{n \geq N}\norm{X_n - X} > \varepsilon \}) = 0.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Cauchy-Kriterium für fast sichere Konvergenz]
+    Für eine Folge $(X_n)_{n \in \N}$ in $\mathcal{L}_0(E)$ existiert genau dann eine Zufallsvariable $X \in \mathcal{L}_0(E)$ mit $X_n \fastsicher X$, wenn
+    $$
+        \forall \varepsilon > 0 : \quad \lim_{N \to \infty}P(\{\sup{n\geq N}\norm{X_n - X_N} > \varepsilon \}) = 0. 
+    $$
+\end{theorem}
+
+Wie im skalaren Fall betrachtet man neben dem Begriff der fast sicheren Konvergenz auch den der \textit{stochastischen Konvergenz}
+
+\begin{mydef}
+    Eine Folge $(X_n)_{n \in \N}$ von $E$-wertigen Zufallsvariablen \textit{konvergiert stochastisch} gegen eine Zufallsvariable $X$ falls
+    $$
+        \forall \varepsilon > 0: \quad \lim_{n \to \infty}P(\{ \norm{X_n - X }\}) = 0. 
+    $$      
+\end{mydef}
+
+Man erhält unmittelbar die folgende Charakterisierung. 
+
+\begin{theorem}[Teilfolgenkriterium]
+    Seien $X,X_1,X_2,... \in \mathcal{L}_0(E)$. Die Folge $(X_n)_{n \in \N}$ konvergiert genau dann stochastisch gegen $X$, 
+    wenn es jede Teilfolge $(n_k)_{k \in \N}$ von $(n)_{n \in \N}$ eine Teilfolge $(n_{k_l})_{l \in \N}$ besitzt, sodass $X_{n_{k_l}} \fastsicher X$.  
+\end{theorem}
+
+\begin{corollary}
+    Für Zufallsvariablen $X,Y, X_1, X_2,... \in \mathcal{L}_0(E)$ und eine stetige Abbildung $f:E \to \R$ gilt
+    \begin{enumerate}[(i)]
+        \item $X_n \fastsicher X \ \Rightarrow \ X_n \stochastisch X$,
+        \item ($X_n \stochastisch X \land X_n \stochastisch Y$) $\Rightarrow$ $ X = Y$ fast sicher. 
+        \item ($X_n \stochastisch X \land X = Y$ fast sicher) $\Rightarrow$ $X_n \stochastisch Y$. 
+        \item ($X_n \stochastisch X \land f:E \to \R$ stetig) $\Rightarrow$ $f(X_n) \stochastisch f(X)$. 
+    \end{enumerate}
+\end{corollary}
+
+Wie auch bei der fast sicheren Konvergenz lassen sich die beiden folgenden Charakterisierungen komplett analog zum skalaren Fall beweisen. 
+
+\begin{theorem}
+    Seien $X, X_1,X_2,... \in \mathcal{L}_0(E)$. Dann gilt
+    \begin{align*}
+        X_n \stochastisch X \iff \forall \varepsilon > 0 \ \lim_{N \to \infty}\sup_{n \geq N}P(\{\norm{X_n - X} > \varepsilon \}) = 0.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Cauchy-Kriterium für stochastische Konvergenz]
+    Für eine Folge $(X_n)_{n \in \N}$ in $\mathcal{L}_0(E)$ existiert genau dann eine Zufallsvariable $X \in \mathcal{L}_0(E)$ mit $X_n \stochastisch X$, wenn
+    $$
+        \forall \varepsilon > 0 : \quad \lim_{N \to \infty}\sup_{n\geq N}P(\{\norm{X_n - X_N} > \varepsilon \}) = 0. 
+    $$
+\end{theorem}
+
+Wie bereits aus dem skalaren Fall bekannt, lässt sich die fast sichere Konvergenz nicht durch eine Metrik beschreiben. Die stochastische Konvergenz allerdings schon. 
+Definiere dazu eine Abbildung 
+    $$d_P : L_0(E) \times L_0(E) \to [0,\infty)$$
+ durch
+\begin{align}
+    d_P([X],[Y]) := E\bigg(\frac{\norm{X-Y}}{1+\norm{X+Y}}\bigg), \quad [X], [Y] \in L_0(E).  
+\end{align}
+Dann ist $d_P$ wegen der Stetigkeit von $\norm{\cdot}$ und $\big\lvert\frac{x}{1+x}\big\rvert \leq 1$ für alle $x \in [0, \infty)$ wohldefiniert
+und liefert eine weitere Charakterisierung der stochastischen Konvergenz. 
+\begin{proposition}
+    \begin{enumerate}[(i)]
+        \item $d_P$ ist eine Metrik auf $L_0(E)$,
+        \item $X_n \stochastisch X$ $\iff$ $\lim_{n \to \infty}d_P([X_n], [X]) = 0$,
+        \item $(L_0(E), d_P)$ ist vollständig. 
+    \end{enumerate}
+\end{proposition}
