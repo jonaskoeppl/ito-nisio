@@ -19,7 +19,7 @@
 \titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 
 % Seitenränder 
-\usepackage[a4paper, left=4cm, right=4cm, top=2cm]{geometry}
+\usepackage[a4paper, left=3cm, right=3cm, top=2cm]{geometry}
 
 % NEWCOMMANDS
 % Syntax: \newcommand{\shortcut}[AnzahlArgumente]{\wasrauskommensoll #fürArgumentNummer}
@@ -28,6 +28,9 @@
 
 \newcommand{\qed}{\hfill $\square$}
 \newcommand{\norm}[1]{\lvert \lvert #1 \rvert \rvert}
+\newcommand{\abs}[1]{\lvert #1 \rvert}
+
+
 % Shortcuts für Zahlenbereiche:
 \newcommand{\N}{\mathbb{N}} % Natürliche Zahlen 
 \newcommand{\R}{\mathbb{R}} % Reelle Zahlen
@@ -35,7 +38,10 @@
 \newcommand{\C}{\mathbb{C}} % Komplexe Zahlen
 \newcommand{\Q}{\mathbb{Q}} % Rationale Zahlen 
 
-% Oft verwen
+% Konvergenzarten
+\newcommand{\schwach}{\overset{w}{\longrightarrow}} % Notation für schwache Konvergenz von Zufallsvariablen 
+\newcommand{\stochastisch}{\overset{st}{\longrightarrow}} % Notation für stochastische Konvergenz von Zufallsvariablen
+\newcommand{\fastsicher}{\overset{f.s.}{\longrightarrow}} % Notation für fast sichere Konvergenz von Zufallsvariablen 
 
 
 

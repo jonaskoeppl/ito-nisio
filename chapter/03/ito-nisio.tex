@@ -1,0 +1,157 @@
+\section{Der Satz von Itô-Nisio}
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger Zufallsvariablen in $L_0(E)$. Für $n \in \N$ setze
+    \begin{align*}
+    S_n := \sum_{i=1}^n X_i, 
+    \quad 
+    \mu_n := P^{S_n} .
+    \end{align*}
+\begin{theorem}[Itô-Nisio]
+    Es sind äquivalent
+    \begin{enumerate}[(i)]
+        \item $(S_n)_{n \in \N}$ konvergiert fast sicher, 
+        \item $(S_n)_{n \in \N}$ konvergiert stochastisch, 
+        \item $(S_n)_{n \in \N}$ konvergiert in Verteilung. 
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof*}%TODO: Formatierung% 
+    Die Implikationen $(i) \Rightarrow (ii) \Rightarrow (iii)$ wurden bereits in Kapitel 2 gezeigt, es genügt also $(ii) \Rightarrow (i)$ und $(iii) \Rightarrow (ii)$ zu zeigen. 
+    \newline 
+    zu $(ii) \Rightarrow (i)$: \underline{Fall A}: Für alle $n \in \N$ ist $X_n$ symmetrisch. 
+    \newline 
+    Für $n, N \in \N$ mit $n < N$ setze 
+    \begin{align*}
+        Y_{n,N} &:= \max_{n < k \leq N}\norm{S_k - S_n}, \\\
+        Y_n     &:= \lim_{N \to \infty} Y_{n,N} = \sup_{k > n} \norm{S_k - S_n}. 
+    \end{align*}
+    Seien $\varepsilon, t > 0$. Mit dem Cauchy-Kriterium für stochastische Konvergenz und Lévys Maximal-Ungleichung erhalten wir für $N > n \geq n_0 := n_0(\varepsilon,t) \in \N$
+    $$
+        P(\{ Y_{n, N} > t\}) \leq 2P(\{ \norm{S_N - S_n} > t\}) \leq \varepsilon . 
+    $$
+    Es folgt somit 
+    $$
+        P(\{Y_n > t \}) = \lim_{n \to \infty}P(\{Y_{n,N} > t \}) \leq \varepsilon
+    $$
+    für $n \geq n_0$. Also gilt $Y_n \stochastisch 0$, nach dem Cauchy-Kriterium für fast sichere Konvergenz folgt daraus die fast sichere Konvergenz von $(S_n)_{n \in \N}$. 
+    \newline \underline{Fall B}: Allgemeiner Fall.
+    \newline 
+    Wir verwenden hierzu die Beweistechnik der Symmetrisierung.  
+    Betrachte hierzu den Produktraum $(\Omega \times \Omega, \mathcal{A}\otimes\mathcal{A}, P \times P)$. Für eine Zufallsvariable $X$ auf $(\Omega, \mathcal{A}, P)$ bezeichne
+    $$
+        \overline{X}(\omega_1, \omega_2) := X(\omega_1) - X(\omega_2), \quad (\omega_1, \omega_2) \in \Omega \times \Omega
+    $$   
+    die Symmetrisierung von $X$. Wie man mittels der charakteristischen Funktionale von $\overline{X}$ und $-\overline{X}$ leicht einsieht ist $\overline{X}$ tatsächlich symmetrisch. 
+    Sei nun $S$ eine Zufallsvariable auf $(Omega, \mathcal{A}, P)$ mit $\S_n \stochastisch S$. Dann folgt direkt $\overline{S_n} \stochastisch \overline{S}$, denn für $\varepsilon > 0$ gilt
+    $$
+        (P\times P)(\{ \norm{\overline{S_n} - \overline{S}}\}) \leq 2P(\{ \norm{S_n - S} > \frac{\varepsilon}{2} \}).
+    $$
+    Nach Fall A gilt also insbesondere $\overline{S_n} \fastsicher  \overline{S}$. Es existiert also eine Menge $\Omega^* \in \mathcal{A}\otimes\mathcal{A}$ mit $P\times P(\Omega^*) = 1$ und
+    $$  
+        \forall (\omega_1, \omega_2) \in \Omega^*: \quad \overline{S_n}(\omega_1, \omega_2) \text{ konvergiert. }
+    $$
+    Mit dem Satz von Fubini erhalten wir
+    $$
+        0 = \int_{\Omega \times \Omega}1 - 1_{\Omega^*} d(P \times P) = \int_{\Omega}\int_{\Omega}1 - 1_{\Omega^*(\omega_2)}(\omega_1)dP(\omega_1)dP(\omega_2). 
+    $$
+    wobei $\Omega^*(\omega_2) = \{\omega_1 \in \Omega: \ (\omega_1, \omega_2) \in \Omega^* \}$. Also existiert (mindestens) ein $\omega_2 \in \Omega$ mit $P(\Omega^*(\omega_2)) = 1$ und es gilt
+    $$
+        \forall \omega_1 \in \Omega^*(\omega_2): \quad S_n(\omega_1) - S_n(\omega_2) \ \text{ konvergiert.}
+    $$
+    Setze nun $x_n := S_n(\omega_2)$, $n \in \N$. Dann existiert eine Zufallsvariable $L$ auf $(\Omega, \mathcal{A}, P)$ mit $S_n - x_n \fastsicher L$. Nach Voraussetzung erhalten wir also 
+    $$
+        x_n \stochastisch S - L
+    $$
+    wobei wir $x_n$ für $n \in \N$ als konstante Zufallsvariable auf $(\Omega, \mathcal{A}, P)$ auffassen. Also existiert ein $x \in E$ mit 
+    $$
+        \lim_{n \to \infty}x_n = x
+    $$
+    und folglich erhalten wir $S_n \fastsicher L + x$. 
+    \newline 
+    zu $(iii) \Rightarrow (ii)$: Für $1 \leq m < n$ bezeichne
+    \begin{align*}
+        \mu_{m,n} :&= P^{S_n - S_m}
+    \end{align*}
+    die Verteilung von $S_n - S_m$. Da $(\mu_n)_{n \in \N}$ nach Voraussetzung schwach gegen ein Wahrscheinlichkeitsmaß $\mu$ konvergiert
+    ist die Menge $\{\mu_n: n \in \N \}$ relativ kompakt in $(\mathcal{M}, \rho)$ und nach dem Satz von Prokhorov somit gleichmäßig straff.
+    Also existiert zu $\varepsilon > 0$ eine kompakte Teilmenge $K \subseteq E$ mit 
+    $$
+        \forall n \in \N: \quad \mu_n(K) \geq 1 - \varepsilon. 
+    $$
+    Wegen der Stetigkeit von 
+    $$
+        (x,y) \mapsto x - y, \quad (x,y) \in E \times E
+    $$
+    ist die Menge $\tilde{K} := \{x - y : x,y \in K \}$ wiederum kompakt, also insbesondere messbar und es gilt
+    \begin{align*}
+        \mu_{m,n}(\tilde{K}) \geq P(\{S_n \in K, S_m \in K\}) \geq 1 - P(\{S_n \in K^c\}) - P(\{S_m \in K^c\}) \geq 1 - 2\varepsilon.
+    \end{align*}
+    Also ist auch $\{\mu_{m,n}: m,n \in \N, m < n \}$ gleichmäßig straff und folglich relativ kompakt in $(\mathcal{M}, \rho)$. 
+    Wir zeigen nun
+    \begin{align}
+        \forall \varepsilon > 0 \ \exists N \in \N: \forall n > m \geq N: \quad \mu_{m,n}(B(0,\varepsilon)) > 1 - \varepsilon.
+    \end{align}
+    Mit dem Cauchy-Kriterium folgt daraus die stochastische Konvergenz der Folge $(S_n)_{n \in \N}$. Angenommen $(3.4)$ ist nicht erfüllt, dann gilt
+    \begin{align*}
+        \exists \varepsilon > 0 \ \forall N \in \N \exists n(N) > m(N) \geq N: \mu_{m(N), n(N)}(B(0, \varepsilon)) \leq 1 - \varepsilon.
+    \end{align*}
+    Da $\{\mu{m,n}: m,n \in \N, m < n \}$ relativ kompakt ist existiert insbesondere eine Teilfolge von $(\mu_{m(N),n(N)})_{N \in \N}$ die gegen ein Wahrscheinlichkeitsmaß $\nu$ auf $\mathcal{B}(E)$ konvergiert.
+    Ohne Einschränkung können wir annehmen, dass bereits $\mu_{m(N),n(N)} \rightharpoonup \nu$ gilt. Da $B(0, \varepsilon)$ offen ist liefert das Portmanteau-Theorem
+    \begin{align}
+        \nu(B(0, \varepsilon)) \leq \lim_{N \to \infty}\mu_{m(N),n(N)}(B(0,\varepsilon)) \leq 1 - \varepsilon. 
+    \end{align}
+    Andererseits gilt für $z \in E'$ wegen der Unabhängigkeit von $(X_n)_{n \in \N}$
+    \begin{align*}
+        \widehat{\mu_{n(N)}} = E(e^{iz(S_{n(N)}})) &= E(e^{iz(S_{m(N)})}e^{iz(S_{n(N)} - S_{m(N)})}) \\\
+                                                   &= E(e^{iz(S_{m(N)})})E(e^{iz(S_{n(N)} - S_{m(N)})}) \\\
+                                                   &= \widehat{\mu_{m(N}}(z)\widehat{\mu_{m(N),n(N)}}(z). 
+    \end{align*}
+    Mit Grenzübergang $N \to \infty$ folgt daraus wegen $\mu_N \rightharpoonup \mu$ und $\mu_{m(N),n(N)} \rightharpoonup \nu$
+    \begin{align*}
+        \forall z \in E': \quad \widehat{\mu}(z) = \widehat{\mu}(z) \widehat{\nu}(z)
+    \end{align*}
+    Wegen der Stetigkeit von $\widehat{\mu}$ und $\widehat{\mu}(0) = 1$ existiert ein $r>0$ mit 
+    \begin{align*}
+        \widehat{\mu}(z) \neq 0, \quad \text{ für alle } z \in E' \text{ mit } \norm{z}_{op} \leq r. 
+    \end{align*}
+    Also muss 
+    \begin{align*}
+        \widehat{\nu}(z) = 1, \quad \text{ für alle } z \in E' \text{ mit } \norm{z}_{op} \leq r. 
+    \end{align*}
+    gelten. Nach \textbf{Proposition(TODO)} gilt also $\nu = \delta_0$. Im Widerspruch zu $(3.5)$. Also gilt $(3.4)$ und folglich konvergiert $(S_n)_{n \in \N}$ stochastisch. 
+    \qed
+\end{proof*}
+
+\begin{remark}
+    \textbf{TODO}: Auch direkter Beweis von stochastisch $\Rightarrow$ fast sicher per Ottaviani-Skorohod möglich.
+\end{remark}
+
+\begin{theorem}
+    Sei $(\mu_n)_{n \in \N}$ gleichmäßig straff. Dann existiert eine Folge $(c_n)_{n \in \N}$ in $E$ sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert.
+\end{theorem}
+
+\begin{proof*}
+    \textbf{TODO}
+\end{proof*}
+
+\begin{theorem}[Satz von Itô-Nisio für symmetrische Folgen]
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger und symmetrischer Zufallsvariablen in $\mathcal{L}_0(E)$. Dann sind äquivalent
+    \begin{enumerate}[(i)]
+        \item $(S_n)_{n \in \N}$ konvergiert fast sicher, 
+        \item $(S_n)_{n \in \N}$ konvergiert stochastisch, 
+        \item $(S_n)_{n \in \N}$ konvergiert in Verteilung, 
+        \item $(\mu_n)_{n \in \N}$ ist gleichmäßig straff, 
+        \item Es gibt eine Zufallsvariable $S \in \mathcal{L}_0(E)$, sodass 
+        $$
+            \forall l \in E': \quad l(S_n) \stochastisch l(S),
+        $$
+        \item Es gibt ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(E)$, sodass 
+        $$
+            \forall l \in E': \quad \lim_{n \to \infty} E(e^{il(S_n)}) = \widehat{\mu}(l). 
+        $$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof*}
+    \textbf{TODO}
+\end{proof*}
+

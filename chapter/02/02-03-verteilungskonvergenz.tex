@@ -1,0 +1,20 @@
+\section{Verteilungskonvergenz und charakteristische Funktionale}
+\textbf{Konventionen und Notation} 
+\newline 
+Im Folgenden sei $(X,d)$ ein vollständiger und separabler metrischer Raum mit
+$$d(x) \leq 1 \quad \text{für alle } x \in X.$$ 
+
+\begin{mydef}
+    Eine Folge $(\mu_n)_{n \in \N}$ von Wahrscheinlichkeitsmaßen auf $\mathcal{B}(X)$ heißt \textit{schwach konvergent} 
+    gegen ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(X)$, falls 
+    $$
+        \forall f \in C_b(X): \quad \lim_{n \to \infty} \int_Xfd\mu_n = \int_X fd\mu . 
+    $$
+    Bezeichnung: $\mu_n \rightharpoonup \mu$. 
+    \newline
+    Eine Folge $(X_n)_{n \in \N}$ von $E$-wertigen Zufallsvariablen \textit{konvergiert in Verteilung} gegen eine Zufallsvariable $X$,
+    falls die Folge $(P^{X_n})_{n \in \N}$ von Verteilungen schwach gegen $P^X$ konvergiert. 
+\end{mydef}
+
+
+

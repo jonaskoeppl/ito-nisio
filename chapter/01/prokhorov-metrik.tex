@@ -1,0 +1,23 @@
+\section{Die Prokhorov Metrik}
+Nachdem wir im letzten Abschnitt damit begonnen haben uns mit der schwachen Konvergenz von Wahrscheinlichkeitsmaßen zu beschäftigen, 
+wollen wir nun ein weiteres Hilfsmittel zur Untersuchung von schwacher Konvergenz einführen. 
+\newline 
+Für einen metrischen Raum $(X,d)$ bezeichne $\mathcal{M}(X)$ die Menge aller Wahrscheinlichkeitsmaße auf der Borelschen $\sigma$-Algebra $\mathcal{B}(X)$. 
+\begin{mydef}
+    Eine Familie $M \subseteq \mathcal{M}(X)$ von Wahrscheinlichkeitsmaßen heißt \textit{gleichmäßig straff}, 
+    falls es für alle $\varepsilon > 0$ eine kompakte Menge $K \subseteq X$ gibt mit 
+    $$
+        \forall \mu \in M: \mu(K) \geq 1-\varepsilon. 
+    $$
+\end{mydef}
+Ziel dieses Abschnitts ist der Satz von Prokhorov, der uns eine für spätere Beweise wichtige Charakterisierung der gleichmäßigen Straffheit liefert. 
+
+Ein wichtiges Resultat ist die Folgende auf Prokhorov zurückgehende Charakterisierung. Ein Beweis findet sich etwa in \cite{parthasarathy}[Theorem 6.7]. 
+
+\begin{theorem}[Satz von Prokhorov]
+    Sei $(X,d)$ ein vollständiger separabler metrischer Raum und $M \subseteq \mathcal{M}(X)$. Dann sind äquivalent
+    \begin{enumerate}[(i)]
+        \item $M$ ist relativ kompakt,
+        \item $M$ ist gleichmäßig straff. 
+    \end{enumerate}
+\end{theorem}

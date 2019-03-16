@@ -1,7 +1,15 @@
 \section{Borelmaße auf metrischen Räumen}
-
+\textbf{Notation und Konventionen} 
+\newline
 Bis auf weiteres sei $(X,d)$ ein metrischer Raum mit Borel-$\sigma$-algebra $\mathcal{B}(X)$. 
-Im Folgenden Abschnitt beschäftigen wir uns mit Maßen auf $\mathcal{B}(X)$, welche teilweise auch als \textit{Borel-Maße} bezeichnet werden. 
+Für eine Teilmenge $A \subseteq X$ sei $\mathring{A}$ das \textit{Innere der Menge} und $\overline{A}$ der \textit{Abschluss}.
+Ferner bezeichne  
+$$
+    \partial A := \overline{A} \setminus \mathring{A}
+$$
+den \textit{Rand der Menge}.  
+
+Im Folgenden Abschnitt beschäftigen wir uns mit Wahrscheinlichkeitsmaßen auf $\mathcal{B}(X)$, welche teilweise auch als \textit{Borel-Maße} bezeichnet werden. 
 Die Bezeichnung wird in der Literatur allerdings nicht einheitlich verwendet. 
 
 \begin{mydef}
@@ -56,7 +64,8 @@ Die Bezeichnung wird in der Literatur allerdings nicht einheitlich verwendet.
     Sei $(X,d)$ ein vollständiger separabler metrischer Raum. Dann ist jedes Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(X)$ straff.
 \end{proposition}
 
-Wir verwenden zum Beweis der Proposition die folgende Charakterisierung kompakter Teilmengen metrischer Räume. Ein Beweis findet sich etwa in \cite{amann}. 
+Wir verwenden zum Beweis der Proposition die folgende Charakterisierung kompakter Teilmengen metrischer Räume. 
+Der Beweis wird mittels der in metrischen Räumen geltenden Äquivalenz von Überdeckungskompaktheit und Folgenkompaktheit  geführt und findet sich etwa in \cite{amann}[Theorem 3.10]. 
 
 \begin{lemma}
     Sei $(X,d)$ ein metrischer Raum. Eine Menge $K \subseteq X$ ist genau dann kompakt, wenn sie die folgenden beiden Eigenschaften erfüllt:
@@ -70,7 +79,6 @@ Wir verwenden zum Beweis der Proposition die folgende Charakterisierung kompakte
 \end{lemma}
 
 \begin{proof*}
-    \textbf{TODO}
     Sei $\varepsilon > 0$. Nach Voraussetzung existiert eine abzählbare dichte Teilmenge $D = \{x_1, x_2,...\}$ von $X$. Also gilt insbesondere für $q \in \N $
     \begin{align*}
         \bigcup_{i\in \N}\overline{B}(x_i, 2^{-q}) = X.
@@ -81,7 +89,7 @@ Wir verwenden zum Beweis der Proposition die folgende Charakterisierung kompakte
     \end{align*}
     Setze nun 
     \begin{align*}
-        K := \bigcap_{q \in \N}\bigcup_{i=1}^{N_q}\overline{B}(x_i, 2^{-q}). 
+        K := \bigcap_{q = 1}^{\infty}\bigcup_{i=1}^{N_q}\overline{B}(x_i, 2^{-q}). 
     \end{align*}
     Dann ist $K$ als Schnitt abgeschlossener Teilmengen abgeschlossen, und da $X$ vollständig ist, folgt daraus bereits die Vollständigkeit von $K$. 
     Ferner ist $K$ total-beschränkt, denn zu $\varepsilon > 0$ existiert ein $q \in \N$ mit $2^{-q} < \varepsilon$ und $K \subseteq \cup_{i=1}^{N_q}B(x_i, 2^{-q}) \subseteq \cup_{i=1}^{N_q}B(x_i, \varepsilon)$. 
@@ -111,3 +119,31 @@ Wir verwenden zum Beweis der Proposition die folgende Charakterisierung kompakte
     zu (ii) $\Rightarrow$ (i): 
     Analog zum Beweis von Proposition 1.8. \qed
 \end{proof*}
+
+Insgesamt haben wir also gezeigt
+
+\begin{theorem}
+    Für ein Wahrscheinlichkeitsmaß $\mu$ auf der Borelschen $\sigma$-Algebra eines vollständigen metrischen Raumes $(X,d)$ sind äquivalent
+    \begin{enumerate}[(i)]
+        \item $\mu$ ist straff, 
+        \item Es gibt eine separable Menge $E \subseteq X$ mit $\mu(E) = 1$, 
+        \item $\mu$ ist ein Radon-Maß, d.h.
+        $$
+        \forall A \in \mathcal{B}(X): \quad \mu(A) = \sup\{\mu(K): K \subseteq A, \ K \text{ kompakt}\}.
+        $$   
+    \end{enumerate}
+\end{theorem}
+
+Nachdem wir uns nun ausgiebig mit den Eigenschaften einzelner Wahrscheinlichkeitsmaße beschäftigt haben, möchten wir uns nun mit Folgen von Wahrscheinlichkeitsmaßen und deren Konvergenz beschäftigen. 
+
+\begin{mydef}
+    Eine Folge $(\mu_n)_{n \in \N}$ von Wahrscheinlichkeitsmaßen auf $\mathcal{B}(X)$ heißt \textit{schwach konvergent} 
+    gegen ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(X)$, falls 
+    $$
+        \forall f \in C_b(X): \quad \lim_{n \to \infty} \int_Xfd\mu_n = \int_X fd\mu . 
+    $$
+    Bezeichnung: $\mu_n \rightharpoonup \mu$. 
+\end{mydef}
+
+Als nützliches Hilfsmittel für viele Beweise dient der folgende Satz, der meist als \textit{Portmanteau-Theorem} bezeichnet wird. 
+\input{chapter/01/portmanteau-theorem}
