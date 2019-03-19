@@ -25,9 +25,67 @@ Die Bezeichnung wird in der Literatur allerdings nicht einheitlich verwendet.
 \end{proposition}
 
 \begin{proof*}
-    \textbf{TODO}
+    Wir verwenden zum Beweis das Good-Set-Principle. Setze dazu
+    $$
+        \mathcal{R}:=\{A \in \mathcal{B}(X):  \mu(A) = \sup\{\mu(C): C \subseteq A, \ C \text{ abgeschlossen}\} =\inf\{\mu(O): A \subseteq O, \ O \text{ offen}\} \}.
+    $$
+    Wir zeigen zunächst, dass $\mathcal{R}$ eine $\sigma$-Algebra ist. Offensichtlich gilt $\emptyset \in \mathcal{R}$. Sei nun $A \in \mathcal{R}$ und $\varepsilon > 0$. 
+    Dann existieren eine offene Menge $O$ und eine abgeschlossene Menge $C$ mit $C \subseteq A \subseteq O$ und 
+    $$
+        \mu(0) - \varepsilon < \mu(A) < \mu(C) + \varepsilon.
+    $$
+    Es gilt also $O^c \subseteq A^c \subseteq C^c$ und 
+    $$
+        \mu(C^c) - \varepsilon = 1 - \mu(C) - \varepsilon < 1 - \mu(A) = \mu(A^c) = 1 - \mu(A) < 1 - \mu(O) + \varepsilon = \mu(O^c) + \varepsilon. 
+    $$
+    Da $O^c$ abgeschlossen ist und $C^c$ offen ist, folgt $A^c \in \mathcal{R}$. 
+    \newline 
+    Seien nun $A_1, A_2,... \in \mathcal{R}$ und $\varepsilon > 0$ Für jedes $n \in \N$ existieren dann eine offene Menge $O_n$ und eine abgeschlossene Menge $C_n$ mit $C_n \subseteq A_n \subseteq O_n$ und 
+    $$
+        \mu(O_n) - 2^{-n}\varepsilon < \mu(A_n) < \mu(C_n) + 2^{n+1}\varepsilon.
+    $$
+    Es gilt also
+    $$
+        \bigcup_{n = 1}^{\infty} C_n \subseteq \bigcup_{n=1}^{\infty} A_n \subseteq \bigcup_{n=1}^{\infty}C_n
+    $$
+    und 
+    \begin{align}
+        \mu\left(\bigcup_{n =1}^{\infty}U_n\right) - \mu\left(\bigcup_{n=1}^{\infty}A_n\right) &\leq \mu\left(\bigcup_{n =1}^{\infty}U_n\setminus \bigcup_{n =1}^{\infty} A_n\right) \nonumber \\\
+                                                                                &\leq \mu\left(\bigcup_{n =1}^{\infty}(U_n\setminus A_n)\right) 
+                                                                                \leq \sum_{i=1}^{\infty}\mu(U_n\setminus A_n)
+                                                                                < \sum_{i=1}^{\infty}2^{n}\varepsilon = \varepsilon. 
+    \end{align}
+    Zudem gilt 
+    $$
+    \mu(\cup_{n = 1}^{\infty}C_n) = \lim_{k \to \infty}\mu(\cup_{n=1}^kC_n),
+    $$
+    also existiert ein $k \in \N$ mit 
+    $$
+    \mu(\cup_{n=1}^{\infty}C_n) - \mu(\cup_{n=1}^kC_n) < \frac{\varepsilon}{2}.
+    $$ 
+    Die Menge $C:= \cup_{n=1}^kC_n$ ist als endliche Vereinigung abgeschlossener Mengen selbst abgeschlossen und offensichtlich in $\cup_{n=1}^{\infty}A_n$ enthalten. Ferner gilt 
+    \begin{align}
+        \mu(\bigcup_{n=1}^{\infty}A_n) - \mu(C) &< \mu(\bigcup_{n=1}^{\infty}A_n) - \mu(\bigcup_{n=1}^{\infty}C_n) + \frac{\varepsilon}{2} \nonumber \\\
+                                                &\leq \mu(\bigcup_{n=1}^{\infty}A_n \setminus \bigcup_{n=1}^{\infty}C_n)  + \frac{\varepsilon}{2} \nonumber \\\
+                                                &\leq \mu(\bigcup_{n=1}^{\infty}(A_n \setminus C_n)) + \frac{\varepsilon}{2} \nonumber \\\
+                                                &\leq \sum_{n=1}^{\infty}\mu(A_n \setminus C_n) + \frac{\varepsilon}{2} = \varepsilon. 
+    \end{align}
+    Da $\varepsilon$ beliebig gewählt war folgt nun aus $(1.1)$ und $(1.2)$, dass $\cup_{n=1}^{\infty}A_n \in \mathcal{R}$. Also ist $\mathcal{R}$ eine $\sigma$-Algebra. 
+    Wir zeigen nun, dass $\mathcal{R}$ alle abgeschlossenen Mengen enthält. Sei also $\emptyset \neq A \subseteq X$ abgeschlossen. Die Bedingung 
+    $$
+        \mu(A) = \sup\{\mu(C): C \subseteq A, C\text{ abgeschlossen }\}
+    $$
+    folgt direkt aus der Monotonie von $\mu$. Um die zweite Bedingung zu zeigen setze für $n \in \N$
+    $$
+        O_n := \{x \in X: \inf_{y \in  A}d(x,y) < \frac{1}{n}\}.
+    $$
+    Dann ist $O_n$ für jedes $n \in \N$ offen und es gilt $O_1 \supseteq O_2 \supseteq ...$, sowie $\cup_{n=1}^{\infty}O_n = A$, da $A$ abgeschlossen ist. 
+    Mit der $\sigma$-Stetigkeit von $\mu$ folgt letztendlich 
+    $$
+        \mu(A) \leq \inf\{\mu(O): A \subseteq O, O \text{ offen}\} \leq \inf_{n \in \N}\mu(O_n) = \lim_{n \to \infty}\mu(O_n) = \mu(A). 
+    $$
+    Da die abgeschlossenen Mengen $\mathcal{B}(X)$ erzeugen folgt also $\mathcal{R} = \mathcal{B}(X)$ und folglich ist $\mu$ regulär. \qed
 \end{proof*}
-
 \begin{mydef}
     Ein Maß $\mu$ auf $\mathcal{B}(X)$ heißt \textit{straff}, falls es für alle $\varepsilon > 0$ eine kompakte Menge $K \subseteq X$ gibt mit 
     \begin{align*}

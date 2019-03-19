@@ -1,5 +1,4 @@
 \section{Meßbare Vektorräume}
-
 \begin{mydef}
     Sei $X$ ein Vektorraum und $\mathcal{C}$ eine $\sigma$-Algebra auf $X$. Das Tupel $(X, \mathcal{C})$ heißt \textit{messbarer Vektorraum}, falls
     \begin{enumerate}[(a)]
@@ -27,6 +26,12 @@
         $\mathcal{C}/\mathcal{C}$-messbar.
     \end{enumerate}
 \end{remark}
+
+Da die Komposition messbarer Abbildungen wiederum messbar ist erhält man unmittelbar
+\begin{proposition}
+    Sei $(X, \mathcal{C})$ ein messbarer Vektorraum und $(\Omega, \mathcal{A})$ ein messbarer Raum. 
+    Sind $X,Y: \Omega \to X$ zwei $\mathcal{A}/\mathcal{C}$-messbare Abbildungen und $\alpha, \beta \in \R$, so ist auch $\alpha X + \beta Y$ $\mathcal{A}/\mathcal{C}$-messbar. 
+\end{proposition}
 
 \begin{proof*}
     Man beachte, dass für beliebige  messbare Räume $(\Omega_1, \mathcal{A}_1), (\Omega_2, \mathcal{A}_2)$, Mengen $A \in \mathcal{A}_1 \otimes \mathcal{A}_2$ und $\omega_1 \in \Omega_1$

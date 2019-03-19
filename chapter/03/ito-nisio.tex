@@ -1,5 +1,5 @@
 \section{Der Satz von Itô-Nisio}
-    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger Zufallsvariablen in $L_0(E)$. Für $n \in \N$ setze
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger Zufallsvariablen in $\mathcal{L}_0(E)$. Für $n \in \N$ setze
     \begin{align*}
     S_n := \sum_{i=1}^n X_i, 
     \quad 
@@ -88,11 +88,11 @@
     Also ist auch $\{\mu_{m,n}: m,n \in \N, m < n \}$ gleichmäßig straff und folglich relativ kompakt in $(\mathcal{M}, \rho)$. 
     Wir zeigen nun
     \begin{align}
-        \forall \varepsilon > 0 \ \exists N \in \N: \forall n > m \geq N: \quad \mu_{m,n}(B(0,\varepsilon)) > 1 - \varepsilon.
+        \forall \varepsilon > 0 \ \exists N \in \N: \ \forall n > m \geq N: \quad \mu_{m,n}(B(0,\varepsilon)) > 1 - \varepsilon.
     \end{align}
     Mit dem Cauchy-Kriterium folgt daraus die stochastische Konvergenz der Folge $(S_n)_{n \in \N}$. Angenommen $(3.4)$ ist nicht erfüllt, dann gilt
     \begin{align*}
-        \exists \varepsilon > 0 \ \forall N \in \N \exists n(N) > m(N) \geq N: \mu_{m(N), n(N)}(B(0, \varepsilon)) \leq 1 - \varepsilon.
+        \exists \varepsilon > 0 \ \forall N \in \N: \ \exists n(N) > m(N) \geq N: \mu_{m(N), n(N)}(B(0, \varepsilon)) \leq 1 - \varepsilon.
     \end{align*}
     Da $\{\mu{m,n}: m,n \in \N, m < n \}$ relativ kompakt ist existiert insbesondere eine Teilfolge von $(\mu_{m(N),n(N)})_{N \in \N}$ die gegen ein Wahrscheinlichkeitsmaß $\nu$ auf $\mathcal{B}(E)$ konvergiert.
     Ohne Einschränkung können wir annehmen, dass bereits $\mu_{m(N),n(N)} \rightharpoonup \nu$ gilt. Da $B(0, \varepsilon)$ offen ist liefert das Portmanteau-Theorem
@@ -125,33 +125,5 @@
     \textbf{TODO}: Auch direkter Beweis von stochastisch $\Rightarrow$ fast sicher per Ottaviani-Skorohod möglich.
 \end{remark}
 
-\begin{theorem}
-    Sei $(\mu_n)_{n \in \N}$ gleichmäßig straff. Dann existiert eine Folge $(c_n)_{n \in \N}$ in $E$ sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert.
-\end{theorem}
 
-\begin{proof*}
-    \textbf{TODO}
-\end{proof*}
-
-\begin{theorem}[Satz von Itô-Nisio für symmetrische Folgen]
-    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger und symmetrischer Zufallsvariablen in $\mathcal{L}_0(E)$. Dann sind äquivalent
-    \begin{enumerate}[(i)]
-        \item $(S_n)_{n \in \N}$ konvergiert fast sicher, 
-        \item $(S_n)_{n \in \N}$ konvergiert stochastisch, 
-        \item $(S_n)_{n \in \N}$ konvergiert in Verteilung, 
-        \item $(\mu_n)_{n \in \N}$ ist gleichmäßig straff, 
-        \item Es gibt eine Zufallsvariable $S \in \mathcal{L}_0(E)$, sodass 
-        $$
-            \forall l \in E': \quad l(S_n) \stochastisch l(S),
-        $$
-        \item Es gibt ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(E)$, sodass 
-        $$
-            \forall l \in E': \quad \lim_{n \to \infty} E(e^{il(S_n)}) = \widehat{\mu}(l). 
-        $$
-    \end{enumerate}
-\end{theorem}
-
-\begin{proof*}
-    \textbf{TODO}
-\end{proof*}
 

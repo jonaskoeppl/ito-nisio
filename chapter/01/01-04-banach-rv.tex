@@ -7,15 +7,22 @@ Sei $(\Omega, \mathcal{A}, P)$ ein vollständiger Wahrscheinlichkeitsraum und $E
         \item es existiert ein separabler Untervektorraum $E_0 \subseteq E$ mit $P(\{X \in E_0\}) = 1$. 
     \end{enumerate}
 \end{mydef}
-\textbf{TODO: Erklärung warum Radon, Rückgriff auf Abschnitt 1.2}
-\begin{proposition}
-    \textbf{TODO: Charakterisierung von Radon-Zufallsvariablen}
-\end{proposition}
+
+\begin{remark}
+    Nach Abschnitt $1.2$ sind für eine $\mathcal{A}/\mathcal{B}(X)$-messbare Abbildung $X: \Omega \to E$ äquivalent
+    \begin{enumerate}[(i)]
+        \item es existiert ein separabler Untervektorraum $E_0 \subseteq E$ mit $P(\{X \in E_0\}) = 1$,
+        \item $P^X$ ist ein Radon-Maß auf $\mathcal{B}(X)$, 
+        \item $P^X$ ist straff. 
+    \end{enumerate}
+    Hiermit erklärt sich auch die Bezeichnung Radon-Zufallsvariable. 
+\end{remark}
+
 \textbf{TODO: Einführung einfache Funktionen im Banach-Kontext}
 \begin{proposition}
     \textbf{TODO: Summen von Radon-Variablen sind messbar, Approximation durch einfache Funktionen, Grenzwerte sind messbar}
 \end{proposition}
 
-Bezeichne $\mathcal{L}_0(\Omega, \mathcal{A}, P; E)$ den Raum der $E$-wertigen Radon-Zufallsvariablen auf $(\Omega,\mathcal{A},P)$ und sei $L_0(E)$ der Raum der Äquivalenzklassen bezüglich fast sicherer Gleichheit. 
+Bezeichne $\mathcal{L}_0(\Omega, \mathcal{A}, P; E)$ den Raum der $E$-wertigen Radon-Zufallsvariablen auf $(\Omega,\mathcal{A},P)$ und sei $L_0(\Omega, \mathcal{A}, P;E)$ der Raum der Äquivalenzklassen bezüglich fast sicherer Gleichheit. 
 Falls klar ist welcher Wahrscheinlichkeitsraum gemeint ist, so schreiben wir auch $\mathcal{L}_0(E)$ oder $L_0(E)$. 
 

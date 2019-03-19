@@ -1,9 +1,10 @@
 \section{Fast sichere Konvergenz}
 \textbf{TODO: überarbeiten, Benennungen einheitlich. Ggf. Konvention $(X_n)_n$  ZVen nachvorne ziehen}
+
 \begin{mydef}
     Seien $X, X_1, X_2,...$ $E$-wertige Zufallsvariablen. Die Folge $(X_n)_{n \in \N}$ \textit{konvergiert fast sicher} gegen $X$, falls
     $$
-        P(\{ lim_{n \to \infty} \norm{X_n - X} = 0 \}).
+        \prob{\lim_{n \to \infty} \norm{X_n - X} = 0}
     $$
 Notation: $X_n \fastsicher X$. 
 \end{mydef}
@@ -23,14 +24,14 @@ Ferner lassen sich auch die folgenden beiden Konvergenzkriterien vollkommen prob
 \begin{theorem}
     Seien $X, X_1,X_2,... \in \mathcal{L}_0(E)$. Dann gilt
     \begin{align*}
-        X_n \fastsicher X \iff \forall \varepsilon > 0 \ \lim_{N \to \infty}P(\{\sup_{n \geq N}\norm{X_n - X} > \varepsilon \}) = 0.
+        X_n \fastsicher X \iff \forall \varepsilon > 0 \ \lim_{N \to \infty}\prob{\sup_{n \geq N}\norm{X_n - X} > \varepsilon} = 0.
     \end{align*}
 \end{theorem}
 
 \begin{theorem}[Cauchy-Kriterium für fast sichere Konvergenz]
     Für eine Folge $(X_n)_{n \in \N}$ in $\mathcal{L}_0(E)$ existiert genau dann eine Zufallsvariable $X \in \mathcal{L}_0(E)$ mit $X_n \fastsicher X$, wenn
     $$
-        \forall \varepsilon > 0 : \quad \lim_{N \to \infty}P(\{\sup{n\geq N}\norm{X_n - X_N} > \varepsilon \}) = 0. 
+        \forall \varepsilon > 0 : \quad \lim_{N \to \infty}\prob{\sup_{n\geq N}\norm{X_n - X_N} > \varepsilon} = 0. 
     $$
 \end{theorem}
 
@@ -39,7 +40,7 @@ Wie im skalaren Fall betrachtet man neben dem Begriff der fast sicheren Konverge
 \begin{mydef}
     Eine Folge $(X_n)_{n \in \N}$ von $E$-wertigen Zufallsvariablen \textit{konvergiert stochastisch} gegen eine Zufallsvariable $X$ falls
     $$
-        \forall \varepsilon > 0: \quad \lim_{n \to \infty}P(\{ \norm{X_n - X }\}) = 0. 
+        \forall \varepsilon > 0: \quad \lim_{n \to \infty}\prob{\norm{X_n - X } > \varepsilon} = 0. 
     $$      
 \end{mydef}
 

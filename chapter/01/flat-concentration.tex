@@ -1,4 +1,5 @@
 \section{Flache Konzentrierung von Wahrscheinlichkeitsmaßen}
+Da wir uns im Laufe der Arbeit hauptsächlich mit Zufallsvariablen auf Banachräumen beschäftigen werden, wollen wir noch eine weitere für diesen Kontext nützliche Charakterisierung der relativen Kompaktheit betrachten. 
 Quelle: \cite{vakhania}, Originalpaper: de Acosta \textbf{(TODO: zitieren)}
 Für eine nichtleere Teilmenge $A \subseteq E$ setze 
 $$
@@ -68,7 +69,7 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
 \end{lemma}
 
 \begin{proof*}
-    Wegen $(1.1)$ definiert 
+    Wegen $(1.4)$ definiert 
     $$
         p(x) := \max_{1\leq k \leq n} \abs{l_k(x)}, \quad x \in S,
     $$
@@ -91,7 +92,7 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     \end{align}
     Eine Menge $M \subseteq \mathcal{M}(E)$ von Wahrscheinlichkeitsmaßen ist genau dann relativ kompakt in $(\mathcal{M}, \rho)$ wenn die folgenden beiden Bedingungen erfüllt sind
     \begin{enumerate}[(a)]
-        \item Für alle $l \in \Gamma$ ist $\{\mu^l : \mu \in \Gamma\} \subseteq \mathcal{M}(\R)$ relativ kompakt,
+        \item Für alle $l \in \Gamma$ ist $\{\mu^l : \mu \in M\} \subseteq \mathcal{M}(\R)$ relativ kompakt,
         \item $M$ ist flach konzentriert. 
     \end{enumerate}
 \end{theorem}
@@ -112,6 +113,18 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     \newline 
     zu $\Leftarrow$: 
     \textbf{TODO}
+\end{proof*}
+
+\begin{corollary}
+    Eine Menge $M \subseteq \mathcal{M}(E)$ ist genau dann relativ kompakt, wenn $M$ flach konzentriert ist und für alle $\varepsilon > 0$ eine beschränkte Menge $L \subseteq E$ existiert mit
+    $$
+        \forall \mu \in M: \quad \mu(L) \geq 1 - \varepsilon. 
+    $$
+\end{corollary}
+
+\begin{proof*}
+    Die Richtung $\Rightarrow$ ist klar und für $\Leftarrow$ reicht es anzumerken, dass beschränkte Mengen durch lineare Abbildungen auf beschränkte Mengen abgebildet werden. Nach dem Satz von Heine-Borel sind 
+    beschränkte Teilmengen endlich dimensionaler normierter Vektorräume aber insbesondere relativ kompakt. \qed 
 \end{proof*}
 
 \begin{remark}%TODO: evtl. weiter nach oben verschieben und noch erklären wieso es für S endlich viele derartige Funktionale gibt. 

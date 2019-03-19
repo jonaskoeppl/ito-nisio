@@ -1,0 +1,86 @@
+\begin{theorem}
+    Sei $(\mu_n)_{n \in \N}$ gleichmäßig straff. Dann existiert eine Folge $(c_n)_{n \in \N}$ in $E$ sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert.
+\end{theorem}
+
+\begin{proof*}
+    Betrachte den Produktraum $(\Omega \times \Omega, \mathcal{A} \otimes \mathcal{A}, P \times P)$ und definiere 
+    \begin{align*}
+        \tilde{X}_n&: \Omega \times \Omega \to E, \ (\omega_1, \omega_2) \mapsto X_n(\omega_1), \\\
+        \tilde{Y}_n&: \Omega \times \Omega \to E, \ (\omega_1, \omega_2) \mapsto X_n(\omega_2),
+    \end{align*}
+    sowie 
+    \begin{align*}
+        \tilde{S}_n := \sum_{i = 1}^n \tilde{X}_i, \quad \tilde{T}_n := \sum_{i = 1}^n \tilde{Y}_n, \quad U_n := \tilde{S}_n - \tilde{T}_n, \quad \mu_{U_n} := (P\times P)^{U_n}. 
+    \end{align*}
+    Nach Konstruktion gilt $\tilde{S}_n \sim \tilde{T}_n \sim S_n$. Wir zeigen zunächst, dass $(\mu_{U_n})_{n \in \N}$ gleichmäßig straff ist. 
+    Sei dazu $\varepsilon > 0$ Dann existiert nach Voraussetzung eine kompakte Menge $K_{\varepsilon} \subseteq E$ mit 
+    $$
+        \forall n \in \N: \mu_n(K_{\varepsilon}) \geq 1 - \varepsilon. 
+    $$
+    Wegen der Stetigkeit der Abbildung 
+    $$
+        E \times E \to E, \ (x,y) \mapsto x - y
+    $$
+    ist auch die Menge $K := \{ x - y : x,y \in K_{\varepsilon} \}$ kompakt und somit insbesondere messbar. Ferner gilt
+    \begin{align*}
+        \mu_{U_n}(K) = \prob{\tilde{S}_n - \tilde{T}_n \in K} &\geq \prob{\tilde{S}_n \in K_{\varepsilon}, \tilde{T}_n \in \varepsilon} \\\
+                                                              &\geq 1 - \prob{\tilde{S}_n \in K_{\varepsilon}} - \prob{\tilde{T}_n \in K_{\varepsilon}} \\\
+                                                              &\geq 1 - 2 \varepsilon.                                              
+    \end{align*}
+    Also ist $(\mu_{U_n})_{n \in \N}$ straff. 
+    Als nächstes zeigen wir, dass $(\widehat{\mu_{U_n}}(l))_{n \in \N}$ für alle $l \in E'$ konvergiert. Sei dazu $l \in E'$ beliebig aber fest. 
+    Die Unabhängigkeit von $(\tilde{Y}_n)_{n \in \N}$ und $(\tilde{X}_n)_{n \in \N}$ liefert direkt die Unabhängigkeit von $(\tilde{X}_n - \tilde{Y}_n)_{n \in \N}$
+    und nach Konstruktion gilt zudem $Y_n \sim X_n$. Also folgt 
+    \begin{align*}
+        \widehat{\mu_{U_n}}(l) = E(e^{il(U_n)}) = E\big(\prod_{j=1}^n(e^{il(\tilde{X}_j-\tilde{Y}_j)})\big) &= \prod_{j=1}^n E(e^{il(\tilde{X}_j-\tilde{Y}_j)}) \\\ 
+                                                                                                            &= \prod_{j=1}^n E(e^{il(\tilde{X}_j)})E(e^{-il(\tilde{Y}_j)}) \\\
+                                                                                                            &= \prod_{j=1}^n \abs{E(e^{il(\tilde{X}_j)})}^2
+    \end{align*}
+    Wegen $0 \leq \abs{E(e^{il(\tilde{X}_j)})} \leq 1$ für alle $j \in \N$ folgt somit die Konvergenz von $(\widehat{\mu_{U_n}}(l))_{n \in \N}$. 
+    Seien nun $(\mu_{U_{n_k}})_{k \in \N}$ und $(\mu_{U_{m_k}})_{k \in \N}$ zwei konvergente Teilfolgen von $(\mu_{U_n})_{n \in \N}$ mit Grenzwert $\mu'$ bzw. $\mu''$. Für $l \in E'$ gilt also
+    $$
+        \widehat{\mu'}(l) = \lim_{k \to \infty} \widehat{\mu_{U_{n_k}}}(l) = \lim_{k \to \infty} \widehat{\mu_{U_{m_k}}}(l) = \widehat{\mu''}(l).
+    $$
+    Mit dem Eindeutigkeitssatz für charakteristische Funktionale erhalten wir somit $\mu' = \mu''$. 
+    Nach Kapitel 2 konvergiert $(U_n)_{n \in \N}$ also in Verteilung und somit nach dem Satz von Itô-Nisio insbesondere fast sicher. 
+    Daher existiert eine Menge $\Omega^* \in \mathcal{A} \otimes \mathcal{A}$ mit $(P\times P)(\Omega^*) = 1$ und 
+    $$
+        \forall (\omega_1, \omega_2) \in \Omega^*: \quad U_n(\omega_1, \omega_2) = S_n(\omega_1) - S_n(\omega_2) \text{ konvergiert.}
+    $$
+    Mit dem Satz von Fubini erhalten wir wie im Beweis des Satzes von Itô-Nisio ein $\omega' \in \Omega$, sodass $S_n - S_n(\omega')$ fast sicher konvergiert. 
+    Also erfüllt die Folge $(c_n)_{n \in \N}$ definiert durch $c_n := S_n(\omega')$, $n \in \N$, die gewünschte Eigenschaft. \qed
+
+\end{proof*}
+
+\begin{theorem}[Satz von Itô-Nisio für symmetrische Folgen]
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger und symmetrischer Zufallsvariablen in $\mathcal{L}_0(E)$. Dann sind äquivalent
+    \begin{enumerate}[(i)]
+        \item $(S_n)_{n \in \N}$ konvergiert fast sicher, 
+        \item $(S_n)_{n \in \N}$ konvergiert stochastisch, 
+        \item $(S_n)_{n \in \N}$ konvergiert in Verteilung, 
+        \item $(\mu_n)_{n \in \N}$ ist gleichmäßig straff, 
+        \item Es gibt eine Zufallsvariable $S \in \mathcal{L}_0(E)$, sodass 
+        $$
+            \forall l \in E': \quad l(S_n) \stochastisch l(S),
+        $$
+        \item Es gibt ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(E)$, sodass 
+        $$
+            \forall l \in E': \quad \lim_{n \to \infty}\widehat{\mu_n}(l) = \widehat{\mu}(l). 
+        $$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof*}
+    Die Äquivalenz $(i) \iff (ii) \iff (iii)$ wurde bereits im allgemeinen Fall nicht-symmetrischer Zufallsvariablen gezeigt und die Implikationen $(iii) \Rightarrow (iv)$, $(i) \Rightarrow (v) \Rightarrow (vi)$ sind klar. 
+    Wir zeigen noch $(vi) \Rightarrow (v) \Rightarrow (iv) \Rightarrow (i)$. 
+    \newline
+    zu $(iv) \Rightarrow (i)$:
+    \textbf{TODO}
+    \newline 
+    zu $(v) \Rightarrow (iv)$:
+    \textbf{TODO}
+    \newline
+    zu $(vi) \Rightarrow (v)$: 
+    \textbf{TODO}
+    \qed
+\end{proof*}
