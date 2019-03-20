@@ -1,0 +1,38 @@
+\section{Der Satz von Hahn-Banach}
+Die Beweise der folgenden Sätze findet man etwa in \cite{werner}[Theorem III.1.5]
+\begin{theorem}[Hahn-Banach, Fortsetzungsversion]
+    Sei $X$ ein normierter Raum und $U$ ein Untervektorraum. 
+    Zu jedem stetigen linearen Funktional $u':U \to \R$ existiert ein stetiges lineares Funktional $x':X \to \R$ mit 
+    $$
+        x'|_U = u' \text{ und } \norm{x'}_{op} = \norm{u'}_{op}.
+    $$
+    Jedes stetige Funktional kann also normgleich fortgesetzt werden
+\end{theorem}
+
+\begin{corollary}
+    In jedem normierten Raum $X$ existiert zu jedem $x \in X$, $x \neq 0$, ein Funktional $x' \in X'$ mit $\norm{x'}_{op} = 1$ und $x'(x) = \norm{x}$. 
+    Speziell trennt $X'$  die Punkte von $X$, d.h.
+    $$
+        \forall x_1, x_2 \in X \text{ mit } x_1 \neq x_2 \ \exists x' \in X': \quad x'(x_1) \neq x'(x_2). 
+    $$
+\end{corollary}
+
+\begin{corollary}
+    In jedem normierten Raum $X$ gilt 
+    $$
+        \norm{x} = \sup_{x' \in B_{X'}}\abs{x'(x)}, \quad x \in X. 
+    $$
+\end{corollary}
+
+\begin{corollary}
+    Falls $X$ separabel ist so existiert eine abzählbare Menge $D \subseteq B_{X'}$ mit 
+    $$
+        \norm{x} = \sup_{x' \in D}\abs{x'(x)}, \quad x \in X. 
+    $$
+\end{corollary}
+
+\begin{proof*}
+    \textbf{TODO}
+\end{proof*}
+
+\textbf{TODO: Abstand zu abgeschlossenem UVR, falls ich das noch brauche.}

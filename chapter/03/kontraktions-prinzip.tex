@@ -1,0 +1,34 @@
+\section{Das Kontraktions Prinzip}
+Im Folgenden sei $(X_n)_{n \in \N}$ eine unabhängige Folge symmetrischer Zufallsvariablens aus $\mathcal{L}_0(E)$ und $(\lambda_n)_{n \in \N}$ eine beschränkte Folge in $\R$. 
+Für $n \in \N$ setze
+$$
+    S_n := \sum_{i=1}^nX_i, \quad T_n = \sum_{i=1}^n\lambda_iX_i. 
+$$
+Seien ferner $S_0 = T_0 = 0$. 
+\begin{lemma}
+    Für alle $t > 0$ und $N \in \N$ gilt
+    \begin{align}
+        \prob{\norm{T_N} > t} \leq 2 \prob{\norm{S_N} > t}. 
+    \end{align}
+\end{lemma}
+
+\begin{proof*}
+    \textbf{TODO}
+\end{proof*}
+
+\begin{theorem}[Kontraktions-Prinzip, Qualitative Version]
+    Falls $(S_n)_{n \in \N}$ fast sicher konvergiert, dann konvergiert auch $(T_n)_{n \in \N}$ fast sicher. 
+\end{theorem}
+\begin{proof*}
+    Sei $\varepsilon > 0$. Nach Lemma $3.11$ gilt für $m < n$
+    $$
+        \prob{\norm{T_n - T_m} > \varepsilon} \leq 2\prob{\norm{S_n - S_m} > \varepsilon}. 
+    $$
+    Nach dem Cauchy-Kriterium für stochastische Konvergenz konvergiert $(T_n)_{n \in \N}$ also stochastisch und nach dem Satz von Itô-Nisio insbesondere fast sicher. \qed
+\end{proof*}
+
+\begin{remark}
+    Auf die Bedingung der Symmetrie kann nicht verzichtet werden, wie uns die deterministische Folge $X_n = (-1)^n \frac{1}{n}$ und $(\lambda_n)_{n \in \N} = ((-1)^{n})_{n \in \N}$ zeigen. 
+    \newline 
+    \textbf{TODO: Weitere Gegenbeispiele siehe Li,Queffelec}
+\end{remark}

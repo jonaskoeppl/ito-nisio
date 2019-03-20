@@ -18,11 +18,78 @@ Sei $(\Omega, \mathcal{A}, P)$ ein vollständiger Wahrscheinlichkeitsraum und $E
     Hiermit erklärt sich auch die Bezeichnung Radon-Zufallsvariable. 
 \end{remark}
 
-\textbf{TODO: Einführung einfache Funktionen im Banach-Kontext}
-\begin{proposition}
-    \textbf{TODO: Summen von Radon-Variablen sind messbar, Approximation durch einfache Funktionen, Grenzwerte sind messbar}
-\end{proposition}
-
 Bezeichne $\mathcal{L}_0(\Omega, \mathcal{A}, P; E)$ den Raum der $E$-wertigen Radon-Zufallsvariablen auf $(\Omega,\mathcal{A},P)$ und sei $L_0(\Omega, \mathcal{A}, P;E)$ der Raum der Äquivalenzklassen bezüglich fast sicherer Gleichheit. 
 Falls klar ist welcher Wahrscheinlichkeitsraum gemeint ist, so schreiben wir auch $\mathcal{L}_0(E)$ oder $L_0(E)$. 
+
+\begin{proposition}
+   Für alle $X,Y \in \mathcal{L}_0(E)$ und $\alpha, \beta \in \R$ gitl $\alpha X + \beta Y \in \mathcal{L}_0(E)$.
+\end{proposition}
+
+\begin{proof*}
+    Da $\mathcal{A}$ vollständig ist und $X,Y$ fast sicher Werte in einem separablen Unterraum von $E$ annehmen, sei $E$ ohne Beschränkung der Allgemeinheit separabel. 
+    Nach Proposition $1.30$ ist dann $(E, \mathcal{B}(E))$ ein messbarer Vektorraum und die Behauptung folgt nun aus Proposition $1.29$. \qed 
+\end{proof*}
+
+Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \textit{einfache Zufallsvariablen} approximieren. 
+
+\begin{mydef}
+    Eine Abbildung $X$ auf $(\Omega, \mathcal{A}, P)$ von der Form 
+    $$
+        X = \sum_{i=1}^n 1_{A_i}x_i
+    $$
+    mit $x_1,...,x_n \in E$ und $A_1,..., A_n \in \mathcal{A}$ heißt \textit{einfache Zufallsvariable}. Offensichtlich gilt $X \in L_0(E)$. 
+\end{mydef}
+
+
+\begin{proposition}
+    Sei $X \in \mathcal{L}_0(E)$ und $Y: \Omega \to E$ eine Abbildung. 
+    \begin{enumerate}
+        \item Es existiert eine Folge $(X_n)_{n \in \N}$ mit $X_n \fastsicher X$ und 
+        $$
+            \norm{X_n(\omega)} \leq 2 \norm{X(\omega)}
+        $$
+        für alle $n \in \N$ und fast alle $\omega \in \Omega$. 
+        \item Sei $(Y_n)_{n \in \N}$ eine Folge in $\mathcal{L}_0(E)$ sodass eine Menge $\Omega^*$ existiert mit 
+        $$
+            \forall \omega \in \Omega^*: \quad \lim_{n \to \infty}Y_n(\omega) = Y(\omega). 
+        $$
+        Dann gilt $Y \in \mathcal{L}_0(E)$. 
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof*}
+    Wegen der Vollständigkeit von $\mathcal{A}$ und da das lineare Erzeugnis abzählbar vieler separabler Unterräume wieder ein separabler Unterraum ist können wir erneut ohne Einschränkung annehmen, dass $E$ selbst bereits separabel ist.
+    \newline 
+    zu $(i)$:
+    Sei $\{x_1,x_2,... \} \subseteq E$ eine dichte Teilmenge. Für $n \in \N$ betrachte die Abbildung
+    $$
+        T_n: \Omega \to \N, \quad \omega \mapsto \inf\{k \leq n: \norm{X(\omega)-x_k} = \min_{1\leq l \leq n}\norm{X(\omega)-x_l}\}.
+    $$ 
+    Aus der Messbarkeit von $X$ und der Stetigkeit von $\norm{\cdot - x}$ für $x \in E$ folgt direkt die Messbarkeit von $T_n$,
+    da für alle $i,j \in \{1,..,n\}$ die Menge $\{\norm{X - x_i} < \norm{X - x_j}\}$ messbar ist. Setze nun
+    $$
+        X_n := \sum_{k=1}^n 1_{T_n = k}x_k, \quad n \in \N.
+    $$
+    Dann ist $(X_n)_{n \in \N}$ eine Folge einfacher Zufallsvariablen und es gilt für $n \in \N$ und $\omega \in \Omega$
+    $$
+        \norm{X(\omega)-X_n(\omega)} = \min_{1\leq k \leq n}\norm{X(\omega)-x_k}.
+    $$
+    Da $\{x_1,x_2,...\}$ dicht in $E$ liegt folgt 
+    $$
+        \lim_{n \to \infty}{X(\omega) - X_n(\omega)} = \lim_{n \to \infty}\min_{1\leq k \leq n}\norm{X(\omega)- x_k} = \inf{n \in \N} \norm{X(\omega)- x_n} = 0. 
+    $$
+    zu $(ii)$: Wegen der Vollständigkeit von $\mathcal{A}$ können wir annehmen, dass $X_n(\omega) \to Y(\omega)$ für alle $\omega \in \Omega$. 
+    Wir zeigen, dass für jede abgeschlossene Menge $A \subseteq E$ das Urbild $Y^{-1}(A)$ in $\mathcal{A}$ liegt. 
+    Da $\mathcal{B}(E)$ von den abgeschlossenen Mengen erzeugt wird folgt daraus die Behauptung. 
+    Für $\emptyset \neq A \subseteq E$ abgeschlossen betrachte für $k \in \N$ die offene, also auch messbare, Menge 
+    $$
+        A_k := \{x \in E: \inf_{y\in A}\norm{x-y} < \frac{1}{k}\}.
+    $$
+    Dann gilt wie man leicht prüft
+    $$
+        \{Y \in A\} = \bigcap_{k=1}^{\infty}\liminf_{n \to \infty}\{X_n \in A_k\} \in \mathcal{A}. 
+    $$
+    \qed 
+
+\end{proof*}
 

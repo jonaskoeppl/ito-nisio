@@ -62,10 +62,37 @@ Im Folgenden sei $(X, \norm{\cdot})$ ein Banachraum und $(X', \norm{\cdot}_{op})
     Sei $\emptyset \neq \Gamma \subseteq X'$. Dann ist $(X, \sigma({\Gamma}))$ ein messbarer Vektorraum. 
 \end{proposition}
 
-\begin{proof*}
-    \textbf{TODO}
+\begin{proof*}%TODO: überarbeiten und schöneren Beweis finden. 
+    Es genügt zu zeigen, dass 
+    $$
+        \forall f \in \Gamma : g: X \times X \to \R, \ (x,y) \mapsto f(x+y) \text{ ist messbar.}
+    $$
+    Sei dazu $f \in \Gamma$. Es gilt wegen der Linearität von $f$ für $(x,y) \in X \times X$
+    $$
+        f(x + y) = (f(x) + f(y)).
+    $$
+    Weiter ist die Abbildung 
+    $$
+        h: X \times X \to \R, (x,y) \mapsto f(x) + f(y)
+    $$
+    als Komposition messbarer Funktionen messbar, da $(\R, \mathcal{B}(\R))$ ein messbarer Vektorraum ist. 
+    Die Messbarkeit der Skalarmultiplikation zeigt man analog. \qed 
 \end{proof*}
 
 \begin{proposition}
-    Sei $X$ ein separabler Banachraum. Dann gilt $\sigma(X') = \mathcal{B}(X)$. 
+    Sei $E$ ein separabler Banachraum. Dann gilt $\sigma(E') = \mathcal{B}(E)$. 
 \end{proposition}
+
+\begin{proof*}%TODO: Überprüfen. Reicht das wirklich schon so?
+    Da alle $f \in E'$ stetig sind gilt offensichtlich $\sigma(E') \subseteq \mathcal{B}(E)$. 
+    Wegen der Separabilität von $E$ wird $\mathcal{B}(E)$ von den abgeschlossenen Kugeln erzeugt und da $(E, \sigma(E'))$ nach vorheriger Proposition ein messbarer Vektorraum ist genügt es zu zeigen, 
+    dass $\overline{B}(0,1)$ in $\sigma(E')$ enthalten ist. Nach dem Satz von Hahn-Banach existiert eine Folge $(f_n)_{n \in \N}$ in $E'$ mit
+    $$
+        \forall x \in E: \quad \norm{x} = \sup_{n \in \N}\abs{f_n(x)}.
+    $$
+    Schließlich gilt 
+    $$
+        \overline{B}(0,1) = \{ x \in E: \norm{x} \leq 1 \} = \{x \in E: \ \sup_{n \in \N}\abs{f_n(x)} \leq 1 \} = \bigcap_{n=1}^{\infty}\{x \in E: \abs{f_n(x)} \leq 1\} \in \sigma(E').
+    $$
+    \qed 
+\end{proof*}
