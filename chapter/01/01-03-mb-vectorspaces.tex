@@ -19,20 +19,13 @@
     Sei $(X, \mathcal{C})$ ein messbarer Vektorraum. Dann gilt
     \begin{enumerate}[(i)]
         \item Für alle $\alpha \in \R$ ist die Abbildung 
-            $$f_{\alpha}: X \to X, x \mapsto \alpha x$$
+            $$f_{\alpha}: X \to X, \quad x \mapsto \alpha x$$
         $\mathcal{C}/\mathcal{C}$-messbar. 
         \item Für alle $y \in X$ ist die Abbildung 
-            $$g_y: X \to X, x \mapsto x + y$$
+            $$g_y: X \to X, \quad x \mapsto x + y$$
         $\mathcal{C}/\mathcal{C}$-messbar.
     \end{enumerate}
 \end{remark}
-
-Da die Komposition messbarer Abbildungen wiederum messbar ist erhält man unmittelbar
-\begin{proposition}
-    Sei $(X, \mathcal{C})$ ein messbarer Vektorraum und $(\Omega, \mathcal{A})$ ein messbarer Raum. 
-    Sind $X,Y: \Omega \to X$ zwei $\mathcal{A}/\mathcal{C}$-messbare Abbildungen und $\alpha, \beta \in \R$, so ist auch $\alpha X + \beta Y$ $\mathcal{A}/\mathcal{C}$-messbar. 
-\end{proposition}
-
 \begin{proof*}
     Man beachte, dass für beliebige  messbare Räume $(\Omega_1, \mathcal{A}_1), (\Omega_2, \mathcal{A}_2)$, Mengen $A \in \mathcal{A}_1 \otimes \mathcal{A}_2$ und $\omega_1 \in \Omega_1$
     \begin{align*}
@@ -40,8 +33,14 @@ Da die Komposition messbarer Abbildungen wiederum messbar ist erhält man unmitt
     \end{align*}
     gilt. \qed
 \end{proof*}
+Da die Komposition messbarer Abbildungen wiederum messbar ist erhält man unmittelbar
 \begin{proposition}
-    Sei $X$ ein separabler Banachraum. Dann ist $(X, \mathcal{B}(X))$ ein messbarer Vektorraum.
+    Sei $(X, \mathcal{C})$ ein messbarer Vektorraum und $(\Omega, \mathcal{A})$ ein messbarer Raum. 
+    Sind $X,Y: \Omega \to X$ zwei $\mathcal{A}/\mathcal{C}$-messbare Abbildungen und $\alpha, \beta \in \R$, so ist auch $\alpha X + \beta Y$ $\mathcal{A}/\mathcal{C}$-messbar. 
+\end{proposition}
+
+\begin{proposition}
+    Sei $E$ ein separabler Banachraum. Dann ist $(E, \mathcal{B}(E))$ ein messbarer Vektorraum.
 \end{proposition}
 \begin{proof*}
     Nach Proposition 1.2 gilt $\mathcal{B}(X \times X) = \mathcal{B}(X) \otimes \mathcal{B}(X)$ und 
@@ -57,13 +56,15 @@ Da die Komposition messbarer Abbildungen wiederum messbar ist erhält man unmitt
 \begin{example}
     Für $d \in \N$ ist $(\R^d, \mathcal{B}(\R^d))$ ein messbarer Vektorraum. 
 \end{example}
-Im Folgenden sei $(X, \norm{\cdot})$ ein Banachraum und $(X', \norm{\cdot}_{op})$ der zugehörige Dualraum. 
+
+Im Folgenden bezeichne $(X', \norm{\cdot}_{op})$ den Dualraum eines normierten Vektorraums $(X, \norm{\cdot})$. 
+
 \begin{proposition}
     Sei $\emptyset \neq \Gamma \subseteq X'$. Dann ist $(X, \sigma({\Gamma}))$ ein messbarer Vektorraum. 
 \end{proposition}
 
 \begin{proof*}%TODO: überarbeiten und schöneren Beweis finden. 
-    Es genügt zu zeigen, dass 
+    zur Addition: Es genügt zu zeigen, dass 
     $$
         \forall f \in \Gamma : g: X \times X \to \R, \ (x,y) \mapsto f(x+y) \text{ ist messbar.}
     $$
@@ -75,12 +76,12 @@ Im Folgenden sei $(X, \norm{\cdot})$ ein Banachraum und $(X', \norm{\cdot}_{op})
     $$
         h: X \times X \to \R, (x,y) \mapsto f(x) + f(y)
     $$
-    als Komposition messbarer Funktionen messbar, da $(\R, \mathcal{B}(\R))$ ein messbarer Vektorraum ist. 
+    als Komposition messbarer Funktionen messbar, da $(\R, \mathcal{B}(\R))$ nach Beispiel $1.31$ ein messbarer Vektorraum ist. 
     Die Messbarkeit der Skalarmultiplikation zeigt man analog. \qed 
 \end{proof*}
 
 \begin{proposition}
-    Sei $E$ ein separabler Banachraum. Dann gilt $\sigma(E') = \mathcal{B}(E)$. 
+    Sei $E$ ein separabeler Banachraum. Dann gilt $\sigma(E') = \mathcal{B}(E)$. 
 \end{proposition}
 
 \begin{proof*}%TODO: Überprüfen. Reicht das wirklich schon so?
@@ -96,3 +97,12 @@ Im Folgenden sei $(X, \norm{\cdot})$ ein Banachraum und $(X', \norm{\cdot}_{op})
     $$
     \qed 
 \end{proof*}
+
+\begin{remark}
+    Setze 
+    $$
+        \mathcal{C}(E) := \{ \bigcap_{i=1}^n f^{-1}(A): \ n \in \N, \ f_1,...,f_n \in E', \ A_1,...,A_n \in \mathcal{B}(\R) \}.
+    $$
+    Wie man leicht zeigt ist $\mathcal{C}(E)$ schnittstabil und es gilt $\sigma(E') = \sigma(\mathcal{C}(E))$. 
+    Diese Darstellung wird sich im späteren Verlauf noch als hilfreich erweisen. 
+\end{remark}

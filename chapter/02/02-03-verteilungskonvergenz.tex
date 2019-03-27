@@ -1,11 +1,33 @@
-\section{Verteilungskonvergenz und charakteristische Funktionale}
+\section{Konvergenz in Verteilung und charakteristische Funktionale}
 
 \begin{mydef}
-    Eine Folge $(X_n)_{n \in \N}$ von $E$-wertigen Zufallsvariablen \textit{konvergiert in Verteilung} gegen eine Zufallsvariable $X$,
+    Eine Folge $(X_n)_{n \in \N}$ von $E$-wertigen Zufallsvariablen \textit{konvergiert in Verteilung} gegen eine Zufallsvariable $X \in \mathcal{L}_0(E)$,
     falls die Folge $(P^{X_n})_{n \in \N}$ von Verteilungen schwach gegen $P^X$ konvergiert. 
     \newline 
     Bezeichnung: $X_n \schwach X$. 
 \end{mydef}
+
+Da die Verteilungskonvergenz lediglich von den Verteilungen der beteiligten Zufallsvariablen abhängt, erhalten wir unmittelbar die folgenden Charakterisierungen aus Abschnitt $1.2$.
+\begin{proposition}
+    Es sind äquivalent
+    \begin{enumerate}[(i)]
+        \item $(X_n)_{n \in \N}$ konvergiert in Verteilung gegen $X$. 
+        \item Für alle abgeschlossenen Mengen $A \subseteq E$ gilt 
+        $$
+            \limsup_{n \to \infty}\prob{X_n \in A} \leq \prob{X \in A}.
+        $$
+        \item Für alle offenen Mengen $O \subseteq E$ gilt
+        $$
+            \liminf_{n \to \infty}\prob{X_n \in O} \geq \prob{X \in O}.
+        $$
+        \item Für alle Mengen $C \in \mathcal{B}(X)$ mit $\prob{X \in \partial C} = 0$ gilt 
+        $$
+            \lim_{n \to \infty}\prob{X_n \in C} = \prob{X \in C}. 
+        $$
+    \end{enumerate}
+\end{proposition}
+
+Falls $E$ separabel ist können wir ferner auf die Prokhorov-Metrik und die Sätze von deAcosta und Prokhorov zurückgreifen.
 
 \input{chapter/02/charakteristische-funktionale}
 

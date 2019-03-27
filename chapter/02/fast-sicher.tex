@@ -1,6 +1,6 @@
-\section{Fast sichere Konvergenz}
+\section{Fast sichere und stochastische Konvergenz}
 \textbf{TODO: überarbeiten, Benennungen einheitlich. Ggf. Konvention $(X_n)_n$  ZVen nachvorne ziehen}
-
+Die Beweise für den skalaren Fall findet man beispielsweise in \cite{gs}. 
 \begin{mydef}
     Seien $X, X_1, X_2,...$ $E$-wertige Zufallsvariablen. Die Folge $(X_n)_{n \in \N}$ \textit{konvergiert fast sicher} gegen $X$, falls
     $$
@@ -48,7 +48,7 @@ Man erhält unmittelbar die folgende Charakterisierung.
 
 \begin{theorem}[Teilfolgenkriterium]
     Seien $X,X_1,X_2,... \in \mathcal{L}_0(E)$. Die Folge $(X_n)_{n \in \N}$ konvergiert genau dann stochastisch gegen $X$, 
-    wenn es jede Teilfolge $(n_k)_{k \in \N}$ von $(n)_{n \in \N}$ eine Teilfolge $(n_{k_l})_{l \in \N}$ besitzt, sodass $X_{n_{k_l}} \fastsicher X$.  
+    wenn jede Teilfolge $(n_k)_{k \in \N}$ von $(n)_{n \in \N}$ eine Teilfolge $(n_{k_l})_{l \in \N}$ besitzt, sodass $X_{n_{k_l}} \fastsicher X$.  
 \end{theorem}
 
 \begin{corollary}
@@ -77,19 +77,4 @@ Wie auch bei der fast sicheren Konvergenz lassen sich die beiden folgenden Chara
     $$
 \end{theorem}
 
-Wie bereits aus dem skalaren Fall bekannt, lässt sich die fast sichere Konvergenz nicht durch eine Metrik beschreiben. Die stochastische Konvergenz allerdings schon. 
-Definiere dazu eine Abbildung 
-    $$d_P : L_0(E) \times L_0(E) \to [0,\infty)$$
- durch
-\begin{align}
-    d_P([X],[Y]) := E\bigg(\frac{\norm{X-Y}}{1+\norm{X+Y}}\bigg), \quad [X], [Y] \in L_0(E).  
-\end{align}
-Dann ist $d_P$ wegen der Stetigkeit von $\norm{\cdot}$ und $\big\lvert\frac{x}{1+x}\big\rvert \leq 1$ für alle $x \in [0, \infty)$ wohldefiniert
-und liefert eine weitere Charakterisierung der stochastischen Konvergenz. 
-\begin{proposition}
-    \begin{enumerate}[(i)]
-        \item $d_P$ ist eine Metrik auf $L_0(E)$,
-        \item $X_n \stochastisch X$ $\iff$ $\lim_{n \to \infty}d_P([X_n], [X]) = 0$,
-        \item $(L_0(E), d_P)$ ist vollständig. 
-    \end{enumerate}
-\end{proposition}
+

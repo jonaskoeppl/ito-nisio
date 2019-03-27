@@ -10,7 +10,7 @@
 \begin{remark}
     Nach dem Eindeutigkeitssatz für charakteristische Funktionale ist eine Zufallsvariable $X \in \mathcal{L}_0(E)$ genau dann symmetrisch, wenn 
     $$
-        \forall z \in E': \quad \widehat{\mu_X}(z) = \widehat{\mu_{-X}}(z). 
+        \forall f \in E': \quad \widehat{P^X}(f) = \widehat{P^{-X}}(f). 
     $$
 \end{remark}
 
@@ -21,11 +21,11 @@
 \end{mydef}
 
 \begin{remark}
-   Sind $X_1,X_2,...$ unabhängige E-wertige Zufallsvariablen, sodass $X_n$ für alle $n \in \N$ symmetrisch ist, dann ist $(X_1,X_2,...)$ symmetrisch. 
+   Sind $X_1,X_2,...$ unabhängige E-wertige Zufallsvariablen, sodass $X_n$ für alle $n \in \N$ symmetrisch ist, dann ist $(X_n)_{n \in \N}$ symmetrisch. 
 \end{remark}
 
 \begin{theorem}[Lévys Maximal-Ungleichung]
-    Seien $X_1,...,X_N \in L_0(E)$ unabhängige und symmetrische Zufallsvariablen und setze 
+    Seien $X_1,...,X_N \in \mathcal{L}_0(E)$ unabhängige und symmetrische Zufallsvariablen und setze 
     \begin{align*}
         S_n := \sum_{i=1}^n X_i, \quad 1 \leq n \leq N. 
     \end{align*}
@@ -45,8 +45,8 @@
     Dann ist $T_1$ messbar, da für jedes $i =1,...,N$ die Menge $\{ \norm{S_i} \leq t\}$ messbar ist. 
     Wir zeigen zunächst
     \begin{align}
-        \{T_1 = n\} \subseteq \{\norm{S_N} > t, T_1 = n\} \cup \{\norm{2S_n - S_N}>t, T_1=n\}, \quad n \in \{1,...,N\}, \\\
-        \prob{\norm{S_N} > t, T_1=n} = \prob{\norm{2S_n - S_N} > t, T_1=n}, \quad n \in \{1,...,N\}. 
+        \{T_1 = n\} \subseteq \{\norm{S_N} > t,\  T_1 = n\} \cup \{\norm{2S_n - S_N}>t,\  T_1=n\}, \quad n \in \{1,...,N\}, \\\
+        \prob{\norm{S_N} > t, \ T_1=n} = \prob{\norm{2S_n - S_N} > t,\  T_1=n}, \quad n \in \{1,...,N\}. 
     \end{align}
     zu $(3.3)$:
     Für $\omega \in \Omega$ mit $T_1(\omega) = n$ und $\norm{S_N} \leq t$ liefert die umgekehrte Dreiecksungleichung
@@ -69,13 +69,13 @@
     \end{align*}
     Wir erhalten also mit $(3.3)$ und $(3.4)$ 
     $$
-        \prob{T_1=n} \leq 2 \prob{\norm{S_N} > t, T_1=n}.
+        \prob{T_1=n} \leq 2 \prob{\norm{S_N} > t, \ T_1=n}.
     $$
     Woraus wir schließlich $(3.1)$ folgern  
     \begin{align*}
         \prob{\max_{1 \leq n \leq N} \norm{S_n} > t} \leq \sum_{n=1}^{N} \prob{T_1=n} 
-                                                     &\leq \sum_{n=1}^N2\prob{\norm{S_N} >t, T=n} \\\
-                                                     &= 2 \prob{\norm{S_N}>t, T_1 \leq N} \leq 2 \prob{\norm{S_N} > t}. 
+                                                     &\leq \sum_{n=1}^N2\prob{\norm{S_N} >t, \ T_1=n} \\\
+                                                     &= 2 \prob{\norm{S_N}>t, \ T_1 \leq N} \leq 2 \prob{\norm{S_N} > t}. 
     \end{align*}
     zu $(3.2)$: 
     Setze 
@@ -96,6 +96,25 @@
     \qed 
 \end{proof*}
 
+\begin{corollary}
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger und symmetrischer E-wertiger Zufallsvariablen. Falls $S_n \schwach S$ für $S \in \mathcal{L}_0(E)$, dann gilt für $\lambda$-fast-alle $t \in \R$
+    $$
+        \prob{\sup_{n \in \N}\norm{S_n} > t} \leq 2 \prob{\norm{S} > t}.
+    $$
+\end{corollary}
+
+\begin{proof*}
+    Für alle $n \in \N$ gilt nach Lévys Maximalungleichung
+    $$
+        \prob{\max_{1\leq k \leq n}\norm{S_k} > t} \leq 2 \prob{\norm{S_n} > t}.
+    $$
+    Und wegen $\norm{S_n} \schwach \norm{S}$ folgt für alle $t \in \R$, in denen die Verteilungsfunktion $F_{\norm{S}}$ von $\norm{S}$ stetig ist 
+    $$
+        \prob{\sup_{n \in \N}\norm{S_n} > t} = \lim_{n \to \infty}\prob{\max_{1\leq k \leq n}\norm{S_k} > t} \leq 2 \lim_{n \to \infty}\prob{\norm{S_n} > t} = 2\prob{\norm{S} >t}. 
+    $$
+    \qed
+\end{proof*}
+
 Für nicht-symmetrische Zufallsvariablen erhalten wir mit einer ähnlichen Beweismethode die folgende auf Giuseppe Ottaviani und Anatoli Skorohod zurückgehende Maximal-Ungleichung, vgl. \cite{ledoux-talagrand}[Lemma 6.2]. 
 \begin{theorem}[Maximal-Ungleichung von Ottaviani-Skorohod]
     Seien $X_1,...,X_N$ unabhängige $E$-wertige Zufallsvariablen, $N \in \N$. Setze 
@@ -104,7 +123,7 @@ Für nicht-symmetrische Zufallsvariablen erhalten wir mit einer ähnlichen Bewei
     $$
     Dann gilt für alle $s,t > 0$
     \begin{align}
-        P(\{ \max_{1 \leq k \leq N} \norm{S_k} > s + t \}) \leq \frac{P(\{\norm{S_N} > t \})}{1 - \max_{1 \leq k \leq N}P(\{ \norm{S_N - S_k} > s \})} \ . 
+        P(\{ \max_{1 \leq k \leq N} \norm{S_k} > s + t \}) \leq \frac{P(\{\norm{S_N} > t \})}{1 - \max\limits_{1 \leq k \leq N}P(\{ \norm{S_N - S_k} > s \})} \ . 
     \end{align}
 \end{theorem}
 
@@ -117,7 +136,7 @@ Für nicht-symmetrische Zufallsvariablen erhalten wir mit einer ähnlichen Bewei
     $$
         \sum_{k=1}^N \prob{T = k} = \prob{\max_{1\leq k \leq N}\norm{S_k} > s+t}.
     $$
-    Für $\omega \in \Omega$ mit $T(\omega) = k$ und $\norm{S_N - S_k} \leq s$ gilt zudem $\norm{S_N} > t$, denn mit der umgekehrten Dreiecksungleichung erhält man
+    Für $\omega \in \Omega$ mit $T(\omega) = k$ und $\norm{S_N(\omega) - S_k(\omega)} \leq s$ gilt zudem $\norm{S_N(\omega)} > t$, denn mit der umgekehrten Dreiecksungleichung erhält man
     $$
         s \geq \norm{S_N - S_k} \geq \abs{\norm{S_N}-\norm{S_k}} > (s+t) - \norm{S_N}.
     $$

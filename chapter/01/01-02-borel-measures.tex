@@ -1,16 +1,25 @@
 \section{Borelmaße auf metrischen Räumen}
+Im Folgenden Abschnitt beschäftigen wir uns mit Wahrscheinlichkeitsmaßen auf der Borelschen $\sigma$-Algebra $\mathcal{B}(X)$ eines metrischen Raums $(X,d)$, 
+welche teilweise auch als \textit{Borelsche Wahrscheinlichkeitsmaße} bezeichnet werden. 
+Zunächst interessieren wir uns hierbei für Regularitätseigenschaften solcher Maße, welche uns die spätere Arbeit erleichtern werden. 
+Im zweiten Teil dieses Abschnitts untersuchen wir Folgen von Wahrscheinlichkeitsmaßen und den Begriff der schwachen Konvergenz. 
+\newline \ \newline 
 \textbf{Notation und Konventionen} 
 \newline
 Bis auf weiteres sei $(X,d)$ ein metrischer Raum mit Borel-$\sigma$-algebra $\mathcal{B}(X)$. 
-Für eine Teilmenge $A \subseteq X$ sei $\mathring{A}$ das \textit{Innere der Menge} und $\overline{A}$ der \textit{Abschluss}.
-Ferner bezeichne  
+Für eine Teilmenge $A \subseteq X$ sei $\mathring{A}$ das \textit{Innere}, $\overline{A}$ der \textit{Abschluss} und 
 $$
     \partial A := \overline{A} \setminus \mathring{A}
 $$
-den \textit{Rand der Menge}.  
+der \textit{Rand der Menge}. 
+Setze ferner 
+$$
+    C_b(X;\R) := \{f:X \to \R \ | \ f \text{ ist stetig und beschränkt} \}.
+$$ 
+Falls klar ist welcher metrische Raum gemeint ist, so schreiben wir auch $C_b(\R)$ statt $C_b(X;\R)$. 
+\newline 
 
-Im Folgenden Abschnitt beschäftigen wir uns mit Wahrscheinlichkeitsmaßen auf $\mathcal{B}(X)$, welche teilweise auch als \textit{Borel-Maße} bezeichnet werden. 
-Die Bezeichnung wird in der Literatur allerdings nicht einheitlich verwendet. 
+
 
 \begin{mydef}
     Ein Maß $\mu$ auf $\mathcal{B}(X)$ heißt \textit{regulär} , falls
@@ -27,7 +36,7 @@ Die Bezeichnung wird in der Literatur allerdings nicht einheitlich verwendet.
 \begin{proof*}
     Wir verwenden zum Beweis das Good-Set-Principle. Setze dazu
     $$
-        \mathcal{R}:=\{A \in \mathcal{B}(X):  \mu(A) = \sup\{\mu(C): C \subseteq A, \ C \text{ abgeschlossen}\} =\inf\{\mu(O): A \subseteq O, \ O \text{ offen}\} \}.
+        \mathcal{R}:=\big\{A \in \mathcal{B}(X):  \mu(A) = \sup\{\mu(C): C \subseteq A, \ C \text{ abgeschlossen}\} =\inf\{\mu(O): A \subseteq O, \ O \text{ offen}\} \big\}.
     $$
     Wir zeigen zunächst, dass $\mathcal{R}$ eine $\sigma$-Algebra ist. Offensichtlich gilt $\emptyset \in \mathcal{R}$. Sei nun $A \in \mathcal{R}$ und $\varepsilon > 0$. 
     Dann existieren eine offene Menge $O$ und eine abgeschlossene Menge $C$ mit $C \subseteq A \subseteq O$ und 
@@ -53,38 +62,38 @@ Die Bezeichnung wird in der Literatur allerdings nicht einheitlich verwendet.
         \mu\left(\bigcup_{n =1}^{\infty}U_n\right) - \mu\left(\bigcup_{n=1}^{\infty}A_n\right) &\leq \mu\left(\bigcup_{n =1}^{\infty}U_n\setminus \bigcup_{n =1}^{\infty} A_n\right) \nonumber \\\
                                                                                 &\leq \mu\left(\bigcup_{n =1}^{\infty}(U_n\setminus A_n)\right) 
                                                                                 \leq \sum_{i=1}^{\infty}\mu(U_n\setminus A_n)
-                                                                                < \sum_{i=1}^{\infty}2^{n}\varepsilon = \varepsilon. 
+                                                                                < \sum_{i=1}^{\infty}2^{-n}\varepsilon = \varepsilon. 
     \end{align}
-    Zudem gilt 
+    Wegen 
     $$
     \mu(\cup_{n = 1}^{\infty}C_n) = \lim_{k \to \infty}\mu(\cup_{n=1}^kC_n),
     $$
-    also existiert ein $k \in \N$ mit 
+    existiert zudem ein $k \in \N$ mit 
     $$
     \mu(\cup_{n=1}^{\infty}C_n) - \mu(\cup_{n=1}^kC_n) < \frac{\varepsilon}{2}.
     $$ 
-    Die Menge $C:= \cup_{n=1}^kC_n$ ist als endliche Vereinigung abgeschlossener Mengen selbst abgeschlossen und offensichtlich in $\cup_{n=1}^{\infty}A_n$ enthalten. Ferner gilt 
+    Die Menge $C:= \cup_{n=1}^kC_n$ ist als endliche Vereinigung abgeschlossener Mengen abgeschlossen und nach Konstruktion in $\cup_{n=1}^{\infty}A_n$ enthalten. Ferner gilt 
     \begin{align}
         \mu(\bigcup_{n=1}^{\infty}A_n) - \mu(C) &< \mu(\bigcup_{n=1}^{\infty}A_n) - \mu(\bigcup_{n=1}^{\infty}C_n) + \frac{\varepsilon}{2} \nonumber \\\
                                                 &\leq \mu(\bigcup_{n=1}^{\infty}A_n \setminus \bigcup_{n=1}^{\infty}C_n)  + \frac{\varepsilon}{2} \nonumber \\\
                                                 &\leq \mu(\bigcup_{n=1}^{\infty}(A_n \setminus C_n)) + \frac{\varepsilon}{2} \nonumber \\\
                                                 &\leq \sum_{n=1}^{\infty}\mu(A_n \setminus C_n) + \frac{\varepsilon}{2} = \varepsilon. 
     \end{align}
-    Da $\varepsilon$ beliebig gewählt war folgt nun aus $(1.1)$ und $(1.2)$, dass $\cup_{n=1}^{\infty}A_n \in \mathcal{R}$. Also ist $\mathcal{R}$ eine $\sigma$-Algebra. 
-    Wir zeigen nun, dass $\mathcal{R}$ alle abgeschlossenen Mengen enthält. Sei also $\emptyset \neq A \subseteq X$ abgeschlossen. Die Bedingung 
+    Da $\varepsilon$ beliebig gewählt war folgt aus $(1.1)$ und $(1.2)$, dass $\cup_{n=1}^{\infty}A_n \in \mathcal{R}$. Folglich ist $\mathcal{R}$ eine $\sigma$-Algebra. 
+    Es bleibt noch zu zeigen, dass $\mathcal{R}$ alle abgeschlossenen Mengen enthält. Sei also $\emptyset \neq A \subseteq X$ abgeschlossen. Die Bedingung 
     $$
         \mu(A) = \sup\{\mu(C): C \subseteq A, C\text{ abgeschlossen }\}
     $$
     folgt direkt aus der Monotonie von $\mu$. Um die zweite Bedingung zu zeigen setze für $n \in \N$
     $$
-        O_n := \{x \in X: \inf_{y \in  A}d(x,y) < \frac{1}{n}\}.
+        O_n := \big\{x \in X: \inf_{y \in  A}d(x,y) < \frac{1}{n}\big\}.
     $$
-    Dann ist $O_n$ für jedes $n \in \N$ offen und es gilt $O_1 \supseteq O_2 \supseteq ...$, sowie $\cup_{n=1}^{\infty}O_n = A$, da $A$ abgeschlossen ist. 
+    Dann ist $O_n$ für jedes $n \in \N$ offen und es gilt $O_1 \supseteq O_2 \supseteq ...$, sowie $\cap_{n=1}^{\infty}O_n = A$, da $A$ abgeschlossen ist. 
     Mit der $\sigma$-Stetigkeit von $\mu$ folgt letztendlich 
     $$
         \mu(A) \leq \inf\{\mu(O): A \subseteq O, O \text{ offen}\} \leq \inf_{n \in \N}\mu(O_n) = \lim_{n \to \infty}\mu(O_n) = \mu(A). 
     $$
-    Da die abgeschlossenen Mengen $\mathcal{B}(X)$ erzeugen folgt also $\mathcal{R} = \mathcal{B}(X)$ und folglich ist $\mu$ regulär. \qed
+    Da die abgeschlossenen Mengen $\mathcal{B}(X)$ erzeugen gilt $\mathcal{R} = \mathcal{B}(X)$ und folglich ist $\mu$ regulär. \qed
 \end{proof*}
 \begin{mydef}
     Ein Maß $\mu$ auf $\mathcal{B}(X)$ heißt \textit{straff}, falls es für alle $\varepsilon > 0$ eine kompakte Menge $K \subseteq X$ gibt mit 
@@ -103,7 +112,7 @@ Die Bezeichnung wird in der Literatur allerdings nicht einheitlich verwendet.
 
 \begin{proof*}
     Sei $A \in \mathcal{B}(X)$ und $\varepsilon > 0$. Wegen der Straffheit von $\mu$ existiert eine kompakte Menge $K_{\varepsilon} \subseteq X$ mit $\mu(K_{\varepsilon}) \geq 1 - \frac{\varepsilon}{2}$,
-    und da $\mu$ nach Proposition 1.4 regulär ist gibt es eine abgeschlossene Menge $C \subseteq A$ mit $\mu(C) > \mu(A) - \frac{\varepsilon}{2}$. Dann ist die Menge $K_{\varepsilon} \cap C$ wiederum kompakt und es gilt
+    und da $\mu$ nach Proposition $1.4$ regulär ist gibt es eine abgeschlossene Menge $C \subseteq A$ mit $\mu(C) > \mu(A) - \frac{\varepsilon}{2}$. Die Menge $K_{\varepsilon} \cap C$ ist wiederum kompakt und es gilt
     \begin{align*}
         \mu(A) \geq \mu(K_{\varepsilon} \cap C) > \mu(C) - \frac{\varepsilon}{2} > \mu(A) - \varepsilon. 
     \end{align*} 
@@ -126,8 +135,8 @@ Wir verwenden zum Beweis der Proposition die folgende Charakterisierung kompakte
 Der Beweis wird mittels der in metrischen Räumen geltenden Äquivalenz von Überdeckungskompaktheit und Folgenkompaktheit  geführt und findet sich etwa in \cite{amann}[Theorem 3.10]. 
 
 \begin{lemma}
-    Sei $(X,d)$ ein metrischer Raum. Eine Menge $K \subseteq X$ ist genau dann kompakt, wenn sie die folgenden beiden Eigenschaften erfüllt:
-    \begin{enumerate}[(i)]
+    Sei $(X,d)$ ein metrischer Raum. Eine Menge $K \subseteq X$ ist genau dann kompakt, wenn sie die folgenden beiden Eigenschaften erfüllt
+    \begin{enumerate}[(a)]
         \item $K$ ist vollständig,
         \item $K$ ist total-beschränkt, d.h.
         \begin{align*}
@@ -139,11 +148,11 @@ Der Beweis wird mittels der in metrischen Räumen geltenden Äquivalenz von Übe
 \begin{proof*}
     Sei $\varepsilon > 0$. Nach Voraussetzung existiert eine abzählbare dichte Teilmenge $D = \{x_1, x_2,...\}$ von $X$. Also gilt insbesondere für $q \in \N $
     \begin{align*}
-        \bigcup_{i\in \N}\overline{B}(x_i, 2^{-q}) = X.
+        \bigcup_{i = 1}^{\infty}\overline{B}(x_i, 2^{-q}) = X.
     \end{align*}
     Wegen der $\sigma$-Stetigkeit von $\mu$ existiert also ein $N_q \in \N$ mit 
     \begin{align*}
-        \mu(\cup_{i=1}^{N_q}\overline{B}(x_i, 2^{-q}) \geq 1 - \varepsilon 2^{-q}. 
+        \mu\big(\bigcup_{i=1}^{N_q}\overline{B}(x_i, 2^{-q})\big) \geq 1 - \varepsilon 2^{-q}. 
     \end{align*}
     Setze nun 
     \begin{align*}
@@ -153,8 +162,8 @@ Der Beweis wird mittels der in metrischen Räumen geltenden Äquivalenz von Übe
     Ferner ist $K$ total-beschränkt, denn zu $\varepsilon > 0$ existiert ein $q \in \N$ mit $2^{-q} < \varepsilon$ und $K \subseteq \cup_{i=1}^{N_q}B(x_i, 2^{-q}) \subseteq \cup_{i=1}^{N_q}B(x_i, \varepsilon)$. 
     Zudem gilt
     \begin{align*}
-        \mu(K)  = 1 - \mu(\cup_{q \in \N}\cap_{i=1}^{N_q}\overline{B}(x_i, 2^{-q})^c) 
-                &\geq 1 - \sum_{q=1}^{\infty} \mu(\cap_{i=1}^{N_q}\overline{B}(x_i, 2^{-q})^c) \\\
+        \mu(K)  = 1 - \mu\big(\bigcup_{q = 1}^{\infty}\bigcap_{i=1}^{N_q}\overline{B}(x_i, 2^{-q})^c\big) 
+                &\geq 1 - \sum_{q=1}^{\infty} \mu\big(\bigcap_{i=1}^{N_q}\overline{B}(x_i, 2^{-q})^c\big) \\\
                 &\geq 1 - \sum_{q=1}^{\infty} \varepsilon 2^{-q} = 1 - \varepsilon.
     \end{align*}
     Also ist $\mu$ straff. \qed
@@ -170,7 +179,7 @@ Der Beweis wird mittels der in metrischen Räumen geltenden Äquivalenz von Übe
 \begin{proof*}
     zu (i) $\Rightarrow$ (ii): Für alle $n \in \N$ existiert $K_n \subseteq X$ kompakt mit $\mu(K_n) \geq 1 - \frac{1}{n}$, o.E. gelte $K_n \subseteq K_{n+1}$. Es folgt 
     \begin{align*}
-        \mu\big(\cup_{n=1}^{\infty}K_n\big) = \lim_{n \to \infty}\mu\big(K_{n+1}\big) = 1. 
+        \mu\big(\cup_{n=1}^{\infty}K_n\big) = \lim_{n \to \infty}\mu\big(K_ n\big) = 1. 
     \end{align*}
     Da kompakte Teilmengen metrischer Räume insbesondere separabel sind, ist $E := \cup_{n=1}^{\infty}K_n$ als abzählbare Vereinigung separabler Mengen ebenso separabel. 
     \newline 
@@ -183,8 +192,8 @@ Insgesamt haben wir also gezeigt
 \begin{theorem}
     Für ein Wahrscheinlichkeitsmaß $\mu$ auf der Borelschen $\sigma$-Algebra eines vollständigen metrischen Raumes $(X,d)$ sind äquivalent
     \begin{enumerate}[(i)]
-        \item $\mu$ ist straff, 
-        \item Es gibt eine separable Menge $E \subseteq X$ mit $\mu(E) = 1$, 
+        \item $\mu$ ist straff.
+        \item Es gibt eine separable Menge $E \subseteq X$ mit $\mu(E) = 1$.
         \item $\mu$ ist ein Radon-Maß, d.h.
         $$
         \forall A \in \mathcal{B}(X): \quad \mu(A) = \sup\{\mu(K): K \subseteq A, \ K \text{ kompakt}\}.
@@ -192,7 +201,7 @@ Insgesamt haben wir also gezeigt
     \end{enumerate}
 \end{theorem}
 
-Nachdem wir uns nun ausgiebig mit den Eigenschaften einzelner Wahrscheinlichkeitsmaße beschäftigt haben, möchten wir uns nun mit Folgen von Wahrscheinlichkeitsmaßen und deren Konvergenz beschäftigen. 
+Nachdem wir uns nun ausgiebig mit den Eigenschaften einzelner Maße beschäftigt haben, möchten wir uns jetzt mit Folgen von Wahrscheinlichkeitsmaßen und deren Konvergenz beschäftigen. 
 
 \begin{mydef}
     Eine Folge $(\mu_n)_{n \in \N}$ von Wahrscheinlichkeitsmaßen auf $\mathcal{B}(X)$ heißt \textit{schwach konvergent} 

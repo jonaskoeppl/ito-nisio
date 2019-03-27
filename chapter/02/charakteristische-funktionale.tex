@@ -1,17 +1,18 @@
+Ein wichtiges Hilfsmittel zur Untersuchung von Verteilungskonvergenz sind die sogenannten \textit{charakteristischen Funktionale}. 
+Sie sind eine Verallgemeinerung der aus dem skalaren Fall bekannten charakteristischen Funktionen.  
+
 \begin{mydef}
     Sei $\mu$ ein Wahrscheinlichkeitsmaß auf $\mathcal{B}(E)$. 
     Das \textit{charakteristische Funktional} $\widehat{\mu}$ von $\mu$ ist definiert durch
     $$
-        \widehat{\mu} : E' \to \C, \quad l \mapsto \int_{E}e^{il(x)}\mu(dx).
+        \widehat{\mu} : E' \to \C, \quad f \mapsto \int_{E}e^{if(x)}\mu(dx).
     $$
     Wegen der Stetigkeit von $e^{i\cdot}$ und $\abs{e^{ix}}\leq 1$ für alle $x \in \R$ ist $\widehat{\mu}$ wohldefiniert. 
     Für eine Zufallsvariable $X \in \mathcal{L}_0(E)$ bezeichne $\widehat{\mu_X}$ das charakteristische Funktional der Verteilung von $X$. In diesem Fall lässt sich die Abbildung auch schreiben als
     $$
-        l \mapsto E(e^{il(X)}), \quad l \in E'. 
+        l \mapsto \mathbb{E}(e^{if(X)}), \quad f \in E'. 
     $$
 \end{mydef}
-
-
 
 \begin{remark}
     Im Fall $E = \R^d$ lässt sich $E'$ auf kanonische Weise mit $\R^d$ identifizieren, daher lassen sich die charakteristischen Funktionale hier in der Form 
@@ -21,27 +22,39 @@
     schreiben. Nach dem Darstellungssatz von Riesz ist dies auch für allgemeine Hilberträume $E$ möglich. 
 \end{remark}
 
+\begin{proposition}
+    Sei $\mu$ ein Wahrscheinlichkeitsmaß auf $\mathcal{B}(E)$. Dann ist $\widehat{\mu}:E' \to \C$ stetig bzgl. der Norm $\norm{\cdot}_{op}$. 
+\end{proposition}
+\begin{proof*}
+    Sei $f \in E'$ und $(f_n)_{n \in \N}$ eine Folge in $E'$ mit $\lim_{n \to \infty}\norm{f-f_n}_{op} = 0$. 
+    Dann konvergiert $(l_n)_{n \in \N}$ insbesondere punktweise gegen $l$ und mit dem Satz von der dominierten Konvergenz erhalten wir 
+    $$
+        \lim_{n \to \infty} \widehat{\mu}(f_n) = \int_E\lim_{n \to \infty}e^{if_n(x)}\mu(dx) = \int_E e^{if(x)}\mu(dx) = \widehat{\mu}(f). 
+    $$
+    \qed
+\end{proof*}
+
 Wie schon im skalaren Fall dienen die charakteristischen Funktionale als nützliches Hilfsmittel zur Untersuchung von Wahrscheinlichkeitsmaßen und schwacher Konvergenz.
 
 \begin{theorem}[Eindeutigkeitssatz]
-    Seien $\mu$ und $\nu$ zwei Wahrscheinlichkeitsmaße auf $\mathcal{B}(E)$ mit $\widehat{\mu} = \widehat{\nu}$. Dann gilt $\mu = \nu$.
+    Sei $E$ ein separabler Banachraum und seien $\mu$ und $\nu$ zwei Wahrscheinlichkeitsmaße auf $\mathcal{B}(E)$ mit $\widehat{\mu} = \widehat{\nu}$. Dann gilt $\mu = \nu$.
 \end{theorem}
 
 \begin{proof*}
-    Bemerke zunächst. dass für ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(X)$, $d \in  \N$, $t=(t_1,...,t_d) \in \R^d$ und $l_1,..., l_d \in E'$ gilt
+    Bemerke zunächst. dass für ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(X)$, $d \in  \N$, $t=(t_1,...,t_d) \in \R^d$ und $f_1,..., f_d \in E'$ gilt
     $$
-        \widehat{\mu}(\sum_{j=1}^d t_j l_j) = \int_E e^{i\sum_{j=1}^dt_jl_j(x)}\mu(dx) = \int_E e^{i\langle t, \xi \rangle}\mu^T(d\xi) = \widehat{\mu^T}(t),
+        \widehat{\mu}(\sum_{j=1}^d t_j f_j) = \int_E e^{i\sum_{j=1}^dt_jf_j(x)}\mu(dx) = \int_{\R^d} e^{i\langle t, \xi \rangle}\mu^T(d\xi) = \widehat{\mu^T}(t),
     $$
     wobei 
     $$
-        T: E \to \R^d, \quad x \mapsto (l_1(x),...,l_d(x))^T. 
+        T: E \to \R^d, \quad x \mapsto (f_1(x),...,f_d(x))^T. 
     $$
     Nach Voraussetzung folgt also $\widehat{\mu^T} = \widehat{\nu^T}$ und aus \textbf{APPENDIX} folgt $\mu^T = \nu^T$. 
     Es gilt somit
     $$
-        \forall d\in \N \ \forall l_1,...,l_d \in E' \forall A \in \mathcal{B}(\R^d): \ \mu((l_1,..l_d)^{-1}(A)) =  \nu((l_1,..l_d)^{-1}(A)). 
+        \forall d\in \N \ \forall f_1,...,f_d \in E' \forall A \in \mathcal{B}(\R^d): \ \mu((f_1,..f_d)^{-1}(A)) =  \nu((f_1,..f_d)^{-1}(A)). 
     $$
-    Also stimmen $\mu$ und $\nu$ auf dem schnittstabilen Erzeuger $\mathcal{C}(E)$ von $\mathcal{B}(E)$ und somit auf ganz $\mathcal{B}(E)$ überein. \qed
+    Also stimmen $\mu$ und $\nu$ insbesondere auf dem schnittstabilen Erzeuger $\mathcal{C}(E)$ von $\mathcal{B}(E)$ und somit auf ganz $\mathcal{B}(E)$ überein. \qed
 \end{proof*}
 
 \begin{theorem}
@@ -85,17 +98,18 @@ Bevor wir uns im Folgenden Kapitel mit der Konvergenz zufälliger Reihen in Bana
 
 \begin{proof*}%TODO: Identifikation Dualraum und letzte Gleichheit in der Kette checken. Geht das evtl. auch elementarer?
     Wegen des Teilfolgenkriteriums für stochastische Konvergenz können wir ohne Einschränkung annehmen, dass $X_n \fastsicher X$ und $Y_n \fastsicher Y$. 
-    Betrachte die $E \times E$-wertige Zufallsvariablen $Z_n:=(X_n,Y_n)$, $n \in \N$, und $Z:=(X,Y)$. Identifiziere $(E \times E)^* = E^* \times E^*$ und erhalte mittels dominierter Konvergenz und Fubini für $(l_1,l_2) \in E^* \times E^*$. 
+    Betrachte die $(E \times E)$-wertigen Zufallsvariablen $Z_n:=(X_n,Y_n)$, $n \in \N$, und $Z:=(X,Y)$. 
+    Identifiziere $(E \times E)^* = E^* \times E^*$ und erhalte mittels dominierter Konvergenz und dem Satz von Fubini für $(f_1,f_2) \in E^* \times E^*$. 
     \begin{align*}
-        \widehat{P^Z}(x,y) = E(e^{i(l_1(X) + l_2(Y))}) &= \lim_{n \to \infty}E(e^{i(l_1(X_n) + l_2(Y_n))})  \\\
-                                                       &= \lim_{n \to \infty}E(e^{il_1(X_n)}E(e^{il_2(Y_n)}) \\\
-                                                       &= E(e^{il_1(X)})E(e^{il_2(Y)})  \\\
-                                                       &= \widehat{P^X}(l_1)\widehat{P^Y}(P)(l_2) = \widehat{P^X \times P^Y}(l_1, l_2).
+        \widehat{P^Z}(f_1,f_2) = \mathbb{E}(e^{i(f_1(X) + f_2(Y))}) &= \lim_{n \to \infty}\mathbb{E}(e^{i(f_1(X_n) + f_2(Y_n))})  \\\
+                                                       &= \lim_{n \to \infty}\mathbb{E}(e^{if_1(X_n)})\mathbb{E}(e^{if_2(Y_n)}) \\\
+                                                       &= \mathbb{E}(e^{if_1(X)})\mathbb{E}(e^{if_2(Y)})  \\\
+                                                       &= \widehat{P^X}(f_1)\widehat{P^Y}(P)(f_2) = \widehat{P^X \times P^Y}(f_1, f_2).
     \end{align*}
-    Der Eindeutigkeitssatz für charakteristische Funktionen liefert unmittelbar $P^X \times P^Y = P^{(X,Y)}$. Also sind $X,Y$ unabhängig. \qed
+    Der Eindeutigkeitssatz für charakteristische Funktionale liefert unmittelbar $P^X \times P^Y = P^{(X,Y)}$. Also sind $X,Y$ unabhängig. \qed
 \end{proof*}
 
-Sei $0$ das neutrale Element der Addition in $E$ und $\delta_0$ die Einpunktverteilung auf $0$, d.h. 
+Sei $0_E$ das neutrale Element der Addition in $E$ und $\delta_0$ die Einpunktverteilung auf $0_E$, d.h. 
 $$
     \delta_0(A) = 1_A(0), \quad A \in \mathcal{B}(E). 
 $$
@@ -103,24 +117,24 @@ $$
 \begin{proposition}
     Sei $\mu$ ein Wahrscheinlichkeitsmaß auf $\mathcal{B}(E)$. Falls ein $r > 0$ existiert mit
     $$
-       \forall l \in E': \  \norm{l}_{op} \leq r \ \Rightarrow \ \widehat{\mu}(l) = 1,
+       \forall f \in E': \  \norm{f}_{op} \leq r \ \Rightarrow \ \widehat{\mu}(f) = 1,
     $$
     so gilt $\mu = \delta_0$. 
 \end{proposition}
 
 \begin{proof*}
-    Wähle $l \in E'$ beliebig aber fest und betrachte die Abbildung 
+    Wähle $f \in E'$ beliebig aber fest und betrachte die Abbildung 
     $$
-        \phi : \R \to \C, \ t \mapsto \widehat{\mu}(tl). 
+        \phi : \R \to \C, \ t \mapsto \widehat{\mu}(tf). 
     $$
-    Dann ist $\phi$ die charakteristische Funktion von $\mu^{l}$ und nach Voraussetzung gilt $\phi(t) = 1$ für alle $t \in \R$ mit $\abs{t} \leq \frac{r}{\norm{l}_{op}}$. 
+    Dann ist $\phi$ die charakteristische Funktion von $\mu^{f}$ und nach Voraussetzung gilt $\phi(t) = 1$ für alle $t \in \R$ mit $\abs{t} \leq \frac{r}{\norm{f}_{op}}$. 
     Weiter gilt für $s,t \in \R$
     \begin{align*}
-        \abs{\phi(t) - \phi(s)} = \bigg\lvert\int_E e^{isl(x)}(e^{i(t-s)l(x)} - 1)\mu(dx)\bigg\rvert \leq \int_E\big\lvert e^{isl(x)}(e^{i(t-s)l(x)} - 1)\big\rvert\mu(dx).
+        \abs{\phi(t) - \phi(s)} = \bigg\lvert\int_E e^{isf(x)}(e^{i(t-s)f(x)} - 1)\mu(dx)\bigg\rvert \leq \int_E\big\lvert e^{isf(x)}(e^{i(t-s)f(x)} - 1)\big\rvert\mu(dx).
     \end{align*}
     Per Hölder-Ungleichung und der Definition des Absolutbetrags erhalten wir 
     \begin{align*}
-        \int_E\big\lvert e^{isl(x)}(e^{i(t-s)l(x)} - 1)\big\rvert\mu(dx) &\leq \bigg(\int_E\big\lvert e^{isl(x)}(e^{i(t-s)l(x)} - 1)\big\rvert^2\mu(dx)\bigg)^{\frac{1}{2}} \\\
+        \int_E\big\lvert e^{isf(x)}(e^{i(t-s)f(x)} - 1)\big\rvert\mu(dx) &\leq \bigg(\int_E\big\lvert e^{isf(x)}(e^{i(t-s)f(x)} - 1)\big\rvert^2\mu(dx)\bigg)^{\frac{1}{2}} \\\
                                                           &= \sqrt{2 - \phi(t-s) - \overline{\phi(t-s)}} \\\
                                                           &\leq \sqrt{2\abs{1-\phi(t-s)}},
     \end{align*}
@@ -128,10 +142,10 @@ $$
     $$
         \abs{\phi(t) - \phi(s)} \leq \sqrt{2\abs{1-\phi(t-s)}}.
     $$
-    Also muss $\phi$ konstant sein mit $\phi(t) = 1$ für alle $t \in \R$. Da $l$ beliebig gewählt war erhalten wir
+    Also muss $\phi$ konstant sein mit $\phi(t) = 1$ für alle $t \in \R$. Da $f$ beliebig gewählt war erhalten wir
     $$
-        \forall l \in E': \quad \widehat{\mu}(l) = 1 = \int_E e^{il(x)}\delta_0(dx) = \widehat{\delta_0}(l). 
+        \forall f \in E': \quad \widehat{\mu}(f) = 1 = \int_E e^{if(x)}\delta_0(dx) = \widehat{\delta_0}(f). 
     $$
-    Der Eindeutigkeitssatz für charakteristische Funktionale liefert nun $\mu = \delta$. \qed
+    Der Eindeutigkeitssatz für charakteristische Funktionale liefert nun $\mu = \delta_0$. \qed
 \end{proof*}
 

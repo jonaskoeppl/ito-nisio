@@ -11,7 +11,7 @@ Sei $(\Omega, \mathcal{A}, P)$ ein vollständiger Wahrscheinlichkeitsraum und $E
 \begin{remark}
     Nach Abschnitt $1.2$ sind für eine $\mathcal{A}/\mathcal{B}(X)$-messbare Abbildung $X: \Omega \to E$ äquivalent
     \begin{enumerate}[(i)]
-        \item es existiert ein separabler Untervektorraum $E_0 \subseteq E$ mit $P(\{X \in E_0\}) = 1$,
+        \item Es existiert ein separabler Untervektorraum $E_0 \subseteq E$ mit $P(\{X \in E_0\}) = 1$,
         \item $P^X$ ist ein Radon-Maß auf $\mathcal{B}(X)$, 
         \item $P^X$ ist straff. 
     \end{enumerate}
@@ -19,10 +19,10 @@ Sei $(\Omega, \mathcal{A}, P)$ ein vollständiger Wahrscheinlichkeitsraum und $E
 \end{remark}
 
 Bezeichne $\mathcal{L}_0(\Omega, \mathcal{A}, P; E)$ den Raum der $E$-wertigen Radon-Zufallsvariablen auf $(\Omega,\mathcal{A},P)$ und sei $L_0(\Omega, \mathcal{A}, P;E)$ der Raum der Äquivalenzklassen bezüglich fast sicherer Gleichheit. 
-Falls klar ist welcher Wahrscheinlichkeitsraum gemeint ist, so schreiben wir auch $\mathcal{L}_0(E)$ oder $L_0(E)$. 
+Falls klar ist welcher Wahrscheinlichkeitsraum gemeint ist, so schreiben wir auch $\mathcal{L}_0(E)$ bzw. $L_0(E)$. 
 
 \begin{proposition}
-   Für alle $X,Y \in \mathcal{L}_0(E)$ und $\alpha, \beta \in \R$ gitl $\alpha X + \beta Y \in \mathcal{L}_0(E)$.
+   Für alle $X,Y \in \mathcal{L}_0(E)$ und $\alpha, \beta \in \R$ gilt $\alpha X + \beta Y \in \mathcal{L}_0(E)$.
 \end{proposition}
 
 \begin{proof*}
@@ -33,7 +33,7 @@ Falls klar ist welcher Wahrscheinlichkeitsraum gemeint ist, so schreiben wir auc
 Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \textit{einfache Zufallsvariablen} approximieren. 
 
 \begin{mydef}
-    Eine Abbildung $X$ auf $(\Omega, \mathcal{A}, P)$ von der Form 
+    Eine Abbildung $X:\Omega \to E$ von der Form 
     $$
         X = \sum_{i=1}^n 1_{A_i}x_i
     $$
@@ -43,7 +43,7 @@ Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \t
 
 \begin{proposition}
     Sei $X \in \mathcal{L}_0(E)$ und $Y: \Omega \to E$ eine Abbildung. 
-    \begin{enumerate}
+    \begin{enumerate}[(i)]
         \item Es existiert eine Folge $(X_n)_{n \in \N}$ mit $X_n \fastsicher X$ und 
         $$
             \norm{X_n(\omega)} \leq 2 \norm{X(\omega)}
@@ -68,7 +68,7 @@ Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \t
     Aus der Messbarkeit von $X$ und der Stetigkeit von $\norm{\cdot - x}$ für $x \in E$ folgt direkt die Messbarkeit von $T_n$,
     da für alle $i,j \in \{1,..,n\}$ die Menge $\{\norm{X - x_i} < \norm{X - x_j}\}$ messbar ist. Setze nun
     $$
-        X_n := \sum_{k=1}^n 1_{T_n = k}x_k, \quad n \in \N.
+        X_n := \sum_{k=1}^n 1_{\{T_n = k\}}x_k, \quad n \in \N.
     $$
     Dann ist $(X_n)_{n \in \N}$ eine Folge einfacher Zufallsvariablen und es gilt für $n \in \N$ und $\omega \in \Omega$
     $$
@@ -76,7 +76,7 @@ Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \t
     $$
     Da $\{x_1,x_2,...\}$ dicht in $E$ liegt folgt 
     $$
-        \lim_{n \to \infty}{X(\omega) - X_n(\omega)} = \lim_{n \to \infty}\min_{1\leq k \leq n}\norm{X(\omega)- x_k} = \inf{n \in \N} \norm{X(\omega)- x_n} = 0. 
+        \lim_{n \to \infty}{X(\omega) - X_n(\omega)} = \lim_{n \to \infty}\min_{1\leq k \leq n}\norm{X(\omega)- x_k} = \inf_{n \in \N} \norm{X(\omega)- x_n} = 0. 
     $$
     zu $(ii)$: Wegen der Vollständigkeit von $\mathcal{A}$ können wir annehmen, dass $X_n(\omega) \to Y(\omega)$ für alle $\omega \in \Omega$. 
     Wir zeigen, dass für jede abgeschlossene Menge $A \subseteq E$ das Urbild $Y^{-1}(A)$ in $\mathcal{A}$ liegt. 

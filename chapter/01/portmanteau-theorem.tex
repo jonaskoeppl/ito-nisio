@@ -2,18 +2,18 @@
 \begin{theorem}[Portmanteau-Theorem]
     Sei $(X,d)$ ein metrischer Raum und $\mu, \mu_1, \mu_2,...$ Wahrscheinlichkeitsmaße auf $\mathcal{B}(X)$. Dann sind äquivalent
     \begin{enumerate}[(i)]
-        \item $(\mu_n)_{n \in \N}$ konvergiert schwach gegen $\mu$,
+        \item $(\mu_n)_{n \in \N}$ konvergiert schwach gegen $\mu$.
         \item Für alle abgeschlossenen Teilmengen $A \subseteq X$ gilt 
         $$
-            \limsup_{n \to \infty} \mu_n(A) \leq \mu(A)
+            \limsup_{n \to \infty} \mu_n(A) \leq \mu(A).
         $$
         \item Für alle offenen Teilmengen $B \subseteq X$ gilt 
         $$
-            \liminf_{n \to \infty} \mu_n(A) \geq \mu(A)
+            \liminf_{n \to \infty} \mu_n(A) \geq \mu(A).
         $$
         \item Für alle Borelmengen $C \in \mathcal{B}(X)$ mit $\mu(\partial C) = 0$ gilt 
         $$
-            \lim_{n \to \infty}\mu_n(C) = \mu(C)
+            \lim_{n \to \infty}\mu_n(C) = \mu(C).
         $$
     \end{enumerate}
 \end{theorem}
@@ -44,7 +44,7 @@
     zu $(iii) \Rightarrow (iv)$: 
     Sei $C \in \mathcal{B}(X)$ mit $\mu(\partial C) = 0$. Dann gilt insbesondere $\mu(\overline{C}) = \mu(\mathring{C}))$. Da $(iii)$ auch $(ii)$ impliziert erhalten wir somit
     $$
-        \mu(C) = \mu(int(C)) \leq \liminf_{n \to \infty} \mu_n(C) \leq \limsup_{n \to \infty} \mu_n(C) \leq \mu(\overline{C}) = \mu(C).
+        \mu(C) = \mu(\mathring{C})) \leq \liminf_{n \to \infty} \mu_n(C) \leq \limsup_{n \to \infty} \mu_n(C) \leq \mu(\overline{C}) = \mu(C).
     $$
     \newline 
     zu $(iv) \Rightarrow (i)$: 

@@ -5,14 +5,14 @@
 \begin{proof*}
     Betrachte den Produktraum $(\Omega \times \Omega, \mathcal{A} \otimes \mathcal{A}, P \times P)$ und definiere 
     \begin{align*}
-        \tilde{X}_n&: \Omega \times \Omega \to E, \ (\omega_1, \omega_2) \mapsto X_n(\omega_1), \\\
-        \tilde{Y}_n&: \Omega \times \Omega \to E, \ (\omega_1, \omega_2) \mapsto X_n(\omega_2),
+        \widetilde{X}_n&: \Omega \times \Omega \to E, \ (\omega_1, \omega_2) \mapsto X_n(\omega_1), \\\
+        \widetilde{Y}_n&: \Omega \times \Omega \to E, \ (\omega_1, \omega_2) \mapsto X_n(\omega_2),
     \end{align*}
     sowie 
     \begin{align*}
-        \tilde{S}_n := \sum_{i = 1}^n \tilde{X}_i, \quad \tilde{T}_n := \sum_{i = 1}^n \tilde{Y}_n, \quad U_n := \tilde{S}_n - \tilde{T}_n, \quad \mu_{U_n} := (P\times P)^{U_n}. 
+        \widetilde{S}_n := \sum_{i = 1}^n \widetilde{X}_i, \quad \widetilde{T}_n := \sum_{i = 1}^n \widetilde{Y}_n, \quad U_n := \widetilde{S}_n - \widetilde{T}_n, \quad \mu_{U_n} := (P\times P)^{U_n}. 
     \end{align*}
-    Nach Konstruktion gilt $\tilde{S}_n \sim \tilde{T}_n \sim S_n$. Wir zeigen zunächst, dass $(\mu_{U_n})_{n \in \N}$ gleichmäßig straff ist. 
+    Nach Konstruktion sind $\widetilde{S}_n$,$\widetilde{T}_n$ und $S_n$ identisch verteilt. Wir zeigen zunächst, dass $(\mu_{U_n})_{n \in \N}$ gleichmäßig straff ist. 
     Sei dazu $\varepsilon > 0$ Dann existiert nach Voraussetzung eine kompakte Menge $K_{\varepsilon} \subseteq E$ mit 
     $$
         \forall n \in \N: \mu_n(K_{\varepsilon}) \geq 1 - \varepsilon. 
@@ -23,25 +23,21 @@
     $$
     ist auch die Menge $K := \{ x - y : x,y \in K_{\varepsilon} \}$ kompakt und somit insbesondere messbar. Ferner gilt
     \begin{align*}
-        \mu_{U_n}(K) = \prob{\tilde{S}_n - \tilde{T}_n \in K} &\geq \prob{\tilde{S}_n \in K_{\varepsilon}, \tilde{T}_n \in \varepsilon} \\\
-                                                              &\geq 1 - \prob{\tilde{S}_n \in K_{\varepsilon}} - \prob{\tilde{T}_n \in K_{\varepsilon}} \\\
+        \mu_{U_n}(K) = \prob{\widetilde{S}_n - \widetilde{T}_n \in K} &\geq \prob{\widetilde{S}_n \in K_{\varepsilon}, \widetilde{T}_n \in \varepsilon} \\\
+                                                              &\geq 1 - \prob{\widetilde{S}_n \notin K_{\varepsilon}} - \prob{\widetilde{T}_n \notin K_{\varepsilon}} \\\
+                                                              &= 1 - 2\mu_n(K_{\varepsilon}^c) \\\
                                                               &\geq 1 - 2 \varepsilon.                                              
     \end{align*}
     Also ist $(\mu_{U_n})_{n \in \N}$ straff. 
-    Als nächstes zeigen wir, dass $(\widehat{\mu_{U_n}}(l))_{n \in \N}$ für alle $l \in E'$ konvergiert. Sei dazu $l \in E'$ beliebig aber fest. 
-    Die Unabhängigkeit von $(\tilde{Y}_n)_{n \in \N}$ und $(\tilde{X}_n)_{n \in \N}$ liefert direkt die Unabhängigkeit von $(\tilde{X}_n - \tilde{Y}_n)_{n \in \N}$
-    und nach Konstruktion gilt zudem $Y_n \sim X_n$. Also folgt 
+    Als nächstes zeigen wir, dass $(\widehat{\mu_{U_n}}(f))_{n \in \N}$ für alle $f \in E'$ konvergiert. Sei dazu $f \in E'$ beliebig aber fest. 
+    Die Unabhängigkeit von $(\widetilde{Y}_n)_{n \in \N}$ und $(\widetilde{X}_n)_{n \in \N}$ liefert direkt die Unabhängigkeit von $(\widetilde{X}_n - \widetilde{Y}_n)_{n \in \N}$
+    und nach Konstruktion sind $Y_n$ und $X_n$ identisch verteilt. Also folgt 
     \begin{align*}
-        \widehat{\mu_{U_n}}(l) = E(e^{il(U_n)}) = E\big(\prod_{j=1}^n(e^{il(\tilde{X}_j-\tilde{Y}_j)})\big) &= \prod_{j=1}^n E(e^{il(\tilde{X}_j-\tilde{Y}_j)}) \\\ 
-                                                                                                            &= \prod_{j=1}^n E(e^{il(\tilde{X}_j)})E(e^{-il(\tilde{Y}_j)}) \\\
-                                                                                                            &= \prod_{j=1}^n \abs{E(e^{il(\tilde{X}_j)})}^2
+        \widehat{\mu_{U_n}}(f) = E(e^{if(U_n)}) = \mathbb{E}\big(\prod_{j=1}^n(e^{if(\widetilde{X}_j-\widetilde{Y}_j)})\big) &= \prod_{j=1}^n \mathbb{E}(e^{if(\widetilde{X}_j-\widetilde{Y}_j)}) \\\ 
+                                                                                                            &= \prod_{j=1}^n \mathbb{E}(e^{if(\widetilde{X}_j)})\mathbb{E}(e^{-if(\widetilde{Y}_j)}) \\\
+                                                                                                            &= \prod_{j=1}^n \abs{\mathbb{E}(e^{if(\widetilde{X}_j)})}^2
     \end{align*}
-    Wegen $0 \leq \abs{E(e^{il(\tilde{X}_j)})} \leq 1$ für alle $j \in \N$ folgt somit die Konvergenz von $(\widehat{\mu_{U_n}}(l))_{n \in \N}$. 
-    Seien nun $(\mu_{U_{n_k}})_{k \in \N}$ und $(\mu_{U_{m_k}})_{k \in \N}$ zwei konvergente Teilfolgen von $(\mu_{U_n})_{n \in \N}$ mit Grenzwert $\mu'$ bzw. $\mu''$. Für $l \in E'$ gilt also
-    $$
-        \widehat{\mu'}(l) = \lim_{k \to \infty} \widehat{\mu_{U_{n_k}}}(l) = \lim_{k \to \infty} \widehat{\mu_{U_{m_k}}}(l) = \widehat{\mu''}(l).
-    $$
-    Mit dem Eindeutigkeitssatz für charakteristische Funktionale erhalten wir somit $\mu' = \mu''$. 
+    Wegen $0 \leq \abs{E(e^{if(\widetilde{X}_j)})} \leq 1$ für alle $j \in \N$ folgt somit die Konvergenz von $(\widehat{\mu_{U_n}}(f))_{n \in \N}$. 
     Nach Kapitel 2 konvergiert $(U_n)_{n \in \N}$ also in Verteilung und somit nach dem Satz von Itô-Nisio insbesondere fast sicher. 
     Daher existiert eine Menge $\Omega^* \in \mathcal{A} \otimes \mathcal{A}$ mit $(P\times P)(\Omega^*) = 1$ und 
     $$
@@ -61,26 +57,117 @@
         \item $(\mu_n)_{n \in \N}$ ist gleichmäßig straff, 
         \item Es gibt eine Zufallsvariable $S \in \mathcal{L}_0(E)$, sodass 
         $$
-            \forall l \in E': \quad l(S_n) \stochastisch l(S),
+            \forall f \in E': \quad f(S_n) \stochastisch f(S),
         $$
         \item Es gibt ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(E)$, sodass 
         $$
-            \forall l \in E': \quad \lim_{n \to \infty}\widehat{\mu_n}(l) = \widehat{\mu}(l). 
+            \forall f \in E': \quad \lim_{n \to \infty}\widehat{\mu_n}(f) = \widehat{\mu}(f). 
         $$
     \end{enumerate}
 \end{theorem}
 
 \begin{proof*}
     Die Äquivalenz $(i) \iff (ii) \iff (iii)$ wurde bereits im allgemeinen Fall nicht-symmetrischer Zufallsvariablen gezeigt und die Implikationen $(iii) \Rightarrow (iv)$, $(i) \Rightarrow (v) \Rightarrow (vi)$ sind klar. 
-    Wir zeigen noch $(vi) \Rightarrow (v) \Rightarrow (iv) \Rightarrow (i)$. 
+    Wir zeigen noch $(vi) \Rightarrow (iv)$ und $(v) \Rightarrow (iv) \Rightarrow (i)$. 
     \newline
     zu $(iv) \Rightarrow (i)$:
-    \textbf{TODO}
-    \newline 
-    zu $(v) \Rightarrow (iv)$:
-    \textbf{TODO}
+    Nach Satz $3.8$ existiert eine Folge $(c_n)_{n \in \N}$ in $E$, sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert. Setze nun $P^X := P^{(X_1,X_2,...)}$ und $P^{-X} :=P^{(-X_1,-X_2,...)}$. 
+    Wegen der Unabhängigkeit und Symmetrie von $(X_n)_{n \in \N}$ erhalten wir direkt $P^X = P^{-X}$. Weiter gilt für $N \in \N$ und $\varepsilon >0$
+    \begin{align*}
+        &\quad \ \prob{\sup_{n \geq N}\norm{(S_n - c_n) - (S_N- c_N)} > \varepsilon} \\\
+                &= P^X(\{(y_n)_{n \in \N}\in E^{\N}: \  \sup_{n \geq N}\norm{y_n + y_{n-1} + ... + y_{N+1} + (c_n - c_N)} > \varepsilon \}) \\\
+                &= P^{-X}(\{(y_n)_{n \in \N}\in E^{\N}: \ \sup_{n \geq N}\norm{y_n + y_{n-1} + ... + y_{N+1} + (c_n - c_N)} > \varepsilon \}) \\\
+                &= \prob{\sup_{n \geq N}\norm{(-S_n - c_n) - (-S_N - c_N)} > \varepsilon}.
+    \end{align*}
+    Also konvergiert wegen dem Cauchy-Kriterium für fast sichere Konvergenz auch $(-S_n - c_n)_{n \in \N}$ fast sicher. Daraus folgt die fast sichere Konvergenz von $(S_n)_{n \in \N}$, denn für $n \in \N$ gilt
+    $$
+       S_n =  \frac{1}{2}((S_n - c_n) - (-S_n -c_n)). 
+    $$
+    zu $(v) \Rightarrow (iv)$: Wegen der Unabhängigkeit von $(X_n)_{n \in \N}$ sind für alle $f \in E'$ und $m \geq n$ die Zufallsvariablen $f(S_m - S_n)$ und $f(S_n)$ unabhängig. 
+    Nach Proposition $2.18$ sind also $f(S-S_n)$ und $f(S_n)$ für alle $n \in \N$ unabhängig. Zusammen mit der Symmetrie von $S_n$ ergibt sich also für $f \in E'$
+    \begin{align*}
+        \widehat{P^S}(f) = \mathbb{E}(e^{if(S)}) &= \mathbb{E}(e^{if(S-S_n)})\mathbb{E}(e^{if(S_n)})  \\\
+                                        &= \mathbb{E}(e^{if(S-S_n)})\mathbb{E}(e^{if(-S_n)}) = \mathbb{E}(e^{if(S-2S_n)}) = \widehat{P^{S-2S_n}}(f).
+    \end{align*}
+    Also sind $S$ und $S - 2S_n$ nach dem Eindeutigkeitssatz für alle $n \in \N$  identisch verteilt. Da $P^S$ straff ist existiert zu $\varepsilon >0$ eine kompakte Menge $K \subseteq E'$ mit $\prob{S \in K} \geq 1 - \varepsilon$. 
+    Aus Stetigkeitsgründen ist auch die Menge $L := \{\frac{1}{2}(x-y): x,y \in K\}$ kompakt und es gilt für alle $n \in \N$
+    $$
+        \prob{S_n \in L} \geq \prob{S \in K, \ S-2S_n \in K} \geq 1 - \prob{S \notin K} - \prob{S-2S_n \notin K} \geq 1 - 2\varepsilon. 
+    $$ 
+    Also ist $(\mu_n)_{n \in \N}$ gleichmäßig straff. 
     \newline
-    zu $(vi) \Rightarrow (v)$: 
-    \textbf{TODO}
+    zu $(vi) \Rightarrow (iv)$: 
+    Sei $f \in E'$ beliebig aber fest. Betrachte die Abbildungen 
+    \begin{align*}
+        \varphi_n &: \R \to \C, \quad t \mapsto \int_E e^{itf(x)}\mu_n(dx) = \widehat{\mu_n}(tf), \quad n \in \N, \\\
+        \varphi   &: \R \to \C, \quad t \mapsto \int_E e^{itf(x)}\mu(dx) = \widehat{\mu}(tf). 
+    \end{align*}
+    Dann ist $\varphi_n$ für alle $n \in \N$ die charakteristische Funktion von $\mu_n^{f}$ und $\varphi$ die charakteristische Funktion von $\mu^f$. Nach Voraussetzung konvergiert $(\varphi_n)_{n \in \N}$ punktweise gegen $\varphi$ und nach 
+    dem Stetigkeitssatz von Lévy, vgl. \cite{gs}[Satz 8.7.5, S.357], gilt also $\mu_n^f \rightharpoonup \mu^f$. Für festes $f \in E'$ ist $\{\mu_n^f : n \in \N\}$ also insbesondere relativ kompakt. Nach dem Satz von de Acosta genügt es folglich zu zeigen, dass $(\mu_n)_{n \in \N}$ flach konzentriert ist. 
+    Da $\{\mu\}$ flach konzentriert ist genügt es dafür zu zeigen, dass für jeden endlich dimensionalen Untervektorraum $F \subseteq E$ und alle $\varepsilon > 0$ gilt 
+    $$
+        \mu_n((F^{\varepsilon})^c) \leq 2 \mu((F^{\varepsilon})^c).
+    $$
+    Sei also $F \subseteq E$ ein endlich dimensionaler Untervektorraum und $\varepsilon >0$. Nach dem Satz von Hahn-Banach existiert eine Folge $(f_n)_{n \in \N}$ in $E'$ mit 
+    $$
+        \forall x \in E: \quad d(x,F) := \inf_{y \in F}\norm{x-y} = \sup_{n \in \N}\abs{f_n(x)}. 
+    $$
+    Sei zunächst $m \in \N$ festgewählt. Mittels charakteristischer Funktionen prüft man leicht, dass $\mu_n^{(f_1,...,f_m)} \rightharpoonup \mu^{(f_1,...,f_m)}$. 
+    Wegen der Linearität von $f_1,...,f_m$ können wir den Satz von Itô-Nisio auf die Folge $(T_n)_{n \in \N} := ((f_1,...,f_m)\circ S_n)_{n \in \N}$ anwenden und erhalten eine $\R^m$-wertige Zufallsvariable $T$ auf $(\Omega, \mathcal{A}, P)$ mit 
+    $T_n \stochastisch T$. Insbesondere gilt also $T_n \schwach T$ und somit $P^T = \mu^{(f_1,...,f_,)}$. 
+    Ferner erhält die Linearität von $f_1,...,f_m$ die Symmetrie und mit der Lévy Ungleichung für Grenzwerte in Verteilung angewendet auf $(T_n)_{n \in \N}$ erhalten wir im Banachraum $(\R^m, \norm{\cdot}_{\infty})$
+    \begin{align*}
+        \prob{\max_{1 \leq i \leq m}\abs{f_i(S_n)} > \varepsilon} &= \prob{\norm{T_n}_{\infty} > \varepsilon} \\\
+                                                                  &\leq 2 \prob{\norm{T}_{\infty} > \varepsilon} = 2\mu\big(\{x \in E: \max_{1\leq i \leq m}\abs{f_i(x)} > \varepsilon\}\big)
+    \end{align*}
+    Es gilt folglich wegen der $\sigma$-Stetigkeit von Wahrscheinlichkeitsmaßen 
+    \begin{align*}
+        \mu_n((F^{\varepsilon})^c) = \prob{d(S_n, F) > \varepsilon} &= \lim_{m \to \infty}\prob{\max_{1 \leq i \leq m}\abs{f_i(S_n)} > \varepsilon} \\\
+                                                                    &\leq \lim_{m \to \infty} 2 \mu(\{x \in E: \max_{1\leq i \leq m}\abs{f_i(x)} > \varepsilon\})
+                                                                    = 2 \mu((F^{\varepsilon})^c).
+    \end{align*}
     \qed
+\end{proof*}
+
+\begin{remark}
+    Auf die Annahme der Symmetrie in Satz $3.10$ kann im Allgemeinen nicht verzichtet werden. Sei $E$ ein Hilbertraum mit Orthonormalbasis $(e_n)_{n \in \N}$.
+    Nach dem Darstellungsatz von Riesz können wir den Dualraum $E'$ mit $E$ identifizieren. Setze nun 
+    $$
+        X_1(\omega) = e_1, \quad X_n(\omega) = e_n - e_{n-1}, \ n \in \N, \quad \omega \in \Omega. 
+    $$
+    Dann gilt offensichtlich $S_n = e_n$ und da $(e_n)_{n \in \N}$ eine Orthonormalbasis von $E$ ist gilt für alle $z \in E$
+    $$
+        \lim_{n \to \infty}\langle z,S_n \rangle = 0 = \langle z,S \rangle,
+    $$
+    wobei $S(\omega) = 0$ für alle $\omega \in \Omega$. Wegen $\norm{S_n} = \norm{e_n} =1$ für alle $n \in \N$ konvergiert $(S_n)_{n \in \N}$ aber weder fast-sicher noch stochastisch gegen $S$.
+    \qexampled 
+\end{remark}
+
+Für Folgen $(a_n)_{n \in \N}$ in $[0, \infty)$ kennt man aus der reellen Analysis die Äquivalenz
+$$
+    \bigg(\sum_{i=1}^n a_i\bigg)_{n \in \N} \text{ konvergiert. } \iff \bigg(\sum_{i=1}^n a_i\bigg)_{n \in \N} \text{ ist beschränkt.}
+$$
+Mit Hilfe des Satzes von Itô-Nisio können wir nun ein ähnliches Resultat für symmetrische Zufallsvariablen formulieren. 
+
+\begin{mydef}
+    Eine Folge $(X_n)_{n \in \N}$ in $\mathcal{L}_0(E)$ heißt \textit{stochastisch beschränkt}, falls
+    $$
+        \forall \varepsilon >0 \ \exists R > 0: \quad \sup_{n \in \N}\prob{\norm{X_n} > R} < \varepsilon. 
+    $$
+\end{mydef}
+
+\begin{corollary}
+    Sei $d \in \N$ und $(X_n)_{n \in \N}$ eine unabhängige Folge $\R^d$-wertiger symmetrischer Zufallsvariablen. Dann sind äquivalent 
+    \begin{enumerate}[(i)]
+        \item $(S_n)_{n \in \N}$ konvergiert fast sicher.
+        \item $(S_n)_{n \in \N}$ ist stochastisch beschränkt. 
+    \end{enumerate} 
+\end{corollary}
+\begin{proof*}
+    $(i) \Rightarrow (ii)$ ist klar. Aus $(ii)$ erhalten wir unmittelbar
+    $$
+        \forall \varepsilon > 0 \ \exists R > 0: \quad \inf_{n \in \N}\prob{S_n \in \overline{B}(0,R)} \geq 1 - \varepsilon.
+    $$
+    Da abgeschlossene und beschränkte Teilmengen des $\R^d$ nach dem Satz von Heine-Borel kompakt sind folgt daraus die gleichmäßige Straffheit von $(\mu_n)_{n \in \N}$. 
+    Nach dem Satz von Itô-Nisio konvergiert $(S_n)_{n \in \N}$ also fast sicher. \qed 
 \end{proof*}

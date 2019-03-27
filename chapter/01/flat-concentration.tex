@@ -1,6 +1,7 @@
 \section{Flache Konzentrierung von Wahrscheinlichkeitsmaßen}
-Da wir uns im Laufe der Arbeit hauptsächlich mit Zufallsvariablen auf Banachräumen beschäftigen werden, wollen wir noch eine weitere für diesen Kontext nützliche Charakterisierung der relativen Kompaktheit betrachten. 
-Quelle: \cite{vakhania}, Originalpaper: de Acosta \textbf{(TODO: zitieren)}
+Für unsere spätere Betrachtung von Zufallsvariablen mit Werten in Banachräumen lohnt es sich hier noch eine weitere Charakterisierung der relativen Kompaktheit von Familien von Wahrscheinlichkeitsmaßen zu betrachten. 
+Der Begriff der \textit{flachen Konzentrierung} von Wahrscheinlichkeitsmaßen wurde zuerst von A.D. de Acosta betrachtet, vgl. \cite{acosta}. 
+Die Darstellung hier orientiert sich an \cite{vakhania}. \newline 
 Für eine nichtleere Teilmenge $A \subseteq E$ setze 
 $$
     A^{\varepsilon} := \{x \in E: \inf_{y\in A}\norm{x-y} < \varepsilon \}.
@@ -35,7 +36,7 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     $$
     zu $\Leftarrow$: Wir zeigen, dass jede Folge in $A$ eine konvergente Teilfolge besitzt, der Grenzwert der Teilfolge muss hierbei nicht in $A$ liegen. 
     Sei dazu $(x^{(0)}_n)_{n \in \N}$ eine Folge in $A$, $\varepsilon > 0$ und $S \subseteq E$ ein endlichdimensionaler Untervektorraum mit $A \subseteq S^{\varepsilon}$. 
-    Dann existieren insbesondere eine Folge $(y_n)_{n \in \N}$ in $S$ mit 
+    Dann existiert insbesondere eine Folge $(y_n)_{n \in \N}$ in $S$ mit 
     $$
         \forall n \in \N: \quad d(x^{(0)}_n, y_n) \leq 2\varepsilon.
     $$
@@ -44,7 +45,7 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     \begin{align*}
         \norm{x^{(0)}_{n_k} - x^{(0)}_{n_m}} \leq \norm{x^{(0)}_{n_k} - y_{n_k}} + \norm{y_{n_k} - y_{n_m}} + \norm{x^{(0)}_{n_m} - y_{n_m}} \leq 5\varepsilon. 
     \end{align*}
-    Ohne Einschränkung können wir durch entfernen endlich vieler Folgenglieder annehmen, dass 
+    Durch Entfernen endlich vieler Folgenglieder können wir ohne Einschränkung annehmen, dass 
     $$
         \forall k,m \in \N: \quad \norm{x^{(0)}_{n_k} - x^{(0)}_{n_m}} \leq 5\varepsilon. 
     $$
@@ -57,21 +58,26 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
 \end{proof*}
 
 \begin{lemma}
-    Sei $S \subseteq E$ ein endlichdimensionaler Untervektorraum und $l_1,...,l_n \in E'$ Funktionale mit 
+    Sei $S \subseteq E$ ein endlichdimensionaler Untervektorraum und $f_1,...,f_n \in E'$ Funktionale mit 
     \begin{align}
-        \forall x,y \in S \ \exists k \in \{1,...,n\}: \quad l_k(x) \neq l_k(y).
+        \forall x,y \in S \ \exists k \in \{1,...,n\}: \quad f_k(x) \neq f_k(y).
     \end{align}
     Dann ist die Menge 
     $$
-        B := S^{\varepsilon} \cap \{x \in E: \abs{l_1(x)} \leq r_1,...,\abs{l_n(x)}\leq r_n\}
+        B := \overline{S^{\varepsilon}} \cap \{x \in E: \abs{f_1(x)} \leq r_1,...,\abs{f_n(x)}\leq r_n\}
     $$
     für alle $\varepsilon, r_1,...,r_n \in (0, \infty)$ beschränkt. 
 \end{lemma}
 
+\begin{remark}%TODO: evtl. weiter nach oben verschieben und noch erklären wieso es für S endlich viele derartige Funktionale gibt. 
+    Man sagt eine Familie von Abbildungen mit der Eigenschaft $(1.4)$ \textit{trenne die Punkte von S}.
+    Die Existenz solcher Funktionale wird durch den Fortsetzungssatz von Hahn-Banach sichergestellt. 
+\end{remark}
+
 \begin{proof*}
     Wegen $(1.4)$ definiert 
     $$
-        p(x) := \max_{1\leq k \leq n} \abs{l_k(x)}, \quad x \in S,
+        p(x) := \max_{1\leq k \leq n} \abs{f_k(x)}, \quad x \in S,
     $$
     eine Norm auf $S$. Da $S$ endlichdimensional ist, ist diese insbesondere äquivalent zur Einschränkung von $\norm{\cdot}$ auf $S$. 
     Angenommen die Menge $B$ ist nicht beschränkt. Dann existiert eine Folge $(x_n)_{n \in \N}$ in $B$ mit 
@@ -80,19 +86,15 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     $$
     Wegen der Normäquivalenz existiert dann ein $k \in \{1,...,n\}$ mit 
     $$
-        \lim_{n \to \infty}\abs{l_k(x_n)} = \infty. 
+        \lim_{n \to \infty}\abs{f_k(x_n)} = \infty. 
     $$
     Im Widerspruch zur Definition von $B$. \qed
 \end{proof*}
 
-\begin{theorem}
-    Sei $\Gamma \subseteq E'$, sodass 
-    \begin{align}
-        \forall x,y \in E \ \exists l \in \Gamma: \quad l(x) \neq l(y).
-    \end{align}
+\begin{theorem}[Satz von de Acosta]
     Eine Menge $M \subseteq \mathcal{M}(E)$ von Wahrscheinlichkeitsmaßen ist genau dann relativ kompakt in $(\mathcal{M}, \rho)$ wenn die folgenden beiden Bedingungen erfüllt sind
     \begin{enumerate}[(a)]
-        \item Für alle $l \in \Gamma$ ist $\{\mu^l : \mu \in M\} \subseteq \mathcal{M}(\R)$ relativ kompakt,
+        \item Für alle $f \in E'$ ist $\{\mu^f : \mu \in M\} \subseteq \mathcal{M}(\R)$ relativ kompakt,
         \item $M$ ist flach konzentriert. 
     \end{enumerate}
 \end{theorem}
@@ -104,15 +106,45 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     $$
         \forall \mu \in M: \quad \mu(K) \geq 1 - \varepsilon.   
     $$ 
-    Aus der Stetigkeit von $l \in \Gamma$ erhalten wir somit direkt die gleichmäßige Straffheit von $\{\mu^l : \mu \in \Gamma\}$. Erneutes anwenden des Satzes von Prokhorov liefert $(a)$. 
-    Da $K$ insbesondere relativ kompakt ist liefert \textbf{Lemma zwei davor, TODO} einen endlichdimensionalen Untervektorraum $S \subseteq E$ mit $K \subseteq S^{\varepsilon}$. Somit gilt
+    Aus der Stetigkeit von $f \in E'$ erhalten wir somit direkt die gleichmäßige Straffheit von \mbox{$\{\mu^f : \mu \in M\}$}. Erneutes anwenden des Satzes von Prokhorov liefert $(a)$. 
+    Da $K$ insbesondere relativ kompakt ist liefert Lemma $1.22$ einen endlichdimensionalen Untervektorraum $S \subseteq E$ mit $K \subseteq S^{\varepsilon}$. Somit gilt
     $$
         \forall \mu \in M: \quad \mu(S^{\varepsilon}) \geq \mu(K) \geq 1 - \varepsilon.
     $$
     Folglich ist $M$ flach konzentriert. 
     \newline 
     zu $\Leftarrow$: 
-    \textbf{TODO}
+    Sei $\varepsilon > 0$. Dann existiert für alle $n \in \N$ ein endlich dimensionaler Untervektorraum $S_{n, \varepsilon} \subseteq E$ mit 
+    $$
+        \forall \mu \in M: \quad \mu(S_{n, \varepsilon}^{\frac{\varepsilon}{2^{n+1}}}) \geq 1 - \frac{\varepsilon}{2^{n+1}}.
+    $$
+    Seien nun $f_1^{(n)},...,f_{k_n}^{(n)} \in E'$ mit 
+    $$
+        \forall x,y \in S_{n, \varepsilon}: \quad x \neq y \Rightarrow \ \exists j \in \{1,...,k_n\}: \quad f_j(x) \neq f_j(y). 
+    $$
+    Nach Voraussetzung $(a)$ können wir zudem $r_1^{(n)},...,r_{k_n}^{(n)} \in (0, \infty)$ so wählen, dass
+    $$
+        \inf_{\mu \in M} \mu^{f_i}\big([-r_i, r_i]\big) \geq 1 - \frac{\varepsilon}{k_n 2^{n+1}}, \quad i=1,...,k_n,
+    $$
+    Setze schließlich
+    $$
+        F_{n,\varepsilon} := \overline{\big(S_{n,\varepsilon}^{\frac{\varepsilon}{2^{n+1}}}\big)}
+    $$
+    Dann ist die Menge 
+    $$
+        K := \bigcap_{n =1}^{\infty}\big(F_{n, \varepsilon} \cap\{x \in E: \ \abs{f_1^{(n)}}\leq r_1^{(n)},...,\abs{f_{k_n}^{(n)}}\leq r_{k_n}^{(n)}\}\big)
+    $$
+    nach Lemma $1.23$ beschränkt und als Schnitt abgeschlossener Mengen abgeschlossen. Ferner gilt für alle $n \in \N$
+    $$
+        K \subseteq  F_{n, \varepsilon} \subseteq S_{n,\varepsilon}^{\frac{\varepsilon}{2^n}}.
+    $$
+    Also ist $K$ nach Lemma $1.22$ kompakt. Für $\mu \in M$ gilt schließlich
+    \begin{align*}
+        \mu(K^c) &\leq \sum_{n=1}^{\infty}\mu(F_{n, \varepsilon}) + \sum_{i=1}^{k_n}\mu^{f_i^{(n)}}\big([-r_i^{(n)}, r_i^{(n)}]^c\big) \\\
+                 &\leq \sum_{n=1}^{\infty}\mu(F_{n, \varepsilon}) + \frac{\varepsilon}{2^{n+1}} \\\
+                 &\leq \sum_{n=1}^{\infty}(\frac{\varepsilon}{2^{n+1}} + \frac{\varepsilon}{2^{n+1}}) = \varepsilon. 
+    \end{align*}
+    Also ist $M$ gleichmäßig straff und somit nach dem Satz von Prokhorov relativ kompakt. \qed
 \end{proof*}
 
 \begin{corollary}
@@ -124,10 +156,6 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
 
 \begin{proof*}
     Die Richtung $\Rightarrow$ ist klar und für $\Leftarrow$ reicht es anzumerken, dass beschränkte Mengen durch lineare Abbildungen auf beschränkte Mengen abgebildet werden. Nach dem Satz von Heine-Borel sind 
-    beschränkte Teilmengen endlich dimensionaler normierter Vektorräume aber insbesondere relativ kompakt. \qed 
+    beschränkte Teilmengen der reellen Zahlen aber insbesondere relativ kompakt. \qed 
 \end{proof*}
 
-\begin{remark}%TODO: evtl. weiter nach oben verschieben und noch erklären wieso es für S endlich viele derartige Funktionale gibt. 
-    Man sagt eine Familie von Abbildungen mit der Eigenschaft $(1.2)$ (bzw. $(1.1)$ ) \textit{trenne die Punkte von E} (bzw $S$). Die Existenz einer solchen Menge $\Gamma \subseteq E'$ ist durch den Satz von Hahn-Banach sichergestellt. 
-    Insbesondere erfüllt $E'$ selbst$(1.1)$. 
-\end{remark}

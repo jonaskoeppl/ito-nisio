@@ -13,7 +13,32 @@ Seien ferner $S_0 = T_0 = 0$.
 \end{lemma}
 
 \begin{proof*}
-    \textbf{TODO}
+    Wegen der Symmetrie von $(X_n)_{n \in \N}$ sind $(\lambda_n X_n)_{n \in \N}$ und $(\abs{\lambda_n}X_n)_{n \in \N}$ identisch verteilt. Ferner ist $(\lambda_n)_{n \in \N}$ nach Voraussetzung beschränkt. 
+    Wir können also ohne Einschränkung annehmen, dass $0 \leq \lambda_n \leq 1$ für alle $n \in \N$. 
+    \newline 
+    \underline{Fall A}: $\lambda_1 \geq \lambda_2 \geq... \geq \lambda_N$. 
+    \newline 
+    Per Abelscher Summation erhalten wir 
+    $$
+        T_N = \sum_{n=1}^N \lambda_n(S_n - S_{n-1}) = \sum_{n=1}^{N-1}(\lambda_n - \lambda_{n+1})S_n + \lambda_N \S_N. 
+    $$
+    Mit der Dreiecksungleichung erhalten wir 
+    \begin{align*}
+        \norm{T_N} &\leq \sum_{n=1}^{N-1}(\lambda_n - \lambda_{n+1})\norm{S_n} + \lambda_N \norm{S_N} \\\
+                   &\leq \max_{1 \leq n \leq N}\norm{S_n} \big(\sum_{n=1}^{N-1}(\lambda_n - \lambda_{n+1}) + \lambda_N\big) \\\
+                   &= \max_{1\leq n \leq N}\norm{S_n} \lambda_1 \leq \max_{1\leq n \leq N}\norm{S_n}.
+    \end{align*}
+    Mit Lévys Maximalungleichung erhalten wir nun
+    $$
+        \prob{\norm{T_N} > t} \leq \prob{\max_{1 \leq n \leq N}\norm{S_n} > t} \leq 2 \prob{\norm{S_N} > t}.
+    $$
+    \underline{Fall B}: Allgemeiner Fall. 
+    \newline 
+    Mittels einer Permutation $\sigma$ erhält man $\lambda_{\sigma(1)} \geq ... \geq \lambda_{\sigma(N)}$. Man beachte schließlich, dass 
+    $$
+        \sum_{n=1}^N\lambda_{\sigma(n)}X_{\sigma(n)} = T_N \quad \text{ und } \quad \sum_{n=1}^N X_{\sigma(n)} = S_N.
+    $$ 
+    Aus Fall A folgt nun die Behauptung. \qed
 \end{proof*}
 
 \begin{theorem}[Kontraktions-Prinzip, Qualitative Version]

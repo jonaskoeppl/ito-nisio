@@ -1,5 +1,6 @@
 \section{Die Prokhorov Metrik}
-
+Nachdem wir im letzten Abschnitt damit begonnen haben Folgen von Wahrscheinlichkeitsmaßen auf schwache Konvergenz zu untersuchen wollen wir im Folgenden ein weiteres wichtiges Hilfsmittel für dieses Unterfangen besprechen.
+Zunächst einmal sei dafür an den Begriff der relativen Kompaktheit erinnert. 
 \begin{mydef}
     Eine Teilmenge $A$ eines metrischen Raums $(X,d)$ heißt \textit{relativ kompakt}, falls ihr Abschluss $\overline{A}$ kompakt ist. 
 \end{mydef}
@@ -14,8 +15,8 @@ Eine Folge $(x_n)_{n \in \N}$ in einem metrischen Raum konvergiert also genau da
     \item alle konvergenten Teilfolgen von $(x_n)_{n \in \N}$ haben den selben Grenzwert. 
 \end{enumerate}
 
-Ziel dieses Abschnitts ist es daher zunächst eine adäquate Metrik für die schwache Konvergenz von Wahrscheinlichkeitsmaßen zu konstruieren 
-und anschließend den Begriff der relativen Kompaktheit bzgl. dieser Metrik zu charakterisieren. 
+Ziel dieses Abschnitts ist es daher zunächst eine adäquate Metrik zu konstruieren, die die schwache Konvergenz von Wahrscheinlichkeitsmaßen beschreibt. 
+Anschließend wollen wir den Begriff der relativen Kompaktheit bzgl. dieser Metrik charakterisieren. 
 \newline \ \newline
 Für einen metrischen Raum $(X,d)$ bezeichne $\mathcal{M}(X)$ die Menge aller Wahrscheinlichkeitsmaße auf der Borelschen $\sigma$-Algebra $\mathcal{B}(X)$ und für eine Menge $B \in \mathcal{B}(X)$ definiere für $\varepsilon > 0$
 $$
@@ -53,7 +54,7 @@ $$
     $$
         \forall B \in \mathcal{B} \ \forall \alpha > 0: \quad \mu(A) \leq \mu(A^{\alpha}) + \alpha.
     $$
-    Also gilt $\rho(\mu, \mu) = 0$. Gilt andererseits $\rho(\mu, \nu) = 0$, so existiert eine Folge $(\alpha_n)_{n \in \N}$ mit 
+    Also gilt $\rho(\mu, \mu) = 0$. Gilt andererseits $\rho(\mu, \nu) = 0$, so existiert eine Folge $(\alpha_n)_{n \in \N}$ mit $\alpha_n \downarrow 0$ und
     $$
     \forall B \in \mathcal{B} \ \forall n \in \N: \quad \mu(A) \leq \nu(A^{\alpha_n}) + \alpha_n \quad \land \nu(A) \leq \mu(A^{\alpha_n}) + \alpha_n.
     $$
@@ -130,13 +131,13 @@ Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkeh
 \end{theorem}
 
 \begin{proof*}
-    zu $\Rightarrow$: Siehe Proposition.
+    zu $\Rightarrow$: Siehe Proposition $1.16(iii)$.
     \newline 
     zu $\Leftarrow$:  Wir zeigen
     $$
         \forall \varepsilon > 0 \ \exists N \in \N \ \forall n \geq N: \quad \forall B \in \mathcal{B}: \  \mu(B) \leq \mu_n(B^{\varepsilon}) + \varepsilon. 
     $$
-    Daraus folgt nach Proposition $XXX.(ii)$ die Behauptung. Sei $\delta := \frac{\varepsilon}{4} > 0$. 
+    Daraus folgt nach Proposition $1.16(ii)$ die Behauptung. Sei $\delta := \frac{\varepsilon}{4} > 0$. 
     Dann existiert nach vorherigem Lemma eine Folge $(B_n)_{n \in \N}) := (B(x_n, r_n))_{n \in \N}$ offener Kugeln mit Radius $r_n < \frac{\delta}{2}$  
     und $\mu(\partial B_n) = 0$ für alle $n \in \N$, sowie $X = \cup_{n \in  \N}B_n$. Ferner existiert $k \in N$ mit
     $$
@@ -144,7 +145,7 @@ Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkeh
     $$
     Betrachte nun das endliche Mengensystem 
     $$
-        \mathcal{C} := \left\{ \cup_{j \in J}B_j : J \subseteq \{1,..,k\}\right\}. 
+        \mathcal{C} := \left\{ \bigcup_{j \in J}B_j : J \subseteq \{1,..,k\}\right\}. 
     $$
     Dann gilt für alle $A \in \mathcal{C}$
     $$
@@ -169,7 +170,8 @@ Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkeh
     \qed
     
 \end{proof*}
-Nachdem wir nun eine passende Metrik gefunden haben, um die schwache Konvergenz von Wahrscheinlichkeitsmaßen in $\mathcal{M}(X)$ zu beschreiben wollen wir nun noch kurz auf ein Resultat von Prokhorov eingehen. 
+Nachdem wir nun eine passende Metrik gefunden haben, um die schwache Konvergenz von Wahrscheinlichkeitsmaßen in $\mathcal{M}(X)$ zu beschreiben wollen wir nun noch kurz auf ein Resultat von Prokhorov eingehen, 
+welches uns eine äußerst nützliche Charakterisierung der relativ kompakten Teilmengen von $(\mathcal{M}(X), \rho)$ liefert. 
 Dazu benötigen wir die folgende 
 \begin{mydef}
     Eine Familie $M \subseteq \mathcal{M}(X)$ von Wahrscheinlichkeitsmaßen heißt \textit{gleichmäßig straff}, 
@@ -194,3 +196,12 @@ Um die schwache Konvergenz einer Folge $(\mu_n)_{n \in \N}$ von Wahrscheinlichke
     \item $\{\mu_n: n \in \N\}$ ist gleichmäßig straff und
     \item jede konvergente Teilfolge von $(\mu_n)_{n \in \N}$ konvergiert gegen den selben Grenzwert.
 \end{enumerate}
+
+\begin{remark}
+    In \cite{li-queffelec} findet sich ein alternativer Zugang zur Prokhorov-Metrik. Hier wird die Metrik auf $\mathcal{M}(X)$ nicht wie hier über die Mengen aus $\mathcal{B}(X)$ definiert, sondern über Funktionen $f \in C_b(\R)$.
+    Es wird dort gezeigt, dass es für einen vollständigen und separablen metrischen Raum $(X,d)$ eine Folge $(f_n)_{n \in \N}$ in der Einheitskugel von $C_b(\R)$ gibt, sodass durch
+    $$
+        (\mu, \nu) \mapsto \sum_{n=1}^{\infty}\frac{1}{2^n}\abs{\int_Xf_nd\mu - \int_X f_n d\nu}, \quad \mu, \nu \in \mathcal{M}(X)
+    $$
+    eine Metrik definiert ist, die die schwache Konvergenz charakterisiert. 
+\end{remark}
