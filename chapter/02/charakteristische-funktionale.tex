@@ -10,7 +10,7 @@ Sie sind eine Verallgemeinerung der aus dem skalaren Fall bekannten charakterist
     Wegen der Stetigkeit von $e^{i\cdot}$ und $\abs{e^{ix}}\leq 1$ für alle $x \in \R$ ist $\widehat{\mu}$ wohldefiniert. 
     Für eine Zufallsvariable $X \in \mathcal{L}_0(E)$ bezeichne $\widehat{\mu_X}$ das charakteristische Funktional der Verteilung von $X$. In diesem Fall lässt sich die Abbildung auch schreiben als
     $$
-        l \mapsto \mathbb{E}(e^{if(X)}), \quad f \in E'. 
+        f \mapsto \mathbb{E}(e^{if(X)}), \quad f \in E'. 
     $$
 \end{mydef}
 
@@ -35,13 +35,18 @@ Sie sind eine Verallgemeinerung der aus dem skalaren Fall bekannten charakterist
 \end{proof*}
 
 Wie schon im skalaren Fall dienen die charakteristischen Funktionale als nützliches Hilfsmittel zur Untersuchung von Wahrscheinlichkeitsmaßen und schwacher Konvergenz.
+Es sei daran erinnert, dass nach Proposition $1.34$ für einen separablen Banachraum $E$ die beiden $\sigma$-Algebren $\mathcal{B}(E)$ und $\sigma(E')$ übereinstimmen. Ferner ist 
+$$
+    \mathcal{C}(E) := \{ \bigcap_{i=1}^n f^{-1}(A): \ n \in \N, \ f_1,...,f_n \in E', \ A_1,...,A_n \in \mathcal{B}(\R) \}.
+$$ 
+ein schnitt-stabiler Erzeuger von $\sigma(E')$. 
 
 \begin{theorem}[Eindeutigkeitssatz]
     Sei $E$ ein separabler Banachraum und seien $\mu$ und $\nu$ zwei Wahrscheinlichkeitsmaße auf $\mathcal{B}(E)$ mit $\widehat{\mu} = \widehat{\nu}$. Dann gilt $\mu = \nu$.
 \end{theorem}
 
 \begin{proof*}
-    Bemerke zunächst. dass für ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(X)$, $d \in  \N$, $t=(t_1,...,t_d) \in \R^d$ und $f_1,..., f_d \in E'$ gilt
+    Bemerke zunächst, dass für ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(X)$, $d \in  \N$, $t=(t_1,...,t_d) \in \R^d$ und $f_1,..., f_d \in E'$ gilt
     $$
         \widehat{\mu}(\sum_{j=1}^d t_j f_j) = \int_E e^{i\sum_{j=1}^dt_jf_j(x)}\mu(dx) = \int_{\R^d} e^{i\langle t, \xi \rangle}\mu^T(d\xi) = \widehat{\mu^T}(t),
     $$
@@ -52,7 +57,7 @@ Wie schon im skalaren Fall dienen die charakteristischen Funktionale als nützli
     Nach Voraussetzung folgt also $\widehat{\mu^T} = \widehat{\nu^T}$ und aus \textbf{APPENDIX} folgt $\mu^T = \nu^T$. 
     Es gilt somit
     $$
-        \forall d\in \N \ \forall f_1,...,f_d \in E' \forall A \in \mathcal{B}(\R^d): \ \mu((f_1,..f_d)^{-1}(A)) =  \nu((f_1,..f_d)^{-1}(A)). 
+        \forall d\in \N \ \forall f_1,...,f_d \in E' \ \forall A \in \mathcal{B}(\R^d): \ \mu((f_1,..f_d)^{-1}(A)) =  \nu((f_1,..f_d)^{-1}(A)). 
     $$
     Also stimmen $\mu$ und $\nu$ insbesondere auf dem schnittstabilen Erzeuger $\mathcal{C}(E)$ von $\mathcal{B}(E)$ und somit auf ganz $\mathcal{B}(E)$ überein. \qed
 \end{proof*}
@@ -84,12 +89,10 @@ Wie schon im skalaren Fall dienen die charakteristischen Funktionale als nützli
 \end{proof*}
 
 \begin{remark}
-    Erinnert man sich an den endlich dimensionalen Fall, vgl. \cite{Bogachev}[Theorem 8.8.1], so sieht man, dass die gleichmäßige Straffheit der Folge $(\mu_n)_{n \in \N}$ dort nicht explizit gefordert wird. 
-    Hier ist die gleichmäßige Straffheit eine Konsequenz aus der punktweisen Konvergenz der charakteristischen Funktionen $(\widehat{\mu_n})_{n \in \N}$ gegen $\widehat{\mu}$. 
-    \textbf{TODO: Gegenbeispiel? Weitere Argumentation wieso das im unendlich dimensionalen Fall nicht so ist?}
+    Im endlich dimensionalen Fall muss die gleichmäßige Straffheit von $(\mu_n)_{n \in \N}$ nicht zusätzlich gefordert werden, vgl. \cite{gs}[Theorem 8.7.5, S.357]. 
 \end{remark}
 
-Bevor wir uns im Folgenden Kapitel mit der Konvergenz zufälliger Reihen in Banachräumen beschäftigen, halten wir noch zwei für den späteren Beweis des Satzes von Itô-Nisio nützliche Ergebnisse fest, die sich aus unserem bisher gesammelten Wissen über charakteristische Funktionen leicht beweisen lassen.  
+Bevor wir uns im Folgenden Kapitel mit der Konvergenz zufälliger Reihen in Banachräumen beschäftigen, halten wir noch zwei für den späteren Beweis des Satzes von Itô-Nisio nützliche Ergebnisse fest, die sich mit unserem bisher gesammelten Wissen über charakteristische Funktionale leicht beweisen lassen.  
 
 \begin{proposition}
     Seien $(X_n)_{n \in \N}$ und $(Y_n)_{n \in \N}$ Folgen in $\mathcal{L}_0(E)$ und $X,Y \in \mathcal{L}_0(E)$ mit $X_n \stochastisch X$, sowie $Y_n \stochastisch Y$. 

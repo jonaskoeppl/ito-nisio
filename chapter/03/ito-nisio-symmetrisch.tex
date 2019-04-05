@@ -1,3 +1,5 @@
+Unter der zusätzlichen Voraussetzung, dass die Zufallsvariablen $(X_n)_{n \in \N}$  symmetrisch verteilt sind, lässt sich der Satz von Itô-Nisio auf drei noch schwächere Annahmen als die Verteilungskonvergenz von $(S_n)_{n \in \N}$ erweitern. 
+Für den Beweis dient uns unter anderem der folgende Satz. 
 \begin{theorem}
     Sei $(\mu_n)_{n \in \N}$ gleichmäßig straff. Dann existiert eine Folge $(c_n)_{n \in \N}$ in $E$ sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert.
 \end{theorem}
@@ -31,20 +33,21 @@
     Also ist $(\mu_{U_n})_{n \in \N}$ straff. 
     Als nächstes zeigen wir, dass $(\widehat{\mu_{U_n}}(f))_{n \in \N}$ für alle $f \in E'$ konvergiert. Sei dazu $f \in E'$ beliebig aber fest. 
     Die Unabhängigkeit von $(\widetilde{Y}_n)_{n \in \N}$ und $(\widetilde{X}_n)_{n \in \N}$ liefert direkt die Unabhängigkeit von $(\widetilde{X}_n - \widetilde{Y}_n)_{n \in \N}$
-    und nach Konstruktion sind $Y_n$ und $X_n$ identisch verteilt. Also folgt 
+    und nach Konstruktion sind $Y_n$ und $X_n$ identisch verteilt. Es gilt somit
     \begin{align*}
-        \widehat{\mu_{U_n}}(f) = E(e^{if(U_n)}) = \mathbb{E}\big(\prod_{j=1}^n(e^{if(\widetilde{X}_j-\widetilde{Y}_j)})\big) &= \prod_{j=1}^n \mathbb{E}(e^{if(\widetilde{X}_j-\widetilde{Y}_j)}) \\\ 
-                                                                                                            &= \prod_{j=1}^n \mathbb{E}(e^{if(\widetilde{X}_j)})\mathbb{E}(e^{-if(\widetilde{Y}_j)}) \\\
-                                                                                                            &= \prod_{j=1}^n \abs{\mathbb{E}(e^{if(\widetilde{X}_j)})}^2
+        \widehat{\mu_{U_n}}(f) = E(e^{if(U_n)}) &= \mathbb{E}\big(\prod_{j=1}^n(e^{if(\widetilde{X}_j-\widetilde{Y}_j)})\big) \\\
+                                                &= \prod_{j=1}^n \mathbb{E}(e^{if(\widetilde{X}_j-\widetilde{Y}_j)})
+                                                 = \prod_{j=1}^n \mathbb{E}(e^{if(\widetilde{X}_j)})\mathbb{E}(e^{-if(\widetilde{Y}_j)})
+                                                 = \prod_{j=1}^n \abs{\mathbb{E}(e^{if(\widetilde{X}_j)})}^2
     \end{align*}
-    Wegen $0 \leq \abs{E(e^{if(\widetilde{X}_j)})} \leq 1$ für alle $j \in \N$ folgt somit die Konvergenz von $(\widehat{\mu_{U_n}}(f))_{n \in \N}$. 
-    Nach Kapitel 2 konvergiert $(U_n)_{n \in \N}$ also in Verteilung und somit nach dem Satz von Itô-Nisio insbesondere fast sicher. 
+    Wegen $0 \leq \abs{\mathbb{E}(e^{if(\widetilde{X}_j)})} \leq 1$ für alle $j \in \N$ folgt daraus die Konvergenz von $(\widehat{\mu_{U_n}}(f))_{n \in \N}$. 
+    Nach Satz $2.19$ konvergiert $(U_n)_{n \in \N}$ also in Verteilung und somit nach dem Satz von Itô-Nisio insbesondere fast sicher. 
     Daher existiert eine Menge $\Omega^* \in \mathcal{A} \otimes \mathcal{A}$ mit $(P\times P)(\Omega^*) = 1$ und 
     $$
         \forall (\omega_1, \omega_2) \in \Omega^*: \quad U_n(\omega_1, \omega_2) = S_n(\omega_1) - S_n(\omega_2) \text{ konvergiert.}
     $$
     Mit dem Satz von Fubini erhalten wir wie im Beweis des Satzes von Itô-Nisio ein $\omega' \in \Omega$, sodass $S_n - S_n(\omega')$ fast sicher konvergiert. 
-    Also erfüllt die Folge $(c_n)_{n \in \N}$ definiert durch $c_n := S_n(\omega')$, $n \in \N$, die gewünschte Eigenschaft. \qed
+    Die Folge $(c_n)_{n \in \N}$, definiert durch $c_n := S_n(\omega')$, $n \in \N$, erfüllt nun die gewünschte Eigenschaft. \qed
 
 \end{proof*}
 
@@ -84,17 +87,17 @@
        S_n =  \frac{1}{2}((S_n - c_n) - (-S_n -c_n)). 
     $$
     zu $(v) \Rightarrow (iv)$: Wegen der Unabhängigkeit von $(X_n)_{n \in \N}$ sind für alle $f \in E'$ und $m \geq n$ die Zufallsvariablen $f(S_m - S_n)$ und $f(S_n)$ unabhängig. 
-    Nach Proposition $2.18$ sind also $f(S-S_n)$ und $f(S_n)$ für alle $n \in \N$ unabhängig. Zusammen mit der Symmetrie von $S_n$ ergibt sich also für $f \in E'$
+    Nach Proposition $2.18$ sind also $f(S-S_n)$ und $f(S_n)$ für alle $n \in \N$ unabhängig. Zusammen mit der Symmetrie von $S_n$ ergibt sich deshalb für $f \in E'$
     \begin{align*}
         \widehat{P^S}(f) = \mathbb{E}(e^{if(S)}) &= \mathbb{E}(e^{if(S-S_n)})\mathbb{E}(e^{if(S_n)})  \\\
                                         &= \mathbb{E}(e^{if(S-S_n)})\mathbb{E}(e^{if(-S_n)}) = \mathbb{E}(e^{if(S-2S_n)}) = \widehat{P^{S-2S_n}}(f).
     \end{align*}
-    Also sind $S$ und $S - 2S_n$ nach dem Eindeutigkeitssatz für alle $n \in \N$  identisch verteilt. Da $P^S$ straff ist existiert zu $\varepsilon >0$ eine kompakte Menge $K \subseteq E'$ mit $\prob{S \in K} \geq 1 - \varepsilon$. 
+    Folglich sind $S$ und $S - 2S_n$ nach dem Eindeutigkeitssatz für alle $n \in \N$  identisch verteilt. Da $P^S$ straff ist existiert zu $\varepsilon >0$ eine kompakte Menge $K \subseteq E'$ mit $\prob{S \in K} \geq 1 - \varepsilon$. 
     Aus Stetigkeitsgründen ist auch die Menge $L := \{\frac{1}{2}(x-y): x,y \in K\}$ kompakt und es gilt für alle $n \in \N$
     $$
         \prob{S_n \in L} \geq \prob{S \in K, \ S-2S_n \in K} \geq 1 - \prob{S \notin K} - \prob{S-2S_n \notin K} \geq 1 - 2\varepsilon. 
     $$ 
-    Also ist $(\mu_n)_{n \in \N}$ gleichmäßig straff. 
+    Somit ist $(\mu_n)_{n \in \N}$ gleichmäßig straff. 
     \newline
     zu $(vi) \Rightarrow (iv)$: 
     Sei $f \in E'$ beliebig aber fest. Betrachte die Abbildungen 
@@ -103,37 +106,38 @@
         \varphi   &: \R \to \C, \quad t \mapsto \int_E e^{itf(x)}\mu(dx) = \widehat{\mu}(tf). 
     \end{align*}
     Dann ist $\varphi_n$ für alle $n \in \N$ die charakteristische Funktion von $\mu_n^{f}$ und $\varphi$ die charakteristische Funktion von $\mu^f$. Nach Voraussetzung konvergiert $(\varphi_n)_{n \in \N}$ punktweise gegen $\varphi$ und nach 
-    dem Stetigkeitssatz von Lévy, vgl. \cite{gs}[Satz 8.7.5, S.357], gilt also $\mu_n^f \rightharpoonup \mu^f$. Für festes $f \in E'$ ist $\{\mu_n^f : n \in \N\}$ also insbesondere relativ kompakt. Nach dem Satz von de Acosta genügt es folglich zu zeigen, dass $(\mu_n)_{n \in \N}$ flach konzentriert ist. 
+    dem Stetigkeitssatz von Lévy, vgl. \cite{gs}[Satz 8.7.5, S.357], gilt somit $\mu_n^f \rightharpoonup \mu^f$. Für festes $f \in E'$ ist $\{\mu_n^f : n \in \N\}$ also insbesondere relativ kompakt. Nach dem Satz von de Acosta genügt es folglich zu zeigen, dass $(\mu_n)_{n \in \N}$ flach konzentriert ist. 
     Da $\{\mu\}$ flach konzentriert ist genügt es dafür zu zeigen, dass für jeden endlich dimensionalen Untervektorraum $F \subseteq E$ und alle $\varepsilon > 0$ gilt 
     $$
-        \mu_n((F^{\varepsilon})^c) \leq 2 \mu((F^{\varepsilon})^c).
+        \mu_n(\{x \in E: \ \inf_{y \in F}\norm{x-y} > \varepsilon \}) \leq 2 \mu(\{x \in E: \ \inf_{y \in F}\norm{x-y} > \varepsilon \}).
     $$
     Sei also $F \subseteq E$ ein endlich dimensionaler Untervektorraum und $\varepsilon >0$. Nach dem Satz von Hahn-Banach existiert eine Folge $(f_n)_{n \in \N}$ in $E'$ mit 
     $$
         \forall x \in E: \quad d(x,F) := \inf_{y \in F}\norm{x-y} = \sup_{n \in \N}\abs{f_n(x)}. 
     $$
     Sei zunächst $m \in \N$ festgewählt. Mittels charakteristischer Funktionen prüft man leicht, dass $\mu_n^{(f_1,...,f_m)} \rightharpoonup \mu^{(f_1,...,f_m)}$. 
-    Wegen der Linearität von $f_1,...,f_m$ können wir den Satz von Itô-Nisio auf die Folge $(T_n)_{n \in \N} := ((f_1,...,f_m)\circ S_n)_{n \in \N}$ anwenden und erhalten eine $\R^m$-wertige Zufallsvariable $T$ auf $(\Omega, \mathcal{A}, P)$ mit 
-    $T_n \stochastisch T$. Insbesondere gilt also $T_n \schwach T$ und somit $P^T = \mu^{(f_1,...,f_,)}$. 
-    Ferner erhält die Linearität von $f_1,...,f_m$ die Symmetrie und mit der Lévy Ungleichung für Grenzwerte in Verteilung angewendet auf $(T_n)_{n \in \N}$ erhalten wir im Banachraum $(\R^m, \norm{\cdot}_{\infty})$
+    Wegen der Linearität von $f_1,...,f_m$ können wir Satz $3.8$ auf die Folge $(T_n^{(m)})_{n \in \N} := ((f_1,...,f_m)\circ S_n)_{n \in \N}$ anwenden und erhalten eine $\R^m$-wertige Zufallsvariable $T^{(m)}$ auf $(\Omega, \mathcal{A}, P)$ mit 
+    $T_n^{(m)} \stochastisch T^{(m)}$. Insbesondere gilt also $T_n^{(m)} \schwach T^{(m)}$ und somit \mbox{$P^{T^{(m)}} = \mu^{(f_1,...,f_m)}$}. 
+    Ferner erhält die Linearität von $f_1,...,f_m$ die Symmetrie und mit der Lévy Ungleichung für Grenzwerte in Verteilung, angewendet auf $(T_n^{(m)})_{n \in \N}$, erhalten wir im Banachraum $(\R^m, \norm{\cdot}_{\infty})$
     \begin{align*}
-        \prob{\max_{1 \leq i \leq m}\abs{f_i(S_n)} > \varepsilon} &= \prob{\norm{T_n}_{\infty} > \varepsilon} \\\
-                                                                  &\leq 2 \prob{\norm{T}_{\infty} > \varepsilon} = 2\mu\big(\{x \in E: \max_{1\leq i \leq m}\abs{f_i(x)} > \varepsilon\}\big)
+        \prob{\max_{1 \leq i \leq m}\abs{f_i(S_n)} > \varepsilon} &= \prob{\norm{T_n^{(m)}}_{\infty} > \varepsilon} \\\
+                                                                  &\leq 2 \prob{\norm{T^{(m)}}_{\infty} > \varepsilon} = 2\mu\big(\{x \in E: \max_{1\leq i \leq m}\abs{f_i(x)} > \varepsilon\}\big).
     \end{align*}
-    Es gilt folglich wegen der $\sigma$-Stetigkeit von Wahrscheinlichkeitsmaßen 
+    Mit der $\sigma$-Stetigkeit von Wahrscheinlichkeitsmaßen folgt schließlich
     \begin{align*}
-        \mu_n((F^{\varepsilon})^c) = \prob{d(S_n, F) > \varepsilon} &= \lim_{m \to \infty}\prob{\max_{1 \leq i \leq m}\abs{f_i(S_n)} > \varepsilon} \\\
-                                                                    &\leq \lim_{m \to \infty} 2 \mu(\{x \in E: \max_{1\leq i \leq m}\abs{f_i(x)} > \varepsilon\})
-                                                                    = 2 \mu((F^{\varepsilon})^c).
+        \mu_n(\{x \in E: \ \inf_{y \in F}\norm{x-y} > \varepsilon \}) = \prob{d(S_n, F) > \varepsilon}
+                                                                     &= \lim_{m \to \infty}\prob{\max_{1 \leq i \leq m}\abs{f_i(S_n)} > \varepsilon} \\\
+                                                                    &\leq \lim_{m \to \infty} 2 \mu(\{x \in E: \max_{1\leq i \leq m}\abs{f_i(x)} > \varepsilon\}) \\\
+                                                                    &= 2 \mu(\{x \in E: \ \inf_{y \in F}\norm{x-y} > \varepsilon \}).
     \end{align*}
     \qed
 \end{proof*}
 
 \begin{remark}
-    Auf die Annahme der Symmetrie in Satz $3.10$ kann im Allgemeinen nicht verzichtet werden. Sei $E$ ein Hilbertraum mit Orthonormalbasis $(e_n)_{n \in \N}$.
+    Auf die Annahme der Symmetrie in Satz $3.11$ kann im Allgemeinen nicht verzichtet werden. Sei etwa $E$ ein Hilbertraum mit Orthonormalbasis $(e_n)_{n \in \N}$.
     Nach dem Darstellungsatz von Riesz können wir den Dualraum $E'$ mit $E$ identifizieren. Setze nun 
     $$
-        X_1(\omega) = e_1, \quad X_n(\omega) = e_n - e_{n-1}, \ n \in \N, \quad \omega \in \Omega. 
+        X_1(\omega) = e_1, \quad X_n(\omega) = e_n - e_{n-1}, \ n \geq 2, \quad \omega \in \Omega. 
     $$
     Dann gilt offensichtlich $S_n = e_n$ und da $(e_n)_{n \in \N}$ eine Orthonormalbasis von $E$ ist gilt für alle $z \in E$
     $$
@@ -169,5 +173,5 @@ Mit Hilfe des Satzes von Itô-Nisio können wir nun ein ähnliches Resultat für
         \forall \varepsilon > 0 \ \exists R > 0: \quad \inf_{n \in \N}\prob{S_n \in \overline{B}(0,R)} \geq 1 - \varepsilon.
     $$
     Da abgeschlossene und beschränkte Teilmengen des $\R^d$ nach dem Satz von Heine-Borel kompakt sind folgt daraus die gleichmäßige Straffheit von $(\mu_n)_{n \in \N}$. 
-    Nach dem Satz von Itô-Nisio konvergiert $(S_n)_{n \in \N}$ also fast sicher. \qed 
+    Nach dem Satz von Itô-Nisio für symmetrische Zufallsvariablen konvergiert $(S_n)_{n \in \N}$ also fast sicher. \qed 
 \end{proof*}

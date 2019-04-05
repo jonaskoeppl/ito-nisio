@@ -1,8 +1,10 @@
 \section{Flache Konzentrierung von Wahrscheinlichkeitsmaßen}
-Für unsere spätere Betrachtung von Zufallsvariablen mit Werten in Banachräumen lohnt es sich hier noch eine weitere Charakterisierung der relativen Kompaktheit von Familien von Wahrscheinlichkeitsmaßen zu betrachten. 
+Für unsere spätere Betrachtung von Zufallsvariablen mit Werten in Banachräumen lohnt es sich hier noch eine weitere Charakterisierung der relativen Kompaktheit von Familien von Wahrscheinlichkeitsmaßen zu diskutieren. 
 Der Begriff der \textit{flachen Konzentrierung} von Wahrscheinlichkeitsmaßen wurde zuerst von A.D. de Acosta betrachtet, vgl. \cite{acosta}. 
-Die Darstellung hier orientiert sich an \cite{vakhania}. \newline 
-Für eine nichtleere Teilmenge $A \subseteq E$ setze 
+Die Darstellung hier orientiert sich an \cite{vakhania}. 
+\newline \ \newline 
+Im Folgenden sei $(E, \norm{\cdot})$ ein separabler Banachraum und $(E', \norm{\cdot}_{op})$ der zugehörige Dualraum. Der metrische Raum der Wahrscheinlichkeitsmaße auf $\mathcal{B}(E)$ werde mit $(\mathcal{M}(E), \rho)$ bezeichnet, wobei 
+$\rho$ die Prokhorov-Metrik ist. Für eine nichtleere Teilmenge $A \subseteq E$ setze 
 $$
     A^{\varepsilon} := \{x \in E: \inf_{y\in A}\norm{x-y} < \varepsilon \}.
 $$
@@ -69,11 +71,6 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     für alle $\varepsilon, r_1,...,r_n \in (0, \infty)$ beschränkt. 
 \end{lemma}
 
-\begin{remark}%TODO: evtl. weiter nach oben verschieben und noch erklären wieso es für S endlich viele derartige Funktionale gibt. 
-    Man sagt eine Familie von Abbildungen mit der Eigenschaft $(1.4)$ \textit{trenne die Punkte von S}.
-    Die Existenz solcher Funktionale wird durch den Fortsetzungssatz von Hahn-Banach sichergestellt. 
-\end{remark}
-
 \begin{proof*}
     Wegen $(1.4)$ definiert 
     $$
@@ -84,15 +81,20 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     $$
         \lim_{n \to \infty} \norm{x_n} = \infty. 
     $$
-    Wegen der Normäquivalenz existiert dann ein $k \in \{1,...,n\}$ mit 
+    Wegen der Normäquivalenz existiert folglich ein $k \in \{1,...,n\}$ mit 
     $$
         \lim_{n \to \infty}\abs{f_k(x_n)} = \infty. 
     $$
     Im Widerspruch zur Definition von $B$. \qed
 \end{proof*}
 
+\begin{remark}%TODO: evtl. weiter nach oben verschieben und noch erklären wieso es für S endlich viele derartige Funktionale gibt. 
+    Man sagt eine Familie von Abbildungen mit der Eigenschaft $(1.4)$ \textit{trenne die Punkte von S}.
+    Die Existenz der Funktionale $f_1,...,f_n$ wird durch den Fortsetzungssatz von Hahn-Banach sichergestellt. 
+\end{remark}
+
 \begin{theorem}[Satz von de Acosta]
-    Eine Menge $M \subseteq \mathcal{M}(E)$ von Wahrscheinlichkeitsmaßen ist genau dann relativ kompakt in $(\mathcal{M}, \rho)$ wenn die folgenden beiden Bedingungen erfüllt sind
+    Eine Menge $M \subseteq \mathcal{M}(E)$ von Wahrscheinlichkeitsmaßen ist genau dann relativ kompakt in $(\mathcal{M}(E), \rho)$ wenn die folgenden beiden Bedingungen erfüllt sind
     \begin{enumerate}[(a)]
         \item Für alle $f \in E'$ ist $\{\mu^f : \mu \in M\} \subseteq \mathcal{M}(\R)$ relativ kompakt,
         \item $M$ ist flach konzentriert. 
@@ -126,7 +128,7 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     $$
         \inf_{\mu \in M} \mu^{f_i}\big([-r_i, r_i]\big) \geq 1 - \frac{\varepsilon}{k_n 2^{n+1}}, \quad i=1,...,k_n,
     $$
-    Setze schließlich
+    Setze ferner
     $$
         F_{n,\varepsilon} := \overline{\big(S_{n,\varepsilon}^{\frac{\varepsilon}{2^{n+1}}}\big)}
     $$

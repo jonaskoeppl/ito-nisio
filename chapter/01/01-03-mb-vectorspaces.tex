@@ -1,4 +1,8 @@
 \section{Meßbare Vektorräume}
+Bislang haben wir uns fast ausschließlich mit dem Zusammenspiel von Maßen und den topologischen Eigenschaften der zugrunde liegenden Räume beschäftigt.
+In Banachräumen steht uns aber auch die algebraische Struktur eines Vektorraums zur Verfügung, allerdings ist per se nicht klar, ob die algebraischen Operationen mit der messbaren Struktur kompatibel, also messbar, sind. 
+Dies werden wir im Folgenden untersuchen und im für uns interessanten Fall eines separablen Banachraums positiv beantworten. 
+
 \begin{mydef}
     Sei $X$ ein Vektorraum und $\mathcal{C}$ eine $\sigma$-Algebra auf $X$. Das Tupel $(X, \mathcal{C})$ heißt \textit{messbarer Vektorraum}, falls
     \begin{enumerate}[(a)]
@@ -39,6 +43,7 @@ Da die Komposition messbarer Abbildungen wiederum messbar ist erhält man unmitt
     Sind $X,Y: \Omega \to X$ zwei $\mathcal{A}/\mathcal{C}$-messbare Abbildungen und $\alpha, \beta \in \R$, so ist auch $\alpha X + \beta Y$ $\mathcal{A}/\mathcal{C}$-messbar. 
 \end{proposition}
 
+Bislang wissen wir noch nicht einmal, ob es überhaupt nicht-triviale Beispiele messbarer Vektorräume gibt. Das wollen wir nun ändern.  
 \begin{proposition}
     Sei $E$ ein separabler Banachraum. Dann ist $(E, \mathcal{B}(E))$ ein messbarer Vektorraum.
 \end{proposition}
@@ -81,17 +86,17 @@ Im Folgenden bezeichne $(X', \norm{\cdot}_{op})$ den Dualraum eines normierten V
 \end{proof*}
 
 \begin{proposition}
-    Sei $E$ ein separabeler Banachraum. Dann gilt $\sigma(E') = \mathcal{B}(E)$. 
+    Sei $E$ ein separabler Banachraum. Dann gilt $\sigma(E') = \mathcal{B}(E)$. 
 \end{proposition}
 
 \begin{proof*}%TODO: Überprüfen. Reicht das wirklich schon so?
     Da alle $f \in E'$ stetig sind gilt offensichtlich $\sigma(E') \subseteq \mathcal{B}(E)$. 
-    Wegen der Separabilität von $E$ wird $\mathcal{B}(E)$ von den abgeschlossenen Kugeln erzeugt und da $(E, \sigma(E'))$ nach vorheriger Proposition ein messbarer Vektorraum ist genügt es zu zeigen, 
+    Wegen der Separabilität von $E$ wird $\mathcal{B}(E)$ von den abgeschlossenen Kugeln erzeugt und da $(E, \sigma(E'))$ nach Proposition $1.33$ ein messbarer Vektorraum ist genügt es nach Bemerkung $1.29$ zu zeigen, 
     dass $\overline{B}(0,1)$ in $\sigma(E')$ enthalten ist. Nach dem Satz von Hahn-Banach existiert eine Folge $(f_n)_{n \in \N}$ in $E'$ mit
     $$
         \forall x \in E: \quad \norm{x} = \sup_{n \in \N}\abs{f_n(x)}.
     $$
-    Schließlich gilt 
+    Es gilt also
     $$
         \overline{B}(0,1) = \{ x \in E: \norm{x} \leq 1 \} = \{x \in E: \ \sup_{n \in \N}\abs{f_n(x)} \leq 1 \} = \bigcap_{n=1}^{\infty}\{x \in E: \abs{f_n(x)} \leq 1\} \in \sigma(E').
     $$

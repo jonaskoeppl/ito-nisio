@@ -18,13 +18,13 @@
   {\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
 \titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 
-\titleformat{\section}
+\titleformat{\section} 
   {\normalfont\Large\bfseries}{\thesection}{0.8em}{}
 \titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 
 % Seitenränder 
 \usepackage[a4paper, left=3cm, right=3cm, top=2cm]{geometry}
-
+ 
 % NEWCOMMANDS
 % Syntax: \newcommand{\shortcut}[AnzahlArgumente]{\wasrauskommensoll #fürArgumentNummer}
 
@@ -34,7 +34,7 @@
 \newcommand{\qexampled}{\hfill $\lozenge$}
 \newcommand{\norm}[1]{ \lvert\lvert #1 \rvert\rvert}
 \newcommand{\abs}[1]{\left| #1 \right|}
-\newcommand{\prob}[1]{P\left(\left\{ #1 \right\}\right)}
+\newcommand{\prob}[1]{P\left(\left\{ #1 \right\}\right)} 
 
 
 % Shortcuts für Zahlenbereiche:
@@ -88,8 +88,8 @@
 \include{chapter/01-zufallsvariablen}
 \include{chapter/02-konvergenzarten}
 \include{chapter/03-symmetrie} 
-\appendix
-\include{appendix/funktionalanalysis}
+%\appendix
+%\include{appendix/funktionalanalysis}
 
 \bibliography{literatur}
 \bibliographystyle{alpha}
