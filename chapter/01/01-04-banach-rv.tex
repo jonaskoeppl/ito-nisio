@@ -44,12 +44,12 @@ Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \t
 \begin{proposition}
     Sei $X \in \mathcal{L}_0(E)$ und $Y: \Omega \to E$ eine Abbildung. 
     \begin{enumerate}[(i)]
-        \item Es existiert eine Folge $(X_n)_{n \in \N}$ mit $X_n \fastsicher X$ und 
+        \item Dann existiert eine Folge einfacher Zufallsvariablen $(X_n)_{n \in \N}$ mit $X_n \fastsicher X$ und 
         $$
             \norm{X_n(\omega)} \leq 2 \norm{X(\omega)}
         $$
         für alle $n \in \N$ und fast alle $\omega \in \Omega$. 
-        \item Sei $(Y_n)_{n \in \N}$ eine Folge in $\mathcal{L}_0(E)$ sodass eine Menge $\Omega^*$ existiert mit 
+        \item Sei $(Y_n)_{n \in \N}$ eine Folge in $\mathcal{L}_0(E)$, sodass eine Menge $\Omega^*$ existiert mit 
         $$
             \forall \omega \in \Omega^*: \quad \lim_{n \to \infty}Y_n(\omega) = Y(\omega). 
         $$
@@ -60,13 +60,13 @@ Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \t
 \begin{proof*}
     Wegen der Vollständigkeit von $\mathcal{A}$ und da das lineare Erzeugnis abzählbar vieler separabler Unterräume wieder ein separabler Unterraum ist können wir erneut ohne Einschränkung annehmen, dass $E$ selbst bereits separabel ist.
     \newline 
-    zu $(i)$:
+    Zu $(i)$:
     Sei $\{x_1,x_2,... \} \subseteq E$ eine dichte Teilmenge. Für $n \in \N$ betrachte die Abbildung
     $$
         T_n: \Omega \to \N, \quad \omega \mapsto \inf\{k \leq n: \norm{X(\omega)-x_k} = \min_{1\leq l \leq n}\norm{X(\omega)-x_l}\}.
     $$ 
     Aus der Messbarkeit von $X$ und der Stetigkeit von $\norm{\cdot - x}$ für $x \in E$ folgt direkt die Messbarkeit von $T_n$,
-    da für alle $i,j \in \{1,..,n\}$ die Menge $\{\norm{X - x_i} < \norm{X - x_j}\}$ messbar ist. Setze nun
+    da für alle $i,j \in \{1,...,n\}$ die Menge $\{\norm{X - x_i} < \norm{X - x_j}\}$ messbar ist. Setze nun
     $$
         X_n := \sum_{k=1}^n 1_{\{T_n = k\}}x_k, \quad n \in \N.
     $$
@@ -74,11 +74,11 @@ Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \t
     $$
         \norm{X(\omega)-X_n(\omega)} = \min_{1\leq k \leq n}\norm{X(\omega)-x_k}.
     $$
-    Da $\{x_1,x_2,...\}$ dicht in $E$ liegt folgt 
+    Da $\{x_1,x_2,...\}$ dicht in $E$ liegt, folgt 
     $$
-        \lim_{n \to \infty}{X(\omega) - X_n(\omega)} = \lim_{n \to \infty}\min_{1\leq k \leq n}\norm{X(\omega)- x_k} = \inf_{n \in \N} \norm{X(\omega)- x_n} = 0. 
+        \lim_{n \to \infty}\norm{X(\omega) - X_n(\omega)} = \lim_{n \to \infty}\min_{1\leq k \leq n}\norm{X(\omega)- x_k} = \inf_{n \in \N} \norm{X(\omega)- x_n} = 0. 
     $$
-    zu $(ii)$: Wegen der Vollständigkeit von $\mathcal{A}$ können wir annehmen, dass $X_n(\omega) \to Y(\omega)$ für alle $\omega \in \Omega$. 
+    Zu $(ii)$: Wegen der Vollständigkeit von $\mathcal{A}$ können wir annehmen, dass $Y_n(\omega) \to Y(\omega)$ für alle $\omega \in \Omega$. 
     Wir zeigen, dass für jede abgeschlossene Menge $A \subseteq E$ das Urbild $Y^{-1}(A)$ in $\mathcal{A}$ liegt. 
     Da $\mathcal{B}(E)$ von den abgeschlossenen Mengen erzeugt wird folgt daraus die Behauptung. 
     Für $\emptyset \neq A \subseteq E$ abgeschlossen betrachte für $k \in \N$ die offene, also auch messbare, Menge 
@@ -87,7 +87,7 @@ Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \t
     $$
     Dann gilt wie man leicht prüft
     \begin{align*}
-        \{Y \in A\} = \bigcap_{k=1}^{\infty}\liminf_{n \to \infty}\{X_n \in A_k\} \in \mathcal{A}.
+        \{Y \in A\} = \bigcap_{k=1}^{\infty}\liminf_{n \to \infty}\{Y_n \in A_k\} \in \mathcal{A}.
     \end{align*}     
     \qed 
 \end{proof*}

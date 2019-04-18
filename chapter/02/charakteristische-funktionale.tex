@@ -52,7 +52,7 @@ ein schnitt-stabiler Erzeuger von $\sigma(E')$.
     $$
     wobei 
     $$
-        T: E \to \R^d, \quad x \mapsto (f_1(x),...,f_d(x))^T. 
+        T: E \to \R^d, \quad x \mapsto (f_1(x),...,f_d(x)). 
     $$
     Nach Voraussetzung folgt also $\widehat{\mu^T} = \widehat{\nu^T}$ und aus \textbf{APPENDIX} folgt $\mu^T = \nu^T$. 
     Es gilt somit
@@ -72,7 +72,7 @@ ein schnitt-stabiler Erzeuger von $\sigma(E')$.
 \end{theorem}
 
 \begin{proof*}
-    zu $\Rightarrow$: Für $n \in \N$ sei $\mu_n$ die Verteilung von $X_n$ und $\mu$ die Verteilung von $X$. Da die Folge $(\mu_n)_{n \in \N}$ nach Voraussetzung schwach gegen $\mu$ konvergiert, 
+    Zu $\Rightarrow$: Für $n \in \N$ sei $\mu_n$ die Verteilung von $X_n$ und $\mu$ die Verteilung von $X$. Da die Folge $(\mu_n)_{n \in \N}$ nach Voraussetzung schwach gegen $\mu$ konvergiert, 
     ist $(\mu_n)_{n \in  \N}$ insbesondere relativ kompakt in $(\mathcal{M}(E), \rho)$, und nach dem Satz von Prokhorov gleichmäßig straff. 
     Ferner ist für $l \in E'$ die Abbildung 
     $$
@@ -80,7 +80,7 @@ ein schnitt-stabiler Erzeuger von $\sigma(E')$.
     $$ 
     beschränkt und stetig. Durch Zerlegung in Real und Imaginärteil liefern dadurch die Linearität des Integrals und die Definition der schwachen Konvergenz die puntkweise Konvergenz der charakteristischen Funktionale. 
     \newline 
-    zu $\Leftarrow$: Nach Voraussetzung ist  $\{\mu_n : n \in \N\}$ relativ kompakt. Es genügt also zu zeigen, dass jede konvergente Teilfolge von $(\mu_n)_{n \in \N}$ gegen $\mu$ konvergiert. 
+    Zu $\Leftarrow$: Nach Voraussetzung ist  $\{\mu_n : n \in \N\}$ gleichmäßig straff, also nach dem Satz von Prokhorov relativ kompakt. Es genügt also zu zeigen, dass jede konvergente Teilfolge von $(\mu_n)_{n \in \N}$ gegen $\mu$ konvergiert. 
     Sei dazu $(\mu_{n_k})_{k \in \N}$ eine konvergente Teilfolge und $\nu \in \mathcal{M}(E)$ mit $\mu_{n_k} \rightharpoonup \nu$. Nach Voraussetzung und der Hinrichtung gilt also 
     $$
         \forall l \in E': \ \widehat{\mu}(l) = \lim_{k \to \infty} \widehat{\mu_{n_k}}(l) = \widehat{\nu}(l).
@@ -89,7 +89,7 @@ ein schnitt-stabiler Erzeuger von $\sigma(E')$.
 \end{proof*}
 
 \begin{remark}
-    Im endlich dimensionalen Fall muss die gleichmäßige Straffheit von $(\mu_n)_{n \in \N}$ nicht zusätzlich gefordert werden, vgl. \cite{gs}[Theorem 8.7.5, S.357]. 
+    Im endlichdimensionalen Fall muss die gleichmäßige Straffheit von $(\mu_n)_{n \in \N}$ nicht zusätzlich gefordert werden, vgl. \cite{gs}[Theorem 8.7.5, S.357]. 
 \end{remark}
 
 Bevor wir uns im Folgenden Kapitel mit der Konvergenz zufälliger Reihen in Banachräumen beschäftigen, halten wir noch zwei für den späteren Beweis des Satzes von Itô-Nisio nützliche Ergebnisse fest, die sich mit unserem bisher gesammelten Wissen über charakteristische Funktionale leicht beweisen lassen.  

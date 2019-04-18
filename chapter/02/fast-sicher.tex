@@ -5,7 +5,7 @@ Die Beweise für den skalaren Fall findet man beispielsweise in \cite{gs}.
 \begin{mydef}
     Seien $X, X_1, X_2,...$ $E$-wertige Zufallsvariablen. Die Folge $(X_n)_{n \in \N}$ \textit{konvergiert fast sicher} gegen $X$, falls
     $$
-        \prob{\lim_{n \to \infty} \norm{X_n - X} = 0}
+        \prob{\lim_{n \to \infty} \norm{X_n - X} = 0}.
     $$
 Notation: $X_n \fastsicher X$. 
 \end{mydef}
@@ -55,7 +55,7 @@ Man erhält unmittelbar die folgende Charakterisierung.
 \begin{corollary}
     Für Zufallsvariablen $X,Y, X_1, X_2,... \in \mathcal{L}_0(E)$ und eine stetige Abbildung $f:E \to \R$ gilt
     \begin{enumerate}[(i)]
-        \item $X_n \fastsicher X \ \Rightarrow \ X_n \stochastisch X$,
+        \item $X_n \fastsicher X \ \Rightarrow \ X_n \stochastisch X$. 
         \item ($X_n \stochastisch X \land X_n \stochastisch Y$) $\Rightarrow$ $ X = Y$ fast sicher. 
         \item ($X_n \stochastisch X \land X = Y$ fast sicher) $\Rightarrow$ $X_n \stochastisch Y$. 
         \item ($X_n \stochastisch X \land f:E \to \R$ stetig) $\Rightarrow$ $f(X_n) \stochastisch f(X)$. 

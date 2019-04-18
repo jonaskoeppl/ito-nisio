@@ -9,7 +9,7 @@
         $$
         \item Für alle offenen Teilmengen $B \subseteq X$ gilt 
         $$
-            \liminf_{n \to \infty} \mu_n(A) \geq \mu(A).
+            \liminf_{n \to \infty} \mu_n(B) \geq \mu(B).
         $$
         \item Für alle Borelmengen $C \in \mathcal{B}(X)$ mit $\mu(\partial C) = 0$ gilt 
         $$
@@ -19,7 +19,7 @@
 \end{theorem}
 
 \begin{proof*}
-    zu $(i) \Rightarrow (ii)$: Sei $A \subseteq X$ abgeschlossen und $\varepsilon > 0$. Da die Aussage für $A = \emptyset$ trivialerweise erfüllt ist
+    Zu $(i) \Rightarrow (ii)$: Sei $A \subseteq X$ abgeschlossen und $\varepsilon > 0$. Da die Aussage für $A = \emptyset$ trivialerweise erfüllt ist
     können wir ohne Beschränkung der Allgemeinheit annehmen, dass $A \neq \emptyset$. Für $m \in \N$ setze
     \begin{align*}
         U_m := \{x \in X: d(x,A) < \frac{1}{m}\}.
@@ -39,15 +39,15 @@
     $$
     Da diese Ungleichung für alle $\varepsilon > 0$ erfüllt ist folgt die Behauptung. 
     \newline 
-    zu $(ii) \iff (iii)$: Folgt unmittelbar durch Komplementbildung. 
+    Zu $(ii) \iff (iii)$: Folgt unmittelbar durch Komplementbildung. 
     \newline
-    zu $(iii) \Rightarrow (iv)$: 
+    Zu $(iii) \Rightarrow (iv)$: 
     Sei $C \in \mathcal{B}(X)$ mit $\mu(\partial C) = 0$. Dann gilt insbesondere $\mu(\overline{C}) = \mu(\mathring{C}))$. Da $(iii)$ auch $(ii)$ impliziert erhalten wir somit
     $$
         \mu(C) = \mu(\mathring{C})) \leq \liminf_{n \to \infty} \mu_n(C) \leq \limsup_{n \to \infty} \mu_n(C) \leq \mu(\overline{C}) = \mu(C).
     $$
     \newline 
-    zu $(iv) \Rightarrow (i)$: 
+    Zu $(iv) \Rightarrow (i)$: 
     Sei $f \in C_b(X)$ beschränkt durch $M > 0$. Wegen der Linearität des Integrals können wir ohne Einschränkung annehmen, dass $f \geq 0$. 
     Wegen der Stetigkeit von $f$ erhalten wir zunächst für alle $t > 0$
     $$

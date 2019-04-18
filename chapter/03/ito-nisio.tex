@@ -20,7 +20,7 @@
 \begin{proof*}%TODO: Formatierung% 
     Die Implikationen $(i) \Rightarrow (ii) \Rightarrow (iii)$ wurden bereits in Kapitel 2 gezeigt, es genügt also $(ii) \Rightarrow (i)$ und $(iii) \Rightarrow (ii)$ zu zeigen. 
     \newline 
-    zu $(ii) \Rightarrow (i)$: \underline{Fall A}: Für alle $n \in \N$ ist $X_n$ symmetrisch verteilt. 
+    Zu $(ii) \Rightarrow (i)$: \underline{Fall A}: Für alle $n \in \N$ ist $X_n$ symmetrisch verteilt. 
     \newline 
     Für $n, N \in \N$ mit $n < N$ setze 
     \begin{align*}
@@ -63,7 +63,7 @@
     $$
     Setze nun $x_n := S_n(\omega_2)$, $n \in \N$. Dann existiert eine Zufallsvariable $L$ auf $(\Omega, \mathcal{A}, P)$ mit $S_n - x_n \fastsicher L$. Nach Voraussetzung erhalten wir also 
     $$
-        x_n \stochastisch S - L
+        x_n \stochastisch S - L,
     $$
     wobei wir $x_n$ für $n \in \N$ als konstante Zufallsvariable auf $(\Omega, \mathcal{A}, P)$ auffassen. Folglich existiert ein $x \in E$ mit 
     $$
@@ -71,11 +71,11 @@
     $$
     und insgesamt erhalten wir $S_n \fastsicher L + x$. 
     \newline 
-    zu $(iii) \Rightarrow (ii)$: Für $1 \leq m < n$ bezeichne
+    Zu $(iii) \Rightarrow (ii)$: Für $1 \leq m < n$ setze
     \begin{align*}
         \mu_{m,n} :&= P^{S_n - S_m}
     \end{align*}
-    die Verteilung von $S_n - S_m$. Da $(\mu_n)_{n \in \N}$ nach Voraussetzung schwach gegen ein Wahrscheinlichkeitsmaß $\mu$ konvergiert
+    Da $(\mu_n)_{n \in \N}$ nach Voraussetzung schwach gegen ein Wahrscheinlichkeitsmaß $\mu$ konvergiert
     ist die Menge $\{\mu_n: n \in \N \}$ relativ kompakt in $(\mathcal{M}(E), \rho)$ und somit nach dem Satz von Prokhorov gleichmäßig straff.
     Folglich existiert zu $\varepsilon > 0$ eine kompakte Teilmenge $K \subseteq E$ mit 
     $$
@@ -94,7 +94,7 @@
     \begin{align}
         \forall \varepsilon > 0 \ \exists N \in \N: \ \forall n > m \geq N: \quad \prob{\norm{S_n - S_m} < \varepsilon} = \mu_{m,n}(B(0,\varepsilon)) > 1 - \varepsilon.
     \end{align}
-    Mit dem Cauchy-Kriterium folgt daraus die stochastische Konvergenz der Folge $(S_n)_{n \in \N}$. Angenommen $(3.6)$ ist nicht erfüllt, dann gilt
+    Mit dem Satz $2.9$ folgt daraus die stochastische Konvergenz der Folge $(S_n)_{n \in \N}$. Angenommen $(3.6)$ ist nicht erfüllt, dann gilt
     \begin{align*}
         \exists \varepsilon > 0 \ \forall N \in \N: \ \exists n(N) > m(N) \geq N: \mu_{m(N), n(N)}(B(0, \varepsilon)) \leq 1 - \varepsilon.
     \end{align*}
@@ -103,25 +103,25 @@
     \begin{align}
         \nu(B(0, \varepsilon)) \leq \liminf_{N \to \infty}\mu_{m(N),n(N)}(B(0,\varepsilon)) \leq 1 - \varepsilon. 
     \end{align}
-    Andererseits gilt für $z \in E'$ wegen der Unabhängigkeit von $(X_n)_{n \in \N}$
+    Andererseits gilt für $f \in E'$ wegen der Unabhängigkeit von $(X_n)_{n \in \N}$
     \begin{align*}
-        \widehat{\mu_{n(N)}} = \mathbb{E}(e^{iz(S_{n(N)}})) &= \mathbb{E}(e^{iz(S_{m(N)})}e^{iz(S_{n(N)} - S_{m(N)})}) \\\
-                                                   &= \mathbb{E}(e^{iz(S_{m(N)})})\mathbb{E}(e^{iz(S_{n(N)} - S_{m(N)})}) \\\
-                                                   &= \widehat{\mu_{m(N}}(z)\widehat{\mu_{m(N),n(N)}}(z). 
+        \widehat{\mu_{n(N)}}(f) = \mathbb{E}(e^{if(S_{n(N)})})) &= \mathbb{E}(e^{if(S_{m(N)})}e^{if(S_{n(N)} - S_{m(N)})}) \\\
+                                                   &= \mathbb{E}(e^{if(S_{m(N)})})\mathbb{E}(e^{if(S_{n(N)} - S_{m(N)})}) \\\
+                                                   &= \widehat{\mu_{m(N}}(f)\widehat{\mu_{m(N),n(N)}}(f). 
     \end{align*}
     Mit Grenzübergang $N \to \infty$ folgt daraus wegen $\mu_N \rightharpoonup \mu$ und $\mu_{m(N),n(N)} \rightharpoonup \nu$
     \begin{align*}
-        \forall z \in E': \quad \widehat{\mu}(z) = \widehat{\mu}(z) \widehat{\nu}(z)
+        \forall z \in E': \quad \widehat{\mu}(z) = \widehat{\mu}(z) \widehat{\nu}(z).
     \end{align*}
     Wegen der Stetigkeit von $\widehat{\mu}$ und $\widehat{\mu}(0_{E'}) = 1$ existiert ein $r>0$ mit 
     \begin{align*}
         \widehat{\mu}(z) \neq 0, \quad \text{ für alle } z \in E' \text{ mit } \norm{z}_{op} \leq r. 
     \end{align*}
-    Also muss 
+    Also gilt 
     \begin{align*}
         \widehat{\nu}(z) = 1, \quad \text{ für alle } z \in E' \text{ mit } \norm{z}_{op} \leq r. 
     \end{align*}
-    gelten. Mit Proposition $2.19$ folgt nun $\nu = \delta_0$. Im Widerspruch zu $(3.7)$. Es gilt folglich $(3.6)$ und $(S_n)_{n \in \N}$ konvergiert demnach stochastisch. 
+    Aus Proposition $2.19$ folgt nun $\nu = \delta_0$. Im Widerspruch zu $(3.7)$. Es gilt folglich $(3.6)$ und $(S_n)_{n \in \N}$ konvergiert demnach stochastisch. 
     \qed
 \end{proof*}
 

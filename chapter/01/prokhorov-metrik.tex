@@ -7,7 +7,7 @@ Zunächst einmal sei dafür an den Begriff der relativen Kompaktheit erinnert.
 Mittels der Teilfolgencharakterisierung von kompakten Teilmengen metrischer Räume erhält man unmittelbar
 
 \begin{proposition}
-    Eine Teilmenge $A$ eines metrischen Raums $(X,d)$ ist genau dann relativ kompakt, wenn jede Folge $(x_n)_{n \in \N}$ in $A$ eine in $\overline{A}$ konvergente Teilfolge enthält.
+    Eine Teilmenge $A$ eines metrischen Raums $(X,d)$ ist genau dann relativ kompakt, wenn jede Folge $(x_n)_{n \in \N}$ in $A$ eine konvergente Teilfolge enthält.
 \end{proposition}
 Eine Folge $(x_n)_{n \in \N}$ in einem metrischen Raum konvergiert also genau dann, wenn die beiden folgenden Bedingungen erfüllt sind
 \begin{enumerate}[(i)]
@@ -25,6 +25,7 @@ $$
         \emptyset, \text{ sonst.}
     \end{cases}
 $$
+Man zeigt leicht, dass $B^{\varepsilon}$ für alle $B\in \mathcal{B}(X)$ offen ist. Daher ist $B^{\varepsilon}$ insbesondere messbar. 
 Betrachte nun die Abbildung 
 $$
     \rho: \mathcal{M}(X) \times \mathcal{M}(X) \to [0, \infty),
@@ -43,13 +44,13 @@ $$
         $$
         \item Für $\mu, \mu_1, \mu_2,... \in \mathcal{M}(X)$ gilt 
         $$
-            \lim_{n \to \infty} \rho(\mu_n, \mu) = 0 \ \Rightarrow \ \mu_n \rightharpoonup \mu 
+            \lim_{n \to \infty} \rho(\mu_n, \mu) = 0 \ \Rightarrow \ \mu_n \rightharpoonup \mu. 
         $$
     \end{enumerate}
 \end{proposition}
 
 \begin{proof*}
-    zu $(i)$: Die Menge ist nicht leer, da die Bedingung für alle $\alpha \geq 1$ erfüllt ist. Offensichtlich gilt ferner $\rho(\mu, \nu) \geq 0$ und $\rho(\mu, \nu) = \rho(\nu, \mu)$. 
+    Zu $(i)$: Die Menge ist nicht leer, da die Bedingung für alle $\alpha \geq 1$ erfüllt ist. Offensichtlich gilt ferner $\rho(\mu, \nu) \geq 0$ und $\rho(\mu, \nu) = \rho(\nu, \mu)$. 
     Wegen $B \subseteq B^{\alpha}$ für alle $B \in \mathcal{B}(X)$ und $\alpha > 0$ gilt 
     $$
         \forall B \in \mathcal{B} \ \forall \alpha > 0: \quad \mu(A) \leq \mu(A^{\alpha}) + \alpha.
@@ -64,7 +65,7 @@ $$
     $$
     Da die abgeschlossenen Mengen ein schnittstabiler Erzeuger von $\mathcal{B}(X)$ sind folgt somit $\mu = \nu$.
     \newline
-    \textit{zur Dreiecksungleichung:} Seien $\mu, \nu, \eta \in \mathcal{M}(X)$ und $\alpha, \beta > 0$ mit 
+    \textit{Zur Dreiecksungleichung:} Seien $\mu, \nu, \eta \in \mathcal{M}(X)$ und $\alpha, \beta > 0$ mit 
     \begin{align*}
         \forall B \in \mathcal{B}(X): \quad &\mu(A) \leq \eta(A^{\alpha}) + \alpha \quad \land \quad \eta(A) \leq \mu(A^{\alpha}) + \alpha, \\\
                                             &\nu(A) \leq \eta(A^{\beta}) + \beta \quad \land \quad \eta(A) \leq \nu(A^{\beta}) + \beta.
@@ -79,16 +80,16 @@ $$
     $$
         \rho(\mu, \nu) \leq \rho(\mu, \eta) + \rho(\eta, \nu).
     $$
-    zu $(ii)$: Sei $\alpha > 0$ mit 
+    Zu $(ii)$: Sei $\alpha > 0$ mit 
     $$
         \forall B \in \mathcal{B}(X): \ \mu(B) \leq \nu(B^{\alpha}) + \alpha.
     $$
     Für zwei Mengen $A,B \in \mathcal{B}(X)$ gilt nach Definition $A \subseteq (B^{\alpha})^c$ genau dann, wenn $B \subseteq (A^{\alpha})^c$. 
-    Zu $B \in \mathcal{B}(X)$ setze also $A:=(A^{\alpha})^c$ und erhalte 
+    Zu $B \in \mathcal{B}(X)$ setze also $A:=(B^{\alpha})^c$ und erhalte 
     $$ 
         \mu(B^{\alpha}) = 1 - \mu(A) \geq 1 - \nu(A^{\alpha}) - \alpha = \nu((A^{\alpha})^c) - \alpha \geq \nu(B) - \alpha. 
     $$
-    zu $(iii)$: Wegen $\rho(\mu_n, \mu) \to 0$ existiert eine Folge $(\alpha_n)_{n \in \N}$ mit $\alpha_n \downarrow 0$ und 
+    Zu $(iii)$: Wegen $\rho(\mu_n, \mu) \to 0$ existiert eine Folge $(\alpha_n)_{n \in \N}$ mit $\alpha_n \downarrow 0$ und 
     $$
         \forall n \in \N \ \forall B \in \mathcal{B}(X): \quad \mu_n(B) \leq \mu(B^{\alpha_n}) + \alpha_n. 
     $$
@@ -126,14 +127,14 @@ Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkeh
 \begin{theorem}
     Sei $(X,d)$ ein separabler metrischer Raum. Dann gilt für $\mu, \mu_1, \mu_2, ... \in \mathcal{M}(X)$
     $$
-        \lim_{n \to \infty} \rho(\mu_n, \mu) = 0 \ \iff \ \mu_n \rightharpoonup \mu 
+        \lim_{n \to \infty} \rho(\mu_n, \mu) = 0 \ \iff \ \mu_n \rightharpoonup \mu.  
     $$
 \end{theorem}
 
 \begin{proof*}
-    zu $\Rightarrow$: Siehe Proposition $1.16(iii)$.
+    Zu $\Rightarrow$: Siehe Proposition $1.16(iii)$.
     \newline 
-    zu $\Leftarrow$:  Wir zeigen
+    Zu $\Leftarrow$:  Wir zeigen
     $$
         \forall \varepsilon > 0 \ \exists N \in \N \ \forall n \geq N: \quad \forall B \in \mathcal{B}: \  \mu(B) \leq \mu_n(B^{\varepsilon}) + \varepsilon. 
     $$
@@ -172,7 +173,7 @@ Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkeh
 \end{proof*}
 Nachdem wir nun eine passende Metrik gefunden haben, um die schwache Konvergenz von Wahrscheinlichkeitsmaßen in $\mathcal{M}(X)$ zu beschreiben wollen wir noch kurz auf ein Resultat von Prokhorov eingehen, 
 welches uns eine äußerst nützliche Charakterisierung der relativ kompakten Teilmengen von $(\mathcal{M}(X), \rho)$ liefert. 
-Dazu benötigen wir die folgende 
+Dazu führen wir den Begriff der \textit{gleichmäßigen Straffheit} ein.  
 \begin{mydef}
     Eine Familie $M \subseteq \mathcal{M}(X)$ von Wahrscheinlichkeitsmaßen heißt \textit{gleichmäßig straff}, 
     falls es für alle $\varepsilon > 0$ eine kompakte Menge $K \subseteq X$ gibt mit 
@@ -201,7 +202,7 @@ Um die schwache Konvergenz einer Folge $(\mu_n)_{n \in \N}$ von Wahrscheinlichke
     In \cite{li-queffelec} findet sich ein alternativer Zugang zur Prokhorov-Metrik. Hier wird die Metrik auf $\mathcal{M}(X)$ nicht wie hier über die Mengen aus $\mathcal{B}(X)$ definiert, sondern über Funktionen $f \in C_b(\R)$.
     Es wird dort gezeigt, dass es für einen vollständigen und separablen metrischen Raum $(X,d)$ eine Folge $(f_n)_{n \in \N}$ in der Einheitskugel von $C_b(\R)$ gibt, sodass durch
     $$
-        (\mu, \nu) \mapsto \sum_{n=1}^{\infty}\frac{1}{2^n}\abs{\int_Xf_nd\mu - \int_X f_n d\nu}, \quad \mu, \nu \in \mathcal{M}(X)
+        (\mu, \nu) \mapsto \sum_{n=1}^{\infty}\frac{1}{2^n}\abs{\int_Xf_nd\mu - \int_X f_n d\nu}, \quad \mu, \nu \in \mathcal{M}(X),
     $$
     eine Metrik definiert ist, die die schwache Konvergenz charakterisiert. 
 \end{remark}

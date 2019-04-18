@@ -15,19 +15,19 @@ Für den Beweis dient uns unter anderem der folgende Satz.
         \widetilde{S}_n := \sum_{i = 1}^n \widetilde{X}_i, \quad \widetilde{T}_n := \sum_{i = 1}^n \widetilde{Y}_n, \quad U_n := \widetilde{S}_n - \widetilde{T}_n, \quad \mu_{U_n} := (P\times P)^{U_n}. 
     \end{align*}
     Nach Konstruktion sind $\widetilde{S}_n$,$\widetilde{T}_n$ und $S_n$ identisch verteilt. Wir zeigen zunächst, dass $(\mu_{U_n})_{n \in \N}$ gleichmäßig straff ist. 
-    Sei dazu $\varepsilon > 0$ Dann existiert nach Voraussetzung eine kompakte Menge $K_{\varepsilon} \subseteq E$ mit 
+    Sei dazu $\varepsilon > 0$ Dann existiert nach Voraussetzung eine kompakte Menge $\tilde{K} \subseteq E$ mit 
     $$
-        \forall n \in \N: \mu_n(K_{\varepsilon}) \geq 1 - \varepsilon. 
+        \forall n \in \N: \mu_n(\tilde{K}) \geq 1 - \varepsilon. 
     $$
     Wegen der Stetigkeit der Abbildung 
     $$
         E \times E \to E, \ (x,y) \mapsto x - y
     $$
-    ist auch die Menge $K := \{ x - y : x,y \in K_{\varepsilon} \}$ kompakt und somit insbesondere messbar. Ferner gilt
+    ist auch die Menge $K := \{ x - y : x,y \in \tilde{K}\}$ kompakt und somit insbesondere messbar. Ferner gilt
     \begin{align*}
-        \mu_{U_n}(K) = \prob{\widetilde{S}_n - \widetilde{T}_n \in K} &\geq \prob{\widetilde{S}_n \in K_{\varepsilon}, \widetilde{T}_n \in \varepsilon} \\\
-                                                              &\geq 1 - \prob{\widetilde{S}_n \notin K_{\varepsilon}} - \prob{\widetilde{T}_n \notin K_{\varepsilon}} \\\
-                                                              &= 1 - 2\mu_n(K_{\varepsilon}^c) \\\
+        \mu_{U_n}(K) = \prob{\widetilde{S}_n - \widetilde{T}_n \in K} &\geq \prob{\widetilde{S}_n \in \tilde{K}, \widetilde{T}_n \in \tilde{K}} \\\
+                                                              &\geq 1 - \prob{\widetilde{S}_n \notin \tilde{K}} - \prob{\widetilde{T}_n \notin \tilde{K}} \\\
+                                                              &= 1 - 2\mu_n(\tilde{K}^c) \\\
                                                               &\geq 1 - 2 \varepsilon.                                              
     \end{align*}
     Also ist $(\mu_{U_n})_{n \in \N}$ straff. 
@@ -38,7 +38,7 @@ Für den Beweis dient uns unter anderem der folgende Satz.
         \widehat{\mu_{U_n}}(f) = E(e^{if(U_n)}) &= \mathbb{E}\big(\prod_{j=1}^n(e^{if(\widetilde{X}_j-\widetilde{Y}_j)})\big) \\\
                                                 &= \prod_{j=1}^n \mathbb{E}(e^{if(\widetilde{X}_j-\widetilde{Y}_j)})
                                                  = \prod_{j=1}^n \mathbb{E}(e^{if(\widetilde{X}_j)})\mathbb{E}(e^{-if(\widetilde{Y}_j)})
-                                                 = \prod_{j=1}^n \abs{\mathbb{E}(e^{if(\widetilde{X}_j)})}^2
+                                                 = \prod_{j=1}^n \abs{\mathbb{E}(e^{if(\widetilde{X}_j)})}^2.
     \end{align*}
     Wegen $0 \leq \abs{\mathbb{E}(e^{if(\widetilde{X}_j)})} \leq 1$ für alle $j \in \N$ folgt daraus die Konvergenz von $(\widehat{\mu_{U_n}}(f))_{n \in \N}$. 
     Nach Satz $2.19$ konvergiert $(U_n)_{n \in \N}$ also in Verteilung und somit nach dem Satz von Itô-Nisio insbesondere fast sicher. 
@@ -46,7 +46,7 @@ Für den Beweis dient uns unter anderem der folgende Satz.
     $$
         \forall (\omega_1, \omega_2) \in \Omega^*: \quad U_n(\omega_1, \omega_2) = S_n(\omega_1) - S_n(\omega_2) \text{ konvergiert.}
     $$
-    Mit dem Satz von Fubini erhalten wir wie im Beweis des Satzes von Itô-Nisio ein $\omega' \in \Omega$, sodass $S_n - S_n(\omega')$ fast sicher konvergiert. 
+    Mit dem Satz von Fubini erhalten wir wie im Beweis von Satz $3.8$ ein $\omega' \in \Omega$, sodass $S_n - S_n(\omega')$ fast sicher konvergiert. 
     Die Folge $(c_n)_{n \in \N}$, definiert durch $c_n := S_n(\omega')$, $n \in \N$, erfüllt nun die gewünschte Eigenschaft. \qed
 
 \end{proof*}
@@ -73,7 +73,7 @@ Für den Beweis dient uns unter anderem der folgende Satz.
     Die Äquivalenz $(i) \iff (ii) \iff (iii)$ wurde bereits im allgemeinen Fall nicht-symmetrischer Zufallsvariablen gezeigt und die Implikationen $(iii) \Rightarrow (iv)$, $(i) \Rightarrow (v) \Rightarrow (vi)$ sind klar. 
     Wir zeigen noch $(vi) \Rightarrow (iv)$ und $(v) \Rightarrow (iv) \Rightarrow (i)$. 
     \newline
-    zu $(iv) \Rightarrow (i)$:
+    Zu $(iv) \Rightarrow (i)$:
     Nach Satz $3.8$ existiert eine Folge $(c_n)_{n \in \N}$ in $E$, sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert. Setze nun $P^X := P^{(X_1,X_2,...)}$ und $P^{-X} :=P^{(-X_1,-X_2,...)}$. 
     Wegen der Unabhängigkeit und Symmetrie von $(X_n)_{n \in \N}$ erhalten wir direkt $P^X = P^{-X}$. Weiter gilt für $N \in \N$ und $\varepsilon >0$
     \begin{align*}
@@ -86,7 +86,7 @@ Für den Beweis dient uns unter anderem der folgende Satz.
     $$
        S_n =  \frac{1}{2}((S_n - c_n) - (-S_n -c_n)). 
     $$
-    zu $(v) \Rightarrow (iv)$: Wegen der Unabhängigkeit von $(X_n)_{n \in \N}$ sind für alle $f \in E'$ und $m \geq n$ die Zufallsvariablen $f(S_m - S_n)$ und $f(S_n)$ unabhängig. 
+    Zu $(v) \Rightarrow (iv)$: Wegen der Unabhängigkeit von $(X_n)_{n \in \N}$ sind für alle $f \in E'$ und $m \geq n$ die Zufallsvariablen $f(S_m - S_n)$ und $f(S_n)$ unabhängig. 
     Nach Proposition $2.18$ sind also $f(S-S_n)$ und $f(S_n)$ für alle $n \in \N$ unabhängig. Zusammen mit der Symmetrie von $S_n$ ergibt sich deshalb für $f \in E'$
     \begin{align*}
         \widehat{P^S}(f) = \mathbb{E}(e^{if(S)}) &= \mathbb{E}(e^{if(S-S_n)})\mathbb{E}(e^{if(S_n)})  \\\
@@ -99,7 +99,7 @@ Für den Beweis dient uns unter anderem der folgende Satz.
     $$ 
     Somit ist $(\mu_n)_{n \in \N}$ gleichmäßig straff. 
     \newline
-    zu $(vi) \Rightarrow (iv)$: 
+    Zu $(vi) \Rightarrow (iv)$: 
     Sei $f \in E'$ beliebig aber fest. Betrachte die Abbildungen 
     \begin{align*}
         \varphi_n &: \R \to \C, \quad t \mapsto \int_E e^{itf(x)}\mu_n(dx) = \widehat{\mu_n}(tf), \quad n \in \N, \\\
@@ -107,11 +107,11 @@ Für den Beweis dient uns unter anderem der folgende Satz.
     \end{align*}
     Dann ist $\varphi_n$ für alle $n \in \N$ die charakteristische Funktion von $\mu_n^{f}$ und $\varphi$ die charakteristische Funktion von $\mu^f$. Nach Voraussetzung konvergiert $(\varphi_n)_{n \in \N}$ punktweise gegen $\varphi$ und nach 
     dem Stetigkeitssatz von Lévy, vgl. \cite{gs}[Satz 8.7.5, S.357], gilt somit $\mu_n^f \rightharpoonup \mu^f$. Für festes $f \in E'$ ist $\{\mu_n^f : n \in \N\}$ also insbesondere relativ kompakt. Nach dem Satz von de Acosta genügt es folglich zu zeigen, dass $(\mu_n)_{n \in \N}$ flach konzentriert ist. 
-    Da $\{\mu\}$ flach konzentriert ist genügt es dafür zu zeigen, dass für jeden endlich dimensionalen Untervektorraum $F \subseteq E$ und alle $\varepsilon > 0$ gilt 
+    Da $\{\mu\}$ flach konzentriert ist genügt es dafür zu zeigen, dass für jeden endlichdimensionalen Untervektorraum $F \subseteq E$ und alle $\varepsilon > 0$ gilt 
     $$
         \mu_n(\{x \in E: \ \inf_{y \in F}\norm{x-y} > \varepsilon \}) \leq 2 \mu(\{x \in E: \ \inf_{y \in F}\norm{x-y} > \varepsilon \}).
     $$
-    Sei also $F \subseteq E$ ein endlich dimensionaler Untervektorraum und $\varepsilon >0$. Nach dem Satz von Hahn-Banach existiert eine Folge $(f_n)_{n \in \N}$ in $E'$ mit 
+    Sei also $F \subseteq E$ ein endlichdimensionaler Untervektorraum und $\varepsilon >0$. Nach dem Satz von Hahn-Banach existiert eine Folge $(f_n)_{n \in \N}$ in $E'$ mit 
     $$
         \forall x \in E: \quad d(x,F) := \inf_{y \in F}\norm{x-y} = \sup_{n \in \N}\abs{f_n(x)}. 
     $$

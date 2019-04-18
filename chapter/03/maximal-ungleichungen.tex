@@ -10,7 +10,7 @@
 \begin{remark}
     Nach dem Eindeutigkeitssatz für charakteristische Funktionale ist eine Zufallsvariable $X \in \mathcal{L}_0(E)$ genau dann symmetrisch, wenn 
     $$
-        \forall f \in E': \quad \widehat{P^X}(f) = \widehat{P^{-X}}(f). 
+        \forall f \in E': \quad \widehat{P^X}(f) = \widehat{P^{-X}}(f) = \widehat{P^X}(-f). 
     $$
 \end{remark}
 
@@ -37,7 +37,7 @@
 \end{theorem}
 
 \begin{proof*}
-    zu $(3.1)$:
+    Zu $(3.1)$:
     Setze 
     $$
         T_1(\omega) := \inf\{ k \leq N: \norm{S_k} > t \} \in [0, \infty], \quad \omega \in \Omega. 
@@ -48,20 +48,20 @@
         \{T_1 = n\} \subseteq \{\norm{S_N} > t,\  T_1 = n\} \cup \{\norm{2S_n - S_N}>t,\  T_1=n\}, \quad n \in \{1,...,N\}, \\\
         \prob{\norm{S_N} > t, \ T_1=n} = \prob{\norm{2S_n - S_N} > t,\  T_1=n}, \quad n \in \{1,...,N\}. 
     \end{align}
-    zu $(3.3)$:
-    Für $\omega \in \Omega$ mit $T_1(\omega) = n$ und $\norm{S_N} \leq t$ liefert die umgekehrte Dreiecksungleichung
+    Zu $(3.3)$:
+    Für $\omega \in \Omega$ mit $T_1(\omega) = n$ und $\norm{S_N(\omega)} \leq t$ liefert die umgekehrte Dreiecksungleichung
     $$
-        \norm{2S_n - S_N} \geq 2\norm{S_n} - \norm{S_N} > 2t - t = t. 
+        \norm{2S_n(\omega) - S_N(\omega)} \geq 2\norm{S_n(\omega)} - \norm{S_N(\omega)} > 2t - t = t. 
     $$
-    zu $(3.4)$: Setze $\varepsilon_1 = \varepsilon_2 = ... = \varepsilon_n = 1$ und $\varepsilon_{n+1} = ... = \varepsilon_N = -1$, sowie
+    Zu $(3.4)$: Setze $\varepsilon_1 = \varepsilon_2 = ... = \varepsilon_n = 1$ und $\varepsilon_{n+1} = ... = \varepsilon_N = -1$, sowie
     $$
-        S'_j := \sum_{i=1}^N\varepsilon_i X_i. 
+        S'_j := \sum_{i=1}^j\varepsilon_i X_i, \quad j \in \{1,...,N\}. 
     $$
     Dann gilt $S_j = S'_j$ für alle $j \leq n$ und 
     $$
         2S_n - S_N = 2 \sum_{i=1}^n X_i - \sum_{i=1}^N X_I = \sum_{i=1}^nX_i - \sum_{i=n+1}^N X_i = S'_N. 
     $$
-    Wegen der Symmetrie von $X_1,...,X_N$ sind $(S_1,...,S_N)$ und $(S'_1,...,S'_N)$ identisch verteilt. Also ergibt sich 
+    Wegen der Symmetrie und Unabhängigkeit von $X_1,...,X_N$ sind $(S_1,...,S_N)$ und $(S'_1,...,S'_N)$ identisch verteilt. Also ergibt sich 
     \begin{align*}
         \prob{\norm{S_N} > t, T_1=n} &= \prob{\norm{S_1} \leq t,...,\norm{S_{n-1}}\leq t, \norm{S_n} > t, \norm{S_N} > t} \\\
                                    &= \prob{\norm{S'_1}\leq t,...,\norm{S'_{n-1}}\leq t, \norm{S'_n} > t, \norm{S'_N} > t} \\\
@@ -71,13 +71,13 @@
     $$
         \prob{T_1=n} \leq 2 \prob{\norm{S_N} > t, \ T_1=n}.
     $$
-    Woraus wir schließlich $(3.1)$ folgern  
+   Daraus folgt schließlich
     \begin{align*}
         \prob{\max_{1 \leq n \leq N} \norm{S_n} > t} \leq \sum_{n=1}^{N} \prob{T_1=n} 
                                                      &\leq \sum_{n=1}^N2\prob{\norm{S_N} >t, \ T_1=n} \\\
                                                      &= 2 \prob{\norm{S_N}>t, \ T_1 \leq N} \leq 2 \prob{\norm{S_N} > t}. 
     \end{align*}
-    zu $(3.2)$: 
+    Zu $(3.2)$: 
     Setze 
     $$
         T_2(\omega) := \inf\{k \leq N: \norm{X_k(\omega)} > t\} \in [0, \infty], \quad \omega \in \Omega. 
@@ -85,9 +85,9 @@
     Analog zum Beweis von $(3.3)$ und $(3.4)$ zeigt man 
     \begin{align*}
         \{T_2 = n\} \subseteq \{\norm{S_N} > t, T_2 =n\} \cup \{\norm{2X_n - S_N} > t, T_2=n\}, \quad n \in \{1,...,N\}, \\\
-        \prob{\norm{S_N} > t, T_2 = n} = \prob{\norm{2X_n - S_N}, T_2 = n}, \quad n \in \{1,...,N\}. 
+        \prob{\norm{S_N} > t, T_2 = n} = \prob{\norm{2X_n - S_N}, T_2 = n}, \quad n \in \{1,...,N\},
     \end{align*}
-    unter der Verwendung der Symmetrie von $X_1,...,X_N$ und folgert daraus schließlich 
+    unter der Verwendung der Symmetrie von $X_1,...,X_N$, und folgert daraus letztendlich 
     \begin{align*}
         \prob{\max_{1\leq n \leq N} \norm{X_n} > t} = \sum_{n=1}^N \prob{T_2 = n} 
                                                     &\leq \sum_{n=1}^N 2\prob{\norm{S_N} > t, T=n} \\\
@@ -148,7 +148,7 @@ Für nicht-symmetrische Zufallsvariablen erhalten wir mit einer ähnlichen Bewei
     \end{align*}
     Umstellen und beachten von 
     $$
-        \min_{1\leq k \leq N}\prob{\norm{S_N-S_k} \leq s} = 1 - \max_{1\leq k \leq N}\prob{\norm{S_N - s_k} > s}
+        \min_{1\leq k \leq N}\prob{\norm{S_N-S_k} \leq s} = 1 - \max_{1\leq k \leq N}\prob{\norm{S_N - S_k} > s}
     $$
     liefert nun die Behauptung. \qed
 \end{proof*}

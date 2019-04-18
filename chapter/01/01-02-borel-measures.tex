@@ -18,7 +18,7 @@ $$
 $$ 
 
 \begin{mydef}
-    Ein Maß $\mu$ auf $\mathcal{B}(X)$ heißt \textit{regulär} , falls
+    Ein Wahrscheinlichkeitsmaß $\mu$ auf $\mathcal{B}(X)$ heißt \textit{regulär}, falls
     \begin{align*}
         \forall B \in \mathcal{B}(X): \quad \mu(B) &= \sup\{\mu(C): C \subseteq B, \ C \text{ abgeschlossen} \} \\\
                                                    &= \inf\{\mu(O): B \subseteq O, \ O \text{ offen} \}.  
@@ -45,7 +45,7 @@ $$
     $$
     Da $O^c$ abgeschlossen ist und $C^c$ offen ist, folgt $A^c \in \mathcal{R}$. 
     \newline 
-    Seien nun $A_1, A_2,... \in \mathcal{R}$ und $\varepsilon > 0$ Für jedes $n \in \N$ existieren dann eine offene Menge $O_n$ und eine abgeschlossene Menge $C_n$ mit $C_n \subseteq A_n \subseteq O_n$ und 
+    Seien nun $A_1, A_2,... \in \mathcal{R}$ und $\varepsilon > 0$. Für jedes $n \in \N$ existieren dann eine offene Menge $O_n$ und eine abgeschlossene Menge $C_n$ mit $C_n \subseteq A_n \subseteq O_n$ und 
     $$
         \mu(O_n) - 2^{-n}\varepsilon < \mu(A_n) < \mu(C_n) + 2^{n+1}\varepsilon.
     $$
@@ -78,7 +78,7 @@ $$
     Da $\varepsilon$ beliebig gewählt war folgt aus $(1.1)$ und $(1.2)$, dass $\cup_{n=1}^{\infty}A_n \in \mathcal{R}$. Folglich ist $\mathcal{R}$ eine $\sigma$-Algebra. 
     Es bleibt noch zu zeigen, dass $\mathcal{R}$ alle abgeschlossenen Mengen enthält. Sei also $\emptyset \neq A \subseteq X$ abgeschlossen. Die Bedingung 
     $$
-        \mu(A) = \sup\{\mu(C): C \subseteq A, C\text{ abgeschlossen }\}
+        \mu(A) = \sup\{\mu(C): C \subseteq A, C\text{ abgeschlossen}\}
     $$
     folgt direkt aus der Monotonie von $\mu$. Um die zweite Bedingung zu zeigen setze für $n \in \N$
     $$
@@ -169,17 +169,17 @@ Der Beweis wird mittels der in metrischen Räumen geltenden Äquivalenz von Übe
     Sei $(X,d)$ ein vollständiger metrischer Raum und $\mu$ ein Wahrscheinlichkeitsmaß auf $\mathcal{B}(X)$. Dann sind äquivalent
     \begin{enumerate}[(i)]
         \item $\mu$ ist straff.
-        \item Es gibt eine separable Teilmenge $E \subseteq X$ mit $\mu(E) = 1$. 
+        \item Es gibt eine separable Teilmenge $E \in \mathcal{B}(X)$ mit $\mu(E) = 1$. 
     \end{enumerate}
 \end{proposition}
 \begin{proof*}
-    zu (i) $\Rightarrow$ (ii): Für alle $n \in \N$ existiert $K_n \subseteq X$ kompakt mit $\mu(K_n) \geq 1 - \frac{1}{n}$, o.E. gelte $K_n \subseteq K_{n+1}$. Es folgt 
+    Zu (i) $\Rightarrow$ (ii): Für alle $n \in \N$ existiert $K_n \subseteq X$ kompakt mit $\mu(K_n) \geq 1 - \frac{1}{n}$, o.E. gelte $K_n \subseteq K_{n+1}$. Es folgt 
     \begin{align*}
         \mu\big(\cup_{n=1}^{\infty}K_n\big) = \lim_{n \to \infty}\mu\big(K_ n\big) = 1. 
     \end{align*}
     Da kompakte Teilmengen metrischer Räume insbesondere separabel sind, ist $E := \cup_{n=1}^{\infty}K_n$ als abzählbare Vereinigung separabler Mengen ebenso separabel. 
     \newline 
-    zu (ii) $\Rightarrow$ (i): 
+    Zu (ii) $\Rightarrow$ (i): 
     Analog zum Beweis von Proposition 1.8. \qed
 \end{proof*}
 
@@ -189,7 +189,7 @@ Insgesamt haben wir also gezeigt
     Für ein Wahrscheinlichkeitsmaß $\mu$ auf der Borelschen $\sigma$-Algebra eines vollständigen metrischen Raumes $(X,d)$ sind äquivalent
     \begin{enumerate}[(i)]
         \item $\mu$ ist straff.
-        \item Es gibt eine separable Menge $E \subseteq X$ mit $\mu(E) = 1$.
+        \item Es gibt eine separable Menge $E \in \mathcal{B}(X)$ mit $\mu(E) = 1$.
         \item $\mu$ ist ein Radon-Maß, d.h.
         $$
         \forall A \in \mathcal{B}(X): \quad \mu(A) = \sup\{\mu(K): K \subseteq A, \ K \text{ kompakt}\}.
