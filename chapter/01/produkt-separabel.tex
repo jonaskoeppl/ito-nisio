@@ -1,0 +1,140 @@
+Als nächstes wollen wir zeigen, dass für zwei separable metrische Räume $(X_1, d_1)$ und $(X_2,d_2)$, die Produkt $\sigma$-Algebra
+$\mathcal{B}(X_1) \otimes \mathcal{B}(X_2)$, mit der von der Produkttopologie auf $X_1 \times X_2$ erzeugten Borelschen $\sigma$-Algebra $\mathcal{B}(X_1 \times X_2)$ übereinstimmt. 
+Für den Beweis benötigen wir ein paar topologische Grundbegriffe und Hilfsmittel.
+\begin{mydef}
+    Sei $(X, \mathcal{O})$ ein topologischer Raum. Eine Menge $\mathcal{U} \subseteq \mathcal{O}$ heißt \textit{Basis} von $\mathcal{O}$, falls
+    $$
+        \forall A \in \mathcal{O} \ \forall x \in A \ \exists U \in \mathcal{U}: \ x \in U \subseteq A. 
+    $$
+\end{mydef}
+
+\begin{remark}
+    Man zeigt leicht, dass ein Mengensystem $\mathcal{U} \subseteq \mathcal{O}$ genau dann eine Basis von $\mathcal{O}$ ist, wenn
+    \begin{align*}
+        \mathcal{O} &= \{A \subseteq X \ | \ \forall x \in A \ \exists B \in \mathcal{U}: \ x \in B \subseteq A\} \\\
+                    &= \{\cup_{i \in I}U_i \ | \ U_i \in \mathcal{U}, i \in I, I \text{ beliebig} \}. 
+    \end{align*}
+\end{remark}
+
+\begin{lemma}
+    Sei $X$ eine Menge, $I$ eine nichtleere Indexmenge und $\mathcal{U} := \{U_i: U_i \in \mathcal{P}(X), i \in I\}$ mit $\bigcup_{i \in I} U_i = X$. Dann ist das Mengensystem 
+    $$
+        \mathcal{O}(\mathcal{U}) := \{\cup_{i \in \tilde{I}}U_i \ | \  \tilde{I} \subseteq I \text{ beliebig} \}
+    $$
+    eine Topologie auf $X$ und wird als die \textit{von} $\mathcal{U}$ \textit{erzeugte Topologie} bezeichnet. Nach Bemerkung $1.3$ ist $\mathcal{U}$ dann insbesondere eine Basis von $\mathcal{O}(\mathcal{U})$. 
+\end{lemma}
+
+\begin{proof*}
+    Nach Voraussetzung gilt $X \in \mathcal{O}(\mathcal{U})$ und da auch $\tilde{I} = \emptyset$ möglich ist, gilt $\emptyset \in \mathcal{O}(\mathcal{U})$. 
+    Seien nun $n \in \N$ und $A_1,...,A_n \in \mathcal{O}(\mathcal{U})$. Dann existieren Mengen $I_1,...,I_n \subseteq I$ mit 
+    $$
+        A_j = \bigcup_{i \in I_j}B_i, \quad j=1,...,n.
+    $$ 
+    Setze nun
+    $$
+        I^{(1)} := \bigcap_{i=1}^n I_i. 
+    $$
+    Es gilt dann $I^{(1)} \subseteq I$ und 
+    $$
+        \bigcap_{i=1}^n A_i = \bigcup_{i \in I^{(1)}}B_i \in \mathcal{O}(\mathcal{U}). 
+    $$
+    Für eine Familie $(A_j)_{j \in J}$ von Mengen in $\mathcal{O}(\mathcal{U})$ gibt es für alle $j \in J$ eine Menge $I_j \subseteq I$ mit 
+    $$
+        A_j = \bigcup_{i \in I_j} B_i. 
+    $$
+    Setze
+    $$
+        I^{(2)} := \bigcup_{j \in J}I_j. 
+    $$
+    Dann gilt $I^{(2)} \subseteq I$ und 
+    $$
+       \bigcup_{j \in J}A_j =  \bigcup_{i\in I^{(2)}}B_i \in \mathcal{O}(\mathcal{U}).
+    $$
+    Also ist $\mathcal{O}(\mathcal{U})$ eine Topologie. \qed 
+\end{proof*}
+
+Wie man leicht zeigt, ist für einen metrischen Raum $(X,d)$ das Mengensystem 
+$$
+    \mathcal{E} := \{B(x, \varepsilon) \ | \ \varepsilon > 0, x \in X \}
+$$
+eine Basis der von $d$ erzeugten Topologie, d.h. eine Basis von 
+$$
+    \mathcal{O}_d := \{A \subseteq X \ | \ A \text{ ist offen bzgl. } d\}. 
+$$
+Für separable metrische Räume existiert sogar eine abzählbare Basis von $\mathcal{O}_d$. 
+
+\begin{lemma}
+    Sei $(X,d)$ ein separabler metrischer Raum und $\mathcal{O}_d$ die von $d$ erzeugte Topologie. Weiter sei $D \subseteq X$ eine abzählbare und dichte Teilmenge von $X$. Dann ist 
+    $$
+        \tilde{\mathcal{E}} := \{B(x, \varepsilon) \ | \ \varepsilon \in \Q \cap (0,\infty), x \in D\}
+    $$
+    eine abzählbare Basis von $\mathcal{O}_d$. 
+\end{lemma}
+
+\begin{proof*}
+    Die Abzählbarkeit von $\tilde{\mathcal{E}}$ ist klar und man sieht leicht ein, dass $\mathcal{O}(\tilde{\mathcal{E}}) \subseteq \mathcal{O}(\mathcal{E}) = \mathcal{O}_d$. Weiter gilt für eine Menge $B \in \mathcal{E}$
+    $$
+        B = \bigcup_{U \in \tilde{\mathcal{E}}, U \subseteq B}U,
+    $$ 
+    da $D$ dicht in $X$ liegt. Es gilt also $\mathcal{E} \subseteq \mathcal{O}({\tilde{\mathcal{E}}})$ und folglich
+    $$
+        \mathcal{O}_d = \mathcal{O}(\mathcal{E}) \subseteq \mathcal{O}({\tilde{\mathcal{E}}}) \subseteq \mathcal{O}_d. 
+    $$
+    Insgesamt haben wir somit gezeigt, dass $\mathcal{O}_d = \mathcal{O}(\tilde{\mathcal{E}})$. \qed
+\end{proof*}    
+
+\begin{lemma}
+    Sei $(X, \mathcal{O})$ ein topologischer Raum mit einer abzählbaren Basis $\mathcal{C} \subseteq \mathcal{O}$. Dann gilt $\sigma(\mathcal{C}) = \mathcal{B}(X)$. 
+\end{lemma}
+
+\begin{proof*}
+    Aus $\mathcal{C} \subseteq \mathcal{O}$ folgt direkt $\sigma(\mathcal{C}) \subseteq \sigma(\mathcal{O}) = \mathcal{B}(X)$. Zu zeigen bleibt also nur $\mathcal{O} \subseteq \sigma(\mathcal{C})$. Sei dazu $A \in \mathcal{O}$. 
+    Da $\mathcal{C}$ eine abzählbare Basis von $\mathcal{O}$ ist, existieren Mengen $C_1, C_2,... \in \mathcal{C}$ mit 
+    $$
+        A = \bigcup_{i=1}^{\infty}C_i.
+    $$ 
+    Somit gilt $A \in \sigma(\mathcal{C})$. \qed 
+\end{proof*}
+Nun können wir das zuvor angekündigte und für später wichtige Resultat über Borelsche $\sigma$-Algebren auf Produkten separabler metrischer Räume zeigen. 
+\begin{proposition}
+    Seien $(X_1, d_1)$ und $(X_2, d_2)$ zwei separable metrische Räume. Dann gilt 
+    $$
+        \mathcal{B}(X_1 \times X_2) = \mathcal{B}(X_1) \otimes \mathcal{B}(X_2). 
+    $$
+\end{proposition}
+
+\begin{proof*}
+    Seien $\mathcal{O}_1$ und $\mathcal{O}_2$ die von $d_1$ bzw. $d_2$ erzeugten Topologien und $\mathcal{O}$ die Produkttopologie auf $X_1 \times X_2$. 
+    Nach Lemma $1.5$ existiert für $i=1,2$ eine abzählbare Basis $\mathcal{C}_i \subseteq \mathcal{O}_i$ von $\mathcal{O}_i$. Betrachte nun das Mengensystem 
+    $$
+        \mathcal{C} = \{A_1 \times A_2 \ | \ A_1 \in \mathcal{C}_1, A_2 \in \mathcal{C}_2 \}. 
+    $$
+    Für $k=1,2$ bezeichne $\pi_k$ die Projektion auf die $k$-te Komponente. Nach Definition der Produkttopologie ist
+    $$
+        \mathcal{Z} := \{ \pi_1(O_1) \cap \pi_2(O_2) \ | \ O_1 \in \mathcal{O}_1, O_2 \in \mathcal{O}_2 \} = \{O_1 \times O_2 \ | \ O_1 \in \mathcal{O}_1, O_2 \in \mathcal{O}_2 \}
+    $$
+    eine Basis von $\mathcal{O}$. Da $\mathcal{C}_1$ und $\mathcal{C}_2$ Basen von $\mathcal{O}_1$ bzw. $\mathcal{O}_2$ sind, zeigt man leicht, dass $\mathcal{O}(\mathcal{Z}) = \mathcal{O}(\mathcal{C})$. 
+    Folglich ist $\mathcal{C}$ eine abzählbare Basis von $\mathcal{O}$ und nach Lemma $1.6$ gilt $\sigma(\mathcal{C}) = \mathcal{B}(X_1 \times X_2)$. 
+    Wir zeigen nun
+    $$
+        \sigma(\mathcal{C}) = \mathcal{B}(X_1) \otimes \mathcal{B}(X_2). 
+    $$
+    Zu $\subseteq$: Diese Inklusion ist klar, wegen $\mathcal{C} \subseteq \mathcal{B}(X_1) \times \mathcal{B}(X_2) \subseteq \mathcal{B}(X_1) \otimes \mathcal{B}(X_2)$. \newline
+    Zu $\supseteq$: Nach der Definition der Produkttopologie $\mathcal{O}$ sind die Projektionen $\pi_1, \pi_2$ stetig bzgl. $\mathcal{O}$, also insbesondere $\mathcal{B}(X_1 \times X_2)$/$\mathcal{B}(X_1)$- bzw. $\mathcal{B}(X_1 \times X_2)$/$\mathcal{B}(X_2)$-messbar. 
+    Somit gilt 
+    $$
+    \mathcal{B}(X_1) \otimes \mathcal{B}(X_2) \subseteq \mathcal{B}(X_1 \times X_2),
+    $$
+    da $\mathcal{B}(X_1) \otimes \mathcal{B}(X_2)$ die Initial-$\sigma$-Algebra der Abbildungen $\pi_1, \pi_2$ ist. 
+    \qed
+\end{proof*}
+
+\begin{remark}
+    Die Aussage von Proposition $1.7$ lässt sich sogar auf abzählbare Produkte separabler metrischer Räume verallgemeinern. 
+    Das heißt, für eine Folge $((X_i, d_i))_{i \in \N}$ von separablen metrischen Räumen gilt
+    $$
+        \mathcal{B}(X_1 \times X_2 \times ...) = \otimes_{i \in \N}\mathcal{B}(X_i).
+    $$
+    Der Beweis funktioniert ähnlich wie der von Proposition $1.7$ und ist beispielsweise in \cite[Lemma 1.2]{kallenberg} skizziert. 
+\end{remark}
+  

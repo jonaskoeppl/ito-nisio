@@ -1,5 +1,16 @@
-Bevor wir uns im späteren Verlauf der Arbeit mit zufälligen Reihen in Banachräumen beschäftigen können benötigen wir ein paar maßtheoretische Vorbereitungen. 
-Wir beginnen mit einigen grundlegenden Eigenschaften Borelscher $\sigma$-Algebren und darauf definierten Wahrscheinlichkeitsmaßen. 
-Später gehen wir kurz auf messbare Vektorräume ein und führen dann den Begriff der Zufallsvariable mit Werten in einem Banachraum ein. 
-Da die zusätzliche algebraische Struktur eines Banachraums für unsere Betrachtung zunächst nicht von Bedeutung ist, 
-werden wir uns in den ersten Abschnitten mit dem allgemeineren Fall eines (vollständigen) metrischen Raumes beschäftigen.
+
+\begin{abstract}
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger reellwertiger Zufallsvariablen und definiere
+    $$
+        S_n := \sum_{i=1}^nX_i, \quad n \in \N.
+    $$
+    Ein berühmtes Ergebnis von Paul Lévy besagt, dass für die Folge $(S_n)_{n \in \N}$ die folgenden Aussagen äquivalent sind. 
+    \begin{enumerate}[(i)]
+        \item $(S_n)_{n \in \N}$ konvergiert fast sicher.
+        \item $(S_n)_{n \in \N}$ konvergiert stochastisch.
+        \item $(S_n)_{n \in \N}$ konvergiert in Verteilung.
+    \end{enumerate}
+    Im Jahr $1968$ gelang es K.Itô und M. Nisio in \cite{ito-nisio}, dieses Resultat auf Folgen von Zufallsvariablen mit Werten in einem beliebigen separablen Banachraum zu verallgemeinern.
+    Ziel dieser Arbeit ist es, zunächst eine (größtenteils) in sich geschlossene Einführung in die für den Beweis benötigten Hilfsmittel zu geben, und anschließend den Satz von Itô-Nisio zu beweisen.
+    Im Anschluss an den zentralen Beweis werden zudem zwei interessante Anwendungen diskutiert.
+\end{abstract}

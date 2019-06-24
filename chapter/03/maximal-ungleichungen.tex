@@ -14,18 +14,8 @@
     $$
 \end{remark}
 
-\begin{mydef}%TODO: Wird das überhaupt gebraucht? Ggf schöner formulieren. 
-    Eine Folge $(X_n)_{n \in \N}$ von E-wertigen Zufallsvariablen heißt \textit{symmetrisch}, 
-    falls $(\varepsilon_1 X_1, \varepsilon_2 X_2,...)$ für jede Wahl von $\varepsilon_i = \pm 1$ 
-    die gleiche Verteilung hat wie $(X_1,X_2,...)$. 
-\end{mydef}
-
-\begin{remark}
-   Sind $X_1,X_2,...$ unabhängige E-wertige Zufallsvariablen, sodass $X_n$ für alle $n \in \N$ symmetrisch ist, dann ist $(X_n)_{n \in \N}$ symmetrisch. 
-\end{remark}
-
 \begin{theorem}[Lévys Maximal-Ungleichung]
-    Seien $X_1,...,X_N \in \mathcal{L}_0(E)$ unabhängige und symmetrische Zufallsvariablen und setze 
+    Sei $N \in \N$ und seien $X_1,...,X_N \in \mathcal{L}_0(E)$ unabhängige und symmetrische Zufallsvariablen. Setze 
     \begin{align*}
         S_n := \sum_{i=1}^n X_i, \quad 1 \leq n \leq N. 
     \end{align*}
@@ -59,7 +49,7 @@
     $$
     Dann gilt $S_j = S'_j$ für alle $j \leq n$ und 
     $$
-        2S_n - S_N = 2 \sum_{i=1}^n X_i - \sum_{i=1}^N X_I = \sum_{i=1}^nX_i - \sum_{i=n+1}^N X_i = S'_N. 
+        2S_n - S_N = 2 \sum_{i=1}^n X_i - \sum_{i=1}^N X_i = \sum_{i=1}^nX_i - \sum_{i=n+1}^N X_i = S'_N. 
     $$
     Wegen der Symmetrie und Unabhängigkeit von $X_1,...,X_N$ sind $(S_1,...,S_N)$ und $(S'_1,...,S'_N)$ identisch verteilt. Also ergibt sich 
     \begin{align*}
@@ -67,7 +57,7 @@
                                    &= \prob{\norm{S'_1}\leq t,...,\norm{S'_{n-1}}\leq t, \norm{S'_n} > t, \norm{S'_N} > t} \\\
                                    &= \prob{\norm{2S_n - S_N} > t, T_1=n}. 
     \end{align*}
-    Wir erhalten also mit $(3.3)$ und $(3.4)$ 
+    Wir erhalten nun mit $(3.3)$ und $(3.4)$ 
     $$
         \prob{T_1=n} \leq 2 \prob{\norm{S_N} > t, \ T_1=n}.
     $$
@@ -87,7 +77,7 @@
         \{T_2 = n\} \subseteq \{\norm{S_N} > t, T_2 =n\} \cup \{\norm{2X_n - S_N} > t, T_2=n\}, \quad n \in \{1,...,N\}, \\\
         \prob{\norm{S_N} > t, T_2 = n} = \prob{\norm{2X_n - S_N}, T_2 = n}, \quad n \in \{1,...,N\},
     \end{align*}
-    unter der Verwendung der Symmetrie von $X_1,...,X_N$, und folgert daraus letztendlich 
+    unter der Verwendung der Symmetrie und Unabhängigkeit von $X_1,...,X_N$ und folgert daraus letztendlich 
     \begin{align*}
         \prob{\max_{1\leq n \leq N} \norm{X_n} > t} = \sum_{n=1}^N \prob{T_2 = n} 
                                                     &\leq \sum_{n=1}^N 2\prob{\norm{S_N} > t, T=n} \\\
@@ -97,27 +87,32 @@
 \end{proof*}
 
 \begin{corollary}
-    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger und symmetrischer E-wertiger Zufallsvariablen. Falls $S_n \schwach S$ für $S \in \mathcal{L}_0(E)$, dann gilt für $\lambda$-fast-alle $t \in \R$
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger und symmetrischer Zufallsvariablen. Definiere
+    $$
+        S_n := \sum_{i=1}^n X_i, \quad n \in \N. 
+    $$
+    Falls $S_n \schwach S$ für $S \in \mathcal{L}_0(E)$, dann gilt für $\lambda$-fast-alle $t \in \R$
     $$
         \prob{\sup_{n \in \N}\norm{S_n} > t} \leq 2 \prob{\norm{S} > t}.
     $$
+    Wobei $\lambda$ das Lebesgue-Maß auf $\mathcal{B}(\R)$ bezeichnet. 
 \end{corollary}
 
 \begin{proof*}
-    Für alle $n \in \N$ gilt nach Lévys Maximalungleichung
+    Für alle $n \in \N$ gilt nach Ungleichung $(3.1)$
     $$
         \prob{\max_{1\leq k \leq n}\norm{S_k} > t} \leq 2 \prob{\norm{S_n} > t}.
     $$
     Und wegen $\norm{S_n} \schwach \norm{S}$ folgt für alle $t \in \R$, in denen die Verteilungsfunktion $F_{\norm{S}}$ von $\norm{S}$ stetig ist 
     $$
-        \prob{\sup_{n \in \N}\norm{S_n} > t} = \lim_{n \to \infty}\prob{\max_{1\leq k \leq n}\norm{S_k} > t} \leq 2 \lim_{n \to \infty}\prob{\norm{S_n} > t} = 2\prob{\norm{S} >t}. 
+        \prob{\sup_{n \in \N}\norm{S_n} > t} = \lim_{n \to \infty}\prob{\max_{1\leq k \leq n}\norm{S_k} > t} \leq 2 \limsup_{n \to \infty}\prob{\norm{S_n} > t} = 2\prob{\norm{S} >t}. 
     $$
     \qed
 \end{proof*}
 
-Für nicht-symmetrische Zufallsvariablen erhalten wir mit einer ähnlichen Beweismethode die folgende auf Giuseppe Ottaviani und Anatoli Skorohod zurückgehende Maximal-Ungleichung, vgl. \cite{ledoux-talagrand}[Lemma 6.2]. 
+Mit einer ähnlichen Beweismethode wie im Beweis zu Satz $3.3$ erhalten wir für nicht-symmetrische Zufallsvariablen die folgende, auf Giuseppe Ottaviani und Anatoli Skorohod zurückgehende, Maximal-Ungleichung, vgl. \cite[Lemma 6.2]{ledoux-talagrand}. 
 \begin{theorem}[Maximal-Ungleichung von Ottaviani-Skorohod]
-    Seien $X_1,...,X_N$ unabhängige $E$-wertige Zufallsvariablen, $N \in \N$. Setze 
+    Sei $N \in \N$ und seien $X_1,...,X_N \in \mathcal{L}_0(E)$ unabhängig. Setze 
     $$
         S_k := \sum_{i=1}^kX_i, \quad k = 1,...,N. 
     $$
@@ -132,21 +127,21 @@ Für nicht-symmetrische Zufallsvariablen erhalten wir mit einer ähnlichen Bewei
     $$
         T(\omega) := \inf\{k \leq N: \norm{S_k(\omega)} > s + t\} \in [0, \infty], \quad \omega \in \Omega. 
     $$
-    Dann ist $T$ messbar und $\{T = k\}$ hängt nur von $X_1,...,X_k$ ab. Weiter gilt 
+    Dann ist $T$ messbar und es gilt $\{T = k\} \in \sigma(X_1,...,X_k)$. Weiter gilt 
     $$
         \sum_{k=1}^N \prob{T = k} = \prob{\max_{1\leq k \leq N}\norm{S_k} > s+t}.
     $$
-    Für $\omega \in \Omega$ mit $T(\omega) = k$ und $\norm{S_N(\omega) - S_k(\omega)} \leq s$ gilt zudem $\norm{S_N(\omega)} > t$, denn mit der umgekehrten Dreiecksungleichung erhält man
+    Für $\omega \in \Omega$ mit $T(\omega) = k$ und $\norm{S_N(\omega) - S_k(\omega)} \leq s$ gilt zudem $\norm{S_N(\omega)} > t$, denn mit der umgekehrten Dreiecksungleichung erhält man in diesem Fall
     $$
-        s \geq \norm{S_N - S_k} \geq \abs{\norm{S_N}-\norm{S_k}} > (s+t) - \norm{S_N}.
+        s \geq \norm{S_N(\omega) - S_k(\omega)} \geq \big\lvert\norm{S_N(\omega)}-\norm{S_k(\omega)}\big\rvert > (s+t) - \norm{S_N(\omega)}.
     $$
-    Die Unabhängigkeit von $X_1,...,X_N$ liefert schließlich
+    Die Unabhängigkeit von $\sigma(X_1,...,X_k)$  und $\sigma(X_{k+1},...,X_N)$ für alle $k \in \{1,...,N\}$ liefert schließlich
     \begin{align*}
         \prob{\norm{S_N} > t} &\geq \sum_{k=1}^N \prob{T=k, \norm{S_N} > t}  \\\
                               &\geq \sum_{k=1}^N \prob{T=k, \norm{S_N - S_k} \leq s} \\\
                               &\geq \min_{1\leq k \leq N}\prob{\norm{S_N-S_k} \leq s} \sum_{k=1}^N \prob{T=k}. 
     \end{align*}
-    Umstellen und beachten von 
+    Umstellen und Beachten von 
     $$
         \min_{1\leq k \leq N}\prob{\norm{S_N-S_k} \leq s} = 1 - \max_{1\leq k \leq N}\prob{\norm{S_N - S_k} > s}
     $$

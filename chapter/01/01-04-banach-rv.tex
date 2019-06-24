@@ -1,7 +1,8 @@
 \section{Zufallsvariablen mit Werten in Banachräumen}
+\textbf{Notation und Konventionen} \newline
 Sei $(\Omega, \mathcal{A}, P)$ ein vollständiger Wahrscheinlichkeitsraum und $E$ ein Banachraum mit Norm $\norm{\cdot}$. 
 \begin{mydef}
-    Eine Abbildung $X: \Omega \to E$ heißt \textit{(Radon-)Zufallsvariable} oder auch \textit{E-wertige Zufallsvariable}, falls 
+    Eine Abbildung $X: \Omega \to E$ heißt \textit{(E-wertige) Radon-Zufallsvariable}, falls sie die folgenden beiden Bedingungen erfüllt: 
     \begin{enumerate}[(a)]
         \item $X$ ist $\mathcal{A}/\mathcal{B}(E)$-messbar und
         \item es existiert ein separabler Untervektorraum $E_0 \subseteq E$ mit $P(\{X \in E_0\}) = 1$. 
@@ -9,13 +10,14 @@ Sei $(\Omega, \mathcal{A}, P)$ ein vollständiger Wahrscheinlichkeitsraum und $E
 \end{mydef}
 
 \begin{remark}
-    Nach Abschnitt $1.2$ sind für eine $\mathcal{A}/\mathcal{B}(X)$-messbare Abbildung $X: \Omega \to E$ äquivalent
+    Nach Bemerkung $1.18$ sind für eine $\mathcal{A}/\mathcal{B}(X)$-messbare Abbildung $X: \Omega \to E$ äquivalent:
     \begin{enumerate}[(i)]
-        \item Es existiert ein separabler Untervektorraum $E_0 \subseteq E$ mit $P(\{X \in E_0\}) = 1$,
-        \item $P^X$ ist ein Radon-Maß auf $\mathcal{B}(X)$, 
+        \item Es existiert ein abgeschlossener separabler Untervektorraum $E_0 \subseteq E$ mit $P(\{X \in E_0\}) = 1$.
+        \item $P^X$ ist ein Radon-Maß auf $\mathcal{B}(X)$. 
         \item $P^X$ ist straff. 
     \end{enumerate}
-    Hiermit erklärt sich auch die in \cite{ledoux-talagrand} verwendete Bezeichnung Radon-Zufallsvariable. 
+    Hiermit erklärt sich auch die aus \cite{ledoux-talagrand} stammende Bezeichnung Radon-Zufallsvariable. 
+    Ist ferner $(X_n)_{n \N}$ eine Folge von Radon-Zufallsvariablen mit Werten in $E$, so dass die zugehörige Folge der Verteilungen $(P^{X_n})_{n \in \N}$ gleichmäßig straff ist, dann nennen wir $(X_n)_{n \in \N}$ gleichmäßig straff. 
 \end{remark}
 
 Bezeichne $\mathcal{L}_0(\Omega, \mathcal{A}, P; E)$ den Raum der $E$-wertigen Radon-Zufallsvariablen auf $(\Omega,\mathcal{A},P)$ und sei $L_0(\Omega, \mathcal{A}, P;E)$ der Raum der Äquivalenzklassen bezüglich fast sicherer Gleichheit. 
@@ -26,11 +28,19 @@ Falls klar ist welcher Wahrscheinlichkeitsraum gemeint ist, so schreiben wir auc
 \end{proposition}
 
 \begin{proof*}
-    Da $\mathcal{A}$ vollständig ist und $X,Y$ fast sicher Werte in einem separablen Unterraum von $E$ annehmen, sei $E$ ohne Beschränkung der Allgemeinheit separabel. 
-    Nach Proposition $1.30$ ist dann $(E, \mathcal{B}(E))$ ein messbarer Vektorraum und die Behauptung folgt nun aus Proposition $1.29$. \qed 
+    Da $X,Y$ Radon-Zufallsvariablen sind, existieren zwei abgeschlossene separable Untervektorräume $E_X$ und $E_Y$ mit 
+    $$
+        \prob{X \in E_X} = \prob{Y \in E_Y} = 1. 
+    $$
+    Nach Korollar $A.4$ ist dann auch $E_0 := \overline{lin(E_X \cup E_Y)}$ separabel und es gilt 
+    $$
+        \prob{X \in E_0} = \prob{Y \in E_0} = 1. 
+    $$
+    Da $\mathcal{A}$ vollständig ist, können wir also ohne Beschränkung der Allgemeinheit annehmen, dass $E$ selbst separabel ist. 
+    Nach Proposition $1.38$ ist dann $(E, \mathcal{B}(E))$ ein messbarer Vektorraum und die Behauptung folgt nun aus Proposition $1.37$. \qed 
 \end{proof*}
 
-Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \textit{einfache Zufallsvariablen} approximieren. 
+Wie im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \textit{einfache Zufallsvariablen} approximieren. 
 
 \begin{mydef}
     Eine Abbildung $X:\Omega \to E$ von der Form 
@@ -58,9 +68,9 @@ Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \t
 \end{proposition}
 
 \begin{proof*}
-    Wegen der Vollständigkeit von $\mathcal{A}$ und da das lineare Erzeugnis abzählbar vieler separabler Unterräume wieder ein separabler Unterraum ist können wir erneut ohne Einschränkung annehmen, dass $E$ selbst bereits separabel ist.
-    \newline 
     Zu $(i)$:
+    Da $X$ eine Radon-Zufallsvariable ist, existiert ein abgeschlossener separabler Untervektorraum $E_0 \subseteq E$ mit $\prob{X \in E_0} = 1$. 
+    Da $\mathcal{A}$ vollständig ist können wir daher ohne Einschränkung annehmen, dass $E$ selbst bereits separabel ist. 
     Sei $\{x_1,x_2,... \} \subseteq E$ eine dichte Teilmenge. Für $n \in \N$ betrachte die Abbildung
     $$
         T_n: \Omega \to \N, \quad \omega \mapsto \inf\{k \leq n: \norm{X(\omega)-x_k} = \min_{1\leq l \leq n}\norm{X(\omega)-x_l}\}.
@@ -74,20 +84,29 @@ Wie auch im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \t
     $$
         \norm{X(\omega)-X_n(\omega)} = \min_{1\leq k \leq n}\norm{X(\omega)-x_k}.
     $$
-    Da $\{x_1,x_2,...\}$ dicht in $E$ liegt, folgt 
+    Da $\{x_1,x_2,...\}$ dicht in $E$ liegt, folgt für alle $\omega \in \Omega$
     $$
         \lim_{n \to \infty}\norm{X(\omega) - X_n(\omega)} = \lim_{n \to \infty}\min_{1\leq k \leq n}\norm{X(\omega)- x_k} = \inf_{n \in \N} \norm{X(\omega)- x_n} = 0. 
     $$
-    Zu $(ii)$: Wegen der Vollständigkeit von $\mathcal{A}$ können wir annehmen, dass $Y_n(\omega) \to Y(\omega)$ für alle $\omega \in \Omega$. 
+    Zu $(ii)$: Da $Y_n$ für jedes $n \in \N$ eine Radon-Zufallsvariable ist, existiert eine Folge $(E_n)_{n \in \N}$ von abgeschlossenen separablen Untervektorräumen von $E$ mit 
+    $$
+        \forall n \in \N: \quad \prob{Y_n \in E_n} = 1. 
+    $$
+    Nach Korollar $A.4$ ist $E_0 := \overline{lin(\cup_{n \in \N}E_n)}$ ein abgeschlossener separabler Untervektorraum von $E$ und es gilt  
+    $$
+        \forall n \in \N: \quad \prob{Y_n \in E_0} = 1. 
+    $$
+    Da $\mathcal{A}$ vollständig ist, können wir daher ohne Einschränkung annehmen, dass $E$ separabel ist. 
+    Ferner können wir wegen der Vollständigkeit von $\mathcal{A}$ annehmen, dass $\lim_{n \to \infty} Y_n(\omega) = Y(\omega)$ für alle $\omega \in \Omega$. 
     Wir zeigen, dass für jede abgeschlossene Menge $A \subseteq E$ das Urbild $Y^{-1}(A)$ in $\mathcal{A}$ liegt. 
     Da $\mathcal{B}(E)$ von den abgeschlossenen Mengen erzeugt wird folgt daraus die Behauptung. 
-    Für $\emptyset \neq A \subseteq E$ abgeschlossen betrachte für $k \in \N$ die offene, also auch messbare, Menge 
+    Für eine abgeschlossene Menge $\emptyset \neq A \subseteq E$ betrachte für $k \in \N$ die offene, also auch messbare, Menge 
     $$
         A_k := \{x \in E: \inf_{y\in A}\norm{x-y} < \frac{1}{k}\}.
     $$
-    Dann gilt wie man leicht prüft
+    Da $A$ abgeschlossen ist gilt 
     \begin{align*}
-        \{Y \in A\} = \bigcap_{k=1}^{\infty}\liminf_{n \to \infty}\{Y_n \in A_k\} \in \mathcal{A}.
+        \{Y \in A\} = \bigcap_{k=1}^{\infty}\liminf_{n \to \infty}\{Y_n \in A_k\} = \bigcap_{k=1}^{\infty}\bigcup_{m=1}^{\infty}\bigcap_{n=m}^{\infty}\{Y_n \in A_k\}\in \mathcal{A}.
     \end{align*}     
     \qed 
 \end{proof*}

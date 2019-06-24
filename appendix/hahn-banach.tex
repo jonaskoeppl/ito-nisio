@@ -1,47 +1,152 @@
 \section{Der Satz von Hahn-Banach}
-Die Beweise der folgenden Sätze findet man etwa in \cite{werner}[Theorem III.1.5]
+\textbf{Notation und Konventionen}\newline
+Für einen normierten Vektorraum $(X, \norm{\cdot})$ sei $(X', \norm{\cdot}_op)$ der zugehörige Dualraum. Ferner bezeichne
+$$
+    B_{X'} := \{f \in X' \ : \ \norm{f}_op \leq 1 \}
+$$
+die abgeschlossene Einheitskugel in $X'$. 
+
+\begin{mydef}
+    Sei $X$ ein Vektorraum. Eine Abbildung $p:X \to \R$ heißt \textit{sublinear}, falls
+    \begin{enumerate}[(a)]
+        \item $p(\lambda x) = \lambda p(x)$ für alle $\lambda \geq 0, x \in X$,
+        \item $p(x+y) \leq p(x) + p(y)$ für alle $x,y \in X$. 
+    \end{enumerate}
+\end{mydef}
+
+\begin{proposition}
+    Sei $X$ ein normierter Vektorraum und $F \subseteq X$ ein abgeschlossener Untervektorraum. Dann ist die Abbildung
+    $$
+        d(\cdot, F):X \to \R, y \mapsto d(y,F) := \inf_{x \in F}\norm{x-y}
+    $$
+    sublinear. 
+\end{proposition}
+
+\begin{proof*}
+    Da $F$ ein Untervektorraum von $X$ ist, gilt für $\lambda \geq 0$ und $y \in X$ 
+    $$
+        d(\lambda y, F) = \inf_{x \in F}\norm{\lambda y - x} = \inf_{x \in F}\norm{\lambda y - \lambda x} = \lambda \inf_{x \in F}\norm{y-x} = \lambda d(y,F). 
+    $$
+    Ferner liefert die Dreiecksungleichung für $y,z \in X$
+    $$
+        d(y+z,F) = \inf_{x \in F}\norm{y+z - x} \leq \inf_{x \in F}(\norm{y - \frac{x}{2}} + \norm{z - \frac{x}{2}}) \leq \inf_{x \in F}\norm{y-x} + \inf_{x \in F}\norm{z-x} = d(y,F) + d(z,F). 
+    $$
+    Also ist $d(\cdot, F)$ sublinear. \qed 
+\end{proof*}
+
+\begin{theorem}[Hahn-Banach, Version der Linearen Algebra]
+    Sei $X$ ein Vektorraum und $U$ ein Untervektorraum von $X$. Ferner seien $p: X \to \R$ sublinear und $f: U \to \R$ linear mit 
+    $$
+       \forall x \in U: \quad f(x) \leq p(x).
+    $$
+    Dann existiert eine lineare Fortsetzung $F:X \to \R$, mit $F|_U = f$ und
+    $$
+    \forall x \in X: \quad F(x) \leq p(x). 
+    $$ 
+\end{theorem}
+
 \begin{theorem}[Hahn-Banach, Fortsetzungsversion]
     Sei $X$ ein normierter Raum und $U$ ein Untervektorraum. 
-    Zu jedem stetigen linearen Funktional $u':U \to \R$ existiert ein stetiges lineares Funktional $x':X \to \R$ mit 
+    Zu jedem stetigen linearen Funktional $f:U \to \R$ existiert ein stetiges lineares Funktional $F:X \to \R$ mit 
     $$
-        x'|_U = u' \text{ und } \norm{x'}_{op} = \norm{u'}_{op}.
+        F|_U = f \text{ und } \norm{F}_{op} = \norm{f}_{op}.
     $$
-    Jedes stetige Funktional kann also normgleich fortgesetzt werden
+    Jedes stetige Funktional kann also normgleich fortgesetzt werden.
 \end{theorem}
 
 \begin{corollary}
-    In jedem normierten Raum $X$ existiert zu jedem $x \in X$, $x \neq 0$, ein Funktional $x' \in X'$ mit $\norm{x'}_{op} = 1$ und $x'(x) = \norm{x}$. 
+    In jedem normierten Raum $X$ existiert zu jedem $x \in X$, $x \neq 0$, ein Funktional $f_x \in X'$ mit $\norm{f_x}_{op} = 1$ und $f_x(x) = \norm{x}$. 
     Speziell trennt $X'$  die Punkte von $X$, d.h.
     $$
-        \forall x_1, x_2 \in X \text{ mit } x_1 \neq x_2 \ \exists x' \in X': \quad x'(x_1) \neq x'(x_2). 
+        \forall x_1, x_2 \in X \text{ mit } x_1 \neq x_2 \ \exists f \in X': \quad f(x_1) \neq f(x_2). 
     $$
 \end{corollary}
 
 \begin{corollary}
     In jedem normierten Raum $X$ gilt 
     $$
-        \norm{x} = \sup_{x' \in B_{X'}}\abs{x'(x)}, \quad x \in X. 
+        \forall x \in X : \quad \norm{x} = \sup_{f \in B_{X'}}\abs{f(x)}.
     $$
 \end{corollary}
 
 \begin{corollary}
-    Falls $X$ separabel ist so existiert eine abzählbare Menge $D \subseteq B_{X'}$ mit 
+    Falls $X$ separabel ist, so existiert eine abzählbare Menge $D \subseteq B_{X'}$ mit 
     $$
-        \norm{x} = \sup_{x' \in D}\abs{x'(x)}, \quad x \in X. 
+        \forall x \in X : \quad \norm{x} = \sup_{f \in D}\abs{f(x)}. 
     $$
 \end{corollary}
 
 \begin{proof*}
-    \textbf{TODO}
+    Sei $E \subseteq X$ eine abzählbare dichte Teilmenge von $X$. Nach Korollar $A.10$ existiert für jedes $x \in E$ ein $f_x \in X'$ mit 
+    $\norm{f_x}_{op} = 1$ und $f_x(x) = \norm{x}$. Setze also $D:=\{f_x : x \in E\}$. Sei nun $x \in X$ beliebig und $\varepsilon > 0$. Dann gilt zunächst 
+    $$
+        \forall n \in \N: \quad \abs{f_n(x)} \leq \norm{f_n}_{op} \norm{x} = \norm{x}. 
+    $$
+    Also
+    $$
+        \sup_{f \in D}\abs{f(x)} \leq \norm{x}. 
+    $$
+    Ferner existiert eine Folge $(y_n)_{n \in \N}$ in $E$ mit $\lim_{n \to \infty}\norm{x-y_n} = 0$. Insbesondere existiert $N \in \N$, sodass für alle $n \geq N$ 
+    \begin{align}
+        \norm{y_n - x} < \frac{\varepsilon}{2}.
+    \end{align}
+    Zudem gilt für alle $n \geq N$
+    \begin{align}
+        \abs{f_{y_n}(y_n)} \leq \abs{f_{y_n}(y_n)-f_{y_n}(x)} + \abs{f_{y_n}(x)} \leq \frac{\varepsilon}{2} + \abs{f_{y_n}(x)}.
+    \end{align}
+    Insgesamt ergibt sich also wegen $(A.1)$ und $(A.2)$ für $n \geq N$
+    $$
+        \norm{x} \leq \norm{x - y_n} + \norm{y_n} \leq \frac{\varepsilon}{2} + \abs{f_{y_n}(y_n)} \leq \abs{f_{y_n}(x)} + \varepsilon. 
+    $$
+    Da $\varepsilon > 0$ und $x \in X$ beliebig gewählt waren, gilt also 
+    $$
+        \forall x \in X: \ \norm{x} = \sup_{f \in D}\abs{f(x)}.  
+    $$
 \end{proof*}
 
 \begin{corollary}
-    Sei $X$ separabel und $F \subseteq X$ ein endlich-dimensionaler Untervektorraum.
+    Sei $X$ separabel und $F \subseteq X$ ein abgeschlossener Untervektorraum.
     Dann existiert eine Folge $(f_n)_{n \in \N}$ in $X'$ mit $\norm{f_n}_{op} \leq 1$ für alle $n \in \N$ und 
     $$
-        \forall x \in X: \quad \inf_{y \in F}\norm{x-y} = \sup_{n \in \N}\abs{f_n(x)}. 
+        \forall x \in X: \quad d(x,F) = \inf_{y \in F}\norm{x-y} = \sup_{n \in \N}\abs{f_n(x)}. 
     $$
 \end{corollary}
 \begin{proof*}
-    \textbf{TODO}
+    Da $X$ separabel ist, existiert eine abzählbare dichte Teilmenge $D = \{x_1,x_2,...\} \subseteq X$. Sei nun $n \in \N$. Dann gilt $lin(\{x_n\}) = \{\lambda x_n: \lambda \in \R\}$ und die Abbildung
+    $$
+        g_n: lin(\{x_n\}) \to \R, \quad \lambda x_n \mapsto \lambda d(x_n,F)
+    $$
+    ist, wie man leicht nachrechnet, linear. Nach Proposition $A.7$ ist ferner die Abbildung 
+    $$
+        d(\cdot, F):X \to \R, y \mapsto d(y,F) := \inf_{x \in F}\norm{x-y}
+    $$
+    sublinear. Für $z = \lambda x_n \in lin(\{x_n\})$ gilt zudem 
+    $$
+        g_n(z) = \lambda d(x_n,F) \leq \abs{\lambda} \inf_{y \in F}\norm{x-y} = \inf_{y \in F}\norm{\lambda x - \lambda y} = d(z,F). 
+    $$
+    Also existiert nach Satz $A.8$ für alle $n \in \N$ ein Funktional $f_n \in X'$ mit $f_n|_{lin(\{x_n\})} = g_n$ und 
+    $$
+        \forall y \in X: \quad f_n(y) \leq d(y,F) = \inf_{x \in F}\norm{x-y} \leq \norm{y}. 
+    $$
+    Somit gilt insbesondere $\norm{f_n}_{op} \leq 1$. Betrachte nun die so gewonnene Folge $(f_n)_{n \in \N}$ in $X'$. Für $x \in X$ gilt dann nach Konstruktion
+    $$
+        \forall n \in \N: \quad f_n(x) \leq d(x,F). 
+    $$
+    Daraus folgt direkt
+    $$
+        \sup_{n \in \N}\abs{f_n(x)} \leq d(x,F).
+    $$
+    Sei nun $\varepsilon > 0$. Da $D$ dicht in $X$ liegt, gibt es ein $n \in \N$, sodass $\norm{x_n - x} < \frac{\varepsilon}{2}$. Daher gilt wegen $\norm{f_n}_{op} \leq 1$
+    $$
+        \abs{f_n(x_n)} \leq \abs{f_n(x_n) - f_n(y)} + \abs{f_n(y)} \leq \abs{f_n(y)} + \frac{\varepsilon}{2}. 
+    $$
+    Daraus folgt schließlich wegen der sublinearität von $d(\cdot,F)$
+    $$
+        d(x,F) \leq d(x-x_n,F) + d(x_n,F) \leq \norm{x-x_n} + \abs{f_n(x_n)} \leq \abs{f_n(y)} + \varepsilon. 
+    $$
+    Da $\varepsilon > 0$ beliebig gewählt war, folgt insgesamt
+    $$
+        \sup_{n \in \N}\abs{f_n(x)} = d(x,F).
+    $$
+    \qed
 \end{proof*}

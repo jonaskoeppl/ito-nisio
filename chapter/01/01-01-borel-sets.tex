@@ -1,4 +1,5 @@
 \section{Borelmengen in metrischen Räumen}
+\textbf{Notation und Konventionen}\newline 
 Für einen metrischen Raum $(X,d)$ bezeichne im Folgenden $\mathcal{B}(X)$ die Borelsche $\sigma$-Algebra in $X$. 
 Zudem wird für $x \in X$ und $r>0$ mit $B(x, r)$ bzw. $\overline{B}(x,r)$ die offene bzw. abgeschlossene Kugel um $x$ mit Radius $r$ bezeichnet.
 \begin{proposition}
@@ -18,28 +19,8 @@ Zudem wird für $x \in X$ und $r>0$ mit $B(x, r)$ bzw. $\overline{B}(x,r)$ die o
     \begin{align*}
         R := \{(y,r) : y \in U \cap D, \ r \in \Q \cap (0, \infty), \  B(y,r) \subseteq U \}.
     \end{align*}
-    Dann ist $R$ abzählbar und da $D$ dicht in $X$ liegt gilt $U = \bigcup_{(y,r) \in R}B(y,r)$. 
-    Also folgt $U \in \mathcal{A}_1$ und da $\mathcal{B}(X)$ von den offenen Teilmengen von $X$ erzeugt wird ist die Behauptung gezeigt. \qed
+    Dann ist $R$ abzählbar und da $D$ dicht in $X$ liegt, gilt $U = \bigcup_{(y,r) \in R}B(y,r)$. 
+    Also folgt $U \in \mathcal{A}_1$ und da $\mathcal{B}(X)$ von den offenen Teilmengen von $X$ erzeugt wird, ist die Behauptung gezeigt. \qed
 \end{proof*}
 
-\begin{proposition}
-    Für $i \in \N$ sei $(X_i, d_i)$ ein separabler metrischer Raum. Dann gilt
-    \begin{align*}
-        \mathcal{B}(X_1 \times X_2 \times ...) = \otimes_{i=1}^{\infty}\mathcal{B}(X_i).
-    \end{align*}
-\end{proposition}
-
-\begin{proof*}
-    Setze $X:= \times_{k \in \N}X_k$ und bezeichne mit $p_k: X \to X_k$ die Projektion auf die k-te Komponente. Betrachte das Mengensystem
-    \begin{align*}
-        \mathcal{E} :&= \{ \bigcap_{k \in K}p_k^{-1}(O) | \forall k \in K: O_k \subseteq X_k \text{ offen}, K \subseteq \N \text{ endlich}\}. 
-    \end{align*}
-    Wie man leicht verifiziert gilt $\otimes_{k \in \N}\mathcal{B}(X_k) = \sigma(\mathcal{E})$. 
-    Ferner ist $X$ ein separabler metrisierbarer Raum und $\mathcal{E}$ eine Basis der Produkttopologie auf $X$, vgl. \cite{querenburg}[3.7]. 
-    Also lässt sich jede offene Menge $O \subset X$ als abzählbare Vereinigung von Elementen aus $\mathcal{E}$ darstellen.  
-    Dies impliziert 
-    \[
-    \mathcal{B}(X) = \sigma(\mathcal{E}) = \otimes_{k \in N}\mathcal{B}(X_k).
-    \]
-    \qed
-\end{proof*}
+\input{chapter/01/produkt-separabel}

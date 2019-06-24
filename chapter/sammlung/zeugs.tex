@@ -1,0 +1,26 @@
+Wie bereits aus dem skalaren Fall bekannt, lässt sich die fast sichere Konvergenz nicht durch eine Metrik beschreiben. Die stochastische Konvergenz allerdings schon. 
+Definiere dazu eine Abbildung 
+    $$d_P : L_0(E) \times L_0(E) \to [0,\infty)$$
+ durch
+\begin{align}
+    d_P([X],[Y]) := \mathbb{E}\bigg(\frac{\norm{X-Y}}{1+\norm{X+Y}}\bigg), \quad [X], [Y] \in L_0(E).  
+\end{align}
+Dann ist $d_P$ wegen der Stetigkeit von $\norm{\cdot}$ und $\big\lvert\frac{x}{1+x}\big\rvert \leq 1$ für alle $x \in [0, \infty)$ wohldefiniert
+und liefert eine weitere Charakterisierung der stochastischen Konvergenz. 
+\begin{proposition}
+    \begin{enumerate}[(i)]
+        \item $d_P$ ist eine Metrik auf $L_0(E)$,
+        \item $X_n \stochastisch X$ $\iff$ $\lim_{n \to \infty}d_P([X_n], [X]) = 0$,
+        \item $(L_0(E), d_P)$ ist vollständig. 
+    \end{enumerate}
+\end{proposition}
+
+
+\begin{mydef}%TODO: Wird das überhaupt gebraucht? Ggf schöner formulieren. 
+    Eine Folge $(X_n)_{n \in \N}$ von E-wertigen Zufallsvariablen heißt \textit{symmetrisch}, 
+    falls $(\varepsilon_1 X_1, \varepsilon_2 X_2,...)$ für jede Folge $(\varepsilon_i)_{i \in \N} \in \{-1,1\}^{\N}$ die gleiche Verteilung wie $(X_1,X_2,...)$ auf dem Produktraum $(E^{\N}, \otimes_{i \in \N}\mathcal{B}(E))$ hat. 
+\end{mydef}
+
+\begin{remark}
+   Sind $X_1,X_2,...$ unabhängige E-wertige Zufallsvariablen, sodass $X_n$ für alle $n \in \N$ symmetrisch ist, dann ist $(X_n)_{n \in \N}$ symmetrisch. 
+\end{remark}

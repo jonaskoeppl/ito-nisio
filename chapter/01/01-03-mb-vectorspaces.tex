@@ -1,16 +1,16 @@
-\section{Meßbare Vektorräume}
+\section{Messbare Vektorräume}
 Bislang haben wir uns fast ausschließlich mit dem Zusammenspiel von Maßen und den topologischen Eigenschaften der zugrunde liegenden Räume beschäftigt.
 In Banachräumen steht uns aber auch die algebraische Struktur eines Vektorraums zur Verfügung, allerdings ist per se nicht klar, ob die algebraischen Operationen mit der messbaren Struktur kompatibel, also messbar, sind. 
-Dies werden wir im Folgenden untersuchen und im für uns interessanten Fall eines separablen Banachraums positiv beantworten. 
+Diese Überlegung führt direkt zur Definition eines \textit{messbaren Vektorraums}. 
 
 \begin{mydef}
-    Sei $X$ ein Vektorraum und $\mathcal{C}$ eine $\sigma$-Algebra auf $X$. Das Tupel $(X, \mathcal{C})$ heißt \textit{messbarer Vektorraum}, falls
+    Sei $X$ ein Vektorraum und $\mathcal{C}$ eine $\sigma$-Algebra auf $X$. Das Tupel $(X, \mathcal{C})$ heißt \textit{messbarer Vektorraum}, falls die folgenden beiden Bedingungen erfüllt sind: 
     \begin{enumerate}[(a)]
         \item Die Abbildung 
         \begin{align*}
             + : X \times X \to X, \quad (x,y) \mapsto x + y
         \end{align*}
-        ist $\mathcal{C}\otimes \mathcal{C}/\mathcal{C}$-messbar, und
+        ist $\mathcal{C}\otimes \mathcal{C}/\mathcal{C}$-messbar und
         \item die Abbildung 
         \begin{align*}
             \cdot : \R \times X \to X, \quad  (\alpha, x) \mapsto \alpha x
@@ -20,7 +20,7 @@ Dies werden wir im Folgenden untersuchen und im für uns interessanten Fall eine
 \end{mydef}
 
 \begin{remark}
-    Sei $(X, \mathcal{C})$ ein messbarer Vektorraum. Dann gilt
+    Sei $(X, \mathcal{C})$ ein messbarer Vektorraum. Dann gilt:
     \begin{enumerate}[(i)]
         \item Für alle $\alpha \in \R$ ist die Abbildung 
             $$f_{\alpha}: X \to X, \quad x \mapsto \alpha x$$
@@ -31,13 +31,23 @@ Dies werden wir im Folgenden untersuchen und im für uns interessanten Fall eine
     \end{enumerate}
 \end{remark}
 \begin{proof*}
-    Man beachte, dass für beliebige  messbare Räume $(\Omega_1, \mathcal{A}_1), (\Omega_2, \mathcal{A}_2)$, Mengen $A \in \mathcal{A}_1 \otimes \mathcal{A}_2$ und $\omega_1 \in \Omega_1$
+    Aus der Messbarkeit der Skalarmultiplikation und Vektoraddition  folgt zunächst
     \begin{align*}
-    A(\omega_1) = \{ \omega_2 : (\omega_1,\omega_2) \in A \} \in \mathcal{A}_2
+        \forall A \in \mathcal{C}: \quad &A^{(1)} := \{(\alpha, x) \in \R \times X: \ \alpha x \in A\} \in \mathcal{B}(\R) \otimes \mathcal{C}, \\\
+                                         &A^{(2)} := \{(x,y) \in X \times X: \ x + y \in A\} \in \mathcal{C} \otimes \mathcal{C}. 
     \end{align*}
-    gilt. \qed
+    Man beachte nun, dass für beliebige  messbare Räume $(\Omega_1, \mathcal{A}_1), (\Omega_2, \mathcal{A}_2)$, Mengen $A \in \mathcal{A}_1 \otimes \mathcal{A}_2$ und $\omega_1 \in \Omega_1$ 
+    \begin{align*}
+    A(\omega_1) = \{ \omega_2 \in \Omega_2 : (\omega_1,\omega_2) \in A \} \in \mathcal{A}_2
+    \end{align*}
+    gilt. In unserem Fall erhalten wir für festes $\alpha \in R$ und $y \in X$
+    \begin{align*}
+        &f_{\alpha}^{-1}(A) = \{x \in X: \ \alpha x \in A\} = A^{(1)}(\alpha) \in \mathcal{C},  \\\
+        &g_y^{-1}(A) = \{ x \in X: \ x + y \in A\} = A^{(2)}(y)  \in \mathcal{C}. 
+    \end{align*}
+    \qed
 \end{proof*}
-Da die Komposition messbarer Abbildungen wiederum messbar ist erhält man unmittelbar
+Da die Komposition messbarer Abbildungen wiederum messbar ist, erhält man unmittelbar
 \begin{proposition}
     Sei $(X, \mathcal{C})$ ein messbarer Vektorraum und $(\Omega, \mathcal{A})$ ein messbarer Raum. 
     Sind $X,Y: \Omega \to X$ zwei $\mathcal{A}/\mathcal{C}$-messbare Abbildungen und $\alpha, \beta \in \R$, so ist auch $\alpha X + \beta Y$ $\mathcal{A}/\mathcal{C}$-messbar. 
@@ -45,10 +55,10 @@ Da die Komposition messbarer Abbildungen wiederum messbar ist erhält man unmitt
 
 Bislang wissen wir noch nicht einmal, ob es überhaupt nicht-triviale Beispiele messbarer Vektorräume gibt. Das wollen wir nun ändern.  
 \begin{proposition}
-    Sei $E$ ein separabler Banachraum. Dann ist $(E, \mathcal{B}(E))$ ein messbarer Vektorraum.
+    Sei $X$ ein separabler Banachraum. Dann ist $(X, \mathcal{B}(X))$ ein messbarer Vektorraum.
 \end{proposition}
 \begin{proof*}
-    Nach Proposition 1.2 gilt $\mathcal{B}(X \times X) = \mathcal{B}(X) \otimes \mathcal{B}(X)$ und 
+    Nach Proposition $1.7$ gilt $\mathcal{B}(X \times X) = \mathcal{B}(X) \otimes \mathcal{B}(X)$ und 
     $\mathcal{B}(\R \times X) = \mathcal{B}(\R) \otimes \mathcal{B}(X)$. Ferner sind die Abbildungen 
     \begin{align*}
         + &: X \times X \to X, \quad (x,y) \mapsto x + y, \\\
@@ -62,18 +72,18 @@ Bislang wissen wir noch nicht einmal, ob es überhaupt nicht-triviale Beispiele 
     Für $d \in \N$ ist $(\R^d, \mathcal{B}(\R^d))$ ein messbarer Vektorraum. 
 \end{example}
 
-Im Folgenden bezeichne $(X', \norm{\cdot}_{op})$ den Dualraum eines normierten Vektorraums $(X, \norm{\cdot})$. 
+Im Folgenden bezeichne $(X', \norm{\cdot}_{op})$ den Dualraum eines normierten Vektorraums $(X, \norm{\cdot})$.
 
 \begin{proposition}
     Sei $\emptyset \neq \Gamma \subseteq X'$. Dann ist $(X, \sigma({\Gamma}))$ ein messbarer Vektorraum. 
 \end{proposition}
 
 \begin{proof*}%TODO: überarbeiten und schöneren Beweis finden. 
-    zur Addition: Es genügt zu zeigen, dass 
+    Zur Messbarkeit der Addition: Es genügt zu zeigen, dass 
     $$
-        \forall f \in \Gamma : g: X \times X \to \R, \ (x,y) \mapsto f(x+y) \text{ ist messbar.}
+        \forall f \in \Gamma : \big(g: X \times X \to \R, \ (x,y) \mapsto f(x+y)\big) \text{ ist messbar.}
     $$
-    Sei dazu $f \in \Gamma$. Es gilt wegen der Linearität von $f$ für $(x,y) \in X \times X$
+    Sei dazu $f \in \Gamma$. Wegen der Linearität von $f$ gilt für $(x,y) \in X \times X$
     $$
         f(x + y) = (f(x) + f(y)).
     $$
@@ -81,8 +91,13 @@ Im Folgenden bezeichne $(X', \norm{\cdot}_{op})$ den Dualraum eines normierten V
     $$
         h: X \times X \to \R, (x,y) \mapsto f(x) + f(y)
     $$
-    als Komposition messbarer Funktionen messbar, da $(\R, \mathcal{B}(\R))$ nach Beispiel $1.31$ ein messbarer Vektorraum ist. 
-    Die Messbarkeit der Skalarmultiplikation zeigt man analog. \qed 
+    als Komposition der messbaren Funktionen 
+    \begin{align*}
+        &h_1: X \times X \to \R \times \R, (x,y) \mapsto (f(x),f(y)), \\\
+        &h_2: \R \times \R \to \R, (x,y) \mapsto x+y
+    \end{align*}
+    messbar. Die Abbildung $h_2$ ist messbar, weil $(\R, \mathcal{B}(\R))$ nach Beispiel $1.39$ ein messbarer Vektorraum ist. 
+    Die Messbarkeit der Skalarmultiplikation zeigt man ähnlich. \qed 
 \end{proof*}
 
 \begin{proposition}
@@ -90,9 +105,9 @@ Im Folgenden bezeichne $(X', \norm{\cdot}_{op})$ den Dualraum eines normierten V
 \end{proposition}
 
 \begin{proof*}%TODO: Überprüfen. Reicht das wirklich schon so?
-    Da alle $f \in E'$ stetig sind gilt offensichtlich $\sigma(E') \subseteq \mathcal{B}(E)$. 
-    Wegen der Separabilität von $E$ wird $\mathcal{B}(E)$ von den abgeschlossenen Kugeln erzeugt und da $(E, \sigma(E'))$ nach Proposition $1.33$ ein messbarer Vektorraum ist genügt es nach Bemerkung $1.29$ zu zeigen, 
-    dass $\overline{B}(0,1)$ in $\sigma(E')$ enthalten ist. Nach dem Satz von Hahn-Banach existiert eine Folge $(f_n)_{n \in \N}$ in $E'$ mit
+    Da alle $f \in E'$ stetig sind, gilt offensichtlich $\sigma(E') \subseteq \mathcal{B}(E)$. 
+    Wegen der Separabilität von $E$ wird $\mathcal{B}(E)$ nach Proposition $1.1$ von den abgeschlossenen Kugeln erzeugt und weil $(E, \sigma(E'))$ nach Proposition $1.40$ ein messbarer Vektorraum ist, genügt es nach Bemerkung $1.36$ zu zeigen, 
+    dass $\overline{B}(0,1)$ in $\sigma(E')$ enthalten ist. Da $E$ separabel ist, existiert nach Korollar $A.12$ eine Folge $(f_n)_{n \in \N}$ in $E'$ mit
     $$
         \forall x \in E: \quad \norm{x} = \sup_{n \in \N}\abs{f_n(x)}.
     $$
@@ -102,12 +117,3 @@ Im Folgenden bezeichne $(X', \norm{\cdot}_{op})$ den Dualraum eines normierten V
     $$
     \qed 
 \end{proof*}
-
-\begin{remark}
-    Setze 
-    $$
-        \mathcal{C}(E) := \{ \bigcap_{i=1}^n f^{-1}(A): \ n \in \N, \ f_1,...,f_n \in E', \ A_1,...,A_n \in \mathcal{B}(\R) \}.
-    $$
-    Wie man leicht zeigt ist $\mathcal{C}(E)$ schnittstabil und es gilt $\sigma(E') = \sigma(\mathcal{C}(E))$. 
-    Diese Darstellung wird sich im späteren Verlauf noch als hilfreich erweisen. 
-\end{remark}

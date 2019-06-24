@@ -11,6 +11,7 @@
 \usepackage{enumerate} % für kleine römische Nummerierung
 \usepackage{url} % Für Hyperlinks
 \usepackage[singlespacing]{setspace} % einfacher Zeilenabstand 
+\usepackage{abstract}
 
 % Für andere Kapitelüberschriften:
 \usepackage{titlesec}
@@ -24,6 +25,9 @@
 
 % Seitenränder 
 \usepackage[a4paper, left=3cm, right=3cm, top=2cm]{geometry}
+
+% Für klickbares Inhaltsverzeichnis:
+\usepackage{hyperref}
  
 % NEWCOMMANDS
 % Syntax: \newcommand{\shortcut}[AnzahlArgumente]{\wasrauskommensoll #fürArgumentNummer}
@@ -35,6 +39,7 @@
 \newcommand{\norm}[1]{ \lvert\lvert #1 \rvert\rvert}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\prob}[1]{P\left(\left\{ #1 \right\}\right)} 
+
 
 
 % Shortcuts für Zahlenbereiche:
@@ -53,7 +58,7 @@
 
 % THEOREMSTYLES
 
-\theorembodyfont{\upshape}
+\theorembodyfont{\upshape} 
 \theoremstyle{changebreak} %Sorgt für Zeilenumbruch nach Titel und Nummer vor Name
 
 \newtheorem{theorem}{Satz} % Sätze
@@ -74,7 +79,7 @@
 \newtheorem{lemma}[theorem]{Lemma} %Lemmata
 \numberwithin{theorem}{chapter} %sorgt für stringente Nummerierung
 
-\newtheorem{corollary}[theorem]{Korollar} %Korollare
+\newtheorem{corollary}[theorem]{Korollar} %Korollare 
 \numberwithin{theorem}{chapter} %sorgt für stringente Nummerierung
 
 \newtheorem*{proof*}{Beweis.} %Beweise ohne Nummerierung! 
@@ -84,12 +89,13 @@
 \begin{document}
 
 \tableofcontents
-
+\thispagestyle{empty}
+\input{chapter/01/einleitung}
 \include{chapter/01-zufallsvariablen}
 \include{chapter/02-konvergenzarten}
 \include{chapter/03-symmetrie} 
-%\appendix
-%\include{appendix/funktionalanalysis}
+\appendix
+\include{appendix/funktionalanalysis}
 
 \bibliography{literatur}
 \bibliographystyle{alpha}

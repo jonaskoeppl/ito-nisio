@@ -1,10 +1,12 @@
-\section{Das Kontraktions Prinzip}
+Wir wollen nun noch eine zweite Anwendung von Satz $3.9$ geben, die Darstellung orientiert sich hierbei an \cite{li-queffelec}. 
 Im Folgenden sei $(X_n)_{n \in \N}$ eine unabhängige Folge symmetrischer Zufallsvariablens aus $\mathcal{L}_0(E)$ und $(\lambda_n)_{n \in \N}$ eine beschränkte Folge in $\R$. 
 Für $n \in \N$ setze
 $$
     S_n := \sum_{i=1}^nX_i, \quad T_n = \sum_{i=1}^n\lambda_iX_i. 
 $$
-Seien ferner $S_0 = T_0 = 0$. 
+Aus technischen Gründen seien ferner $S_0 = T_0 = 0$. 
+Unser Ziel ist es, zu zeigen, dass die fast sichere Konvergenz von $(S_n)_{n \in \N}$ auch die fast sichere Konvergenz von $(T_n)_{n \in \N}$ impliziert. 
+Der Beweis beruht hauptsächlich auf der folgenden Abschätzung. 
 \begin{lemma}
     Für alle $t > 0$ und $N \in \N$ gilt
     \begin{align}
@@ -13,22 +15,22 @@ Seien ferner $S_0 = T_0 = 0$.
 \end{lemma}
 
 \begin{proof*}
-    Wegen der Symmetrie von $(X_n)_{n \in \N}$ sind $(\lambda_n X_n)_{n \in \N}$ und $(\abs{\lambda_n}X_n)_{n \in \N}$ identisch verteilt. Ferner ist $(\lambda_n)_{n \in \N}$ nach Voraussetzung beschränkt. 
+    Wegen der Symmetrie von $X_n$ sind $\lambda_n X_n$ und $\abs{\lambda_n}X_n)$ für $n \in \N$ identisch verteilt. Ferner ist $(\lambda_n)_{n \in \N}$ nach Voraussetzung beschränkt. 
     Wir können also ohne Einschränkung annehmen, dass $0 \leq \lambda_n \leq 1$ für alle $n \in \N$. 
     \newline 
     \underline{Fall A}: $\lambda_1 \geq \lambda_2 \geq... \geq \lambda_N$. 
     \newline 
-    Per Abelscher Summation erhalten wir 
+    Wie man leicht nachrechnet, gilt  
     $$
-        T_N = \sum_{n=1}^N \lambda_n(S_n - S_{n-1}) = \sum_{n=1}^{N-1}(\lambda_n - \lambda_{n+1})S_n + \lambda_N \S_N. 
+        T_N = \sum_{n=1}^N \lambda_n(S_n - S_{n-1}) = \sum_{n=1}^{N-1}(\lambda_n - \lambda_{n+1})S_n + \lambda_N S_N. 
     $$
-    Mit der Dreiecksungleichung erhalten wir 
+    Mit der Dreiecksungleichung erhalten wir somit
     \begin{align*}
         \norm{T_N} &\leq \sum_{n=1}^{N-1}(\lambda_n - \lambda_{n+1})\norm{S_n} + \lambda_N \norm{S_N} \\\
                    &\leq \max_{1 \leq n \leq N}\norm{S_n} \big(\sum_{n=1}^{N-1}(\lambda_n - \lambda_{n+1}) + \lambda_N\big) \\\
                    &= \max_{1\leq n \leq N}\norm{S_n} \lambda_1 \leq \max_{1\leq n \leq N}\norm{S_n}.
     \end{align*}
-    Mit Lévys Maximalungleichung erhalten wir nun
+    Mit Lévys Maximalungleichung $(3.1)$ folgt daraus
     $$
         \prob{\norm{T_N} > t} \leq \prob{\max_{1 \leq n \leq N}\norm{S_n} > t} \leq 2 \prob{\norm{S_N} > t}.
     $$
@@ -45,15 +47,18 @@ Seien ferner $S_0 = T_0 = 0$.
     Falls $(S_n)_{n \in \N}$ fast sicher konvergiert, dann konvergiert auch $(T_n)_{n \in \N}$ fast sicher. 
 \end{theorem}
 \begin{proof*}
-    Sei $\varepsilon > 0$. Nach Lemma $3.11$ gilt für $m < n$
+    Sei $\varepsilon > 0$. Nach Lemma $3.13$ gilt für $m < n$
     $$
         \prob{\norm{T_n - T_m} > \varepsilon} \leq 2\prob{\norm{S_n - S_m} > \varepsilon}. 
     $$
-    Nach dem Cauchy-Kriterium für stochastische Konvergenz konvergiert $(T_n)_{n \in \N}$ also stochastisch und nach dem Satz von Itô-Nisio insbesondere fast sicher. \qed
+    Nach dem Cauchy-Kriterium für stochastische Konvergenz konvergiert $(T_n)_{n \in \N}$ somit stochastisch und nach Satz $3.8$ insbesondere fast sicher. \qed
 \end{proof*}
 
 \begin{remark}
-    Auf die Bedingung der Symmetrie kann nicht verzichtet werden, wie uns die deterministische Folge $X_n = (-1)^n \frac{1}{n}$ und $(\lambda_n)_{n \in \N} = ((-1)^{n})_{n \in \N}$ zeigen. 
-    \newline 
-    \textbf{TODO: Weitere Gegenbeispiele siehe Li,Queffelec}
+    In Satz $3.15$ kann nicht auf die Symmetrie der Zufallsvariablen $X_1,X_2,...$ verzichtet werden. Betrachte dazu etwa die Folge $(X_n)_{n \in \N}$ definiert durch
+    $$
+        X_n(\omega) := (-1)^n \frac{1}{n},  \quad \omega \in \Omega, n \in \N, 
+    $$ 
+    und die beschränkte Folge $((-1)^n)_{n \in \N}$. Dann ist die Folge $(\sum_{k=1}^n X_n)_{n \in \N}$ fast sicher konvergent, aber die Folge $(\sum_{k=1}^n\lambda_k X_k)_{n \in \N}$ divergiert fast sicher. 
+    \qexampled
 \end{remark}

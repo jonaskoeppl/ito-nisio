@@ -1,6 +1,6 @@
 
 \begin{theorem}[Portmanteau-Theorem]
-    Sei $(X,d)$ ein metrischer Raum und seien $\mu, \mu_1, \mu_2,...$ Wahrscheinlichkeitsmaße auf $\mathcal{B}(X)$. Dann sind äquivalent
+    Sei $(X,d)$ ein metrischer Raum und seien $\mu, \mu_1, \mu_2,...$ Wahrscheinlichkeitsmaße auf $\mathcal{B}(X)$. Dann sind äquivalent:
     \begin{enumerate}[(i)]
         \item $(\mu_n)_{n \in \N}$ konvergiert schwach gegen $\mu$.
         \item Für alle abgeschlossenen Teilmengen $A \subseteq X$ gilt 
@@ -19,37 +19,46 @@
 \end{theorem}
 
 \begin{proof*}
-    Zu $(i) \Rightarrow (ii)$: Sei $A \subseteq X$ abgeschlossen und $\varepsilon > 0$. Da die Aussage für $A = \emptyset$ trivialerweise erfüllt ist
+    Zu $(i) \Rightarrow (ii)$: Sei $A \subseteq X$ abgeschlossen und $\varepsilon > 0$. Da die Aussage für $A = \emptyset$ trivialerweise erfüllt ist,
     können wir ohne Beschränkung der Allgemeinheit annehmen, dass $A \neq \emptyset$. Für $m \in \N$ setze
     \begin{align*}
-        U_m := \{x \in X: d(x,A) < \frac{1}{m}\}.
+        U_m := \{x \in X: \inf_{y \in A}d(x,y) < \frac{1}{m}\}.
     \end{align*}
-    Dann sind die Mengen $U_m$ offen und es für alle $m \in \N$ gilt $A \subseteq U_m$. Da $A$ abgeschlossen ist erhalten wir zudem $ A = \cap_{m \in \N} U_m$. 
-    Aufgrund der $\sigma$-Stetigkeit von $\mu$ existiert ein $k \in \N$ mit 
+    Dann ist die Menge $U_m$ für alle $m \in \N$ offen und es gilt $U_m \downarrow A$, weil $A$ abgeschlossen ist.  
+    Aufgrund der $\sigma$-Stetigkeit von $\mu$ existiert also ein $k \in \N$ mit 
     $$
         \mu(U_k) < \mu(A) + \varepsilon . 
     $$
     Betrachte nun die Abbildung 
     $$
-        f:X \to \R, \quad x \mapsto \max\{1 - kd(x,A), 0\}.
+        f:X \to \R, \quad x \mapsto \max\{1 - k \inf_{y \in A}d(x,y), 0\}.
     $$
-    Offensichtlich ist $f$ beschränkt und nach der umgekehrten Dreiecksungleichung auch stetig. Wegen $1_A \leq f \leq 1_{U_k}$ erhalten wir zusammen mit der Voraussetzung 
+    Offensichtlich ist $f$ beschränkt. Ferner ist die Abbildung 
+    $$
+        d(\cdot, A): X \to \R, \quad x \mapsto d(x,A) := \inf_{y \in A}d(x,y)
+    $$
+    nach der umgekehrten Dreiecksungleichung stetig. Da die Abbildung
+    $$
+        (x,y) \mapsto \max\{x,y\}, \quad (x,y) \in \R^2,
+    $$
+    stetig ist, ist somit $f$ als Komposition stetiger Funktionen stetig. 
+    Wegen $1_A \leq f \leq 1_{U_k}$ erhalten wir zusammen mit der Voraussetzung 
     $$
     \limsup_{n \to \infty} \mu_n(A) \leq \lim_{n \to \infty} \int_X fd\mu_n = \int_X fd\mu \leq \mu(U_k) \leq \mu(A) + \varepsilon.
     $$
-    Da diese Ungleichung für alle $\varepsilon > 0$ erfüllt ist folgt die Behauptung. 
+    Da diese Ungleichung für alle $\varepsilon > 0$ erfüllt ist, folgt die Behauptung. 
     \newline 
     Zu $(ii) \iff (iii)$: Folgt unmittelbar durch Komplementbildung. 
     \newline
     Zu $(iii) \Rightarrow (iv)$: 
-    Sei $C \in \mathcal{B}(X)$ mit $\mu(\partial C) = 0$. Dann gilt insbesondere $\mu(\overline{C}) = \mu(\mathring{C}))$. Da $(iii)$ auch $(ii)$ impliziert erhalten wir somit
+    Sei $C \in \mathcal{B}(X)$ mit $\mu(\partial C) = 0$. Dann gilt insbesondere $\mu(\overline{C}) = \mu(C) = \mu(\mathring{C})$. Da $(iii)$ auch $(ii)$ impliziert, erhalten wir somit
     $$
-        \mu(C) = \mu(\mathring{C})) \leq \liminf_{n \to \infty} \mu_n(C) \leq \limsup_{n \to \infty} \mu_n(C) \leq \mu(\overline{C}) = \mu(C).
+        \mu(C) = \mu(\mathring{C}) \leq \liminf_{n \to \infty} \mu_n(C) \leq \limsup_{n \to \infty} \mu_n(C) \leq \mu(\overline{C}) = \mu(C).
     $$
     \newline 
     Zu $(iv) \Rightarrow (i)$: 
     Sei $f \in C_b(X)$ beschränkt durch $M > 0$. Wegen der Linearität des Integrals können wir ohne Einschränkung annehmen, dass $f \geq 0$. 
-    Wegen der Stetigkeit von $f$ erhalten wir zunächst für alle $t > 0$
+    Wegen der Stetigkeit von $f$ erhalten wir für alle $t > 0$
     $$
         \partial\{ f > t \} \subseteq \{f = t \}. 
     $$
@@ -59,9 +68,9 @@
     $$
     Also gilt für alle $t \in \R \setminus C$ nach Voraussetzung 
     $$
-        \lim_{n \to \infty} \mu_n(\{f > t \}) = \mu(\{f > t \})
+        \lim_{n \to \infty} \mu_n(\{f > t \}) = \mu(\{f > t \}).
     $$
-    Mit dem Satz von Cavalieri, vgl. \cite{gs}[1.8.20], erhalten wir schließlich per dominierter Konvergenz
+    Mit dem Prinzip von Cavalieri, vgl. \cite[Satz 1.8.20]{gs}, erhalten wir schließlich per dominierter Konvergenz
     $$
         \lim_{n \to \infty} \int_X fd\mu_n = \lim_{n \to \infty} \int_0^M \mu_n(\{f > t \})d\lambda(t) = \int_0^M \mu(\{f > t \}) d\lambda(t) = \int_Xfd\mu. 
     $$

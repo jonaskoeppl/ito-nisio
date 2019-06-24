@@ -2,10 +2,10 @@
 Für unsere spätere Betrachtung von Zufallsvariablen mit Werten in Banachräumen lohnt es sich hier, noch eine weitere Charakterisierung der relativen Kompaktheit von Familien von Wahrscheinlichkeitsmaßen zu diskutieren. 
 Der Begriff der \textit{flachen Konzentrierung} von Wahrscheinlichkeitsmaßen wurde zuerst von A.D. de Acosta betrachtet, vgl. \cite{acosta}. 
 Die Darstellung hier orientiert sich an \cite{vakhania}. 
-\newline \ \newline 
+\newline \textbf{Notation und Konventionen} \newline 
 Im Folgenden sei $(E, \norm{\cdot})$ ein separabler Banachraum und $(E', \norm{\cdot}_{op})$ der zugehörige Dualraum. Der metrische Raum der Wahrscheinlichkeitsmaße auf $\mathcal{B}(E)$ werde mit $(\mathcal{M}(E), \rho)$ bezeichnet, wobei 
-$\rho$ die Prokhorov-Metrik ist. 
-Es sei daran erinnert, dass jeder endlichdimensionale Untervektorraum  $S \subseteq E$ abgeschlossen ist und eine Menge $A \subseteq S$ genau dann kompakt ist, wenn sie abgeschlossen und beschränkt ist. 
+$\rho$ die durch $(1.6)$ definierte Prokhorov-Metrik ist. 
+Es sei daran erinnert, dass jeder endlichdimensionale Untervektorraum  $S \subseteq E$ abgeschlossen ist und eine Menge $A \subseteq S$ nach dem Satz von Heine-Borel genau dann kompakt ist, wenn sie abgeschlossen und beschränkt ist. 
 Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge. 
 \begin{mydef}
     Eine Familie $M \subseteq \mathcal{M}(E)$ von Wahrscheinlichkeitsmaßen auf $\mathcal{B}(E)$ heißt \textit{flach konzentriert}, falls es für alle $\varepsilon > 0$ einen endlichdimensionalen 
@@ -25,11 +25,11 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
 \begin{proof*}
     Zu $\Rightarrow$: Sei $A \subseteq E$ relativ kompakt. Dann ist $\overline{A}$ kompakt und folglich beschränkt, woraus wir direkt die Beschränktheit von $A$ erhalten. 
     Ferner ist $\overline{A}$ separabel, also existiert eine abzählbare dichte Teilmenge $\{x_1, x_2,...\} \subseteq \overline{A}$. 
-    Für $\varepsilon > 0$ ist daher $(B(x_n, \varepsilon))_{n \in \N}$ eine offene Überdeckung von $\overline{A}$. Wegen der Kompaktheit existiert $I \subseteq \N$ endlich mit 
+    Für $\varepsilon > 0$ ist $(B(x_n, \varepsilon))_{n \in \N}$ somit eine offene Überdeckung von $\overline{A}$. Wegen der Kompaktheit von $\overline{A}$ existiert $I \subseteq \N$ endlich mit 
     $$
         \overline{A} \subseteq \bigcup_{i \in I}B(x_i, \varepsilon).
     $$
-    Sei also $S$ der von $\{x_i : i \in I\}$ erzeugte endlich dimensionale Untervektorraum von $E$. Dann gilt 
+    Sei daher $S$ der von $\{x_i : i \in I\}$ erzeugte endlichdimensionale Untervektorraum von $E$. Dann gilt 
     $$
         A \subseteq \overline{A} \subseteq \bigcup_{i \in I}B(x_i, \varepsilon) \subseteq S^{\varepsilon}.
     $$
@@ -37,21 +37,21 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     Sei dazu $(x^{(0)}_n)_{n \in \N}$ eine Folge in $A$, $\varepsilon > 0$ und $S \subseteq E$ ein endlichdimensionaler Untervektorraum mit $A \subseteq S^{\varepsilon}$. 
     Dann existiert insbesondere eine Folge $(y_n)_{n \in \N}$ in $S$ mit 
     $$
-        \forall n \in \N: \quad d(x^{(0)}_n, y_n) \leq 2\varepsilon.
+        \forall n \in \N: \quad d(x^{(0)}_n, y_n) \leq \varepsilon.
     $$
-    Aus der Beschränktheit von $(x^{(0)}_n)_{n \in \N}$ erhalten wir direkt die Beschränktheit von $(y_n)_{n \in \N}$ und da $S$ endlichdimensional ist existiert eine konvergente Teilfolge $(y_{n_k})_{k \in \N}$.
-    Es existiert also $N(\varepsilon) \in \N$, sodass für $k,m \geq N(\varepsilon) \in \N$
+    Aus der Beschränktheit von $(x^{(0)}_n)_{n \in \N}$ erhalten wir direkt die Beschränktheit von $(y_n)_{n \in \N}$ und da $S$ endlichdimensional ist, existiert eine konvergente Teilfolge $(y_{n_k})_{k \in \N}$.
+    Es existiert demnach $N(\varepsilon) \in \N$, sodass für $k,m \geq N(\varepsilon) \in \N$
     \begin{align*}
-        \norm{x^{(0)}_{n_k} - x^{(0)}_{n_m}} \leq \norm{x^{(0)}_{n_k} - y_{n_k}} + \norm{y_{n_k} - y_{n_m}} + \norm{x^{(0)}_{n_m} - y_{n_m}} \leq 5\varepsilon
+        \norm{x^{(0)}_{n_k} - x^{(0)}_{n_m}} \leq \norm{x^{(0)}_{n_k} - y_{n_k}} + \norm{y_{n_k} - y_{n_m}} + \norm{x^{(0)}_{n_m} - y_{n_m}} \leq 3\varepsilon
     \end{align*}
     gilt. 
     Durch Entfernen endlich vieler Folgenglieder können wir ohne Einschränkung annehmen, dass 
     $$
-        \forall k,m \in \N: \quad \norm{x^{(0)}_{n_k} - x^{(0)}_{n_m}} \leq 5\varepsilon. 
+        \forall k,m \in \N: \quad \norm{x^{(0)}_{n_k} - x^{(0)}_{n_m}} \leq 3\varepsilon. 
     $$
     Durch obiges Verfahren können wir für $N \in \N$ und $\varepsilon_N = \frac{1}{N}$ induktiv eine Teilfolge $(x^{(N)}_n)_{n \in \N}$ von $(x^{(N-1)}_n)_{n \in \N}$ gewinnen mit
     $$
-        \forall m,n \in \N: \quad \norm{x^{(N)}_n - x^{(N)}_m} \leq \frac{5}{N}.
+        \forall m,n \in \N: \quad \norm{x^{(N)}_n - x^{(N)}_m} \leq \frac{3}{N}.
     $$
     Durch Bilden der Diagonalfolge $(x^{(N)}_N)_{N \in \N}$ erhalten wir somit eine Teilfolge der Ausgangsfolge $(x^{(0)}_n)_{n \in \N}$, die eine Cauchy-Folge ist und daher in $E$ konvergiert. 
     \qed 
@@ -70,7 +70,7 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
 \end{lemma}
 
 \begin{proof*}
-    Wegen $(1.4)$ definiert 
+    Wegen $(1.11)$ definiert 
     $$
         p(x) := \max_{1\leq k \leq n} \abs{f_k(x)}, \quad x \in S,
     $$
@@ -79,11 +79,11 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     $$
         \lim_{m \to \infty} \norm{x_m} = \infty. 
     $$
-    Wegen $B \subseteq \overline{S^{\varepsilon}}$ gibt es somit eine Folge $(y_m)_{m \in \N}$ mit 
+    Wegen $B \subseteq \overline{S^{\varepsilon}}$ gibt es somit eine Folge $(y_m)_{m \in \N}$ in $S$ mit 
     $$
-        \forall m \in \N: \quad \abs{x_m - y_m} \leq \varepsilon. 
+        \forall m \in \N: \quad \norm{x_m - y_m} \leq \varepsilon. 
     $$
-    Mittels der Dreiecksungleichung erhält man
+    Mittels der Dreiecksungleichung erhält man daraus
     $$
         \lim_{m \to \infty}\norm{y_m} = \infty. 
     $$
@@ -91,43 +91,47 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     \begin{align}
         \lim_{m \to \infty}\abs{f_k(y_m)} = \infty. 
     \end{align}
-    Da $f_1,...,f_n$ stetig und linear sind existiert ferner ein $K > 0$ mit 
+    Da $f_1,...,f_n$ stetig und linear sind, existiert ferner ein $K > 0$ mit 
     $$
         \forall j \in \{1,...,n\} \ \forall x,y \in E: \quad \abs{f(x)-f(y)} \leq K \norm{x-y}. 
     $$
     Nach Definition von $B$ gilt 
     $$
-        \forall m \in \N: \quad f_k(x_m) \leq r_k.
+        \forall m \in \N: \quad \abs{f_k(x_m)} \leq r_k.
     $$
     Also folgt für alle $m \in \N$ aus der Dreiecksungleichung
     $$
         \abs{f_k(y_m)} \leq \abs{f_k(y_m) - f_k(x_m)} + \abs{f_k(x_m)} \leq K \varepsilon + r_k. 
     $$
-    Im Widerspruch zu $(1.5)$. \qed
+    Im Widerspruch zu $(1.12)$. \qed
 \end{proof*}
 
 \begin{remark}%TODO: evtl. weiter nach oben verschieben und noch erklären wieso es für S endlich viele derartige Funktionale gibt. 
-    Man sagt eine Familie von Abbildungen mit der Eigenschaft $(1.4)$ \textit{trenne die Punkte von S}.
-    Die Existenz der Funktionale $f_1,...,f_n \in E'$ wird durch den Fortsetzungssatz von Hahn-Banach sichergestellt. 
+    Man sagt eine Familie von Abbildungen mit der Eigenschaft $(1.11)$ \textit{trenne die Punkte von S}.
+    Die Existenz von $n \in \N$ und Funktionalen $f_1,...,f_n \in E'$ wird durch den Fortsetzungssatz von Hahn-Banach sichergestellt. Siehe etwa Korollar $A.9$. 
 \end{remark}
 
 \begin{theorem}[Satz von de Acosta]
-    Eine Menge $M \subseteq \mathcal{M}(E)$ von Wahrscheinlichkeitsmaßen ist genau dann relativ kompakt in $(\mathcal{M}(E), \rho)$ wenn die folgenden beiden Bedingungen erfüllt sind
+    Eine Menge $M \subseteq \mathcal{M}(E)$ von Wahrscheinlichkeitsmaßen ist genau dann relativ kompakt in $(\mathcal{M}(E), \rho)$, wenn die folgenden beiden Bedingungen erfüllt sind:
     \begin{enumerate}[(a)]
-        \item Für alle $f \in E'$ ist $\{\mu^f : \mu \in M\} \subseteq \mathcal{M}(\R)$ relativ kompakt,
+        \item Für alle $f \in E'$ ist $\{\mu^f : \mu \in M\} \subseteq \mathcal{M}(\R)$ relativ kompakt und
         \item $M$ ist flach konzentriert. 
     \end{enumerate}
 \end{theorem}
 
 \begin{proof*}
     Zu $\Rightarrow$: 
-    Sei $M \subseteq \mathcal{M}(E)$ relativ kompakt. Nach dem Satz von Prokhorov ist $M$ dann insbesondere gleichmäßig straff. 
-    Also existiert zu $\varepsilon > 0$ eine kompakte Menge $K \subseteq E$ mit 
+    Sei $M \subseteq \mathcal{M}(E)$ relativ kompakt. Nach Satz $1.27$ ist $M$ dann insbesondere gleichmäßig straff. 
+    Daher existiert zu $\varepsilon > 0$ eine kompakte Menge $K \subseteq E$ mit 
     $$
         \forall \mu \in M: \quad \mu(K) \geq 1 - \varepsilon.   
     $$ 
-    Aus der Stetigkeit von $f \in E'$ erhalten wir somit direkt die gleichmäßige Straffheit von \mbox{$\{\mu^f : \mu \in M\}$}. Erneutes anwenden des Satzes von Prokhorov liefert $(a)$. 
-    Da $K$ insbesondere relativ kompakt ist liefert Lemma $1.22$ einen endlichdimensionalen Untervektorraum $S \subseteq E$ mit $K \subseteq S^{\varepsilon}$. Somit gilt
+    Da alle $f \in E'$ stetig sind, ist jeweils auch $f(K)$ kompakt und es gilt
+    $$
+        \forall \mu \in M: \quad \mu^f(f(K)) = \mu(f^{-1}(f(K))) \geq \mu(K) \geq 1 - \varepsilon. 
+    $$
+    Also ist $\{\mu^f : \mu \in M\}$ für alle $f \in E'$ gleichmäßig straff. Erneutes Anwenden von Satz $1.27$  liefert $(a)$. 
+    Da $K$ insbesondere relativ kompakt ist, liefert Lemma $1.30$ einen endlichdimensionalen Untervektorraum $S \subseteq E$ mit $K \subseteq S^{\varepsilon}$. Somit gilt
     $$
         \forall \mu \in M: \quad \mu(S^{\varepsilon}) \geq \mu(K) \geq 1 - \varepsilon.
     $$
@@ -135,17 +139,17 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     \newline 
     Zu $\Leftarrow$: 
     Sei $\varepsilon > 0$. Dann existiert für alle $n \in \N$ ein endlichdimensionaler Untervektorraum $S_{n, \varepsilon} \subseteq E$ mit 
-    $$
+    \begin{align}
         \forall \mu \in M: \quad \mu(S_{n, \varepsilon}^{\frac{\varepsilon}{2^{n+1}}}) \geq 1 - \frac{\varepsilon}{2^{n+1}}.
-    $$
-    Nach Bemerkung $1.25$ existieren $f_1^{(n)},...,f_{k_n}^{(n)} \in E'$ mit 
+    \end{align}
+    Nach Bemerkung $1.32$ existieren $f_1^{(n)},...,f_{k_n}^{(n)} \in E'$ mit 
     $$
         \forall x,y \in S_{n, \varepsilon}: \quad x \neq y \Rightarrow \ \exists j \in \{1,...,k_n\}: \quad f_j(x) \neq f_j(y). 
     $$
     Nach Voraussetzung $(a)$ können wir zudem $r_1^{(n)},...,r_{k_n}^{(n)} \in (0, \infty)$ so wählen, dass
-    $$
+    \begin{align}
         \inf_{\mu \in M} \mu^{f_i}\big([-r_i^{(n)}, r_i^{(n)}]\big) \geq 1 - \frac{\varepsilon}{k_n 2^{n+1}}, \quad i=1,...,k_n.
-    $$
+    \end{align}
     Setze ferner
     $$
         F_{n,\varepsilon} := \overline{\big(S_{n,\varepsilon}^{\frac{\varepsilon}{2^{n+1}}}\big)}.
@@ -154,17 +158,17 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     $$
         K := \bigcap_{n =1}^{\infty}\big(F_{n, \varepsilon} \cap\{x \in E: \ \abs{f_1^{(n)}}\leq r_1^{(n)},...,\abs{f_{k_n}^{(n)}}\leq r_{k_n}^{(n)}\}\big)
     $$
-    nach Lemma $1.23$ beschränkt und als Schnitt abgeschlossener Mengen abgeschlossen. Ferner gilt für alle $n \in \N$
+    nach Lemma $1.31$ beschränkt und als Schnitt abgeschlossener Mengen abgeschlossen. Ferner gilt für alle $n \in \N$
     $$
         K \subseteq  F_{n, \varepsilon} \subseteq S_{n,\varepsilon}^{\frac{\varepsilon}{2^n}}.
     $$
-    Also ist $K$ nach Lemma $1.22$ kompakt. Für $\mu \in M$ gilt schließlich
+    Also ist $K$ nach Lemma $1.30$ kompakt. Zudem gilt für $\mu \in M$ nach $(1.13)$ und $(1.14)$
     \begin{align*}
         \mu(K^c) &\leq \sum_{n=1}^{\infty}\mu(F_{n, \varepsilon}^c) + \sum_{i=1}^{k_n}\mu^{f_i^{(n)}}\big([-r_i^{(n)}, r_i^{(n)}]^c\big) \\\
                  &\leq \sum_{n=1}^{\infty}\mu(F_{n, \varepsilon}^c) + \frac{\varepsilon}{2^{n+1}} \\\
                  &\leq \sum_{n=1}^{\infty}(\frac{\varepsilon}{2^{n+1}} + \frac{\varepsilon}{2^{n+1}}) = \varepsilon. 
     \end{align*}
-    Also ist $M$ gleichmäßig straff und somit nach dem Satz von Prokhorov relativ kompakt. \qed
+    Folglich ist $M$ gleichmäßig straff und somit nach Satz $1.27$ relativ kompakt. \qed
 \end{proof*}
 
 \begin{corollary}
@@ -175,7 +179,25 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
 \end{corollary}
 
 \begin{proof*}
-    Die Richtung $\Rightarrow$ ist klar und für $\Leftarrow$ reicht es anzumerken, dass beschränkte Mengen durch stetige lineare Abbildungen auf beschränkte Mengen abgebildet werden. Nach dem Satz von Heine-Borel sind 
-    beschränkte Teilmengen der reellen Zahlen aber insbesondere relativ kompakt. \qed 
+    Zu $\Rightarrow$: Nach Satz $1.27$ und Satz $1.33$ ist $M$ flach konzentriert und gleichmäßig straff. Somit existiert für jedes $\varepsilon > 0$ eine kompakte Menge $K \subseteq E$ mit 
+    $$
+        \forall \mu \in M: \quad \mu(K) \geq 1 - \varepsilon. 
+    $$
+    Als kompakte Menge ist $K$ insbesondere beschränkt und die Behauptung ist gezeigt.
+    \newline  
+    Zu $\Leftarrow$: Nach Voraussetzung ist $M$ flach konzentriert, es genügt daher nach Satz $1.33$ zu zeigen, dass $\{\mu^f : \ \mu \in M\}$ für alle $f \in E'$ relativ kompakt ist. Sei dazu $\varepsilon > 0$ und $f \in E'$. 
+    Dann existiert eine beschränkte Teilmenge $L \subseteq E$ mit
+    $$
+        \forall \mu \in M: \quad \mu(L) \geq 1 - \varepsilon.
+    $$
+    Da $f$ ein stetiger linearer Operator ist, existiert ein $R > 0$ mit 
+    $$
+        \forall x \in E: \quad \abs{f(x)} \leq R \norm{x}. 
+    $$
+    Somit folgt aus der Beschränktheit von $L$, dass $f(L)$ eine beschränkte Teilmenge von $\R$ ist und nach dem Satz von Heine-Borel ist $\overline{f(L)}$ kompakt. Es gilt ferner
+    $$
+        \forall \mu \in M: \quad \mu^f(\overline{f(L)}) = \mu(\{x \in E: \ f(x) \in f(L)\}) \geq \mu(L) \geq 1 - \varepsilon. 
+    $$
+    Also ist $\{\mu^f : \ \mu \in M\}$ gleichmäßig straff und nach Satz $1.27$ relativ kompakt. \qed
 \end{proof*}
 
