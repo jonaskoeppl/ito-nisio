@@ -1,8 +1,8 @@
 \section{Der Satz von Hahn-Banach}
 \textbf{Notation und Konventionen}\newline
-Für einen normierten Vektorraum $(X, \norm{\cdot})$ sei $(X', \norm{\cdot}_op)$ der zugehörige Dualraum. Ferner bezeichne
+Für einen normierten Vektorraum $(X, \norm{\cdot})$ sei $(X', \norm{\cdot}_{op})$ der zugehörige Dualraum. Ferner bezeichne
 $$
-    B_{X'} := \{f \in X' \ : \ \norm{f}_op \leq 1 \}
+    B_{X'} := \{f \in X' \ : \ \norm{f}_{op} \leq 1 \}
 $$
 die abgeschlossene Einheitskugel in $X'$. 
 
@@ -140,7 +140,7 @@ die abgeschlossene Einheitskugel in $X'$.
     $$
         \abs{f_n(x_n)} \leq \abs{f_n(x_n) - f_n(y)} + \abs{f_n(y)} \leq \abs{f_n(y)} + \frac{\varepsilon}{2}. 
     $$
-    Daraus folgt schließlich wegen der sublinearität von $d(\cdot,F)$
+    Die Sublinearität von $d(\cdot,F)$ liefert nun 
     $$
         d(x,F) \leq d(x-x_n,F) + d(x_n,F) \leq \norm{x-x_n} + \abs{f_n(x_n)} \leq \abs{f_n(y)} + \varepsilon. 
     $$

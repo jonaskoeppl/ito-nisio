@@ -66,7 +66,7 @@
     $$
         \forall \omega_1 \in \Omega^*(\omega_2): \quad S_n(\omega_1) - S_n(\omega_2) \ \text{ konvergiert.}
     $$
-    Setze nun $x_n := S_n(\omega_2)$, $n \in \N$. Dann existiert eine Zufallsvariable $L$ auf $(\Omega, \mathcal{A}, P)$ mit $S_n - x_n \fastsicher L$. Nach Voraussetzung gilt daher 
+    Setze nun $x_n := S_n(\omega_2)$, $n \in \N$. Dann existiert eine Zufallsvariable $L$ auf $(\Omega, \mathcal{A}, P)$ mit \mbox{$S_n - x_n \fastsicher L$.} Nach Voraussetzung gilt daher 
     $$
         x_n \stochastisch S - L,
     $$
@@ -78,7 +78,7 @@
     \newline 
     Zu $(iii) \Rightarrow (ii)$: Für $1 \leq m < n$ setze
     \begin{align*}
-        \mu_{m,n} :&= P^{S_n - S_m}
+        \mu_{m,n} :&= P^{S_n - S_m}. 
     \end{align*}
     Da $(\mu_n)_{n \in \N}$ nach Voraussetzung schwach gegen ein Wahrscheinlichkeitsmaß $\mu$ konvergiert,
     ist die Menge $\{\mu_n: n \in \N \}$ relativ kompakt in $(\mathcal{M}(E), \rho)$ und somit nach Satz $1.27$ gleichmäßig straff.
@@ -131,7 +131,7 @@
 \end{proof*}
 
 \begin{remark}
-    Mittels der Maximal-Ungleichung $(3.5)$ von Ottaviani-Skorohod ist auch ein direkter Beweis der Implikation $(ii) \Rightarrow (i)$ möglich. Betrachte hierzu etwa die Ereignisse 
+    Mittels der Maximal-Ungleichung $(3.5)$ von Ottaviani-Skorohod ist auch ein direkter Beweis der Implikation $(ii) \Rightarrow (i)$ möglich. Man betrachte hierzu etwa die Ereignisse 
     $$
         A_N := \bigcap_{m \in \N}\{\sup_{n > m} \norm{S_n - S_m} > \frac{1}{N}\}, \quad N \in \N.                                                                                                                        
     $$

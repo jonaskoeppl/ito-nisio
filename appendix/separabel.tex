@@ -50,7 +50,7 @@ Eines der für diese Arbeit wichtigsten Resultate ist die folgende Charakterisie
     Da $A_n$ für $n \in \N$ dicht in $E_n$ liegt, existiert für $k \in \{1,...,N\}$ eine Folge $(x_m^{(k)})_{m \in \N}$ in $A_k$ mit $\lim_{m \to \infty}x_m^{(k)} = y_k$. 
     Also ist die Folge $(\sum_{k=1}^N\lambda_k x_m^{(k)})_{m \in \N}$ in $lin(\bigcup_{n \in \N}A_n)$ und nach den Rechenregeln für Grenzwerte gilt 
     $$
-        \lim_{m \to \infty}(\sum_{k=1}^N\lambda_k x_m^{(k)}) = \sum_{k=1}^N\lambda_ky_k = y. 
+        \lim_{m \to \infty}\left(\sum_{k=1}^N\lambda_k x_m^{(k)}\right) = \sum_{k=1}^N\lambda_ky_k = y. 
     $$
     Also gilt $y \in \overline{lin(\bigcup_{n \in \N}A_n)}$. 
     Insgesamt folgt also $\overline{lin(\bigcup_{n \in \N}E_n)} = \overline{lin(\bigcup_{n \in \N}A_n)}$ und da $\bigcup_{n \in \N}A_n$ abzählbar ist, liefert Satz $A.3$ die Behauptung. \qed
@@ -72,7 +72,7 @@ Eines der für diese Arbeit wichtigsten Resultate ist die folgende Charakterisie
     $$
         x = \sum_{i=1}^n \lambda_i x_i. 
     $$ 
-    Da $A$ dicht in $E$ liegt, existiert für jedes $i \in \{1,...,n\}$ eine Folge $(x_m^{(i)})_{m \in \N}$ in $A$ mit $\lim_{m \to \infty}x_m^{(i)} = x_i$. 
+    Da $A$ dicht in $E$ liegt, existiert für jedes $i \in \{1,...,n\}$ eine Folge $(x_m^{(i)})_{m \in \N}$ in $A$ mit \mbox{$\lim_{m \to \infty}x_m^{(i)} = x_i$.}
     Für alle $m \in \N$ gilt zudem $\sum_{i=1}^n \lambda_i x_m^{(i)} \in lin(A)$ und wegen 
     $$
         \lim_{m \to \infty} \sum_{i=1}^n \lambda_i x_m^{(i)} = \sum_{i=1}^n \lambda_i \lim_{m \to \infty}x_m^{(i)} = \sum_{i=1}^n \lambda_i x_i

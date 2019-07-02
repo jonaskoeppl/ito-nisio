@@ -1,4 +1,4 @@
-Als nächstes wollen wir zeigen, dass für zwei separable metrische Räume $(X_1, d_1)$ und $(X_2,d_2)$, die Produkt $\sigma$-Algebra
+Als nächstes wollen wir zeigen, dass für zwei separable metrische Räume $(X_1, d_1)$ und $(X_2,d_2)$, die Produkt-$\sigma$-Algebra
 $\mathcal{B}(X_1) \otimes \mathcal{B}(X_2)$, mit der von der Produkttopologie auf $X_1 \times X_2$ erzeugten Borelschen $\sigma$-Algebra $\mathcal{B}(X_1 \times X_2)$ übereinstimmt. 
 Für den Beweis benötigen wir ein paar topologische Grundbegriffe und Hilfsmittel.
 \begin{mydef}
@@ -17,9 +17,9 @@ Für den Beweis benötigen wir ein paar topologische Grundbegriffe und Hilfsmitt
 \end{remark}
 
 \begin{lemma}
-    Sei $X$ eine Menge, $I$ eine nichtleere Indexmenge und $\mathcal{U} := \{U_i: U_i \in \mathcal{P}(X), i \in I\}$ mit $\bigcup_{i \in I} U_i = X$. Dann ist das Mengensystem 
+    Sei $X$ eine Menge, $I$ eine nichtleere Indexmenge und $\mathcal{U} := \{B_i: B_i \in \mathcal{P}(X), i \in I\}$ mit $\bigcup_{i \in I} B_i = X$. Dann ist das Mengensystem 
     $$
-        \mathcal{O}(\mathcal{U}) := \{\cup_{i \in \tilde{I}}U_i \ | \  \tilde{I} \subseteq I \text{ beliebig} \}
+        \mathcal{O}(\mathcal{U}) := \{\cup_{i \in \tilde{I}}B_i \ | \  \tilde{I} \subseteq I \text{ beliebig} \}
     $$
     eine Topologie auf $X$ und wird als die \textit{von} $\mathcal{U}$ \textit{erzeugte Topologie} bezeichnet. Nach Bemerkung $1.3$ ist $\mathcal{U}$ dann insbesondere eine Basis von $\mathcal{O}(\mathcal{U})$. 
 \end{lemma}

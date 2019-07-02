@@ -1,4 +1,4 @@
-Wir wollen nun noch eine zweite Anwendung von Satz $3.9$ geben, die Darstellung orientiert sich hierbei an \cite{li-queffelec}. 
+Wir wollen nun noch eine zweite Anwendung von Satz $3.9$ geben, welche in der Literatur teilweise als \textit{qualitative Version des Kontraktions-Prinzips} bezeichnet wird. Die Darstellung orientiert sich hierbei an \cite{li-queffelec}. 
 Im Folgenden sei $(X_n)_{n \in \N}$ eine unabhängige Folge symmetrischer Zufallsvariablens aus $\mathcal{L}_0(E)$ und $(\lambda_n)_{n \in \N}$ eine beschränkte Folge in $\R$. 
 Für $n \in \N$ setze
 $$
@@ -15,7 +15,7 @@ Der Beweis beruht hauptsächlich auf der folgenden Abschätzung.
 \end{lemma}
 
 \begin{proof*}
-    Wegen der Symmetrie von $X_n$ sind $\lambda_n X_n$ und $\abs{\lambda_n}X_n)$ für $n \in \N$ identisch verteilt. Ferner ist $(\lambda_n)_{n \in \N}$ nach Voraussetzung beschränkt. 
+    Wegen der Symmetrie von $X_n$ sind $\lambda_n X_n$ und $\abs{\lambda_n}X_n$ für $n \in \N$ identisch verteilt. Ferner ist $(\lambda_n)_{n \in \N}$ nach Voraussetzung beschränkt. 
     Wir können also ohne Einschränkung annehmen, dass $0 \leq \lambda_n \leq 1$ für alle $n \in \N$. 
     \newline 
     \underline{Fall A}: $\lambda_1 \geq \lambda_2 \geq... \geq \lambda_N$. 
@@ -27,7 +27,7 @@ Der Beweis beruht hauptsächlich auf der folgenden Abschätzung.
     Mit der Dreiecksungleichung erhalten wir somit
     \begin{align*}
         \norm{T_N} &\leq \sum_{n=1}^{N-1}(\lambda_n - \lambda_{n+1})\norm{S_n} + \lambda_N \norm{S_N} \\\
-                   &\leq \max_{1 \leq n \leq N}\norm{S_n} \big(\sum_{n=1}^{N-1}(\lambda_n - \lambda_{n+1}) + \lambda_N\big) \\\
+                   &\leq \max_{1 \leq n \leq N}\norm{S_n} \bigg(\sum_{n=1}^{N-1}(\lambda_n - \lambda_{n+1}) + \lambda_N\bigg) \\\
                    &= \max_{1\leq n \leq N}\norm{S_n} \lambda_1 \leq \max_{1\leq n \leq N}\norm{S_n}.
     \end{align*}
     Mit Lévys Maximalungleichung $(3.1)$ folgt daraus
@@ -48,16 +48,24 @@ Der Beweis beruht hauptsächlich auf der folgenden Abschätzung.
 \end{theorem}
 \begin{proof*}
     Sei $\varepsilon > 0$. Nach Lemma $3.13$ gilt für $m < n$
-    $$
+    \begin{align}
         \prob{\norm{T_n - T_m} > \varepsilon} \leq 2\prob{\norm{S_n - S_m} > \varepsilon}. 
+    \end{align}
+    Da $(S_n)_{n \in \N}$ fast sicher konvergiert, gilt nach Korollar $2.7$ und Satz $2.9$
     $$
-    Nach dem Cauchy-Kriterium für stochastische Konvergenz konvergiert $(T_n)_{n \in \N}$ somit stochastisch und nach Satz $3.8$ insbesondere fast sicher. \qed
+        \lim_{N \to \infty} \sup_{n \geq N}\prob{\norm{S_n-S_N} > \varepsilon} = 0. 
+    $$
+    Wegen $(3.9)$ folgt also 
+    $$
+        \lim_{N \to \infty} \sup_{n \geq N}\prob{\norm{T_n-T_N} > \varepsilon} = 0.
+    $$
+    Da $\varepsilon$ beliebig gewählt war, konvergiert $(T_n)_{n \in \N}$ nach Satz $2.9$ stochastisch und nach Satz $3.8$ insbesondere fast sicher. \qed
 \end{proof*}
 
 \begin{remark}
     In Satz $3.15$ kann nicht auf die Symmetrie der Zufallsvariablen $X_1,X_2,...$ verzichtet werden. Betrachte dazu etwa die Folge $(X_n)_{n \in \N}$ definiert durch
     $$
-        X_n(\omega) := (-1)^n \frac{1}{n},  \quad \omega \in \Omega, n \in \N, 
+        X_n(\omega) := (-1)^n \frac{1}{n},  \quad \omega \in \Omega, \ n \in \N, 
     $$ 
     und die beschränkte Folge $((-1)^n)_{n \in \N}$. Dann ist die Folge $(\sum_{k=1}^n X_n)_{n \in \N}$ fast sicher konvergent, aber die Folge $(\sum_{k=1}^n\lambda_k X_k)_{n \in \N}$ divergiert fast sicher. 
     \qexampled

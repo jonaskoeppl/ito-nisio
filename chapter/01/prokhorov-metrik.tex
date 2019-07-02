@@ -34,7 +34,7 @@ $$
 $$
 definiert durch
 \begin{align}
-    (\mu, \nu) \mapsto \inf\{\alpha > 0 | \forall B \in \mathcal{B}(X): (\mu(B) \leq \nu(B^{\alpha}) + \alpha) \ \land \ (\nu(B) \leq \mu(B^{\alpha}) + \alpha) \}.
+    (\mu, \nu) \mapsto \inf\big\{\alpha > 0 | \forall B \in \mathcal{B}(X): (\mu(B) \leq \nu(B^{\alpha}) + \alpha) \ \land \ (\nu(B) \leq \mu(B^{\alpha}) + \alpha) \big\}.
 \end{align}
 \begin{proposition}
     \begin{enumerate}[(i)]
@@ -145,15 +145,15 @@ Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkeh
 \end{theorem}
 
 \begin{proof*}
-    Zu $\Rightarrow$: Siehe Proposition $1.16(iii)$.
+    Zu $\Rightarrow$: Siehe Proposition $1.23(iii)$.
     \newline 
     Zu $\Leftarrow$:  Wir zeigen
     $$
         \forall \varepsilon > 0 \ \exists N \in \N \ \forall n \geq N: \quad \forall B \in \mathcal{B}(X): \  \mu(B) \leq \mu_n(B^{\varepsilon}) + \varepsilon. 
     $$
     Daraus folgt zusammen mit Proposition $1.23(ii)$ die Behauptung. Sei $\delta := \frac{\varepsilon}{4} > 0$. 
-    Dann existiert nach Lemma $1.24$ eine Folge $(B_n)_{n \in \N}) := (B(x_n, r_n))_{n \in \N}$ offener Kugeln mit Radius $r_n < \frac{\delta}{2}$  
-    und $\mu(\partial B_n) = 0$ für alle $n \in \N$, sowie $X = \cup_{n \in  \N}B_n$. Ferner existiert $k \in N$ mit
+    Dann existiert nach Lemma $1.24$ eine Folge $(B_n)_{n \in \N} := (B(x_n, r_n))_{n \in \N}$ offener Kugeln mit Radius $0 < r_n < \frac{\delta}{2}$  
+    und $\mu(\partial B_n) = 0$ für alle $n \in \N$, sowie $X = \cup_{n \in  \N}B_n$. Wegen Letzterem existiert ein $k \in \N$ mit
     \begin{align}
         \mu\left(\bigcup_{i=1}^k B_i\right) \geq 1 - \delta. 
     \end{align}
@@ -170,14 +170,14 @@ Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkeh
         \forall n \geq N \ \forall A \in \mathcal{C}: \quad \abs{\mu(A) - \mu_n(A)} < \delta. 
     \end{align}
     Insbesondere gilt daher
-    $$
+    \begin{align}
         \forall n \geq N: \quad \mu_n\left(\bigcup_{i=1}^k B_i\right) \geq \mu\left(\bigcup_{i=1}^k B_i\right) - \delta \geq 1 - 2\delta. 
-    $$
+    \end{align}
     Für $B \in \mathcal{B}(X)$ betrachte die Menge 
     $$
         A := \bigcup_{j \in J} B_j,
     $$
-    wobei $J := \{j \in \{1,...,k\}: B_j \cap B \neq \emptyset \}$. Dann ergibt sich unter Verwendung von $A \subseteq B^{\delta} \subseteq B^{\varepsilon}$ und $(1.6)$ für alle $n \geq N$ 
+    wobei $J := \{j \in \{1,...,k\}: B_j \cap B \neq \emptyset \}$. Dann ergibt sich unter Verwendung von $A \subseteq B^{\delta} \subseteq B^{\varepsilon}$, $(1.10)$ und $(1.11)$ für alle $n \geq N$ 
     $$
         \mu(B) \leq \mu(A) + \mu\left((\cup_{i=1}^k B_i)^c\right) \leq \mu(A) + 2\delta \leq \mu_n(A) + 3\delta \leq \mu_n(B^{\varepsilon}) + \varepsilon. 
     $$

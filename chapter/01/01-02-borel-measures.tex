@@ -132,7 +132,7 @@ Für eine Folge $(A_n)_{n \in \N}$ von Mengen und eine Menge $A$ schreiben wir $
 \end{proposition}
 
 Wir verwenden zum Beweis der Proposition die folgende Charakterisierung kompakter Teilmengen metrischer Räume. 
-Der Beweis wird mittels der in metrischen Räumen geltenden Äquivalenz von Überdeckungskompaktheit und Folgenkompaktheit  geführt und findet sich etwa in \cite[Theorem III.3.10]{amann}. 
+Der Beweis dieses Lemmas wird mittels der in metrischen Räumen geltenden Äquivalenz von Überdeckungskompaktheit und Folgenkompaktheit geführt und findet sich etwa in \cite[Theorem III.3.10]{amann}. 
 
 \begin{lemma}
     Sei $(X,d)$ ein metrischer Raum. Eine Menge $K \subseteq X$ ist genau dann kompakt, wenn sie die folgenden beiden Eigenschaften erfüllt: 
@@ -146,7 +146,7 @@ Der Beweis wird mittels der in metrischen Räumen geltenden Äquivalenz von Übe
 \end{lemma}
 
 \begin{proof*}
-    Sei $\varepsilon > 0$. Nach Voraussetzung existiert eine abzählbare dichte Teilmenge $D = \{x_1, x_2,...\}$ von $X$. Insbesondere gilt dann für $q \in \N $
+    Sei $\varepsilon > 0$. Nach Voraussetzung existiert eine abzählbare dichte Teilmenge $D = \{x_1, x_2,...\}$ von $X$. Insbesondere gilt dann für jedes $q \in \N $
     \begin{align*}
         \bigcup_{i = 1}^{\infty}\overline{B}(x_i, 2^{-q}) = X.
     \end{align*}
@@ -177,7 +177,7 @@ Der Beweis wird mittels der in metrischen Räumen geltenden Äquivalenz von Übe
     \end{enumerate}
 \end{proposition}
 \begin{proof*}
-    Zu (i) $\Rightarrow$ (ii): Für alle $n \in \N$ existiert eine kompakte Menge $K_n \subseteq X$ mit $\mu(K_n) \geq 1 - \frac{1}{n}$.
+    Zu (i) $\Rightarrow$ (ii): Für alle $n \in \N$ existiert eine kompakte Menge $K_n \subseteq X$ mit \mbox{$\mu(K_n) \geq 1 - \frac{1}{n}$}.
     Da endliche Vereinigungen kompakter Mengen wiederum kompakt sind, können wir ohne Einschränkung annehmen, dass $K_n \subseteq K_{n+1}$. 
     Wegen der $\sigma$-Stetigkeit von $\mu$ gilt  
     \begin{align*}
@@ -186,7 +186,7 @@ Der Beweis wird mittels der in metrischen Räumen geltenden Äquivalenz von Übe
     Da kompakte Teilmengen metrischer Räume insbesondere separabel sind, ist $\overline{E} := \overline{\cup_{n=1}^{\infty}K_n}$ als topologischer Abschluss einer abzählbaren Vereinigung separabler Mengen ebenso separabel. 
     \newline 
     Zu (ii) $\Rightarrow$ (i): 
-    Analog zum Beweis von Proposition 1.8. \qed
+    Analog zum Beweis von Proposition 1.14. \qed
 \end{proof*}
 
 Insgesamt erhalten wir aus unseren bisherigen Überlegungen den folgenden Satz. 

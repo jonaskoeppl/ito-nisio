@@ -70,7 +70,7 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
 \end{lemma}
 
 \begin{proof*}
-    Wegen $(1.11)$ definiert 
+    Wegen $(1.12)$ definiert 
     $$
         p(x) := \max_{1\leq k \leq n} \abs{f_k(x)}, \quad x \in S,
     $$
@@ -103,11 +103,11 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     $$
         \abs{f_k(y_m)} \leq \abs{f_k(y_m) - f_k(x_m)} + \abs{f_k(x_m)} \leq K \varepsilon + r_k. 
     $$
-    Im Widerspruch zu $(1.12)$. \qed
+    Im Widerspruch zu $(1.13)$. \qed
 \end{proof*}
 
 \begin{remark}%TODO: evtl. weiter nach oben verschieben und noch erklären wieso es für S endlich viele derartige Funktionale gibt. 
-    Man sagt eine Familie von Abbildungen mit der Eigenschaft $(1.11)$ \textit{trenne die Punkte von S}.
+    Man sagt eine Familie von Abbildungen mit der Eigenschaft $(1.12))$ \textit{trenne die Punkte von S}.
     Die Existenz von $n \in \N$ und Funktionalen $f_1,...,f_n \in E'$ wird durch den Fortsetzungssatz von Hahn-Banach sichergestellt. Siehe etwa Korollar $A.9$. 
 \end{remark}
 
@@ -162,7 +162,7 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     $$
         K \subseteq  F_{n, \varepsilon} \subseteq S_{n,\varepsilon}^{\frac{\varepsilon}{2^n}}.
     $$
-    Also ist $K$ nach Lemma $1.30$ kompakt. Zudem gilt für $\mu \in M$ nach $(1.13)$ und $(1.14)$
+    Also ist $K$ nach Lemma $1.30$ kompakt. Zudem gilt für $\mu \in M$ nach $(1.14)$ und $(1.15)$
     \begin{align*}
         \mu(K^c) &\leq \sum_{n=1}^{\infty}\mu(F_{n, \varepsilon}^c) + \sum_{i=1}^{k_n}\mu^{f_i^{(n)}}\big([-r_i^{(n)}, r_i^{(n)}]^c\big) \\\
                  &\leq \sum_{n=1}^{\infty}\mu(F_{n, \varepsilon}^c) + \frac{\varepsilon}{2^{n+1}} \\\

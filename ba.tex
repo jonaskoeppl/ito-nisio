@@ -3,6 +3,7 @@
 % IMPORTS
 \usepackage{ntheorem} % Theorem/Proof Umgebungen 
 \usepackage[ngerman]{babel}
+\usepackage{babelbib}
 \usepackage[utf8x]{inputenc}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -23,8 +24,11 @@
   {\normalfont\Large\bfseries}{\thesection}{0.8em}{}
 \titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 
+%
+\selectbiblanguage{ngerman}
 % Seitenränder 
-\usepackage[a4paper, left=3cm, right=3cm, top=2cm]{geometry}
+\usepackage[a4paper]{geometry}
+%zuvor [a4paper, , left=3cm, right=3cm, top=2cm]
 
 % Für klickbares Inhaltsverzeichnis:
 \usepackage{hyperref}
@@ -87,10 +91,12 @@
 \setlength\parindent{0pt} %Kein Einzug bei neuem Paragraphen. 
 
 \begin{document}
-
+\input{titlepage}
 \tableofcontents
 \thispagestyle{empty}
+
 \input{chapter/01/einleitung}
+\setcounter{page}{2}
 \include{chapter/01-zufallsvariablen}
 \include{chapter/02-konvergenzarten}
 \include{chapter/03-symmetrie} 
@@ -98,6 +104,10 @@
 \include{appendix/funktionalanalysis}
 
 \bibliography{literatur}
-\bibliographystyle{alpha}
+\bibliographystyle{babplain-lf}
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+
+\input{eigenstaendigkeitserklaerung}
+\addcontentsline{toc}{chapter}{Eigenständigkeitserklärung}
 
 \end{document}

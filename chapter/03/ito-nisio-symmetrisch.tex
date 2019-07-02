@@ -1,7 +1,7 @@
 Unter der zusätzlichen Voraussetzung, dass die unabhängigen Zufallsvariablen $(X_n)_{n \in \N}$ symmetrisch verteilt sind, lässt sich der Satz von Itô-Nisio auf drei noch schwächere Annahmen als die Verteilungskonvergenz von $(S_n)_{n \in \N}$ erweitern. 
-Für den Beweis dient uns unter anderem der folgende Satz. 
+Für den Beweis dient uns unter anderem der \mbox{folgende Satz.} 
 \begin{theorem}
-    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger Radon-Zufallsvariablen und sei $(\mu_n)_{n \in \N}$ gleichmäßig straff. Dann existiert eine Folge $(c_n)_{n \in \N}$ in $E$ sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert.
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger Radon-Zufallsvariablen und sei $(\mu_n)_{n \in \N}$ gleichmäßig straff. Dann existiert eine Folge $(c_n)_{n \in \N}$ in $E$, sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert.
 \end{theorem}
 
 \begin{proof*}
@@ -14,7 +14,7 @@ Für den Beweis dient uns unter anderem der folgende Satz.
     \begin{align*}
         \widetilde{S}_n := \sum_{i = 1}^n \widetilde{X}_i, \quad \widetilde{T}_n := \sum_{i = 1}^n \widetilde{Y}_n, \quad U_n := \widetilde{S}_n - \widetilde{T}_n, \quad \mu_{U_n} := (P\times P)^{U_n}. 
     \end{align*}
-    Nach Konstruktion sind die Zufallsvariablen $\widetilde{S}_n$,$\widetilde{T}_n$ und $S_n$ für festes $n \in \N$ identisch verteilt. Wir zeigen zunächst, dass $(\mu_{U_n})_{n \in \N}$ gleichmäßig straff ist. 
+    Nach Konstruktion sind die Zufallsvariablen $\widetilde{S}_n$, $\widetilde{T}_n$ und $S_n$ für festes $n \in \N$ identisch verteilt. Wir zeigen zunächst, dass $\{\mu_{U_n}: \ n \in \N\}$ gleichmäßig straff ist. 
     Sei dazu $\varepsilon > 0$. Dann existiert nach Voraussetzung eine kompakte Menge $\tilde{K} \subseteq E$ mit 
     $$
         \forall n \in \N: \mu_n(\tilde{K}) \geq 1 - \varepsilon. 
@@ -25,12 +25,12 @@ Für den Beweis dient uns unter anderem der folgende Satz.
     $$
     ist auch die Menge $K := \{ x - y : x,y \in \tilde{K}\}$ kompakt und somit insbesondere messbar. Ferner gilt
     \begin{align*}
-        \mu_{U_n}(K) = \prob{\widetilde{S}_n - \widetilde{T}_n \in K} &\geq \prob{\widetilde{S}_n \in \tilde{K}, \widetilde{T}_n \in \tilde{K}} \\\
-                                                              &\geq 1 - \prob{\widetilde{S}_n \notin \tilde{K}} - \prob{\widetilde{T}_n \notin \tilde{K}} \\\
+        \mu_{U_n}(K) = (P \times P)\{\widetilde{S}_n - \widetilde{T}_n \in K\} &\geq (P \times P)\{\widetilde{S}_n \in \tilde{K}, \widetilde{T}_n \in \tilde{K}\} \\\
+                                                              &\geq 1 - (P \times P)\{\widetilde{S}_n \notin \tilde{K}\} - (P \times P)\{\widetilde{T}_n \notin \tilde{K}\} \\\
                                                               &= 1 - 2\mu_n(\tilde{K}^c) \\\
                                                               &\geq 1 - 2 \varepsilon.                                              
     \end{align*}
-    Demnach ist $(\mu_{U_n})_{n \in \N}$ straff. 
+    Demnach ist $\{\mu_{U_n}: \ n \in \N\}$ straff. 
     Als nächstes zeigen wir, dass $(\widehat{\mu_{U_n}}(f))_{n \in \N}$ für alle $f \in E'$ konvergiert. Sei dazu $f \in E'$ beliebig aber fest. 
     Die Unabhängigkeit von $(\widetilde{Y}_n)_{n \in \N}$ und $(\widetilde{X}_n)_{n \in \N}$ liefert direkt die Unabhängigkeit von $(\widetilde{X}_n - \widetilde{Y}_n)_{n \in \N}$
     und nach Konstruktion sind $\tilde{Y}_n$ und $\tilde{X}_n$ für $n \in \N$ identisch verteilt. Es gilt demzufolge  
@@ -41,12 +41,25 @@ Für den Beweis dient uns unter anderem der folgende Satz.
                                                  = \prod_{j=1}^n \abs{\mathbb{E}(e^{if(\widetilde{X}_j)})}^2.
     \end{align*}
     Wegen $0 \leq \abs{\mathbb{E}(e^{if(\widetilde{X}_j)})} \leq 1$ für alle $j \in \N$ folgt daraus die Konvergenz von $(\widehat{\mu_{U_n}}(f))_{n \in \N}$. 
-    Nach Satz $2.17$ konvergiert $(U_n)_{n \in \N}$ also in Verteilung und somit nach Satz $3.6$ insbesondere fast sicher. 
+    Wir zeigen nun, dass die Folge $(\mu_{U_n})_{n \in \N}$ schwach konvergiert. 
+    Wie zuvor gezeigt wurde, ist $\{\mu_{U_n}: n \in \N\}$ gleichmäßig straff, also nach Satz $1.27$ relativ kompakt in $(\mathcal{M}(E), \rho)$. 
+    Es genügt also zu zeigen, dass alle konvergenten Teilfolgen von $(\mu_{U_n})_{n \in \N}$ gegen den gleichen Grenzwert konvergieren. 
+    Seien dazu $(\nu_n)_{n \in \N}$ und $(\eta_n)_{n \in \N}$ zwei konvergente Teilfolgen von $(\mu_{U_n})_{n \in \N}$ mit schwachem Grenzwert $\nu$ bzw. $\eta$. 
+    Insbesondere gilt also nach Satz $2.17$ für alle $f \in E'$
+    $$
+        \lim_{n \to \infty} \widehat{\nu_n}(f) = \widehat{\nu}(f) \text{ und } \lim_{n \to \infty} \widehat{\eta_n}(f) = \widehat{\eta}(f). 
+    $$
+    Da für alle $f \in E'$ die Folge $(\widehat{\mu_{U_n}}(f))_{n \in \N}$ konvergiert, gilt 
+    $$
+        \forall f \in E': \ \nu(f) = \lim_{n \to \infty} \widehat{\nu_n}(f) = \lim_{n \to \infty}\widehat{\mu_{U_n}}(f) = \lim_{n \to \infty}\widehat{\eta_n}(f) = \widehat{\eta}(f). 
+    $$
+    Nach Satz $2.16$ folgt daraus $\eta = \nu$. Also ist die Folge $(\mu_{U_n})_{n \in \N}$ schwach konvergent, d.h. $(U_n)_{n \in \N}$ konvergiert in Verteilung. 
+    Aus Satz $3.6$ folgt nun, dass $(U_n)_{n \in \N}$ fast sicher konvergiert. 
     Daher existiert eine Menge $\Omega^* \in \mathcal{A} \otimes \mathcal{A}$ mit $(P\times P)(\Omega^*) = 1$ und 
     $$
-        \forall (\omega_1, \omega_2) \in \Omega^*: \quad U_n(\omega_1, \omega_2) = S_n(\omega_1) - S_n(\omega_2) \text{ konvergiert.}
+        \forall (\omega_1, \omega_2) \in \Omega^*: \quad (U_n(\omega_1, \omega_2))_{n \in \N} = (S_n(\omega_1) - S_n(\omega_2))_{n \in \N} \text{ konvergiert.}
     $$
-    Mit dem Satz von Fubini erhalten wir wie im Beweis von Satz $3.6$ ein $\omega' \in \Omega$, sodass $(S_n - S_n(\omega'))_{n \in \N}$ fast sicher konvergiert. 
+    Mit dem Satz von Fubini erhalten wir wie im Beweis von Satz $3.6 \ (ii) \Rightarrow (i)$ ein $\omega' \in \Omega$, sodass \mbox{$(S_n - S_n(\omega'))_{n \in \N}$} fast sicher konvergiert. 
     Die Folge $(c_n)_{n \in \N}$, definiert durch $c_n := S_n(\omega')$, $n \in \N$, erfüllt nun die gewünschte Eigenschaft. \qed
 
 \end{proof*}
@@ -81,14 +94,14 @@ Für den Beweis dient uns unter anderem der folgende Satz.
     \newline
     Zu $(iv) \Rightarrow (i)$:
     Nach Satz $3.8$ existiert eine Folge $(c_n)_{n \in \N}$ in $E$, sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert. Setze nun $P^X := P^{(X_1,X_2,...)}$ und $P^{-X} :=P^{(-X_1,-X_2,...)}$. 
-    Wegen der Unabhängigkeit und Symmetrie von $(X_n)_{n \in \N}$ erhalten wir direkt $P^X = P^{-X}$. Daher gilt für $N \in \N$ und $\varepsilon >0$
+    Dann sind $P^X$ und $P^{-X}$ jeweils Wahrscheinlichkeitsmaße auf dem Produktraum $(E^{\N}, \otimes_{n \in \N}B(E))$ und wegen der Unabhängigkeit und Symmetrie von $(X_n)_{n \in \N}$ erhalten wir direkt $P^X = P^{-X}$. Daher gilt für $N \in \N$ und $\varepsilon >0$
     \begin{align*}
         &\quad \ \prob{\sup_{n \geq N}\norm{(S_n - c_n) - (S_N- c_N)} > \varepsilon} \\\
-                &= P^X(\{(y_n)_{n \in \N}\in E^{\N}: \  \sup_{n \geq N}\norm{y_n + y_{n-1} + ... + y_{N+1} + (c_n - c_N)} > \varepsilon \}) \\\
-                &= P^{-X}(\{(y_n)_{n \in \N}\in E^{\N}: \ \sup_{n \geq N}\norm{y_n + y_{n-1} + ... + y_{N+1} + (c_n - c_N)} > \varepsilon \}) \\\
+                &= P^X\big(\{(y_n)_{n \in \N}\in E^{\N}: \  \sup_{n \geq N}\norm{y_n + y_{n-1} + ... + y_{N+1} + (c_n - c_N)} > \varepsilon \}\big) \\\
+                &= P^{-X}\big(\{(y_n)_{n \in \N}\in E^{\N}: \ \sup_{n \geq N}\norm{y_n + y_{n-1} + ... + y_{N+1} + (c_n - c_N)} > \varepsilon \}\big) \\\
                 &= \prob{\sup_{n \geq N}\norm{(-S_n - c_n) - (-S_N - c_N)} > \varepsilon}.
     \end{align*}
-    Nach dem Cauchy-Kriterium für fast sichere Konvergenz konvergiert also auch $(-S_n - c_n)_{n \in \N}$ fast sicher. Daraus folgt die fast sichere Konvergenz von $(S_n)_{n \in \N}$, denn für $n \in \N$ gilt
+    Nach Satz $2.4$ konvergiert also auch $(-S_n - c_n)_{n \in \N}$ fast sicher. Daraus folgt die fast sichere Konvergenz von $(S_n)_{n \in \N}$, denn für $n \in \N$ gilt
     $$
        S_n =  \frac{1}{2}((S_n - c_n) - (-S_n -c_n)). 
     $$
@@ -142,13 +155,13 @@ Für den Beweis dient uns unter anderem der folgende Satz.
 \end{proof*}
 
 \begin{remark}
-    Auf die Annahme der Symmetrie in Satz $3.9$ kann im Allgemeinen nicht verzichtet werden. Sei etwa $E$ ein Hilbertraum mit Orthonormalbasis $(e_n)_{n \in \N}$.
+    Auf die Annahme der Symmetrie in Satz $3.9$ kann im Allgemeinen nicht verzichtet werden. Sei etwa $(E, \langle\cdot,\cdot\rangle)$ ein Hilbertraum mit Orthonormalbasis $(e_n)_{n \in \N}$.
     Man bemerke zunächst, dass nach dem Darstellungsatz von Fréchet-Riesz, vgl. \cite[Theorem V.3.6]{werner}, für jedes $f \in E'$ ein $z \in E$ mit $f = \langle \cdot, z \rangle$ existiert. 
     Setze nun 
     $$
         X_1(\omega) = e_1, \quad X_n(\omega) = e_n - e_{n-1}, \ n \geq 2, \quad \omega \in \Omega. 
     $$
-    Dann gilt offensichtlich $S_n = e_n$ und da $(e_n)_{n \in \N}$ eine Orthonormalbasis von $E$ ist, gilt für alle $z \in E$
+    Dann gilt offensichtlich $S_n(\omega) = e_n$ für alle $\omega \in \Omega$ und da $(e_n)_{n \in \N}$ eine Orthonormalbasis von $E$ ist, gilt für alle $z \in E$
     $$
         \lim_{n \to \infty}\langle z,S_n \rangle = 0 = \langle z,S \rangle,
     $$
@@ -187,8 +200,8 @@ Mit Hilfe des Satzes von Itô-Nisio können wir nun ein ähnliches Resultat für
     $$
     Für $R := \max\{R_0, \varepsilon\}$ gilt also 
     \begin{align*}
-        \sup_{n \geq N}\prob{\norm{X_n} > R} \leq \sup_{n \geq N}\prob{\norm{X_n - X} + \norm{X} > R} 
-                                            &\leq \sup_{n \geq N}(\prob{\norm{X_n - X} > \frac{R}{2}} + \prob{\norm{X} > \frac{R}{2}}) \\\
+        \sup_{n \geq N}\prob{\norm{X_n} > R} &\leq \sup_{n \geq N}\prob{\norm{X_n - X} + \norm{X} > R} \\\
+                                            &\leq \sup_{n \geq N}\prob{\norm{X_n - X} > \frac{R}{2}} + \prob{\norm{X} > \frac{R}{2}} \\\
                                             &< \sup_{n \geq N}\prob{\norm{X_n - X} > \frac{R}{2}} + \frac{\varepsilon}{2} < \varepsilon. 
     \end{align*}
     Zudem gilt nach Konstruktion
@@ -197,7 +210,7 @@ Mit Hilfe des Satzes von Itô-Nisio können wir nun ein ähnliches Resultat für
     $$
     Insgesamt erhalten wir somit 
     $$
-        \sup_{n \in \N} \prob{\norm{X_n}>R}= \max(\max_{1\leq n \leq N-1}\prob{\norm{X_n} > R},\sup_{n \geq N}\prob{\norm{X_n}> R}) < \varepsilon. 
+        \sup_{n \in \N} \prob{\norm{X_n}>R}= \max\bigg(\max_{1\leq n \leq N-1}\prob{\norm{X_n} > R},\sup_{n \geq N}\prob{\norm{X_n}> R}\bigg) < \varepsilon. 
     $$
     \qed 
 \end{proof*}

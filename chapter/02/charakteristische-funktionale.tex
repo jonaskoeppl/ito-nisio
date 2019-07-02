@@ -1,5 +1,5 @@
 Ein wichtiges Hilfsmittel zur Untersuchung von Verteilungskonvergenz sind die sogenannten \textit{charakteristischen Funktionale}. 
-Sie sind eine Verallgemeinerung der aus dem skalaren Fall bekannten charakteristischen Funktionen.  
+Sie sind eine Verallgemeinerung der aus dem skalaren Fall bekannten charakteristischen Funktionen.   
 
 \begin{mydef}
     Sei $\mu$ ein Wahrscheinlichkeitsmaß auf $\mathcal{B}(E)$. 
@@ -65,7 +65,7 @@ ein schnitt-stabiler Erzeuger von $\sigma(E')$.
 
 \begin{theorem}
     Sei  $E$ ein separabler Banachraum, $(X_n)_{n \in \N}$ eine Folge in $\mathcal{L}_0(E)$ und $X \in \mathcal{L}_0(E)$. 
-    Dann konvergiert $(X_n)_{n \in \N}$ genau dann in Verteilung gegen $X$, wenn die folgenden beiden Bedingungen erfüllt sind.
+    Dann konvergiert $(X_n)_{n \in \N}$ genau dann in Verteilung gegen $X$, wenn die folgenden beiden Bedingungen erfüllt sind:
     \begin{enumerate}[(a)]
         \item $(\widehat{\mu}_{X_n})_{n \in \N}$ konvergiert punktweise gegen $\widehat{\mu}_X$ und
         \item $(X_n)_{n \in \N}$ ist gleichmäßig straff. 
@@ -74,7 +74,7 @@ ein schnitt-stabiler Erzeuger von $\sigma(E')$.
 
 \begin{proof*}
     Zu $\Rightarrow$: Für $n \in \N$ sei $\mu_n$ die Verteilung von $X_n$ und $\mu$ die Verteilung von $X$. Da die Folge $(\mu_n)_{n \in \N}$ nach Voraussetzung schwach gegen $\mu$ konvergiert, 
-    ist $(\mu_n)_{n \in  \N}$ insbesondere relativ kompakt in $(\mathcal{M}(E), \rho)$, und nach Satz $1.27$ gleichmäßig straff. 
+    ist $(\mu_n)_{n \in  \N}$ insbesondere relativ kompakt in $(\mathcal{M}(E), \rho)$, und somit nach Satz $1.27$ gleichmäßig straff. 
     Ferner ist für $f \in E'$ die Abbildung 
     $$
         g_f: E \to \C,  \ x \mapsto e^{if(x)}
@@ -94,10 +94,10 @@ ein schnitt-stabiler Erzeuger von $\sigma(E')$.
     Im endlichdimensionalen Fall muss die gleichmäßige Straffheit von $(\mu_n)_{n \in \N}$ nicht zusätzlich gefordert werden, vgl. \cite[Satz 8.7.5]{gs}. 
 \end{remark}
 
-Bevor wir uns im Folgenden Kapitel mit der Konvergenz zufälliger Reihen in Banachräumen beschäftigen, halten wir noch zwei für den späteren Beweis des Satzes von Itô-Nisio nützliche Ergebnisse fest, die sich mit unserem bisher gesammelten Wissen über charakteristische Funktionale leicht beweisen lassen.  
+Bevor wir uns im folgenden Kapitel mit der Konvergenz zufälliger Reihen in Banachräumen beschäftigen, halten wir noch zwei für die Beweise der Sätze $3.6$ und $3.9$ nützliche Ergebnisse fest, die sich mit unserem bisher gesammelten Wissen über charakteristische Funktionale leicht beweisen lassen.  
 
 \begin{proposition}
-    Sei $E$ ein separabler Banachraum und seien $(X_n)_{n \in \N}$ und $(Y_n)_{n \in \N}$ Folgen in $\mathcal{L}_0(E)$ und $X,Y \in \mathcal{L}_0(E)$ mit $X_n \stochastisch X$, sowie $Y_n \stochastisch Y$. 
+    Sei $E$ ein separabler Banachraum und seien $(X_n)_{n \in \N}$ und $(Y_n)_{n \in \N}$ Folgen in $\mathcal{L}_0(E)$ und \mbox{$X,Y \in \mathcal{L}_0(E)$} mit $X_n \stochastisch X$, sowie $Y_n \stochastisch Y$. 
     Falls für alle $n \in \N$ $X_n$ und $Y_n$ unabhängig sind, so sind auch $X,Y$ unabhängig. 
 \end{proposition}
 
