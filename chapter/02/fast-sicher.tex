@@ -1,5 +1,5 @@
 \section{Fast sichere und stochastische Konvergenz}
-In diesem Abschnitt wollen wir kurz auf die beiden Konzepte der fast sicheren und der stochastischen Konvergenz von Zufallsvariablen eingehen, die uns schon aus dem skalaren Fall bekannt sind. 
+In diesem Abschnitt wollen wir kurz auf die beiden Konzepte der fast sicheren und der stochastischen Konvergenz von Radon-Zufallsvariablen eingehen, die uns schon für $\mathcal{R}^d$-wertige Zufallsvariablen bekannt sind. 
 Aufgrund der Vollständigkeit von $E$ lassen sich die Beweise in diesem Abschnitt wie im skalaren Fall durchführen, daher werden wir hier nur kurz die für den weiteren Verlauf wichtigen Ergebnisse zusammenfassen.  
 Die Beweise für den skalaren Fall findet man beispielsweise in \cite{gs}. 
 \begin{mydef}
@@ -10,7 +10,7 @@ Die Beweise für den skalaren Fall findet man beispielsweise in \cite{gs}.
 Bezeichnung: $X_n \fastsicher X$. 
 \end{mydef}
 
-Analog zum Spezialfall $E = \R^d$ zeigt man für Folgen von Zufallsvariablen mit Werten in einem allgemeinen Banachraum $E$ die fast sichere Eindeutigkeit des fast sicheren Grenzwerts. 
+Analog zum Spezialfall $E = \R^d$ zeigt man für Folgen von Radon-Zufallsvariablen mit Werten in einem allgemeinen Banachraum $E$ die fast sichere Eindeutigkeit des fast sicheren Grenzwerts. 
 \begin{proposition}
     Für $X,Y,X_1,X_2,... \in \mathcal{L}_0(E)$ gilt
     \begin{enumerate}[(i)]
@@ -30,7 +30,7 @@ Ferner lassen sich auch die folgenden beiden Konvergenzkriterien vollkommen prob
 \end{theorem}
 
 \begin{theorem}[Cauchy-Kriterium für fast sichere Konvergenz]
-    Für eine Folge $(X_n)_{n \in \N}$ in $\mathcal{L}_0(E)$ existiert genau dann eine Zufallsvariable $X \in \mathcal{L}_0(E)$ mit \mbox{$X_n \fastsicher X$}, wenn
+    Für eine Folge $(X_n)_{n \in \N}$ in $\mathcal{L}_0(E)$ existiert genau dann ein $X \in \mathcal{L}_0(E)$ mit \mbox{$X_n \fastsicher X$}, wenn
     $$
         \forall \varepsilon > 0 : \quad \lim_{N \to \infty}\prob{\sup_{n\geq N}\norm{X_n - X_N} > \varepsilon} = 0. 
     $$
@@ -54,7 +54,7 @@ Man erhält unmittelbar die folgende Charakterisierung.
 \end{theorem}
 
 \begin{corollary}
-    Für Zufallsvariablen $X,Y, X_1, X_2,... \in \mathcal{L}_0(E)$ und eine stetige Abbildung $f:E \to \R$ gilt
+    Für $E$-wertige Radon-Zufallsvariablen $X,Y, X_1, X_2,...$ und eine stetige Abbildung $f:E \to \R$ gilt
     \begin{enumerate}[(i)]
         \item $X_n \fastsicher X \ \Rightarrow \ X_n \stochastisch X$,
         \item ($X_n \stochastisch X \land X_n \stochastisch Y$) $\Rightarrow$ $ X = Y$ fast sicher,
@@ -73,7 +73,7 @@ Wie auch bei der fast sicheren Konvergenz lassen sich die beiden folgenden Chara
 \end{theorem}
 
 \begin{theorem}[Cauchy-Kriterium für stochastische Konvergenz]
-    Für eine Folge $(X_n)_{n \in \N}$ in $\mathcal{L}_0(E)$ existiert genau dann eine Zufallsvariable $X \in \mathcal{L}_0(E)$ mit \mbox{$X_n \stochastisch X$}, wenn
+    Für eine Folge $(X_n)_{n \in \N}$ in $\mathcal{L}_0(E)$ existiert genau dann ein $X \in \mathcal{L}_0(E)$ mit \mbox{$X_n \stochastisch X$}, wenn
     $$
         \forall \varepsilon > 0 : \quad \lim_{N \to \infty}\sup_{n\geq N}P(\{\norm{X_n - X_N} > \varepsilon \}) = 0. 
     $$

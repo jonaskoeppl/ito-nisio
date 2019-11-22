@@ -1,15 +1,16 @@
 \section{Konvergenz in Verteilung und charakteristische Funktionale}
 Neben der fast sicheren und der stochastischen Konvergenz beschäftigt man sich im skalaren Fall auch mit der Konvergenz in Verteilung einer Folge von Zufallsvariablen. 
+Auch dieser Konvergenzbegriff lässt sich leicht aus dem skalaren Fall in das allgemeinere Setting von Radon-Zufallsvariblen mit Werten in einem Banachraum übertragen. 
 \begin{mydef}
-    Eine Folge $(X_n)_{n \in \N}$ von $E$-wertigen Zufallsvariablen \textit{konvergiert in Verteilung} gegen eine Zufallsvariable $X \in \mathcal{L}_0(E)$,
+    Eine Folge $(X_n)_{n \in \N}$ von $E$-wertigen Radon-Zufallsvariablen \textit{konvergiert in Verteilung} gegen ein $X \in \mathcal{L}_0(E)$,
     falls die Folge $(P^{X_n})_{n \in \N}$ von Verteilungen schwach gegen $P^X$ konvergiert. 
     \newline 
     Bezeichnung: $X_n \schwach X$. 
 \end{mydef}
 
-Da die Verteilungskonvergenz lediglich von den Verteilungen der beteiligten Zufallsvariablen abhängt, erhalten wir aus Satz $1.20$ unmittelbar die folgenden Charakterisierungen.
+Da die Verteilungskonvergenz lediglich von den Verteilungen der beteiligten Radon-Zufallsvariablen abhängt, erhalten wir aus Satz $1.20$ unmittelbar die folgenden Charakterisierungen.
 \begin{proposition}
-    Es sind äquivalent:
+    Für $X,X_1,X_2,... \in \mathcal{L}_0(E)$ sind äquivalent:
     \begin{enumerate}[(i)]
         \item $(X_n)_{n \in \N}$ konvergiert in Verteilung gegen $X$. 
         \item Für alle abgeschlossenen Mengen $A \subseteq E$ gilt 

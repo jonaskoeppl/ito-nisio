@@ -1,7 +1,7 @@
 Unter der zusätzlichen Voraussetzung, dass die unabhängigen Zufallsvariablen $(X_n)_{n \in \N}$ symmetrisch verteilt sind, lässt sich der Satz von Itô-Nisio auf drei noch schwächere Annahmen als die Verteilungskonvergenz von $(S_n)_{n \in \N}$ erweitern. 
 Für den Beweis dient uns unter anderem der \mbox{folgende Satz.} 
 \begin{theorem}
-    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger Radon-Zufallsvariablen und sei $(\mu_n)_{n \in \N}$ gleichmäßig straff. Dann existiert eine Folge $(c_n)_{n \in \N}$ in $E$, sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert.
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger $E$-wertiger Radon-Zufallsvariablen und sei $(\mu_n)_{n \in \N}$ gleichmäßig straff. Dann existiert eine Folge $(c_n)_{n \in \N}$ in $E$, sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert.
 \end{theorem}
 
 \begin{proof*}
@@ -14,7 +14,8 @@ Für den Beweis dient uns unter anderem der \mbox{folgende Satz.}
     \begin{align*}
         \widetilde{S}_n := \sum_{i = 1}^n \widetilde{X}_i, \quad \widetilde{T}_n := \sum_{i = 1}^n \widetilde{Y}_n, \quad U_n := \widetilde{S}_n - \widetilde{T}_n, \quad \mu_{U_n} := (P\times P)^{U_n}. 
     \end{align*}
-    Nach Konstruktion sind die Zufallsvariablen $\widetilde{S}_n$, $\widetilde{T}_n$ und $S_n$ für festes $n \in \N$ identisch verteilt. Wir zeigen zunächst, dass $\{\mu_{U_n}: \ n \in \N\}$ gleichmäßig straff ist. 
+    Nach Konstruktion sind die Zufallsvariablen $\widetilde{S}_n$, $\widetilde{T}_n$ und $S_n$ für festes $n \in \N$ identisch verteilt. 
+    Wir zeigen zunächst, dass $\{\mu_{U_n}: \ n \in \N\}$ gleichmäßig straff ist. 
     Sei dazu $\varepsilon > 0$. Dann existiert nach Voraussetzung eine kompakte Menge $\tilde{K} \subseteq E$ mit 
     $$
         \forall n \in \N: \mu_n(\tilde{K}) \geq 1 - \varepsilon. 
@@ -31,7 +32,7 @@ Für den Beweis dient uns unter anderem der \mbox{folgende Satz.}
                                                               &\geq 1 - 2 \varepsilon.                                              
     \end{align*}
     Demnach ist $\{\mu_{U_n}: \ n \in \N\}$ straff. 
-    Als nächstes zeigen wir, dass $(\widehat{\mu_{U_n}}(f))_{n \in \N}$ für alle $f \in E'$ konvergiert. Sei dazu $f \in E'$ beliebig aber fest. 
+    Als nächstes zeigen wir, dass $(\widehat{\mu_{U_n}}(f))_{n \in \N}$ für alle $f \in E'$ konvergiert. Sei dazu $f \in E'$ beliebig, aber fest. 
     Die Unabhängigkeit von $(\widetilde{Y}_n)_{n \in \N}$ und $(\widetilde{X}_n)_{n \in \N}$ liefert direkt die Unabhängigkeit von $(\widetilde{X}_n - \widetilde{Y}_n)_{n \in \N}$
     und nach Konstruktion sind $\tilde{Y}_n$ und $\tilde{X}_n$ für $n \in \N$ identisch verteilt. Es gilt demzufolge  
     \begin{align*}
@@ -64,14 +65,14 @@ Für den Beweis dient uns unter anderem der \mbox{folgende Satz.}
 
 \end{proof*}
 
-\begin{theorem}[Satz von Itô-Nisio für Folgen symmetrischer Zufallsvariablen]
-    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger und symmetrischer Zufallsvariablen in $\mathcal{L}_0(E)$. Dann sind äquivalent:
+\begin{theorem}[Satz von Itô-Nisio für Folgen symmetrischer Radon-Zufallsvariablen]
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger und symmetrischer $E$-wertiger Radon-Zufallsvariablen. Dann sind äquivalent:
     \begin{enumerate}[(i)]
         \item $(S_n)_{n \in \N}$ konvergiert fast sicher.
         \item $(S_n)_{n \in \N}$ konvergiert stochastisch. 
         \item $(S_n)_{n \in \N}$ konvergiert in Verteilung. 
         \item $(\mu_n)_{n \in \N}$ ist gleichmäßig straff.
-        \item Es gibt eine Zufallsvariable $S \in \mathcal{L}_0(E)$, sodass 
+        \item Es gibt eine Radon-Zufallsvariable $S \in \mathcal{L}_0(E)$, sodass 
         $$
             \forall f \in E': \quad f(S_n) \stochastisch f(S).
         $$
@@ -95,15 +96,20 @@ Für den Beweis dient uns unter anderem der \mbox{folgende Satz.}
     Zu $(iv) \Rightarrow (i)$:
     Nach Satz $3.8$ existiert eine Folge $(c_n)_{n \in \N}$ in $E$, sodass $(S_n - c_n)_{n \in \N}$ fast sicher konvergiert. Setze nun $P^X := P^{(X_1,X_2,...)}$ und $P^{-X} :=P^{(-X_1,-X_2,...)}$. 
     Dann sind $P^X$ und $P^{-X}$ jeweils Wahrscheinlichkeitsmaße auf dem Produktraum $(E^{\N}, \otimes_{n \in \N}B(E))$ und wegen der Unabhängigkeit und Symmetrie von $(X_n)_{n \in \N}$ erhalten wir direkt $P^X = P^{-X}$. Daher gilt für $N \in \N$ und $\varepsilon >0$
-    \begin{align*}
-        &\quad \ \prob{\sup_{n \geq N}\norm{(S_n - c_n) - (S_N- c_N)} > \varepsilon} \\\
-                &= P^X\big(\{(y_n)_{n \in \N}\in E^{\N}: \  \sup_{n \geq N}\norm{y_n + y_{n-1} + ... + y_{N+1} + (c_n - c_N)} > \varepsilon \}\big) \\\
-                &= P^{-X}\big(\{(y_n)_{n \in \N}\in E^{\N}: \ \sup_{n \geq N}\norm{y_n + y_{n-1} + ... + y_{N+1} + (c_n - c_N)} > \varepsilon \}\big) \\\
+    \begin{align}
+        &\quad \ \prob{\sup_{n \geq N}\norm{(S_n - c_n) - (S_N - c_N)} > \varepsilon} \nonumber \\\   
+                &= P^X\big(\{(x_n)_{n \in \N}\in E^{\N}: \  \sup_{n \geq N}\norm{x_n + x_{n-1} + ... + x_{N+1} + (c_N - c_n)} > \varepsilon \}\big) \nonumber\\\ 
+                &= P^{-X}\big(\{(x_n)_{n \in \N}\in E^{\N}: \ \sup_{n \geq N}\norm{x_n + x_{n-1} + ... + x_{N+1} + (c_N - c_n)} > \varepsilon \}\big) \nonumber\\\ 
                 &= \prob{\sup_{n \geq N}\norm{(-S_n - c_n) - (-S_N - c_N)} > \varepsilon}.
-    \end{align*}
-    Nach Satz $2.4$ konvergiert also auch $(-S_n - c_n)_{n \in \N}$ fast sicher. Daraus folgt die fast sichere Konvergenz von $(S_n)_{n \in \N}$, denn für $n \in \N$ gilt
+    \end{align}
+    Die Messbarkeit der Menge $\{(x_n)_{n \in \N}\in E^{\N}: \  \sup_{n \geq N}\norm{x_n + x_{n-1} + ... + x_{N+1} + (c_N - c_n)} > \varepsilon \}$ folgt aus der Messbarkeit der Projektionen 
     $$
-       S_n =  \frac{1}{2}((S_n - c_n) - (-S_n -c_n)). 
+    \pi_k: E^{\N} \to E, \quad (x_n)_{n \in \N} \mapsto x_k, \quad k \in \N, 
+    $$ 
+    der Messbarkeit der Addition in dem messbaren Vektorraum $(E, \mathcal{B}(E))$ und der Stetigkeit der Norm. 
+    Nach Satz $2.4$ folgt  aus $(3.8)$ die fast sichere Konvergenz von $(-S_n - c_n)_{n \in \N}$. Daraus folgt nun die fast sichere Konvergenz von $(S_n)_{n \in \N}$, denn für $n \in \N$ gilt
+    $$
+       S_n =  \frac{1}{2}\big((S_n - c_n) - (-S_n -c_n)\big). 
     $$
     Zu $(v) \Rightarrow (iv)$: Wegen der Unabhängigkeit von $(X_n)_{n \in \N}$ sind für alle $f \in E'$ und $m \geq n$ die Zufallsvariablen $f(S_m - S_n)$ und $f(S_n)$ unabhängig. 
     Nach Proposition $2.19$ sind somit $f(S-S_n)$ und $f(S_n)$ für alle $n \in \N$ unabhängig. Zusammen mit der Symmetrie von $S_n$ ergibt sich deshalb für $f \in E'$
@@ -111,23 +117,23 @@ Für den Beweis dient uns unter anderem der \mbox{folgende Satz.}
         \widehat{P^S}(f) = \mathbb{E}(e^{if(S)}) &= \mathbb{E}(e^{if(S-S_n)})\mathbb{E}(e^{if(S_n)})  \\\
                                         &= \mathbb{E}(e^{if(S-S_n)})\mathbb{E}(e^{if(-S_n)}) = \mathbb{E}(e^{if(S-2S_n)}) = \widehat{P^{S-2S_n}}(f).
     \end{align*}
-    Folglich sind $S$ und $S - 2S_n$ nach Satz $2.16$ für alle $n \in \N$  identisch verteilt. Da $P^S$ straff ist, existiert zu $\varepsilon >0$ eine kompakte Menge $K \subseteq E'$ mit $\prob{S \in K} \geq 1 - \varepsilon$. 
+    Folglich sind $S$ und $S - 2S_n$ nach Satz $2.16$ für alle $n \in \N$  identisch verteilt. Da $P^S$ straff ist, existiert zu $\varepsilon >0$ eine kompakte Menge $K \subseteq E$ mit $\prob{S \in K} \geq 1 - \varepsilon$. 
     Aus Stetigkeitsgründen ist auch die Menge $L := \{\frac{1}{2}(x-y): x,y \in K\}$ kompakt und es gilt für alle $n \in \N$
     $$
         \prob{S_n \in L} \geq \prob{S \in K, \ S-2S_n \in K} \geq 1 - \prob{S \notin K} - \prob{S-2S_n \notin K} \geq 1 - 2\varepsilon. 
     $$ 
-    Somit ist $(\mu_n)_{n \in \N}$ gleichmäßig straff. 
+    Somit ist $\{\mu_n : \ n \in \N\}$ gleichmäßig straff. 
     \newline
     Zu $(vi) \Rightarrow (iv)$: 
-    Sei $f \in E'$ beliebig aber fest. Betrachte die Abbildungen 
+    Sei $f \in E'$ beliebig, aber fest. Betrachte die Abbildungen 
     \begin{align*}
         \varphi_n &: \R \to \C, \quad t \mapsto \int_E e^{itf(x)}\mu_n(dx) = \widehat{\mu_n}(tf), \quad n \in \N, \\\
         \varphi   &: \R \to \C, \quad t \mapsto \int_E e^{itf(x)}\mu(dx) = \widehat{\mu}(tf). 
     \end{align*}
-    Dann ist $\varphi_n$ für alle $n \in \N$ die charakteristische Funktion von $\mu_n^{f}$ und $\varphi$ die charakteristische Funktion von $\mu^f$. Nach Voraussetzung konvergiert $(\varphi_n)_{n \in \N}$ punktweise gegen $\varphi$ und nach 
-    dem Stetigkeitssatz von Lévy, vgl. \cite[Satz 8.7.5]{gs}, gilt daher $\mu_n^f \rightharpoonup \mu^f$. Für festes $f \in E'$ ist $\{\mu_n^f : n \in \N\}$ somit insbesondere relativ kompakt.
-     Nach Satz $1.33$ genügt es folglich zu zeigen, dass $(\mu_n)_{n \in \N}$ flach konzentriert ist. 
-    Da $\{\mu\}$ flach konzentriert ist, genügt es dafür zu zeigen, dass für jeden endlichdimensionalen Untervektorraum $F \subseteq E$ und alle $\varepsilon > 0$ gilt 
+    Dann ist  $\varphi_n$ für jedes $n \in \N$ die charakteristische Funktion von $\mu_n^{f}$ und $\varphi$ die charakteristische Funktion von $\mu^f$. Nach Voraussetzung konvergiert $(\varphi_n)_{n \in \N}$ punktweise gegen $\varphi$ und nach 
+    dem Stetigkeitssatz von Lévy, vgl. \cite[Satz 8.7.5]{gs}, gilt daher $\mu_n^f \rightharpoonup \mu^f$. Für festes $f \in E'$ ist \mbox{$\{\mu_n^f : n \in \N\}$} somit insbesondere relativ kompakt.
+     Nach Satz $1.33$ genügt es folglich zu zeigen, dass $\{\mu_n : \ n \in \N\}$ flach konzentriert ist. 
+    Da $\{\mu\}$ flach konzentriert ist, genügt es dafür zu zeigen, dass für jeden endlichdimensionalen Untervektorraum $F \subseteq E$, jedes $\varepsilon > 0$ und alle $n \in \N$ gilt 
     $$
         \mu_n(\{x \in E: \ \inf_{y \in F}\norm{x-y} > \varepsilon \}) \leq 2 \mu(\{x \in E: \ \inf_{y \in F}\norm{x-y} > \varepsilon \}).
     $$
@@ -136,7 +142,7 @@ Für den Beweis dient uns unter anderem der \mbox{folgende Satz.}
     $$
         \forall x \in E: \quad d(x,F) := \inf_{y \in F}\norm{x-y} = \sup_{n \in \N}\abs{f_n(x)}. 
     $$
-    Sei zunächst $m \in \N$ festgewählt. Mittels charakteristischer Funktionen prüft man leicht, dass $\mu_n^{(f_1,...,f_m)} \rightharpoonup \mu^{(f_1,...,f_m)}$. 
+    Sei zunächst $m \in \N$ festgewählt. Mittels charakteristischer Funktionale und dem Satz von der dominierten Konvergenz prüft man leicht, dass $\mu_n^{(f_1,...,f_m)} \rightharpoonup \mu^{(f_1,...,f_m)}$. 
     Wegen der Linearität von $f_1,...,f_m$ können wir Satz $3.6$ auf die Folge $(T_n^{(m)})_{n \in \N} := ((f_1,...,f_m)\circ S_n)_{n \in \N}$ anwenden und erhalten eine $\R^m$-wertige Zufallsvariable $T^{(m)}$ auf $(\Omega, \mathcal{A}, P)$ mit 
     $T_n^{(m)} \stochastisch T^{(m)}$. Insbesondere gilt daher $T_n^{(m)} \schwach T^{(m)}$ und somit \mbox{$P^{T^{(m)}} = \mu^{(f_1,...,f_m)}$}. 
     Ferner ist $T_n$ wegen der Linearität von $f_1,...,f_m$ und der Symmetrie von $S_n$ für alle $n \in \N$ symmetrisch . Mit Korollar $3.4$, angewendet auf $(T_n^{(m)})_{n \in \N}$, erhalten wir im Banachraum $(\R^m, \norm{\cdot}_{\infty})$ für fast alle $\varepsilon >0$
@@ -155,7 +161,7 @@ Für den Beweis dient uns unter anderem der \mbox{folgende Satz.}
 \end{proof*}
 
 \begin{remark}
-    Auf die Annahme der Symmetrie in Satz $3.9$ kann im Allgemeinen nicht verzichtet werden. Sei etwa $(E, \langle\cdot,\cdot\rangle)$ ein Hilbertraum mit Orthonormalbasis $(e_n)_{n \in \N}$.
+    Wie das folgende Gegenbeispiel aus \cite{ito-nisio} zeigt, kann auf die Annahme der Symmetrie in Satz $3.9$ im Allgemeinen nicht verzichtet werden. Sei etwa $(E, \langle\cdot,\cdot\rangle)$ ein Hilbertraum mit Orthonormalbasis $(e_n)_{n \in \N}$.
     Man bemerke zunächst, dass nach dem Darstellungsatz von Fréchet-Riesz, vgl. \cite[Theorem V.3.6]{werner}, für jedes $f \in E'$ ein $z \in E$ mit $f = \langle \cdot, z \rangle$ existiert. 
     Setze nun 
     $$
@@ -177,7 +183,7 @@ Für Folgen $(a_n)_{n \in \N}$ in $[0, \infty)$ kennt man aus der reellen Analys
 $$
     \bigg(\sum_{i=1}^n a_i\bigg)_{n \in \N} \text{ konvergiert. } \iff \bigg(\sum_{i=1}^n a_i\bigg)_{n \in \N} \text{ ist beschränkt.}
 $$
-Mit Hilfe des Satzes von Itô-Nisio können wir nun ein ähnliches Resultat für symmetrische Zufallsvariablen formulieren. 
+Mit Hilfe des Satzes von Itô-Nisio können wir nun ein ähnliches Resultat für symmetrische $\R^d$-wertige Zufallsvariablen formulieren. 
 
 \begin{mydef}
     Eine Folge $(X_n)_{n \in \N}$ in $\mathcal{L}_0(E)$ heißt \textit{stochastisch beschränkt}, falls
@@ -187,7 +193,7 @@ Mit Hilfe des Satzes von Itô-Nisio können wir nun ein ähnliches Resultat für
 \end{mydef}
 
 \begin{lemma}
-    Sei $(X_n)_{n \in \N}$ eine Folge von Radon-Zufallsvariablen und $X \in \mathcal{L}_0(E)$ mit $X_n \stochastisch X$. Dann ist $(X_n)_{n \in \N}$ stochastisch beschränkt. 
+    Sei $(X_n)_{n \in \N}$ eine Folge $E$-wertiger Radon-Zufallsvariablen und $X \in \mathcal{L}_0(E)$ mit $X_n \stochastisch X$. Dann ist $(X_n)_{n \in \N}$ stochastisch beschränkt. 
 \end{lemma}
 \begin{proof*}
     Sei $\varepsilon > 0$. Dann existiert nach Satz $2.8$ ein $N \in \N$ mit 

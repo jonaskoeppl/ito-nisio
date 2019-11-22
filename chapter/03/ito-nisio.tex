@@ -1,16 +1,16 @@
 \section{Der Satz von Itô-Nisio}
-    Wir wollen nun damit beginnen, die bisher erarbeitete Technik zur Untersuchung der Konvergenz zufälliger Reihen in Banachräumen anzuwenden.
-    Die vorliegenden Beweise orientieren sich an \cite{ito-nisio}, \cite{ledoux-talagrand}, \cite{li-queffelec} und \cite{van-neerven}.  
+    Wir wollen nun die bisher erarbeitete Technik zur Untersuchung der Konvergenz zufälliger Reihen in Banachräumen anwenden. 
+    Die Beweise in diesem Abschnitt orientieren sich an \cite{ito-nisio}, \cite{ledoux-talagrand}, \cite{li-queffelec}, \cite{van-neerven} und \cite{heyer}.  
     \newline \ \newline 
     \textbf{Notation und Konventionen}\newline
-    Für eine Folge von Zufallsvariablen $(X_n)_{n \in \N}$ in $\mathcal{L}_0(E)$ setze für $n \in \N$
+    Für eine Folge von $E$-wertigen Radon-Zufallsvariablen $(X_n)_{n \in \N}$ setze für $n \in \N$
     \begin{align*}
     S_n := \sum_{i=1}^n X_i, 
     \quad 
     \mu_n := P^{S_n} .
     \end{align*}
-\begin{theorem}[Itô-Nisio]
-    Für eine Folge $(X_n)_{n \in \N}$ unabhängiger Radon-Zufallsvariablen sind äquivalent:
+\begin{theorem}[Satz von Itô-Nisio]
+    Für eine Folge $(X_n)_{n \in \N}$ unabhängiger $E$-wertiger Radon-Zufallsvariablen sind äquivalent:
     \begin{enumerate}[(i)]
         \item $(S_n)_{n \in \N}$ konvergiert fast sicher.
         \item $(S_n)_{n \in \N}$ konvergiert stochastisch.
@@ -60,7 +60,7 @@
     $$
     Mit dem Satz von Fubini erhalten wir
     $$
-        0 = \int_{\Omega \times \Omega}1 - 1_{\Omega^*} d(P \times P) = \int_{\Omega}\int_{\Omega}1 - 1_{\Omega^*(\omega_2)}(\omega_1)dP(\omega_1)dP(\omega_2). 
+        0 = \int_{\Omega \times \Omega}1 - 1_{\Omega^*} d(P \times P) = \int_{\Omega}\int_{\Omega}1 - 1_{\Omega^*(\omega_2)}(\omega_1)dP(\omega_1)dP(\omega_2) = \int_{\Omega}1 - P(\Omega^*(\omega_2))dP(\omega_2). 
     $$
     wobei $\Omega^*(\omega_2) =\{\omega_1\in\Omega: \ (\omega_1, \omega_2) \in \Omega^* \}$. Somit existiert ein $\omega_2 \in \Omega$ mit $P(\Omega^*(\omega_2)) = 1$ und es gilt
     $$
@@ -118,7 +118,7 @@
     \begin{align*}
         \forall f \in E': \quad \widehat{\mu}(f) = \widehat{\mu}(f) \widehat{\nu}(f).
     \end{align*}
-    Aufgrund der Stetigkeit von $\widehat{\mu}$ und $\widehat{\mu}(0) = 1$ existiert zudem ein $r>0$ mit 
+    Aufgrund von $\widehat{\mu}(0_{E'}) = 1$ und der Stetigkeit von $\widehat{\mu}$ existiert zudem ein $r>0$ mit 
     \begin{align*}
         \widehat{\mu}(f) \neq 0, \quad \text{ für alle } f \in E' \text{ mit } \norm{f}_{op} \leq r. 
     \end{align*}
@@ -131,7 +131,7 @@
 \end{proof*}
 
 \begin{remark}
-    Mittels der Maximal-Ungleichung $(3.5)$ von Ottaviani-Skorohod ist auch ein direkter Beweis der Implikation $(ii) \Rightarrow (i)$ möglich. Man betrachte hierzu etwa die Ereignisse 
+    Mittels der Maximal-Ungleichung $(3.5)$ von Ottaviani-Skorohod ist auch ein Beweis der Implikation $(ii) \Rightarrow (i)$ ohne Fallunterscheidung möglich. Man betrachtet hierzu etwa die Ereignisse 
     $$
         A_N := \bigcap_{m \in \N}\{\sup_{n > m} \norm{S_n - S_m} > \frac{1}{N}\}, \quad N \in \N.                                                                                                                        
     $$
@@ -139,7 +139,7 @@
     $$
         \forall N \in \N: \quad P(A_N) = 0. 
     $$
-    Ein Beweis mit dieser Vorgehensweise für den skalaren Fall findet sich etwa \cite[Theorem 14.2]{bauer}. Der allgemeine Fall funktioniert vollkommen analog. \qexampled
+    Ein Beweis mit dieser Vorgehensweise für den skalaren Fall findet sich etwa \cite[Theorem 14.2]{bauer}. Der allgemeine Fall funktioniert vollkommen analog.
 \end{remark}
 
 

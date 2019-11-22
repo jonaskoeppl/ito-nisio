@@ -1,6 +1,9 @@
 \section{Der Satz von Hahn-Banach}
+Der Fortsetzungssatz von Satz von Hahn-Banach ist wohl einer der wichtigsten Sätze aus der Funktionalanalysis. 
+Da in den Abschnitten $1.4$, $1.5$ und $3.2$ einige Konsequenzen des Satzes benutzt werden, soll dieser Abschnitt als kurze Zusammenfassung der für uns nützlichsten Resultate dienen. 
+Die ausgelassenen Beweise findet man beispielsweise in \cite[Kapitel III.1]{werner}. \newpage
 \textbf{Notation und Konventionen}\newline
-Für einen normierten Vektorraum $(X, \norm{\cdot})$ sei $(X', \norm{\cdot}_{op})$ der zugehörige Dualraum. Ferner bezeichne
+Für einen normierten Vektorraum $(X, \norm{\cdot})$ sei $(X', \norm{\cdot}_{op})$ der zugehörige (topologische) Dualraum. Ferner bezeichne
 $$
     B_{X'} := \{f \in X' \ : \ \norm{f}_{op} \leq 1 \}
 $$
@@ -17,7 +20,7 @@ die abgeschlossene Einheitskugel in $X'$.
 \begin{proposition}
     Sei $X$ ein normierter Vektorraum und $F \subseteq X$ ein abgeschlossener Untervektorraum. Dann ist die Abbildung
     $$
-        d(\cdot, F):X \to \R, y \mapsto d(y,F) := \inf_{x \in F}\norm{x-y}
+        d(\cdot, F):X \to \R, \quad y \mapsto d(y,F) := \inf_{x \in F}\norm{x-y}
     $$
     sublinear. 
 \end{proposition}
@@ -118,7 +121,7 @@ die abgeschlossene Einheitskugel in $X'$.
     $$
     ist, wie man leicht nachrechnet, linear. Nach Proposition $A.7$ ist ferner die Abbildung 
     $$
-        d(\cdot, F):X \to \R, y \mapsto d(y,F) := \inf_{x \in F}\norm{x-y}
+        d(\cdot, F):X \to \R, \quad y \mapsto d(y,F) := \inf_{x \in F}\norm{x-y}
     $$
     sublinear. Für $z = \lambda x_n \in lin(\{x_n\})$ gilt zudem 
     $$

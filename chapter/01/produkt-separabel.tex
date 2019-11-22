@@ -21,7 +21,7 @@ Für den Beweis benötigen wir ein paar topologische Grundbegriffe und Hilfsmitt
     $$
         \mathcal{O}(\mathcal{U}) := \{\cup_{i \in \tilde{I}}B_i \ | \  \tilde{I} \subseteq I \text{ beliebig} \}
     $$
-    eine Topologie auf $X$ und wird als die \textit{von} $\mathcal{U}$ \textit{erzeugte Topologie} bezeichnet. Nach Bemerkung $1.3$ ist $\mathcal{U}$ dann insbesondere eine Basis von $\mathcal{O}(\mathcal{U})$. 
+    eine Topologie auf $X$ und wird als die \textit{von} $\mathcal{U}$ \textit{erzeugte Topologie} bezeichnet.  Nach Bemerkung $1.3$ ist $\mathcal{U}$ dann insbesondere eine Basis von $\mathcal{O}(\mathcal{U})$. 
 \end{lemma}
 
 \begin{proof*}
@@ -52,7 +52,10 @@ Für den Beweis benötigen wir ein paar topologische Grundbegriffe und Hilfsmitt
     $$
     Also ist $\mathcal{O}(\mathcal{U})$ eine Topologie. \qed 
 \end{proof*}
-
+Man beachte ferner, dass die Topologie $\mathcal{O}(\mathcal{U})$ in der Situation von Lemma $1.4$ die kleinste Topologie ist, die $\mathcal{U}$ enthält. 
+D.h. für jede andere Topologie $\mathcal{O}$ auf $X$ mit $\mathcal{U} \subseteq \mathcal{O}$ gilt $\mathcal{O}(\mathcal{U}) \subseteq \mathcal{O}$. 
+Ist ferner $\mathcal{E}$ eine Basis von $\mathcal{O}$, so gilt nach Bemerkung $1.3$ $\mathcal{O}(\mathcal{E}) = \mathcal{O}$. 
+\newline 
 Wie man leicht zeigt, ist für einen metrischen Raum $(X,d)$ das Mengensystem 
 $$
     \mathcal{E} := \{B(x, \varepsilon) \ | \ \varepsilon > 0, x \in X \}

@@ -1,5 +1,5 @@
 Wir wollen nun noch eine zweite Anwendung von Satz $3.9$ geben, welche in der Literatur teilweise als \textit{qualitative Version des Kontraktions-Prinzips} bezeichnet wird. Die Darstellung orientiert sich hierbei an \cite{li-queffelec}. 
-Im Folgenden sei $(X_n)_{n \in \N}$ eine unabhängige Folge symmetrischer Zufallsvariablens aus $\mathcal{L}_0(E)$ und $(\lambda_n)_{n \in \N}$ eine beschränkte Folge in $\R$. 
+Im Folgenden sei $(X_n)_{n \in \N}$ eine unabhängige Folge symmetrischer Radon-Zufallsvariablen aus $\mathcal{L}_0(E)$ und $(\lambda_n)_{n \in \N}$ eine beschränkte Folge in $\R$. 
 Für $n \in \N$ setze
 $$
     S_n := \sum_{i=1}^nX_i, \quad T_n = \sum_{i=1}^n\lambda_iX_i. 
@@ -55,15 +55,16 @@ Der Beweis beruht hauptsächlich auf der folgenden Abschätzung.
     $$
         \lim_{N \to \infty} \sup_{n \geq N}\prob{\norm{S_n-S_N} > \varepsilon} = 0. 
     $$
-    Wegen $(3.9)$ folgt also 
+    Wegen $(3.10)$ folgt also 
     $$
         \lim_{N \to \infty} \sup_{n \geq N}\prob{\norm{T_n-T_N} > \varepsilon} = 0.
     $$
-    Da $\varepsilon$ beliebig gewählt war, konvergiert $(T_n)_{n \in \N}$ nach Satz $2.9$ stochastisch und nach Satz $3.8$ insbesondere fast sicher. \qed
+    Da $\varepsilon$ beliebig gewählt war, konvergiert $(T_n)_{n \in \N}$ nach Satz $2.9$ stochastisch und nach Satz $3.9$ insbesondere fast sicher. \qed
 \end{proof*}
 
 \begin{remark}
-    In Satz $3.15$ kann nicht auf die Symmetrie der Zufallsvariablen $X_1,X_2,...$ verzichtet werden. Betrachte dazu etwa die Folge $(X_n)_{n \in \N}$ definiert durch
+    In Satz $3.15$ kann nicht auf die Symmetrie der Radon-Zufallsvariablen $X_1,X_2,...$ verzichtet werden. 
+    Betrachte dazu etwa die Folge $(X_n)_{n \in \N}$, definiert durch
     $$
         X_n(\omega) := (-1)^n \frac{1}{n},  \quad \omega \in \Omega, \ n \in \N, 
     $$ 

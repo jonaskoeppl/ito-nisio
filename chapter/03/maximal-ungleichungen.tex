@@ -1,21 +1,22 @@
 \section{Maximalungleichungen}
-
+Um den Satz von Itô-Nisio zu beweisen, benötigen wir noch eine auf P.Lévy zurückgehende Ungleichung für Summen unabhängiger symmetrischer Radon-Zufallsvariablen. 
+Die Beweise in diesem Abschnitt orientieren sich an \cite{li-queffelec} und \cite{bauer}. 
 \begin{mydef}
-    Eine E-wertige Zufallsvariable $X$ heißt \textit{symmetrisch}, falls $-X$ die selbe Verteilung besitzt wie $X$, d.h.
+    Eine E-wertige Radon-Zufallsvariable $X$ heißt \textit{symmetrisch}, falls $-X$ die selbe Verteilung besitzt wie $X$, d.h.
     \begin{align*}
         \forall A \in \mathcal{B}(E): P(\{X \in A\}) = P(\{-X \in A\}). 
     \end{align*}
 \end{mydef}
 
 \begin{remark}
-    Nach dem Eindeutigkeitssatz für charakteristische Funktionale ist eine Zufallsvariable $X \in \mathcal{L}_0(E)$ genau dann symmetrisch, wenn 
+    Nach dem Eindeutigkeitssatz für charakteristische Funktionale $2.16$ ist $X \in \mathcal{L}_0(E)$ genau dann symmetrisch, wenn 
     $$
         \forall f \in E': \quad \widehat{P^X}(f) = \widehat{P^{-X}}(f) = \widehat{P^X}(-f). 
     $$
 \end{remark}
 
 \begin{theorem}[Lévys Maximal-Ungleichung]
-    Sei $N \in \N$ und seien $X_1,...,X_N \in \mathcal{L}_0(E)$ unabhängige und symmetrische Zufallsvariablen. Setze 
+    Sei $N \in \N$ und seien $X_1,...,X_N \in \mathcal{L}_0(E)$ unabhängige und symmetrische Radon-Zufallsvariablen. Setze 
     \begin{align*}
         S_n := \sum_{i=1}^n X_i, \quad 1 \leq n \leq N. 
     \end{align*}
@@ -87,7 +88,7 @@
 \end{proof*}
 
 \begin{corollary}
-    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger und symmetrischer Zufallsvariablen. Definiere
+    Sei $(X_n)_{n \in \N}$ eine Folge unabhängiger und symmetrischer $E$-wertiger Radon-Zufallsvariablen. Definiere
     $$
         S_n := \sum_{i=1}^n X_i, \quad n \in \N. 
     $$
@@ -110,7 +111,7 @@
     \qed
 \end{proof*}
 
-Mit einer ähnlichen Beweismethode wie im Beweis zu Satz $3.3$ erhalten wir für nicht-symmetrische Zufallsvariablen die folgende, auf Giuseppe Ottaviani und Anatoli Skorohod zurückgehende, Maximal-Ungleichung, vgl. \cite[Lemma 6.2]{ledoux-talagrand}. 
+Mit einer ähnlichen Beweismethode wie im Beweis von Satz $3.3$ erhalten wir für nicht-symmetrische Radon-Zufallsvariablen die folgende, auf Giuseppe Ottaviani und Anatoli Skorohod zurückgehende, Maximal-Ungleichung. 
 \begin{theorem}[Maximal-Ungleichung von Ottaviani-Skorohod]
     Sei $N \in \N$ und seien $X_1,...,X_N \in \mathcal{L}_0(E)$ unabhängig. Setze 
     $$

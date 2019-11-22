@@ -4,7 +4,7 @@ Zunächst einmal sei dafür an den Begriff der relativen Kompaktheit erinnert.
 \begin{mydef}
     Eine Teilmenge $A$ eines metrischen Raums $(X,d)$ heißt \textit{relativ kompakt}, falls ihr Abschluss $\overline{A}$ kompakt ist. 
 \end{mydef}
-Mittels der Teilfolgencharakterisierung von kompakten Teilmengen metrischer Räume lassen sich die relativen kompakten Teilmengen eines metrischen Raumes auch wie folgt beschreiben.
+Mittels der Teilfolgencharakterisierung kompakter Teilmengen metrischer Räume lassen sich die relativ kompakten Teilmengen eines metrischen Raumes auch wie folgt beschreiben.
 
 \begin{proposition}
     Eine Teilmenge $A$ eines metrischen Raums $(X,d)$ ist genau dann relativ kompakt, wenn jede Folge $(x_n)_{n \in \N}$ in $A$ eine konvergente Teilfolge enthält.
@@ -34,7 +34,7 @@ $$
 $$
 definiert durch
 \begin{align}
-    (\mu, \nu) \mapsto \inf\big\{\alpha > 0 | \forall B \in \mathcal{B}(X): (\mu(B) \leq \nu(B^{\alpha}) + \alpha) \ \land \ (\nu(B) \leq \mu(B^{\alpha}) + \alpha) \big\}.
+    (\mu, \nu) \mapsto \inf\big\{\alpha > 0 \ | \ \forall B \in \mathcal{B}(X): (\mu(B) \leq \nu(B^{\alpha}) + \alpha) \ \land \ (\nu(B) \leq \mu(B^{\alpha}) + \alpha) \big\}.
 \end{align}
 \begin{proposition}
     \begin{enumerate}[(i)]
@@ -97,14 +97,15 @@ definiert durch
     $$
         \forall n \in \N \ \forall B \in \mathcal{B}(X): \quad \mu_n(B) \leq \mu(B^{\alpha_n}) + \alpha_n. 
     $$
-    Sei nun $A \subseteq X$ abgeschlossen. Dann gilt $A^{\alpha_n} \downarrow A$ und folglich
+    Sei nun $A \subseteq X$ abgeschlossen. Dann gilt $A^{\alpha_n} \downarrow A$ und mit der $\sigma$-Stetigkeit von $\mu$ folgt
     $$
         \limsup_{n \to \infty} \mu_n(A) \leq \limsup_{n \to \infty} \mu(A^{\alpha_n}) + \alpha_n = \lim_{n \to \infty} \mu(A^{\alpha_n}) = \mu(A). 
     $$
     Nach Satz $1.20$ gilt somit $\mu_n \rightharpoonup \mu$. 
     \qed
 \end{proof*}
-Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkehrung von Proposition $1.23(iii)$. Zum Beweis benötigen wir das folgende technische Lemma. 
+Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkehrung von Proposition $1.23(iii)$. 
+Zum Beweis benötigen wir das folgende technische Lemma, welches uns die Existenz spezieller Überdeckungen eines separablen metrischen Raumes garantiert. 
 \begin{lemma}
     Sei $X$ ein separabler metrischer Raum und $\mu$ ein Wahrscheinlichkeitsmaß auf $\mathcal{B}(X)$. Dann existiert für alle $\delta > 0$ eine Folge $(x_n)_{n \in \N}$ in $X$ und eine Folge $(r_n)_{n \in \N}$ in $(0, \delta)$ mit 
          $$
@@ -130,7 +131,7 @@ Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkeh
         \mathcal{S}_n := \{S(x_n,r) : \frac{\delta}{2} < r < \delta \}
     $$
     disjunkt und überabzählbar. Da $\mu$ ein Wahrscheinlichkeitsmaß ist, enthält $\mathcal{S}_n$ aber höchstens abzählbar viele Mengen $S$ mit $\mu(S) > 0$. 
-    Also existiert insbesondere ein $r_n \in (\frac{\delta}{2}, \delta)$ mit $\mu(S(x_n,r_n)) = 0$. Es gilt ferner
+    Also existiert insbesondere ein $r_n \in (\frac{\delta}{2}, \delta)$ mit \mbox{$\mu(S(x_n,r_n)) = 0$}. Es gilt ferner
     $$
         X \subseteq \bigcup_{n \in  \N}B(x_n, r_n),
     $$
@@ -177,7 +178,13 @@ Falls der zugrunde liegende metrische Raum separabel ist, so gilt auch die Umkeh
     $$
         A := \bigcup_{j \in J} B_j,
     $$
-    wobei $J := \{j \in \{1,...,k\}: B_j \cap B \neq \emptyset \}$. Dann ergibt sich unter Verwendung von $A \subseteq B^{\delta} \subseteq B^{\varepsilon}$, $(1.10)$ und $(1.11)$ für alle $n \geq N$ 
+    wobei $J := \{j \in \{1,...,k\}: B_j \cap B \neq \emptyset \}$. Für jedes $x \in A$ existiert dann ein $j \in J$ mit $x \in B_j = B(x_j, r_j)$. 
+    Nach Definition von $J$ gibt es ferner ein $y \in B$ mit $y \in B_j$. Mit der Dreiecksungleichung erhalten wir somit
+    $$
+        d(x,y) \leq d(x,x_j) + d(x_j,y) < 2r_j < \delta. 
+    $$
+    Also gilt $A \subseteq B^{\delta}$. 
+    Unter Verwendung von $A \subseteq B^{\delta} \subseteq B^{\varepsilon}$, $(1.10)$ und $(1.11)$ für alle $n \geq N$ ergibt sich nun
     $$
         \mu(B) \leq \mu(A) + \mu\left((\cup_{i=1}^k B_i)^c\right) \leq \mu(A) + 2\delta \leq \mu_n(A) + 3\delta \leq \mu_n(B^{\varepsilon}) + \varepsilon. 
     $$
@@ -188,14 +195,15 @@ Nachdem wir nun eine passende Metrik gefunden haben, um für separable metrische
 welches uns eine äußerst nützliche Charakterisierung der relativ kompakten Teilmengen von $(\mathcal{M}(X), \rho)$ liefert. 
 Dazu führen wir den Begriff der \textit{gleichmäßigen Straffheit} ein.
 \begin{mydef}
-    Eine Familie $M \subseteq \mathcal{M}(X)$ von Wahrscheinlichkeitsmaßen heißt \textit{gleichmäßig straff}, 
+    Eine Menge $M \subseteq \mathcal{M}(X)$ von Wahrscheinlichkeitsmaßen heißt \textit{gleichmäßig straff}, 
     falls es für alle $\varepsilon > 0$ eine kompakte Menge $K \subseteq X$ gibt mit 
     $$
         \forall \mu \in M: \mu(K) \geq 1-\varepsilon. 
     $$
 \end{mydef}
 
-Mittels des Begriffs der gleichmäßigen Straffheit lässt sich die relative Kompaktheit von Teilmengen von $\mathcal{M}(X)$ für einen vollständigen und separablen metrischen Raum $X$ wie folgt charakterisieren. Ein Beweis findet sich etwa in \cite[Theorem II.6.7]{parthasarathy}. 
+Mittels des Begriffs der gleichmäßigen Straffheit lässt sich die relative Kompaktheit von Teilmengen von $\mathcal{M}(X)$ für einen vollständigen und separablen metrischen Raum $X$ wie folgt charakterisieren. 
+Den Beweis findet man beispielsweise in \cite[Theorem II.6.7]{parthasarathy} oder \cite[Theorem 5.1, Theorem 5.2]{billingsley}. 
 
 \begin{theorem}[Satz von Prokhorov]
     Sei $(X,d)$ ein vollständiger separabler metrischer Raum und $M \subseteq \mathcal{M}(X)$. Dann sind äquivalent:
@@ -208,12 +216,12 @@ Mittels des Begriffs der gleichmäßigen Straffheit lässt sich die relative Kom
 Um die schwache Konvergenz einer Folge $(\mu_n)_{n \in \N}$ von Wahrscheinlichkeitsmaßen zu zeigen ist es in einem vollständigen und separablen metrischen Raum also ausreichend die folgenden beiden Bedingungen zu prüfen:
 \begin{enumerate}[(a)]
     \item $\{\mu_n: n \in \N\}$ ist gleichmäßig straff und
-    \item jede konvergente Teilfolge von $(\mu_n)_{n \in \N}$ konvergiert gegen den selben Grenzwert.
+    \item alle (schwach) konvergenten Teilfolgen von $(\mu_n)_{n \in \N}$ konvergieren gegen den selben Grenzwert.
 \end{enumerate}
 
 \begin{remark}
     In \cite{li-queffelec} findet sich ein alternativer Zugang zur Prokhorov-Metrik. Hier wird die Metrik auf $\mathcal{M}(X)$ nicht wie in $(1.6)$ über die Mengen aus $\mathcal{B}(X)$ definiert, sondern über Funktionen $f \in C_b(\R)$.
-    Es wird dort gezeigt, dass es für einen vollständigen und separablen metrischen Raum $(X,d)$ eine Folge $(f_n)_{n \in \N}$ in der Einheitskugel von $C_b(\R)$ gibt, sodass durch
+    Es wird dort gezeigt, dass es für einen vollständigen und separablen metrischen Raum $(X,d)$ eine Folge $(f_n)_{n \in \N}$ in der Einheitskugel von $(C_b(\R), \norm{\cdot}_{\infty})$ gibt, sodass durch
     $$
         (\mu, \nu) \mapsto \sum_{n=1}^{\infty}\frac{1}{2^n}\abs{\int_Xf_nd\mu - \int_X f_n d\nu}, \quad \mu, \nu \in \mathcal{M}(X),
     $$

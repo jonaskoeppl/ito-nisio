@@ -1,14 +1,18 @@
 \section{Flache Konzentrierung von Wahrscheinlichkeitsmaßen}
-Für unsere spätere Betrachtung von Zufallsvariablen mit Werten in Banachräumen lohnt es sich hier, noch eine weitere Charakterisierung der relativen Kompaktheit von Familien von Wahrscheinlichkeitsmaßen zu diskutieren. 
+Für unsere spätere Betrachtung von Zufallsvariablen mit Werten in einem Banachraum lohnt es sich hier, noch eine weitere Charakterisierung der relativen Kompaktheit von Familien von Wahrscheinlichkeitsmaßen zu diskutieren. 
 Der Begriff der \textit{flachen Konzentrierung} von Wahrscheinlichkeitsmaßen wurde zuerst von A.D. de Acosta betrachtet, vgl. \cite{acosta}. 
 Die Darstellung hier orientiert sich an \cite{vakhania}. 
-\newline \textbf{Notation und Konventionen} \newline 
-Im Folgenden sei $(E, \norm{\cdot})$ ein separabler Banachraum und $(E', \norm{\cdot}_{op})$ der zugehörige Dualraum. Der metrische Raum der Wahrscheinlichkeitsmaße auf $\mathcal{B}(E)$ werde mit $(\mathcal{M}(E), \rho)$ bezeichnet, wobei 
-$\rho$ die durch $(1.6)$ definierte Prokhorov-Metrik ist. 
-Es sei daran erinnert, dass jeder endlichdimensionale Untervektorraum  $S \subseteq E$ abgeschlossen ist und eine Menge $A \subseteq S$ nach dem Satz von Heine-Borel genau dann kompakt ist, wenn sie abgeschlossen und beschränkt ist. 
+\newline \ \newline 
+\textbf{Notation und Konventionen} \newline 
+Im Folgenden sei $(E, \norm{\cdot})$ ein separabler reeller Banachraum und $(E', \norm{\cdot}_{op})$ der zugehörige Dualraum. Der metrische Raum der Wahrscheinlichkeitsmaße auf $\mathcal{B}(E)$ werde mit $(\mathcal{M}(E), \rho)$ bezeichnet, wobei 
+$\rho$ die durch $(1.6)$ definierte Prokhorov-Metrik ist. Für ein Maß $\mu$ auf $\mathcal{B}(E)$, einen messbaren Raum $(X, \mathcal{X})$ und eine messbare Abbildung $f:E \to X$ bezeichne $\mu^f$ das \textit{Bildmaß} von $\mu$ unter $f$. Dieses ist definiert als 
+$$
+    \mu^f(A) := \mu(f^{-1}(A)), \quad A \in \mathcal{X}. 
+$$
+Es sei ferner daran erinnert, dass jeder endlichdimensionale Untervektorraum  $S \subseteq E$ abgeschlossen ist und eine Menge $A \subseteq S$ nach dem Satz von Heine-Borel genau dann kompakt ist, wenn sie abgeschlossen und beschränkt ist. 
 Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge. 
 \begin{mydef}
-    Eine Familie $M \subseteq \mathcal{M}(E)$ von Wahrscheinlichkeitsmaßen auf $\mathcal{B}(E)$ heißt \textit{flach konzentriert}, falls es für alle $\varepsilon > 0$ einen endlichdimensionalen 
+    Eine Menge $M \subseteq \mathcal{M}(E)$ von Wahrscheinlichkeitsmaßen auf $\mathcal{B}(E)$ heißt \textit{flach konzentriert}, falls es für alle $\varepsilon > 0$ einen endlichdimensionalen 
     Untervektorraum $S \subseteq E$ gibt mit 
     $$
         \forall \mu \in M: \quad \mu(S^{\varepsilon}) \geq 1 - \varepsilon.
@@ -93,7 +97,7 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     \end{align}
     Da $f_1,...,f_n$ stetig und linear sind, existiert ferner ein $K > 0$ mit 
     $$
-        \forall j \in \{1,...,n\} \ \forall x,y \in E: \quad \abs{f(x)-f(y)} \leq K \norm{x-y}. 
+        \forall j \in \{1,...,n\} \ \forall x,y \in E: \quad \abs{f_j(x)-f_j(y)} \leq K \norm{x-y}. 
     $$
     Nach Definition von $B$ gilt 
     $$
@@ -107,8 +111,17 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
 \end{proof*}
 
 \begin{remark}%TODO: evtl. weiter nach oben verschieben und noch erklären wieso es für S endlich viele derartige Funktionale gibt. 
-    Man sagt eine Familie von Abbildungen mit der Eigenschaft $(1.12))$ \textit{trenne die Punkte von S}.
-    Die Existenz von $n \in \N$ und Funktionalen $f_1,...,f_n \in E'$ wird durch den Fortsetzungssatz von Hahn-Banach sichergestellt. Siehe etwa Korollar $A.9$. 
+    Sei $S \subseteq E$ ein endlichdimensionaler Untervektorraum von $E$ mit $dim(S) = r$. 
+    Man sagt eine Familie von Abbildungen mit der Eigenschaft $(1.12)$ \textit{trenne die Punkte von S}. 
+    Ist $\{x_1,...,x_r\}$ eine Basis von $S$, so lässt sich jedes Element $x \in S$ eindeutig darstellen als $x = \sum_{i=1}^r \lambda_i(x) x_i$, wobei $\lambda_1(x),...,\lambda_r(x) \in \R$.
+    Definiere nun für $k \in \{1,...,r\}$
+    $$
+        \tilde{f}_k: S \to \R, \quad x \mapsto \lambda_k(x).
+    $$
+    Dann sind $\tilde{f}_1,...,\tilde{f}_r$ offensichtlich linear und da $S$ endlichdimensional ist, folgt daraus bereits die Stetigkeit. 
+    Ferner trennen $\tilde{f}_1,...,\tilde{f}_r$ die Punkte von $S$, da $\{x_1,...,x_r\}$ eine Basis von $S$ ist. Mit Satz $A.9$ erhalten wir nun Funktionale $f_1,...,f_r \in E'$ mit 
+    $f_j|S = \tilde{f}_j$ für alle $j =1,...,r$. Da $\tilde{f}_1,...,\tilde{f}_r$ die Punkte von S trennen, gilt dies insbesondere auch für $f_1,...,f_r \in E'$. 
+    Wir haben also gezeigt, dass es zu jedem endlichdimensionalen Untervektorraum $S$ von $E$ tatsächlich endlich viele stetige lineare Funktionale gibt, die die Punkte von $S$ trennen. 
 \end{remark}
 
 \begin{theorem}[Satz von de Acosta]
@@ -196,7 +209,7 @@ Insbesondere besitzt jede beschränkte Folge in $S$ eine konvergente Teilfolge.
     $$
     Somit folgt aus der Beschränktheit von $L$, dass $f(L)$ eine beschränkte Teilmenge von $\R$ ist und nach dem Satz von Heine-Borel ist $\overline{f(L)}$ kompakt. Es gilt ferner
     $$
-        \forall \mu \in M: \quad \mu^f(\overline{f(L)}) = \mu(\{x \in E: \ f(x) \in f(L)\}) \geq \mu(L) \geq 1 - \varepsilon. 
+        \forall \mu \in M: \quad \mu^f(\overline{f(L)}) = \mu(\{x \in E: \ f(x) \in \overline{f(L)}\}) \geq \mu(L) \geq 1 - \varepsilon. 
     $$
     Also ist $\{\mu^f : \ \mu \in M\}$ gleichmäßig straff und nach Satz $1.27$ relativ kompakt. \qed
 \end{proof*}

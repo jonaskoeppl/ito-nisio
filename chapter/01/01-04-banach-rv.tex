@@ -1,11 +1,11 @@
 \section{Zufallsvariablen mit Werten in Banachräumen}
 \textbf{Notation und Konventionen} \newline
-Sei $(\Omega, \mathcal{A}, P)$ ein vollständiger Wahrscheinlichkeitsraum und $E$ ein Banachraum mit Norm $\norm{\cdot}$. 
+Sei $(\Omega, \mathcal{A}, P)$ ein vollständiger Wahrscheinlichkeitsraum und $E$ ein reeller Banachraum mit Norm $\norm{\cdot}$. 
 \begin{mydef}
     Eine Abbildung $X: \Omega \to E$ heißt \textit{(E-wertige) Radon-Zufallsvariable}, falls sie die folgenden beiden Bedingungen erfüllt: 
     \begin{enumerate}[(a)]
         \item $X$ ist $\mathcal{A}/\mathcal{B}(E)$-messbar und
-        \item es existiert ein separabler Untervektorraum $E_0 \subseteq E$ mit $P(\{X \in E_0\}) = 1$. 
+        \item es existiert ein abgeschlossener separabler Untervektorraum $E_0 \subseteq E$ mit $P(\{X \in E_0\}) = 1$. 
     \end{enumerate}
 \end{mydef}
 
@@ -16,8 +16,11 @@ Sei $(\Omega, \mathcal{A}, P)$ ein vollständiger Wahrscheinlichkeitsraum und $E
         \item $P^X$ ist ein Radon-Maß auf $\mathcal{B}(X)$. 
         \item $P^X$ ist straff. 
     \end{enumerate}
-    Hiermit erklärt sich auch die aus \cite{ledoux-talagrand} stammende Bezeichnung Radon-Zufallsvariable. 
+    Hiermit erklärt sich auch die aus \cite{ledoux-talagrand} stammende Bezeichnung Radon-Zufallsvariable. \newline 
+    Da $(\R^d, \norm{\cdot})$ für alle $d \in \N$  und jede Norm $\norm{\cdot}$ auf $\R^d$ ein separabler Banachraum ist, ist jede $\R^d$-wertige Zufallsvariable auch eine Radon-Zufallsvariable. 
+    Der Begriff der Radon-Zufallsvariable ist also eine Verallgemeinerung des aus dem endlichdimensionalen Fall bekannten Begriffs. \newline
     Ist ferner $(X_n)_{n \N}$ eine Folge von Radon-Zufallsvariablen mit Werten in $E$, so dass die zugehörige Folge der Verteilungen $(P^{X_n})_{n \in \N}$ gleichmäßig straff ist, dann nennen wir $(X_n)_{n \in \N}$ gleichmäßig straff. 
+
 \end{remark}
 
 Bezeichne $\mathcal{L}_0(\Omega, \mathcal{A}, P; E)$ den Raum der $E$-wertigen Radon-Zufallsvariablen auf $(\Omega,\mathcal{A},P)$ und sei $L_0(\Omega, \mathcal{A}, P;E)$ der Raum der Äquivalenzklassen bezüglich fast sicherer Gleichheit. 
@@ -47,7 +50,7 @@ Wie im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \textit
     $$
         X = \sum_{i=1}^n 1_{A_i}x_i
     $$
-    mit $x_1,...,x_n \in E$ und $A_1,..., A_n \in \mathcal{A}$ heißt \textit{einfache Zufallsvariable}. Offensichtlich gilt $X \in \mathcal{L}_0(E)$. 
+    mit $x_1,...,x_n \in E$ und $A_1,..., A_n \in \mathcal{A}$ heißt \textit{einfache Zufallsvariable}. Offensichtlich gilt \mbox{$X \in \mathcal{L}_0(E)$.} 
 \end{mydef}
 
 
@@ -59,7 +62,7 @@ Wie im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \textit
             \norm{X_n(\omega)} \leq 2 \norm{X(\omega)}
         $$
         für alle $n \in \N$ und fast alle $\omega \in \Omega$. 
-        \item Sei $(Y_n)_{n \in \N}$ eine Folge in $\mathcal{L}_0(E)$, sodass eine Menge $\Omega^*$ existiert mit 
+        \item Sei $(Y_n)_{n \in \N}$ eine Folge in $\mathcal{L}_0(E)$, sodass eine Menge $\Omega^* \in \mathcal{A}$ existiert mit $P(\Omega^*) = 1$ und 
         $$
             \forall \omega \in \Omega^*: \quad \lim_{n \to \infty}Y_n(\omega) = Y(\omega). 
         $$
@@ -119,7 +122,8 @@ Wie im skalaren Fall lassen sich Radon-Zufallsvariablen durch sogenannte \textit
         \item $X$ ist eine Radon-Zufallsvariable. 
         \item Es existiert eine stark messbare Abbildung $f:\Omega \to E$ mit $\prob{X=f} = 1$. 
     \end{enumerate}
-    Das Konzept der starken Messbarkeit und die Approximation durch einfache Zufallsvariablen sind insbesondere für die Definition des Bochner-Integrals nützlich. 
+    Mit Hilfe von Proposition $1.46$ lässt sich zudem auch ohne Rückgriff auf Abschnitt $1.5$ leicht zeigen, dass die Summe zweier Radon-Zufallsvariablen wieder eine Radon-Zufallsvariable ist. 
+    Die starke Messbarkeit und die Approximation durch einfache Zufallsvariablen sind ferner für die Definition des Bochner-Integrals nützlich. 
     Eine ausführliche Konstruktion des Bochner-Integrals findet sich etwa in \cite{van-neerven1}. 
 \end{remark}
 

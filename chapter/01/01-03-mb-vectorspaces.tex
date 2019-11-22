@@ -1,7 +1,8 @@
 \section{Messbare Vektorräume}
 Bislang haben wir uns fast ausschließlich mit dem Zusammenspiel von Maßen und den topologischen Eigenschaften der zugrunde liegenden Räume beschäftigt.
-In Banachräumen steht uns aber auch die algebraische Struktur eines Vektorraums zur Verfügung, allerdings ist per se nicht klar, ob die algebraischen Operationen mit der messbaren Struktur kompatibel, also messbar, sind. 
-Diese Überlegung führt direkt zur Definition eines \textit{messbaren Vektorraums}. 
+In Banachräumen steht uns aber auch die algebraische Struktur eines Vektorraums zur Verfügung. Allerdings ist per se nicht klar, ob die algebraischen Operationen mit der messbaren Struktur kompatibel, also messbar, sind. 
+Diese Überlegung führt direkt zur Definition eines \textit{messbaren Vektorraums}. Wir beschäftigen uns im Folgenden der Einfachheit halber ausschließlich mit Vektorräumen über $\R$. 
+Die Sätze aus den folgenden Abschnitten lassen sich aber analog für $\C$-Vektorräume formulieren und beweisen. 
 
 \begin{mydef}
     Sei $X$ ein Vektorraum und $\mathcal{C}$ eine $\sigma$-Algebra auf $X$. Das Tupel $(X, \mathcal{C})$ heißt \textit{messbarer Vektorraum}, falls die folgenden beiden Bedingungen erfüllt sind: 
@@ -55,17 +56,17 @@ Da die Komposition messbarer Abbildungen wiederum messbar ist, erhält man unmit
 
 Bislang wissen wir noch nicht einmal, ob es überhaupt nicht-triviale Beispiele messbarer Vektorräume gibt. Das wollen wir nun ändern.  
 \begin{proposition}
-    Sei $X$ ein separabler Banachraum. Dann ist $(X, \mathcal{B}(X))$ ein messbarer Vektorraum.
+    Sei $E$ ein separabler Banachraum. Dann ist $(E, \mathcal{B}(E))$ ein messbarer Vektorraum.
 \end{proposition}
 \begin{proof*}
-    Nach Proposition $1.7$ gilt $\mathcal{B}(X \times X) = \mathcal{B}(X) \otimes \mathcal{B}(X)$ und 
-    $\mathcal{B}(\R \times X) = \mathcal{B}(\R) \otimes \mathcal{B}(X)$. Ferner sind die Abbildungen 
+    Nach Proposition $1.7$ gilt $\mathcal{B}(E \times E) = \mathcal{B}(E) \otimes \mathcal{B}(E)$ und 
+    $\mathcal{B}(\R \times E) = \mathcal{B}(\R) \otimes \mathcal{B}(E)$. Ferner sind die Abbildungen 
     \begin{align*}
-        + &: X \times X \to X, \quad (x,y) \mapsto x + y, \\\
-        \cdot &: \R \times X \to X, \quad (\alpha, x) \mapsto \alpha  x
+        + &: E \times E \to E, \quad (x,y) \mapsto x + y, \\\
+        \cdot &: \R \times E \to E, \quad (\alpha, x) \mapsto \alpha  x
     \end{align*}
-    stetig bzgl. der jeweiligen Produkttopologien und somit insbesondere $\mathcal{B}(X \times X)/\mathcal{B}(X)$- bzw. 
-    $\mathcal{B}(\R \times X)/\mathcal{B}(X)$-messbar. \qed
+    stetig bzgl. der jeweiligen Produkttopologien und somit insbesondere $\mathcal{B}(E \times E)/\mathcal{B}(E)$- bzw. 
+    $\mathcal{B}(\R \times E)/\mathcal{B}(E)$-messbar. \qed
 \end{proof*}
 
 \begin{example}

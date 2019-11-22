@@ -6,7 +6,7 @@ Im zweiten Teil dieses Abschnitts untersuchen wir Folgen von Wahrscheinlichkeits
 \newline \ \newline 
 \textbf{Notation und Konventionen} 
 \newline
-Bis auf weiteres sei $(X,d)$ ein metrischer Raum mit Borel-$\sigma$-Algebra $\mathcal{B}(X)$. 
+Bis auf Weiteres sei $(X,d)$ ein metrischer Raum mit Borel-$\sigma$-Algebra $\mathcal{B}(X)$. 
 Für eine Teilmenge $A \subseteq X$ sei $\mathring{A}$ das \textit{Innere}, $\overline{A}$ der \textit{Abschluss}, und 
 $$
     \partial A := \overline{A} \setminus \mathring{A}
@@ -55,16 +55,16 @@ Für eine Folge $(A_n)_{n \in \N}$ von Mengen und eine Menge $A$ schreiben wir $
     $$
     Zudem ist $\bigcup_{n=1}^{\infty}O_n$ offen und es gilt nach $(1.1)$
     \begin{align}
-        \mu\left(\bigcup_{n =1}^{\infty}O_n\right) - \mu\left(\bigcup_{n=1}^{\infty}A_n\right) &\leq \mu\left(\bigcup_{n =1}^{\infty}O_n\setminus \bigcup_{n =1}^{\infty} A_n\right) \nonumber \\\
-                                                                                &\leq \mu\left(\bigcup_{n =1}^{\infty}(O_n\setminus A_n)\right) 
-                                                                                \leq \sum_{i=1}^{\infty}\mu(O_n\setminus A_n)
-                                                                                < \sum_{i=1}^{\infty}2^{-n}\varepsilon = \varepsilon. 
+        \mu\left(\bigcup_{n =1}^{\infty}O_n\right) - \mu\left(\bigcup_{n=1}^{\infty}A_n\right) &\leq \mu\left(\bigcup_{n=1}^{\infty}O_n\setminus \bigcup_{n =1}^{\infty} A_n\right) \nonumber \\\
+                                                                                &\leq \mu\left(\bigcup_{n=1}^{\infty}(O_n\setminus A_n)\right) 
+                                                                                \leq \sum_{n=1}^{\infty}\mu(O_n\setminus A_n)
+                                                                                < \sum_{n=1}^{\infty}2^{-n}\varepsilon = \varepsilon. 
     \end{align}
     Wegen 
     $$
     \mu(\cup_{n = 1}^{\infty}C_n) = \lim_{k \to \infty}\mu(\cup_{n=1}^kC_n),
     $$
-    existiert zudem ein $k \in \N$ mit 
+    existiert weiter ein $k \in \N$ mit 
     \begin{align}
     \mu(\cup_{n=1}^{\infty}C_n) - \mu(\cup_{n=1}^kC_n) < \frac{\varepsilon}{2}.
     \end{align}
@@ -76,7 +76,8 @@ Für eine Folge $(A_n)_{n \in \N}$ von Mengen und eine Menge $A$ schreiben wir $
                                                 &\leq \sum_{n=1}^{\infty}\mu(A_n \setminus C_n) + \frac{\varepsilon}{2} = \varepsilon. 
     \end{align}
     Da $\varepsilon$ beliebig gewählt war, folgt aus $(1.2)$ und $(1.4)$, dass $\cup_{n=1}^{\infty}A_n \in \mathcal{R}$. Folglich ist $\mathcal{R}$ eine $\sigma$-Algebra. 
-    Es bleibt noch zu zeigen, dass $\mathcal{R}$ alle abgeschlossenen Mengen enthält. Sei also $\emptyset \neq A \subseteq X$ abgeschlossen. Die Bedingung 
+    Es bleibt noch zu zeigen, dass $\mathcal{R}$ alle abgeschlossenen Mengen enthält. Da die leere Menge abgeschlossen und offen ist, folgt aus der Monotonie von $\mu$ direkt $\emptyset \in \mathcal{R}$. 
+    Sei also \mbox{$\emptyset \neq A \subseteq X$} abgeschlossen. Die Bedingung 
     $$
         \mu(A) = \sup\{\mu(C): C \subseteq A, C\text{ abgeschlossen}\}
     $$
@@ -111,7 +112,7 @@ Für eine Folge $(A_n)_{n \in \N}$ von Mengen und eine Menge $A$ schreiben wir $
     und weil $\mu$ nach Proposition $1.10$ regulär ist, gibt es eine abgeschlossene Menge $C \subseteq A$ mit $\mu(C) > \mu(A) - \frac{\varepsilon}{2}$. 
     Die Menge $K_{\varepsilon} \cap C$ ist als abgeschlossene Teilmenge einer kompakten Menge wiederum kompakt und es gilt
     \begin{align*}
-        \mu(A) \geq \mu(K_{\varepsilon} \cap C) > \mu(C) - \frac{\varepsilon}{2} > \mu(A) - \varepsilon. 
+        \mu(A) \geq \mu(K_{\varepsilon} \cap C) = \mu(C) - \mu(K_{\varepsilon}^c \cap C) \geq \mu(C) - \frac{\varepsilon}{2} > \mu(A) - \varepsilon. 
     \end{align*} 
     Da $\varepsilon > 0$ beliebig gewählt war, folgt daraus 
     $$
@@ -131,8 +132,8 @@ Für eine Folge $(A_n)_{n \in \N}$ von Mengen und eine Menge $A$ schreiben wir $
     Sei $(X,d)$ ein vollständiger separabler metrischer Raum und $\mu$ ein Wahrscheinlichkeitsmaß auf $\mathcal{B}(X)$. Dann ist $\mu$ straff.
 \end{proposition}
 
-Wir verwenden zum Beweis der Proposition die folgende Charakterisierung kompakter Teilmengen metrischer Räume. 
-Der Beweis dieses Lemmas wird mittels der in metrischen Räumen geltenden Äquivalenz von Überdeckungskompaktheit und Folgenkompaktheit geführt und findet sich etwa in \cite[Theorem III.3.10]{amann}. 
+Wir verwenden zum Beweis von Proposition $1.14$ die folgende Charakterisierung kompakter Teilmengen metrischer Räume. 
+Der Beweis dieses Lemmas wird mittels der in metrischen Räumen geltenden Äquivalenz von Überdeckungskompaktheit und Folgenkompaktheit geführt und ist beispielsweise in \cite[Theorem III.3.10]{amann} zu finden. 
 
 \begin{lemma}
     Sei $(X,d)$ ein metrischer Raum. Eine Menge $K \subseteq X$ ist genau dann kompakt, wenn sie die folgenden beiden Eigenschaften erfüllt: 
@@ -183,7 +184,7 @@ Der Beweis dieses Lemmas wird mittels der in metrischen Räumen geltenden Äquiv
     \begin{align*}
         \mu\big(\cup_{n=1}^{\infty}K_n\big) = \lim_{n \to \infty}\mu\big(K_ n\big) = 1. 
     \end{align*}
-    Da kompakte Teilmengen metrischer Räume insbesondere separabel sind, ist $\overline{E} := \overline{\cup_{n=1}^{\infty}K_n}$ als topologischer Abschluss einer abzählbaren Vereinigung separabler Mengen ebenso separabel. 
+    Da kompakte Teilmengen metrischer Räume insbesondere separabel sind, ist $\overline{E} := \overline{\cup_{n=1}^{\infty}K_n}$ als topologischer Abschluss einer abzählbaren Vereinigung separabler Mengen ebenso separabel und als abgeschlossene Menge messbar. 
     \newline 
     Zu (ii) $\Rightarrow$ (i): 
     Analog zum Beweis von Proposition 1.14. \qed
@@ -226,6 +227,4 @@ Nachdem wir uns nun ausgiebig mit den Eigenschaften einzelner Maße beschäftigt
 
 Um die schwache Konvergenz von Wahrscheinlichkeitsmaßen auf metrischen Räumen zu beschreiben, gibt es zahlreiche äquivalente Formulierungen. 
 Ein paar davon werden im folgenden Satz, der meist als \textit{Portmanteau-Theorem} bezeichnet wird, zusammengefasst. 
-Die Charakterisierungen $(ii)$ und $(iii)$ werden sich im weiteren Verlauf der Arbeit als besonders nützlich erweisen. 
-
 \input{chapter/01/portmanteau-theorem}
